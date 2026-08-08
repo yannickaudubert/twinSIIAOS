@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/core.schema.json",
+  "title": "twinSIIAOS Core Contracts",
+  "$defs": {
+    "qualified_status": {
+      "enum": ["declared", "observed", "inferred", "proposed", "validated"]
+    },
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "ref"],
+      "properties": {
+        "kind": {"enum": ["human", "adapter", "document", "runtime", "system"]},
+        "ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "scope", "status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "scope": {"enum": ["personal", "professional", "project", "organization", "learning", "other"]},
+        "status": {"$ref": "#/$defs/qualified_status"},
+        "title": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "source": {"$ref": "#/$defs/source_ref"}
+      }
+    },
+    "need": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "status": {"$ref": "#/$defs/qualified_status"},
+        "context_id": {"type": ["string", "null"]}
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "subject", "predicate", "value", "source", "observed_at"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "status": {"$ref": "#/$defs/qualified_status"},
+        "subject": {"type": "string", "minLength": 1},
+        "predicate": {"type": "string", "minLength": 1},
+        "value": {},
+        "source": {"$ref": "#/$defs/source_ref"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "source", "created_at"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["measurement", "log", "file", "response", "human_validation", "test", "snapshot"]},
+        "source": {"$ref": "#/$defs/source_ref"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "summary": {"type": "string"},
+        "artifact_ref": {"type": ["string", "null"]}
+      }
+    },
+    "responsibility_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "preferences"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "preferences": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operation": {"enum": ["self", "shared", "delegated", "undecided"]},
+            "data_custody": {"enum": ["local", "shared", "delegated", "undecided"]},
+            "maintenance": {"enum": ["self", "shared", "delegated", "undecided"]},
+            "learning": {"enum": ["learn", "assist", "delegate", "undecided"]}
+          }
+        }
+      }
+    },
+    "capability_passport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "state", "dimensions"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "state": {"enum": ["discovered", "understood", "learning", "experimental", "proved", "deployed", "adopted", "integrated", "operational", "capitalized", "generalized", "contributable"]},
+        "dimensions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["human", "technical", "organizational", "legal", "operational"],
+          "properties": {
+            "human": {"enum": ["unknown", "blocked", "partial", "ready"]},
+            "technical": {"enum": ["unknown", "blocked", "partial", "ready"]},
+            "organizational": {"enum": ["unknown", "blocked", "partial", "ready"]},
+            "legal": {"enum": ["unknown", "blocked", "partial", "ready"]},
+            "operational": {"enum": ["unknown", "blocked", "partial", "ready"]}
+          }
+        },
+        "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "resource_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "observation_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "reason", "targets", "exclusions", "mode"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1},
+        "targets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "exclusions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "mode": {"const": "read_only"}
+      }
+    },
+    "summit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "need_id", "success_conditions"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "need_id": {"type": "string", "minLength": 1},
+        "success_conditions": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "cost_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "time": {"type": "number", "minimum": 0},
+        "human_effort": {"type": "number", "minimum": 0},
+        "learning": {"type": "number", "minimum": 0},
+        "money": {"type": "number", "minimum": 0},
+        "compute": {"type": "number", "minimum": 0},
+        "maintenance": {"type": "number", "minimum": 0},
+        "external_dependency": {"type": "number", "minimum": 0},
+        "confidentiality": {"type": "number", "minimum": 0},
+        "risk": {"type": "number", "minimum": 0},
+        "irreversibility": {"type": "number", "minimum": 0}
+      }
+    },
+    "path_candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "summit_id", "steps", "costs", "constraints_satisfied"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "summit_id": {"type": "string", "minLength": 1},
+        "steps": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "costs": {"$ref": "#/$defs/cost_vector"},
+        "constraints_satisfied": {"type": "boolean"},
+        "explanation": {"type": "string"}
+      }
+    },
+    "action_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path_id", "mode", "steps", "approval_required", "rollback"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "path_id": {"type": "string", "minLength": 1},
+        "mode": {"enum": ["observe", "propose", "prepare", "operate"]},
+        "steps": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "approval_required": {"type": "boolean"},
+        "rollback": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

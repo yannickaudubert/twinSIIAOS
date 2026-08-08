@@ -1,0 +1,38 @@
+{
+  "context": {
+    "id": "context.demo",
+    "scope": "project",
+    "status": "declared",
+    "title": "Atelier local de demonstration",
+    "constraints": ["offline_preferred", "no_implicit_scan"],
+    "source": {"kind": "human", "ref": "demo-user"}
+  },
+  "need": {
+    "id": "need.local-ai",
+    "statement": "Utiliser une IA locale deja presente si elle existe.",
+    "status": "declared",
+    "context_id": "context.demo"
+  },
+  "responsibility_profile": {
+    "id": "responsibility.demo",
+    "preferences": {
+      "operation": "self",
+      "data_custody": "local",
+      "maintenance": "shared",
+      "learning": "assist"
+    }
+  },
+  "observation_request": {
+    "id": "observe.demo.local-services",
+    "reason": "Verifier uniquement les services locaux que l'utilisateur a choisis.",
+    "targets": ["selected_loopback_services"],
+    "exclusions": ["filesystem", "network_scan", "browser_sessions", "secrets"],
+    "mode": "read_only"
+  },
+  "summit": {
+    "id": "summit.local-ai",
+    "title": "Acceder a une IA locale utilisable",
+    "need_id": "need.local-ai",
+    "success_conditions": ["un service local compatible est confirme ou un plan explicite est propose"]
+  }
+}

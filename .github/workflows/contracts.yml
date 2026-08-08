@@ -1,0 +1,21 @@
+name: contracts
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "pass/**"
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  public-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check contracts and fixtures
+        run: python3 scripts/check_public_contracts.py
