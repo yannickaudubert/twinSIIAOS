@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/consent.schema.json",
+  "title": "SIIAOS Observation Consent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "status", "scope", "mode", "created_at"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["proposed", "granted", "revoked", "expired"]},
+    "reason": {"type": "string"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targets", "exclusions"],
+      "properties": {
+        "targets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "exclusions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "mode": {"enum": ["read_only", "prepare_only", "operate"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "evidence_ref": {"type": ["string", "null"]}
+  }
+}
