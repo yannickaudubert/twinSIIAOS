@@ -27,8 +27,9 @@
       <h1 id="resource-title">—</h1>
       <p class="human-intro" id="resource-summary"></p>
       <div class="human-actions"><a class="button button-secondary" id="resource-source" href="#" target="_blank" rel="noreferrer">Source officielle</a><a class="button button-secondary" href="./lexique.html">Comprendre le vocabulaire</a><a class="button button-primary" href="#expert">Analyser dans mon contexte</a></div>
+      <nav class="quick-links" aria-label="Aller directement à une partie de la fiche"><a href="#overview">30 secondes</a><a href="#explanation">Comprendre</a><a href="#proof">Preuves</a><a href="#gaps">Limites</a><a href="#architecture">Architecture</a><a href="#provenance">Provenance</a><a href="#expert">Expert</a></nav>
 
-      <section class="human-section">
+      <section class="human-section" id="overview">
         <div class="section-head"><div><div class="eyebrow">En 30 secondes</div><h2>Ce que vous devez savoir avant d'aller plus loin.</h2></div><a class="text-link" href="./guide.html">Comment lire une fiche →</a></div>
         <div class="explain-strip">
           <div class="explain-cell"><span>Nature</span><strong id="resource-kind">—</strong></div>
@@ -43,7 +44,7 @@
         <p class="human-note">Licence : <strong id="resource-license">—</strong>. Une licence et un rôle peuvent évoluer : regardez toujours la date de vérification et les notes associées.</p>
       </section>
 
-      <section class="human-section human-section-soft" id="resource-explanation" hidden>
+      <section class="human-section human-section-soft" id="explanation" hidden>
         <div class="section-head"><div><div class="eyebrow">Explicabilité Free</div><h2>Comprendre le rôle avant de comparer le produit.</h2><p>Ces éléments sont volontairement publics : ils permettent de décider si la ressource mérite d'entrer dans votre exploration sans exiger un Pass.</p></div></div>
         <div class="why-grid">
           <article class="why-card"><h3>En langage simple</h3><p id="resource-plain-language"></p></article>
@@ -60,22 +61,22 @@
         </div>
       </section>
 
-      <section class="human-section human-section-soft">
+      <section class="human-section human-section-soft" id="proof">
         <div class="section-head"><div><div class="eyebrow">Preuve</div><h2>Ce qui est vérifié, et ce qui ne l'est pas encore.</h2><p>Le Radar préfère afficher une absence de preuve plutôt que fabriquer un score.</p></div><a class="text-link" href="./lexique.html#preuve">Niveaux de preuve →</a></div>
         <div class="proof-ladder" id="resource-proof"></div>
       </section>
 
-      <section class="human-section">
+      <section class="human-section" id="gaps">
         <div class="section-head"><div><div class="eyebrow">Limites connues</div><h2>Ce qui doit encore être vérifié ou contourné.</h2></div></div>
         <div id="resource-gaps"></div>
       </section>
 
-      <section class="human-section human-section-soft">
+      <section class="human-section human-section-soft" id="architecture">
         <div class="section-head"><div><div class="eyebrow">Architecture</div><h2>Relations publiées autour de cette ressource.</h2><p>Une relation absente n'est pas inventée. Les cartes ci-dessous n'affichent que ce que contient la projection.</p></div></div>
         <div class="reading-grid" id="resource-relations"></div>
       </section>
 
-      <section class="human-section">
+      <section class="human-section" id="provenance">
         <div class="section-head"><div><div class="eyebrow">Provenance</div><h2>Remonter de la fiche à la source.</h2></div></div>
         <div class="resource-summary-grid">
           <article class="summary-box"><h3>Source et fraîcheur</h3><div id="resource-provenance"></div></article>
