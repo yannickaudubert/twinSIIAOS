@@ -1,0 +1,63 @@
+name: Radar V4 CI
+
+on:
+  pull_request:
+    paths:
+      - "resource-radar-v4/**"
+      - ".github/workflows/radar-v4-ci.yml"
+  push:
+    branches:
+      - radar-v4-convergence
+    paths:
+      - "resource-radar-v4/**"
+      - ".github/workflows/radar-v4-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Python
+        run: python -m compileall -q resource-radar-v4/local
+      - name: Run bridge tests
+        run: python -m unittest discover -s resource-radar-v4/local -p "test_*.py" -v
+      - name: Parse JSON contracts and projections
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = list(Path('resource-radar-v4/contracts').glob('*.json')) + list(Path('resource-radar-v4/projections').glob('*.json'))
+          for path in paths:
+              json.loads(path.read_text(encoding='utf-8'))
+              print('OK', path)
+          PY
+      - name: Smoke-test exporter
+        run: |
+          mkdir -p /tmp/siiaos-registry/resources /tmp/siiaos-projections
+          cat > /tmp/siiaos-registry/resources/example.json <<'JSON'
+          {
+            "id": "system:example",
+            "projection_keys": {"consultant_slug": "example", "radar_slug": "example"},
+            "kind": "system",
+            "title": "Example",
+            "capabilities": ["test"],
+            "state": "observed",
+            "publication": {"local": true, "radar_public": true, "consultant_site": true}
+          }
+          JSON
+          python resource-radar-v4/local/export_projections.py --registry /tmp/siiaos-registry --out /tmp/siiaos-projections
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          c = json.loads(Path('/tmp/siiaos-projections/consultant-site.json').read_text())
+          r = json.loads(Path('/tmp/siiaos-projections/radar-public.json').read_text())
+          assert 'example' in c['items']
+          assert r['items'][0]['id'] == 'system:example'
+          print('projection smoke test OK')
+          PY
