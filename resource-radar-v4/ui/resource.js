@@ -19,6 +19,7 @@
   const kindLabels = {
     system: 'Système', model: 'Modèle', approach: 'Approche', agent: 'Agent', runtime: 'Runtime', source: 'Source', dataset: 'Jeu de données',
     service: 'Service', tool: 'Outil', database: 'Base de données', framework: 'Framework', platform: 'Plateforme', application: 'Application',
+    library: 'Bibliothèque', protocol: 'Protocole', connector: 'Connecteur', hub: 'Hub / registre', reference: 'Ressource de référence',
   };
 
   function escapeHtml(value) {
@@ -58,6 +59,47 @@
       return;
     }
     target.innerHTML = items.map((item) => `<span>${escapeHtml(item)}</span>`).join('');
+  }
+
+  function renderBulletList(id, items, fallback) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    if (!items.length) {
+      target.innerHTML = `<p class="human-note">${escapeHtml(fallback)}</p>`;
+      return;
+    }
+    target.innerHTML = `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+  }
+
+  function renderPublicExplanation(item) {
+    const section = document.getElementById('resource-explanation');
+    const explanation = item.public_explanation;
+    if (!section || !explanation || typeof explanation !== 'object') {
+      if (section) section.hidden = true;
+      return;
+    }
+
+    const primaryRole = explanation.primary_role || list(item.capabilities)[0] || kindLabels[item.kind] || item.kind || 'Rôle non publié';
+    setText('resource-primary-role', primaryRole);
+    setText('resource-plain-language', explanation.plain_language || item.summary || 'Aucune explication en langage simple n’est encore publiée.');
+
+    const solves = list(explanation.solves);
+    if (solves.length) setText('resource-purpose', solves.join(' · '));
+
+    renderBulletList('resource-does-not-replace', list(explanation.does_not_replace), 'Aucune frontière fonctionnelle supplémentaire n’est encore documentée.');
+    renderBulletList('resource-use-when', list(explanation.use_when), 'Aucun critère public « à regarder quand » n’est encore documenté.');
+    renderBulletList('resource-avoid-when', list(explanation.avoid_when), 'Aucun critère public d’exclusion précoce n’est encore documenté.');
+    renderBulletList('resource-tradeoffs', list(explanation.tradeoffs), 'Aucun compromis public n’est encore documenté.');
+    renderBulletList('resource-questions', list(explanation.questions_to_ask), 'Aucune question de cadrage spécifique n’est encore publiée.');
+
+    const operational = [
+      ...list(explanation.deployment_modes).map((value) => `Déploiement : ${value}`),
+      ...list(explanation.prerequisites).map((value) => `Prérequis : ${value}`),
+      ...list(explanation.operations_notes).map((value) => `Exploitation : ${value}`),
+      ...list(explanation.license_notes).map((value) => `Licence : ${value}`),
+    ];
+    renderBulletList('resource-operational', operational, 'Aucune note publique supplémentaire de déploiement, exploitation ou licence.');
+    section.hidden = false;
   }
 
   function renderProof(item) {
@@ -154,12 +196,14 @@
     const capabilities = list(item.capabilities);
     const approaches = list(item.approaches);
     const source = item.repo_url || item.source_url || '';
+    const explanation = item.public_explanation || {};
 
     document.title = `${item.title || item.id} — SIIAOS Resource Radar`;
     setText('resource-kicker', `${kind}${capabilities[0] ? ` · ${capabilities[0]}` : ''}`);
     setText('resource-title', item.title || item.id);
-    setText('resource-summary', item.summary || 'Aucun résumé public n’est disponible pour cette ressource.');
+    setText('resource-summary', explanation.plain_language || item.summary || 'Aucun résumé public n’est disponible pour cette ressource.');
     setText('resource-kind', kind);
+    setText('resource-primary-role', explanation.primary_role || capabilities[0] || kind);
     setText('resource-state', `${stateLabel} — ${stateExplanation}`);
     setText('resource-license', item.license || 'Non publiée');
     setText('resource-verified', formatDate(item.last_verified_at));
@@ -178,6 +222,7 @@
       }
     }
 
+    renderPublicExplanation(item);
     renderProof(item);
     renderGaps(item);
     renderRelations(item);
