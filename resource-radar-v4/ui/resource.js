@@ -106,18 +106,17 @@
     const target = document.getElementById('resource-proof');
     if (!target) return;
     const state = normalizeState(item.state);
-    const stateRank = { observed: 1, candidate: 1, installed: 2, tested: 3, qualified: 4, target: 4, deprecated: 1, retired: 1 }[state] || 1;
     const expert = item.expert_available || {};
     const hasObservation = Boolean(item.last_verified_at || item.source_url || item.repo_url);
-    const hasInstall = stateRank >= 2;
-    const hasTest = stateRank >= 3 || Number(expert.evidence_count || 0) > 0 || expert.benchmark === true;
-    const hasQualification = stateRank >= 4;
+    const hasInstall = ['installed', 'tested', 'qualified'].includes(state);
+    const hasTest = ['tested', 'qualified'].includes(state) || expert.benchmark === true;
+    const hasQualification = state === 'qualified';
 
     const rows = [
       ['observed', 'Observation publique', hasObservation, hasObservation ? `Source et faits publics vérifiés${item.last_verified_at ? ` le ${formatDate(item.last_verified_at)}` : ''}.` : 'Aucune observation datée n’est publiée.'],
-      ['installed', 'Installation', hasInstall, hasInstall ? 'Une installation est déclarée par l’état de preuve publié.' : 'Aucune installation n’est déclarée dans la projection publique.'],
-      ['tested', 'Test / benchmark', hasTest, hasTest ? 'La projection indique qu’au moins une preuve ou un benchmark existe. Le contenu détaillé peut relever de l’espace Expert.' : 'Aucun test ou benchmark n’est déclaré dans la projection publique.'],
-      ['qualified', 'Qualification', hasQualification, hasQualification ? 'Une qualification est déclarée ; lisez toujours son contexte et sa date.' : 'Aucune recommandation contextualisée n’est publiée gratuitement pour cette ressource.'],
+      ['installed', 'Installation', hasInstall, hasInstall ? 'Une installation est explicitement déclarée par l’état de preuve publié.' : 'Aucune installation n’est déclarée dans les données publiques.'],
+      ['tested', 'Test / benchmark', hasTest, hasTest ? (expert.benchmark === true && !['tested', 'qualified'].includes(state) ? 'Un benchmark existe, mais l’état public de la ressource ne la déclare pas pour autant « testée » dans son ensemble.' : 'Un état testé/qualifié ou un benchmark explicite est déclaré. Vérifiez toujours le protocole et le contexte.') : 'Aucun test ou benchmark n’est déclaré dans les données publiques.'],
+      ['qualified', 'Qualification', hasQualification, hasQualification ? 'Une qualification est explicitement déclarée ; lisez toujours son contexte et sa date.' : 'Aucune qualification contextualisée n’est déclarée publiquement pour cette ressource.'],
     ];
 
     target.innerHTML = rows.map(([cssState, label, available, note]) => `<div class="proof-row">
@@ -132,7 +131,7 @@
     if (!target) return;
     const gaps = list(item.known_gaps);
     if (!gaps.length) {
-      target.innerHTML = '<div class="decision-boundary"><strong>Aucun gap public déclaré.</strong><p>Cela ne signifie pas que la ressource est sans limite : seulement qu’aucun écart non sensible n’est présent dans cette projection.</p></div>';
+      target.innerHTML = '<div class="decision-boundary"><strong>Aucun gap public déclaré.</strong><p>Cela ne signifie pas que la ressource est sans limite : seulement qu’aucun écart non sensible n’est présent dans les données publiques.</p></div>';
       return;
     }
     target.innerHTML = `<div class="reading-grid">${gaps.map((gap) => `<article class="reading-card"><span class="reading-time">À vérifier</span><h3>Gap connu</h3><p style="font-size:11px;margin:8px 0 0">${escapeHtml(gap)}</p></article>`).join('')}</div>`;
@@ -185,8 +184,8 @@
     if (Number(expert.evidence_count || 0) > 0) available.push(`${expert.evidence_count} preuve${expert.evidence_count > 1 ? 's' : ''}`);
     if (expert.contextual_position) available.push('position contextualisée');
     target.textContent = available.length
-      ? `Le registre indique que des éléments Expert existent (${available.join(', ')}), sans exposer leur contenu dans la projection publique.`
-      : 'Aucun élément Expert n’est signalé dans la projection publique pour le moment. Un Pass ne fabrique pas une qualification absente.';
+      ? `Le Radar indique que des éléments Expert existent (${available.join(', ')}), sans exposer leur contenu dans les données publiques.`
+      : 'Aucun élément Expert n’est signalé pour le moment. Un Pass ne fabrique pas une qualification absente.';
   }
 
   function renderItem(item) {
@@ -207,8 +206,8 @@
     setText('resource-state', `${stateLabel} — ${stateExplanation}`);
     setText('resource-license', item.license || 'Non publiée');
     setText('resource-verified', formatDate(item.last_verified_at));
-    setText('resource-purpose', capabilities.length ? `Cette ressource contribue aux capacités suivantes : ${capabilities.join(', ')}.` : 'Aucune capacité n’est encore reliée dans la projection publique.');
-    setText('resource-approach', approaches.length ? `Approche(s) publiée(s) : ${approaches.join(', ')}.` : 'Aucune approche n’est encore reliée dans la projection publique.');
+    setText('resource-purpose', capabilities.length ? `Cette ressource contribue aux capacités suivantes : ${capabilities.join(', ')}.` : 'Aucune capacité n’est encore reliée dans les données publiques.');
+    setText('resource-approach', approaches.length ? `Approche(s) publiée(s) : ${approaches.join(', ')}.` : 'Aucune approche n’est encore reliée dans les données publiques.');
     renderChips('resource-capabilities', capabilities, 'Capacités non renseignées');
     renderChips('resource-approaches', approaches, 'Approches non renseignées');
 
@@ -252,14 +251,14 @@
       const response = await fetch(source, { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const projection = await response.json();
-      if (!projection || projection.schema !== 'siiaos.radar-public.v1' || !Array.isArray(projection.items)) throw new Error('Projection incompatible');
+      if (!projection || projection.schema !== 'siiaos.radar-public.v1' || !Array.isArray(projection.items)) throw new Error('Données publiques incompatibles');
       const item = projection.items.find((entry) => String(entry.id) === String(resourceId));
       if (!item) throw new Error('Ressource absente');
       renderItem(item);
       if (loading) loading.hidden = true;
       if (content) content.hidden = false;
     } catch (cause) {
-      console.warn('Resource projection unavailable:', cause);
+      console.warn('Radar resource data unavailable:', cause);
       if (loading) loading.hidden = true;
       if (error) error.hidden = false;
     }
