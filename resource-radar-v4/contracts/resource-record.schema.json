@@ -17,7 +17,26 @@
     },
     "kind": {
       "type": "string",
-      "enum": ["system", "model", "approach", "agent", "runtime", "source", "dataset", "service", "tool"]
+      "enum": [
+        "system",
+        "model",
+        "approach",
+        "agent",
+        "runtime",
+        "source",
+        "dataset",
+        "service",
+        "tool",
+        "application",
+        "platform",
+        "framework",
+        "library",
+        "database",
+        "protocol",
+        "connector",
+        "hub",
+        "reference"
+      ]
     },
     "title": { "type": "string" },
     "summary": { "type": "string" },
@@ -58,7 +77,7 @@
         "properties": {
           "context": { "type": "string" },
           "score": { "type": "number", "minimum": 0, "maximum": 100 },
-          "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "confidence": { "type": ["string", "number" ] },
           "constraints": { "type": "array", "items": { "type": "string" } },
           "evidence_ids": { "type": "array", "items": { "type": "string" } },
           "assessed_at": { "type": "string", "format": "date-time" }
@@ -93,8 +112,25 @@
         "visibility": {
           "type": "string",
           "enum": ["local_private", "local_shared", "public_technical", "public_editorial", "client_specific", "never_publish"]
+        },
+        "consultant_public_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "competitive_position",
+              "fit_summary",
+              "benchmark_summary",
+              "known_gaps",
+              "trend_30d",
+              "evidence_count"
+            ]
+          },
+          "description": "Explicit allowlist for derived fields that may be emitted into the public consultant-site projection. Absence means safe minimal metadata only."
         }
-      }
+      },
+      "additionalProperties": true
     },
     "updated_at": { "type": "string", "format": "date-time" }
   },
