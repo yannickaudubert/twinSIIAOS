@@ -54,8 +54,28 @@ jobs:
             "benchmark_summary": "Detailed benchmark conclusion that must not leak in radar-public",
             "evidence_ids": ["ev:1", "ev:2"],
             "fit": [{"context": "sandy", "score": 91, "confidence": 0.8}],
-            "blast_radius": "contextual architecture impact",
+            "blast_radius": {"components_affected": ["private component"]},
             "known_gaps": ["public gap"],
+            "publication": {
+              "local": true,
+              "radar_public": true,
+              "consultant_site": true,
+              "consultant_public_fields": ["competitive_position", "fit_summary", "benchmark_summary", "known_gaps", "trend_30d", "evidence_count"]
+            }
+          }
+          JSON
+          cat > /tmp/siiaos-registry/resources/minimal.json <<'JSON'
+          {
+            "id": "system:minimal",
+            "projection_keys": {"consultant_slug": "minimal", "radar_slug": "minimal"},
+            "kind": "database",
+            "title": "Minimal",
+            "capabilities": ["test"],
+            "state": "qualified",
+            "competitive_position": "champion",
+            "benchmark_summary": "Must remain protected without explicit editorial allowlist",
+            "evidence_ids": ["ev:private"],
+            "fit": [{"context": "sandy", "score": 99, "confidence": "high"}],
             "publication": {"local": true, "radar_public": true, "consultant_site": true}
           }
           JSON
@@ -68,12 +88,20 @@ jobs:
           r = json.loads(Path('/tmp/siiaos-projections/radar-public.json').read_text())
           report = json.loads(Path('/tmp/siiaos-projections/export-report.json').read_text())
 
-          assert 'example' in c['items']
+          # Explicitly allowlisted consultant fields may be published.
           assert c['items']['example']['competitive_position'] == 'champion'
           assert c['items']['example']['fit_score'] == 91
+          assert c['items']['example']['benchmark_summary'].startswith('Detailed benchmark')
+          assert c['items']['example']['evidence_count'] == 2
 
-          public = r['items'][0]
-          assert public['id'] == 'system:example'
+          # A public consultant item without field allowlist stays minimal.
+          minimal_consultant = c['items']['minimal']
+          for forbidden_key in ('competitive_position', 'fit_score', 'fit_confidence', 'fit_context', 'benchmark_summary', 'evidence_count'):
+              assert forbidden_key not in minimal_consultant, f'consultant field leaked without allowlist: {forbidden_key}'
+
+          # Radar Free never contains contextual Expert content.
+          public_by_id = {item['id']: item for item in r['items']}
+          public = public_by_id['system:example']
           assert public['known_gaps'] == ['public gap']
           assert public['expert_available']['evidence_count'] == 2
           assert public['expert_available']['benchmark'] is True
@@ -81,8 +109,11 @@ jobs:
           assert public['expert_available']['contextual_position'] is True
 
           forbidden = {'fit', 'competitive_position', 'benchmark_summary', 'blast_radius'}
-          leaked = forbidden.intersection(public)
-          assert not leaked, f'Expert fields leaked into public projection: {sorted(leaked)}'
+          for item in r['items']:
+              leaked = forbidden.intersection(item)
+              assert not leaked, f'Expert fields leaked into public projection for {item["id"]}: {sorted(leaked)}'
+
           assert report['expert_static_projection_written'] is False
-          print('projection smoke test and Free/Expert boundary OK')
+          assert report['consultant_derived_fields_require_allowlist'] is True
+          print('projection smoke test and Free/Expert/public-editorial boundaries OK')
           PY
