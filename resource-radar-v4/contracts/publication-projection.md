@@ -60,22 +60,32 @@ Peut exposer, lorsque publiable :
 
 Le jeton portable ou le navigateur ne contient jamais les données sensibles de mission. Le serveur valide le droit, puis renvoie uniquement la projection autorisée.
 
-## 3. Projection `consultant-site`
+## 3. Projection `consultant-site` — publique, donc explicitement filtrée
 
 Audience : dirigeants, DSI, responsables transformation, clients et prospects.
 
-Expose une synthèse éditoriale et décisionnelle compatible avec la surface publique du site consultant :
+Cette projection est elle aussi susceptible d'être servie publiquement. Le booléen `publication.consultant_site=true` autorise donc **l'existence de l'objet dans la projection éditoriale**, mais n'autorise pas implicitement la publication de toute la qualification interne.
 
-- capacité métier/SI ;
-- rôle architectural ;
-- quand regarder / quand ne pas regarder ;
-- effets organisationnels ;
-- enjeux généraux de gouvernance, exploitation et réversibilité ;
-- alternatives structurantes ;
-- maturité ;
-- conclusion issue du Radar uniquement lorsque cette conclusion est volontairement publiable.
+Le socle minimal public peut contenir :
 
-Le site consultant ne republie ni tout le bruit de l'Hyperveille ni le contenu protégé d'une mission Expert.
+- identifiant canonique ;
+- état de preuve ;
+- date de dernière vérification ;
+- environnements de vérification publiables ;
+- lien vers la ressource Radar.
+
+Les champs dérivés suivants nécessitent une autorisation explicite dans `publication.consultant_public_fields` :
+
+- `competitive_position` ;
+- `fit_summary` ;
+- `benchmark_summary` ;
+- `known_gaps` ;
+- `trend_30d` ;
+- `evidence_count`.
+
+Cette allowlist sert à publier volontairement une conclusion éditoriale utile sans transformer automatiquement le site consultant en copie publique de la qualification Expert.
+
+Le site consultant peut ensuite compléter cette projection par son propre contenu éditorial public : capacité métier/SI, rôle architectural, quand regarder ou écarter une famille, effets organisationnels, enjeux généraux de gouvernance/exploitation/réversibilité et alternatives structurantes.
 
 ## 4. Projection `local-siiaos`
 
@@ -94,7 +104,7 @@ signal
   → classification de visibilité
       ├─ radar-public
       ├─ radar-expert protégé
-      ├─ consultant-site
+      ├─ consultant-site filtré
       └─ local-only
   → publication
 ```
@@ -113,6 +123,8 @@ La valeur Expert doit porter sur :
 - l'architecture ;
 - la décision ;
 - la restitution.
+
+Inversement, une donnée réellement Expert ne doit pas être cachée uniquement par CSS ou JavaScript tout en restant téléchargeable dans une projection publique.
 
 ## 7. Compatibilité avec le site existant
 
