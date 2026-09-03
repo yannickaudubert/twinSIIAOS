@@ -51,6 +51,7 @@ jobs:
               root / 'ui' / 'styles.css',
               root / 'ui' / 'human.css',
               root / 'ui' / 'app.js',
+              root / 'ui' / 'audit_human_ux.py',
               root / 'ui' / 'fixtures' / 'radar-public.demo.json',
               root / 'projections' / 'radar-public.json',
           ]
@@ -67,13 +68,11 @@ jobs:
 
           checks = {
               root / 'ui' / 'index.html': ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir'],
-              root / 'ui' / 'resource.html': ['En 30 secondes', 'Ce qui est vérifié', 'Relations publiées', 'Frontière Expert'],
-              root / 'ui' / 'resource.js': ['expert_available', 'known_gaps', 'competes_with', 'Aucun élément Expert'],
-              root / 'ui' / 'resource-detail.html': ['État de preuve', 'Retenir, écarter, comparer', 'Evidence', 'Provenance'],
+              root / 'ui' / 'resource.html': ['En 30 secondes', 'Explicabilité Free', 'Ce qui est vérifié', 'Relations publiées', 'Frontière Expert'],
+              root / 'ui' / 'resource.js': ['public_explanation', 'expert_available', 'known_gaps', 'competes_with', 'Aucun élément Expert'],
               root / 'ui' / 'start.html': ['Point d\'entrée humain', 'Le gratuit explique', 'Du besoin à la décision'],
               root / 'ui' / 'guide.html': ['Mode d\'emploi', 'Je connais déjà le nom', 'Je dois prendre ou défendre une décision'],
               root / 'ui' / 'lexique.html': ['Capacité', 'Approche', 'Adéquation / fit', 'Source available', 'Projection publique'],
-              root / 'ui' / 'resource-detail-v2.html': ['En 30 secondes', 'Ce que c\'est / ce que ce n\'est pas', 'Preuves', 'Frontière Expert'],
           }
           for path, markers in checks.items():
               text = path.read_text(encoding='utf-8')
@@ -82,6 +81,9 @@ jobs:
 
           print('Radar V4 human UX assets OK')
           PY
+
+      - name: Audit human usability and public boundary
+        run: python resource-radar-v4/ui/audit_human_ux.py
 
       - name: Start static preview server
         run: |
@@ -114,8 +116,8 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/10-lexique-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/11-resource-explained-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/12-resource-explained-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=800 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/13-resource-live-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=800 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/14-resource-live-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1400" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/13-resource-live-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/14-resource-live-mobile.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/15-guide-mobile.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/16-lexique-mobile.png
 
