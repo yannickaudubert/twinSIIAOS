@@ -6,6 +6,15 @@
   "required": ["id", "kind", "title", "capabilities", "state", "publication"],
   "properties": {
     "id": { "type": "string", "minLength": 3 },
+    "projection_keys": {
+      "type": "object",
+      "properties": {
+        "consultant_slug": { "type": "string" },
+        "radar_slug": { "type": "string" },
+        "github_full_name": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
     "kind": {
       "type": "string",
       "enum": ["system", "model", "approach", "agent", "runtime", "source", "dataset", "service", "tool"]
@@ -27,6 +36,8 @@
     "maturity": { "type": "string" },
     "license": { "type": "string" },
     "last_activity": { "type": "string" },
+    "last_verified_at": { "type": "string", "format": "date-time" },
+    "verified_on": { "type": "array", "items": { "type": "string" } },
     "trend": {
       "type": "object",
       "properties": {
@@ -50,10 +61,11 @@
           "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
           "constraints": { "type": "array", "items": { "type": "string" } },
           "evidence_ids": { "type": "array", "items": { "type": "string" } },
-          "assessed_at": { "type": "string" }
+          "assessed_at": { "type": "string", "format": "date-time" }
         }
       }
     },
+    "benchmark_summary": { "type": "string" },
     "known_gaps": { "type": "array", "items": { "type": "string" } },
     "replaces": { "type": "array", "items": { "type": "string" } },
     "competes_with": { "type": "array", "items": { "type": "string" } },
@@ -84,7 +96,7 @@
         }
       }
     },
-    "updated_at": { "type": "string" }
+    "updated_at": { "type": "string", "format": "date-time" }
   },
   "additionalProperties": true
 }
