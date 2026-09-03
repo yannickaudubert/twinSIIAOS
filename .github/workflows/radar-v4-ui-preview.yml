@@ -116,6 +116,8 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/12-resource-explained-mobile.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=800 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/13-resource-live-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=800 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/14-resource-live-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/15-guide-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/16-lexique-mobile.png
 
       - name: Copy reviewable static preview
         run: |
