@@ -1,0 +1,135 @@
+name: Radar V4 UI Preview
+
+on:
+  pull_request:
+    paths:
+      - "resource-radar-v4/ui/**"
+      - "resource-radar-v4/projections/radar-public.json"
+      - ".github/workflows/radar-v4-ui-preview.yml"
+  push:
+    branches:
+      - radar-v4-convergence
+    paths:
+      - "resource-radar-v4/ui/**"
+      - "resource-radar-v4/projections/radar-public.json"
+      - ".github/workflows/radar-v4-ui-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate preview assets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('resource-radar-v4')
+          required = [
+              root / 'ui' / 'index.html',
+              root / 'ui' / 'resource.html',
+              root / 'ui' / 'resource.js',
+              root / 'ui' / 'resource-detail.html',
+              root / 'ui' / 'resource-detail-v2.html',
+              root / 'ui' / 'start.html',
+              root / 'ui' / 'guide.html',
+              root / 'ui' / 'lexique.html',
+              root / 'ui' / 'styles.css',
+              root / 'ui' / 'human.css',
+              root / 'ui' / 'app.js',
+              root / 'ui' / 'audit_human_ux.py',
+              root / 'ui' / 'fixtures' / 'radar-public.demo.json',
+              root / 'projections' / 'radar-public.json',
+          ]
+          for path in required:
+              assert path.exists(), f'missing {path}'
+
+          fixture = json.loads((root / 'ui' / 'fixtures' / 'radar-public.demo.json').read_text(encoding='utf-8'))
+          projection = json.loads((root / 'projections' / 'radar-public.json').read_text(encoding='utf-8'))
+          assert fixture.get('schema') == 'siiaos.radar-public.v1'
+          assert fixture.get('fixture') is True
+          assert projection.get('schema') == 'siiaos.radar-public.v1'
+          assert isinstance(fixture.get('items'), list)
+          assert isinstance(projection.get('items'), list)
+
+          checks = {
+              root / 'ui' / 'index.html': ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir'],
+              root / 'ui' / 'resource.html': ['En 30 secondes', 'Explication publique', 'Ce qui est vérifié', 'Relations publiées', 'Espace Expert'],
+              root / 'ui' / 'resource.js': ['public_explanation', 'expert_available', 'known_gaps', 'competes_with', 'Aucun élément Expert'],
+              root / 'ui' / 'start.html': ['Point d\'entrée humain', 'Le gratuit explique', 'Du besoin à la décision'],
+              root / 'ui' / 'guide.html': ['Mode d\'emploi', 'Je connais déjà le nom', 'Je dois prendre ou défendre une décision'],
+              root / 'ui' / 'lexique.html': ['Capacité', 'Approche', 'Adéquation / fit', 'Source available', 'Projection publique'],
+          }
+          for path, markers in checks.items():
+              text = path.read_text(encoding='utf-8')
+              for marker in markers:
+                  assert marker in text, f'missing marker {marker!r} in {path}'
+
+          print('Radar V4 human UX assets OK')
+          PY
+
+      - name: Audit human usability and public boundary
+        run: python resource-radar-v4/ui/audit_human_ux.py
+
+      - name: Start static preview server
+        run: |
+          python -m http.server 4173 --directory resource-radar-v4 > /tmp/radar-v4-http.log 2>&1 &
+          echo $! > /tmp/radar-v4-http.pid
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/ui/ > /dev/null; then
+              exit 0
+            fi
+            sleep 0.5
+          done
+          cat /tmp/radar-v4-http.log
+          exit 1
+
+      - name: Install Chromium for visual review
+        run: npx --yes playwright@1.55.0 install --with-deps chromium
+
+      - name: Capture desktop and mobile views
+        run: |
+          mkdir -p artifacts/radar-v4-ui
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=1000 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/01-radar-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#landscapes" artifacts/radar-v4-ui/02-landscapes-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,900" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#expert-fit" artifacts/radar-v4-ui/03-expert-fit-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/04-radar-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/05-resource-detail-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/06-resource-detail-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/07-start-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/08-start-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/09-guide-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/10-lexique-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/11-resource-explained-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/12-resource-explained-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1400" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/13-resource-live-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/14-resource-live-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/15-guide-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/16-lexique-mobile.png
+
+      - name: Copy reviewable static preview
+        run: |
+          mkdir -p artifacts/radar-v4-ui/site
+          cp -R resource-radar-v4/ui/. artifacts/radar-v4-ui/site/
+          mkdir -p artifacts/radar-v4-ui/projections
+          cp resource-radar-v4/projections/radar-public.json artifacts/radar-v4-ui/projections/radar-public.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: radar-v4-ui-preview-${{ github.sha }}
+          path: artifacts/radar-v4-ui
+          retention-days: 14

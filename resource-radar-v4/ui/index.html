@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="SIIAOS Resource Radar — veille, qualification et aide à la décision sur les technologies open source, IA et SI." />
+  <title>SIIAOS Resource Radar V4</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">SR</div>
+        <div>
+          <div class="eyebrow">SIIAOS</div>
+          <div class="brand-name">Resource Radar</div>
+          <div class="brand-version">V4 · intelligence technologique</div>
+        </div>
+      </div>
+
+      <nav class="nav-stack" id="primary-nav">
+        <div class="nav-group-label">Explorer</div>
+        <a class="nav-item is-active" href="#radar" data-view="radar"><span>01</span> Radar</a>
+        <a class="nav-item" href="#capabilities" data-view="capabilities"><span>02</span> Capacités</a>
+        <a class="nav-item" href="#approaches" data-view="approaches"><span>03</span> Approches</a>
+        <a class="nav-item" href="#landscapes" data-view="landscapes"><span>04</span> Paysages</a>
+        <a class="nav-item" href="#watch" data-view="watch"><span>05</span> Hyperveille</a>
+        <a class="nav-item" href="#acquire" data-view="acquire"><span>06</span> Acquérir</a>
+        <a class="nav-item" href="#method" data-view="method"><span>07</span> Méthode</a>
+
+        <div class="nav-group-label nav-group-expert">Expert</div>
+        <a class="nav-item nav-item-locked" href="#expert-fit" data-view="expert-fit"><span>08</span> Fit <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-compare" data-view="expert-compare"><span>09</span> Comparateur <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-evidence" data-view="expert-evidence"><span>10</span> Evidence <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-architecture" data-view="expert-architecture"><span>11</span> Architecture <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-decisions" data-view="expert-decisions"><span>12</span> Décisions <b>EXPERT</b></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-row"><span class="status-dot" id="projection-dot"></span><span id="projection-status">Projection en lecture</span></div>
+        <div class="sidebar-small">Vercel publie. Git versionne. SandY qualifie.</div>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Ouvrir la navigation">Menu</button>
+        <div class="topbar-context">
+          <span class="topbar-kicker">Resource intelligence</span>
+          <span class="topbar-separator">/</span>
+          <span id="topbar-view">Radar</span>
+        </div>
+        <div class="topbar-actions">
+          <span class="freshness" id="freshness-label">Données non chargées</span>
+          <a class="button button-quiet" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Pass Conseil 8 h</a>
+        </div>
+      </header>
+
+      <div class="demo-banner" id="demo-banner" hidden>
+        <strong>Aperçu d’interface.</strong> Les données affichées dans ce mode sont des fixtures de démonstration et ne constituent ni une qualification SandY ni une recommandation publiée.
+      </div>
+
+      <section class="view is-visible" data-view-panel="radar">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">Radar public</div>
+            <h1>Voir ce qui change avant de choisir.</h1>
+            <p>Rechercher large, distinguer le signal de la preuve, puis rapprocher les technologies qui répondent réellement au même besoin.</p>
+          </div>
+          <div class="heading-actions">
+            <button type="button" class="button button-primary" id="focus-search">Lancer une recherche</button>
+            <a class="button button-secondary" href="#method">Comment nous qualifions</a>
+          </div>
+        </div>
+
+        <section class="search-panel" aria-label="Recherche Radar">
+          <div class="search-row">
+            <label class="search-field">
+              <span class="search-label">Recherche</span>
+              <input id="radar-search" type="search" placeholder="ex. OCR local, gateway LLM, vector database, durable workflows…" autocomplete="off" />
+            </label>
+            <label class="filter-field">
+              <span class="search-label">État</span>
+              <select id="state-filter">
+                <option value="">Tous</option>
+                <option value="observed">Observé</option>
+                <option value="candidate">Candidat</option>
+                <option value="tested">Testé</option>
+                <option value="qualified">Qualifié</option>
+                <option value="deprecated">Déprécié</option>
+              </select>
+            </label>
+            <label class="filter-field">
+              <span class="search-label">Type</span>
+              <select id="kind-filter">
+                <option value="">Tous</option>
+              </select>
+            </label>
+          </div>
+          <div class="search-meta">
+            <span id="result-count">0 ressource</span>
+            <span class="meta-divider">·</span>
+            <span>Les filtres publics n’altèrent jamais le niveau de preuve.</span>
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="Indicateurs du Radar">
+          <article class="metric-card">
+            <div class="metric-label">Ressources publiées</div>
+            <div class="metric-value" id="metric-resources">0</div>
+            <div class="metric-note">projection publique versionnée</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">À qualifier</div>
+            <div class="metric-value" id="metric-candidates">0</div>
+            <div class="metric-note">observé ou candidat, pas encore prouvé</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">Preuves déclarées</div>
+            <div class="metric-value" id="metric-evidence">0</div>
+            <div class="metric-note">benchmarks et vérifications publiables</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">Gaps connus</div>
+            <div class="metric-value" id="metric-gaps">0</div>
+            <div class="metric-note">limites et besoins non couverts</div>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel panel-wide">
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow">Lecture opérationnelle</div>
+                <h2>Ressources à regarder</h2>
+              </div>
+              <div class="legend-inline">
+                <span><i class="legend-dot state-observed"></i>observé</span>
+                <span><i class="legend-dot state-tested"></i>testé</span>
+                <span><i class="legend-dot state-qualified"></i>qualifié</span>
+              </div>
+            </div>
+            <div class="resource-table-wrap">
+              <table class="resource-table">
+                <thead>
+                  <tr>
+                    <th>Ressource</th>
+                    <th>Rôle</th>
+                    <th>État</th>
+                    <th>Tendance 30 j</th>
+                    <th>Vérifié</th>
+                  </tr>
+                </thead>
+                <tbody id="resource-table-body"></tbody>
+              </table>
+            </div>
+            <div class="empty-state" id="resource-empty" hidden>
+              <strong>Aucune ressource dans la projection courante.</strong>
+              <span>Le shell fonctionne sans données fictives : branchez une projection `siiaos.radar-public.v1` ou utilisez le mode fixture réservé à la revue d’interface.</span>
+            </div>
+          </section>
+
+          <aside class="panel decision-panel">
+            <div class="eyebrow">Décider, pas collectionner</div>
+            <h2>Ce que le Radar doit réduire.</h2>
+            <ol class="decision-steps">
+              <li><span>1</span><div><strong>Élargir</strong><small>trouver les options et approches</small></div></li>
+              <li><span>2</span><div><strong>Qualifier</strong><small>séparer observation, test et preuve</small></div></li>
+              <li><span>3</span><div><strong>Comparer</strong><small>mettre face à face des objets comparables</small></div></li>
+              <li><span>4</span><div><strong>Décider</strong><small>contextualiser avec contraintes et architecture</small></div></li>
+            </ol>
+            <div class="expert-callout">
+              <div class="expert-label">EXPERT</div>
+              <strong>Le contexte change le classement.</strong>
+              <p>Le Pass Conseil ouvre fit, preuves détaillées, architectures et arbitrages de mission — pas davantage de liens publics.</p>
+              <a href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Comparer pour mon contexte →</a>
+            </div>
+          </aside>
+        </div>
+
+        <section class="panel landscape-panel">
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow">Paysages décisionnels</div>
+              <h2>Partir du problème, pas du logo.</h2>
+            </div>
+            <a class="text-link" href="#landscapes">Voir tous les paysages →</a>
+          </div>
+          <div class="landscape-grid" id="landscape-grid">
+            <article class="landscape-card">
+              <div class="landscape-index">L01</div>
+              <h3>Serving et runtimes IA</h3>
+              <p>Local interactif, serveur GPU, compatibilité OpenAI, quantification et débit ne désignent pas le même problème.</p>
+              <div class="landscape-footer"><span>runtime</span><span>serving</span><span>GPU</span></div>
+            </article>
+            <article class="landscape-card">
+              <div class="landscape-index">L02</div>
+              <h3>RAG, retrieval et contexte</h3>
+              <p>Séparer stockage vectoriel, ingestion, retrieval, orchestration et agents documentaires.</p>
+              <div class="landscape-footer"><span>vector DB</span><span>retrieval</span><span>documents</span></div>
+            </article>
+            <article class="landscape-card">
+              <div class="landscape-index">L03</div>
+              <h3>Agents et workflows durables</h3>
+              <p>Builder visuel, framework agentique et moteur d’exécution durable ne sont pas des substituts directs.</p>
+              <div class="landscape-footer"><span>agents</span><span>workflow</span><span>durable</span></div>
+            </article>
+            <article class="landscape-card">
+              <div class="landscape-index">L04</div>
+              <h3>Observabilité et évaluation IA</h3>
+              <p>Tracer les appels, évaluer la qualité, red-teamer et poser des gates CI sont quatre responsabilités distinctes.</p>
+              <div class="landscape-footer"><span>traces</span><span>eval</span><span>red team</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" data-view-panel="capabilities">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Capacités</div><h1>Ce que l’écosystème permet réellement de faire.</h1><p>Une capacité peut être portée par plusieurs approches et plusieurs implémentations. Le catalogue n’impose plus un outil unique par catégorie.</p></div>
+        </div>
+        <div class="capability-board" id="capability-board"></div>
+      </section>
+
+      <section class="view" data-view-panel="approaches">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Approches</div><h1>Comparer les manières de résoudre le problème.</h1><p>Une rupture d’approche peut rendre obsolète une comparaison entre logiciels. Cette vue doit rendre ces changements visibles.</p></div>
+        </div>
+        <div class="approach-grid">
+          <article class="approach-card"><span>A01</span><h2>RAG classique</h2><p>Ingestion → chunking → embeddings → retrieval → génération.</p><small>À comparer avec long context, document VLM et recherche hybride.</small></article>
+          <article class="approach-card"><span>A02</span><h2>Long context</h2><p>Réduire ou supprimer certaines couches de retrieval lorsque le corpus et le coût le permettent.</p><small>Impact direct sur l’architecture, la latence et la gouvernance.</small></article>
+          <article class="approach-card"><span>A03</span><h2>Document VLM</h2><p>Interpréter la page comme un objet visuel plutôt que comme du texte OCR uniquement.</p><small>Change les benchmarks documents et la chaîne d’ingestion.</small></article>
+          <article class="approach-card"><span>A04</span><h2>Durable execution</h2><p>Traiter les workflows longs et repris après erreur comme des processus, pas comme des scripts.</p><small>À distinguer des automatisations simples à connecteurs.</small></article>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="landscapes">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Paysages</div><h1>Regrouper uniquement ce qui mérite d’être comparé.</h1><p>Les paysages organisent les options par décision d’architecture, puis exposent critères, limites et alternatives.</p></div>
+        </div>
+        <div class="landscape-detail-grid" id="landscape-detail-grid"></div>
+      </section>
+
+      <section class="view" data-view-panel="watch">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Hyperveille</div><h1>Observer les dérivées, pas seulement les classements.</h1><p>Activité, accélération, changement de licence, archivage, nouveaux protocoles et ruptures d’approche deviennent des signaux à qualifier.</p></div>
+        </div>
+        <div class="timeline" id="watch-timeline"></div>
+      </section>
+
+      <section class="view" data-view-panel="acquire">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Acquérir</div><h1>Passer d’une source repérée à un artefact vérifiable.</h1><p>La V4 conserve resolve, mirroring, commandes multi-OS, manifeste, SHA-256 et bridge local de la V3.</p></div>
+        </div>
+        <div class="acquire-layout">
+          <section class="panel">
+            <h2>Résoudre une ressource</h2>
+            <label class="stacked-field"><span>URL ou identifiant</span><input type="text" placeholder="https://github.com/… ou modèle/dataset" /></label>
+            <div class="button-row"><button class="button button-primary" type="button">Résoudre</button><button class="button button-secondary" type="button">Ajouter au manifeste</button></div>
+          </section>
+          <section class="panel bridge-panel">
+            <div class="panel-heading"><div><div class="eyebrow">Bridge local</div><h2>SandY</h2></div><span class="bridge-badge">non connecté</span></div>
+            <p>Le navigateur public ne commande pas la machine. Le bridge localhost reste borné, authentifié et limité aux opérations autorisées.</p>
+            <dl class="key-value"><div><dt>Endpoint</dt><dd>127.0.0.1:8765</dd></div><div><dt>Hash</dt><dd>SHA-256</dd></div><div><dt>Shell arbitraire</dt><dd>interdit</dd></div></dl>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="method">
+        <div class="page-heading compact-heading">
+          <div><div class="eyebrow">Méthode</div><h1>Une nouveauté n’est pas une recommandation.</h1><p>Le Radar expose explicitement le chemin entre découverte, observation, preuve, comparaison et décision.</p></div>
+        </div>
+        <div class="method-flow">
+          <div><strong>Signal</strong><span>repéré</span></div><i>→</i><div><strong>Observation</strong><span>source vérifiée</span></div><i>→</i><div><strong>Test</strong><span>contexte connu</span></div><i>→</i><div><strong>Evidence</strong><span>preuve conservée</span></div><i>→</i><div><strong>Décision</strong><span>validation humaine</span></div>
+        </div>
+        <div class="method-notes">
+          <article class="panel"><h2>Ce que le Radar sait</h2><p>Sources, activité, licence, relations, signaux, tendances et données publiques versionnées.</p></article>
+          <article class="panel"><h2>Ce qu’il ne doit pas inventer</h2><p>Un benchmark non exécuté, un fit SandY non mesuré, une recommandation client ou une preuve inexistante.</p></article>
+          <article class="panel"><h2>Ce qui reste humain</h2><p>Promouvoir un champion, accepter le risque, publier une conclusion et engager une architecture.</p></article>
+        </div>
+      </section>
+
+      <section class="view expert-view" data-view-panel="expert-fit" data-expert-title="Fit contextualisé">
+        <div class="expert-gate"><div class="eyebrow">SIIAOS Expert</div><h1>Fit contextualisé</h1><p>Évaluer une option selon le matériel, l’organisation, la sécurité, la souveraineté, l’intégration et la mission.</p><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Ouvrir une journée de conseil</a></div>
+      </section>
+      <section class="view expert-view" data-view-panel="expert-compare" data-expert-title="Comparateur contextualisé">
+        <div class="expert-gate"><div class="eyebrow">SIIAOS Expert</div><h1>Comparateur contextualisé</h1><p>Comparer des options avec critères pondérés par le besoin, sans produire un classement universel artificiel.</p><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Comparer pour mon contexte</a></div>
+      </section>
+      <section class="view expert-view" data-view-panel="expert-evidence" data-expert-title="Evidence et benchmarks">
+        <div class="expert-gate"><div class="eyebrow">SIIAOS Expert</div><h1>Evidence et benchmarks</h1><p>Ouvrir les preuves publiables, la date des tests, les limites observées et les conditions de reproductibilité.</p><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Ouvrir les preuves SIIAOS</a></div>
+      </section>
+      <section class="view expert-view" data-view-panel="expert-architecture" data-expert-title="Architecture">
+        <div class="expert-gate"><div class="eyebrow">SIIAOS Expert</div><h1>Architecture</h1><p>Voir ce qu’une option remplace, simplifie, ajoute comme dépendance ou débloque comme capacité.</p><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Construire une architecture</a></div>
+      </section>
+      <section class="view expert-view" data-view-panel="expert-decisions" data-expert-title="Décisions">
+        <div class="expert-gate"><div class="eyebrow">SIIAOS Expert</div><h1>Décisions de session</h1><p>Conserver shortlist, rejets, hypothèses, arbitrages et restitution de la journée de conseil.</p><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Préparer ma mission</a></div>
+      </section>
+
+      <footer class="footer">
+        <div><strong>SIIAOS Resource Radar</strong><span>Projection technique publique · les sources tierces restent soumises à leurs propres licences.</span></div>
+        <div class="footer-links"><a href="https://yannick-audubert-consultant.vercel.app/mentions-legales" target="_blank" rel="noreferrer">Mentions légales</a><a href="https://yannick-audubert-consultant.vercel.app/politique-confidentialite" target="_blank" rel="noreferrer">Confidentialité</a><a href="https://yannick-audubert-consultant.vercel.app/conditions-utilisation" target="_blank" rel="noreferrer">Utilisation</a></div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
