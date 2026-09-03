@@ -1,6 +1,6 @@
 {
   "schema": "siiaos.radar-public.v1",
-  "generatedAt": "2026-09-03T18:55:00Z",
+  "generatedAt": "2026-09-03T19:20:00Z",
   "fixture": true,
   "note": "Fixture réservée à la revue visuelle GitHub. Ne pas publier comme qualification SIIAOS.",
   "items": [
@@ -14,12 +14,12 @@
       "capabilities": ["Inférence LLM locale", "Quantification", "API compatible OpenAI"],
       "approaches": ["Local inference", "GGUF"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "MIT",
       "last_verified_at": "2026-09-03T10:00:00Z",
       "trend": {"delta_30d": 8},
       "known_gaps": ["Fit matériel SandY à rebenchmarker"],
+      "expert_available": {"evidence_count": 0, "benchmark": false, "fit": true, "contextual_position": false},
       "updated_at": "2026-09-03T10:00:00Z"
     },
     {
@@ -32,12 +32,12 @@
       "capabilities": ["Serving LLM", "GPU inference", "API compatible OpenAI"],
       "approaches": ["GPU serving"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "Apache-2.0",
       "last_verified_at": "2026-09-03T10:10:00Z",
       "trend": {"delta_30d": 11},
       "known_gaps": ["Validation Windows/WSL et VRAM locale à refaire"],
+      "expert_available": {"evidence_count": 2, "benchmark": true, "fit": true, "contextual_position": true},
       "updated_at": "2026-09-03T10:10:00Z"
     },
     {
@@ -50,12 +50,14 @@
       "capabilities": ["Vector search", "Retrieval", "Hybrid search"],
       "approaches": ["Dedicated vector database"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "Apache-2.0",
       "last_verified_at": "2026-09-03T12:00:00Z",
       "trend": {"delta_30d": 6},
       "known_gaps": [],
+      "competes_with": ["Weaviate", "Chroma", "PostgreSQL + pgvector"],
+      "enables": ["Retrieval sémantique", "RAG"],
+      "expert_available": {"evidence_count": 1, "benchmark": false, "fit": true, "contextual_position": true},
       "updated_at": "2026-09-03T12:00:00Z"
     },
     {
@@ -68,12 +70,12 @@
       "capabilities": ["RAG", "Document agents", "Retrieval", "OCR"],
       "approaches": ["Context engineering", "Document agents"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "MIT",
       "last_verified_at": "2026-09-03T12:05:00Z",
       "trend": {"delta_30d": 4},
       "known_gaps": ["Périmètre produit large à resegmenter par cas d'usage"],
+      "expert_available": {"evidence_count": 0, "benchmark": false, "fit": false, "contextual_position": false},
       "updated_at": "2026-09-03T12:05:00Z"
     },
     {
@@ -86,12 +88,12 @@
       "capabilities": ["LLM observability", "Evaluation", "Tracing"],
       "approaches": ["Application observability"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "MIT + Enterprise boundary",
       "last_verified_at": "2026-09-03T11:30:00Z",
       "trend": {"delta_30d": 9},
       "known_gaps": ["Frontière de fonctionnalités Enterprise à maintenir à jour"],
+      "expert_available": {"evidence_count": 1, "benchmark": false, "fit": true, "contextual_position": false},
       "updated_at": "2026-09-03T11:30:00Z"
     },
     {
@@ -104,12 +106,12 @@
       "capabilities": ["AI observability", "Evaluation", "Tracing"],
       "approaches": ["Application observability"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "Elastic License 2.0",
       "last_verified_at": "2026-09-03T11:40:00Z",
       "trend": {"delta_30d": 3},
       "known_gaps": ["Restrictions de service managé à intégrer aux arbitrages"],
+      "expert_available": {"evidence_count": 1, "benchmark": false, "fit": true, "contextual_position": false},
       "updated_at": "2026-09-03T11:40:00Z"
     },
     {
@@ -122,12 +124,12 @@
       "capabilities": ["Workflow automation", "Connectors", "AI workflows"],
       "approaches": ["Visual workflow builder"],
       "state": "observed",
-      "competitive_position": "candidate",
       "maturity": "high",
       "license": "Sustainable Use License",
       "last_verified_at": "2026-09-03T09:40:00Z",
       "trend": {"delta_30d": 7},
       "known_gaps": ["Ne pas confondre automatisation par connecteurs et garanties d'exécution durable"],
+      "expert_available": {"evidence_count": 1, "benchmark": false, "fit": true, "contextual_position": true},
       "updated_at": "2026-09-03T09:40:00Z"
     },
     {
@@ -140,12 +142,12 @@
       "capabilities": ["AI workflow builder"],
       "approaches": ["Visual workflow builder"],
       "state": "deprecated",
-      "competitive_position": "retired",
       "maturity": "historical",
       "license": "Apache-2.0 historique",
       "last_verified_at": "2026-09-03T09:10:00Z",
       "trend": {"delta_30d": -100},
       "known_gaps": ["Projet archivé", "Préparer les migrations des existants"],
+      "expert_available": {"evidence_count": 1, "benchmark": false, "fit": false, "contextual_position": false},
       "updated_at": "2026-09-03T09:10:00Z"
     }
   ]
