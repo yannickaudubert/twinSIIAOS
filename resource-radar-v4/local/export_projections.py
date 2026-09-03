@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Export public/read-model projections from the rich local SIIAOS registry.
+"""Export versioned read-model projections from the rich local SIIAOS registry.
 
-Stdlib only. No network access. No command execution. The exporter reads canonical
-JSON records and emits versioned projection files suitable for Git review.
+Stdlib only. No network access. No command execution.
+
+Important boundary:
+- radar-public.json is genuinely public and must not contain data hidden only by UI;
+- consultant-site.json is an explicitly publishable editorial projection;
+- contextual Expert data remains local/protected and is not written as a public static file here.
 """
 
 from __future__ import annotations
@@ -37,6 +41,12 @@ def choose_fit(record: dict[str, Any], context: str) -> dict[str, Any] | None:
 
 
 def consultant_item(record: dict[str, Any], radar_base_url: str, fit_context: str) -> tuple[str, dict[str, Any]] | None:
+    """Build the explicitly publishable consultant-site projection.
+
+    This remains separate from radar-public. A record is exported only when the
+    canonical publication gate explicitly enables consultant_site and supplies
+    a stable consultant_slug.
+    """
     publication = record.get("publication") or {}
     if not publication.get("consultant_site"):
         return None
@@ -73,9 +83,16 @@ def consultant_item(record: dict[str, Any], radar_base_url: str, fit_context: st
 
 
 def radar_item(record: dict[str, Any]) -> dict[str, Any] | None:
+    """Build the truly public/free Radar projection.
+
+    Never expose contextual fit scores, competitive ranking, detailed benchmark
+    conclusions, client-specific architecture or other values that are meant to
+    require an authenticated Expert session.
+    """
     publication = record.get("publication") or {}
     if not publication.get("radar_public"):
         return None
+
     allowed = (
         "id",
         "kind",
@@ -86,24 +103,30 @@ def radar_item(record: dict[str, Any]) -> dict[str, Any] | None:
         "capabilities",
         "approaches",
         "state",
-        "competitive_position",
         "maturity",
         "license",
         "last_activity",
         "last_verified_at",
         "verified_on",
         "trend",
-        "fit",
-        "benchmark_summary",
         "known_gaps",
         "replaces",
         "competes_with",
         "depends_on",
         "enables",
-        "blast_radius",
         "updated_at",
     )
-    return {key: record[key] for key in allowed if key in record}
+    item = {key: record[key] for key in allowed if key in record}
+
+    evidence_ids = record.get("evidence_ids") or []
+    fits = [entry for entry in (record.get("fit") or []) if isinstance(entry, dict)]
+    item["expert_available"] = {
+        "evidence_count": len(evidence_ids),
+        "benchmark": bool(record.get("benchmark_summary")),
+        "fit": bool(fits),
+        "contextual_position": record.get("competitive_position") not in (None, "", "unknown"),
+    }
+    return item
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -156,9 +179,17 @@ def main() -> int:
             "consultant_items": len(consultant),
             "radar_items": len(radar),
             "consultant_missing_projection_key": skipped_consultant_without_slug,
+            "expert_static_projection_written": False,
+            "public_projection_excludes": [
+                "fit",
+                "competitive_position",
+                "benchmark_summary",
+                "blast_radius",
+            ],
         },
     )
-    print(f"SIIAOS projections: {len(consultant)} consultant, {len(radar)} radar")
+    print(f"SIIAOS projections: {len(consultant)} consultant, {len(radar)} radar public")
+    print("Expert contextual data: kept out of public static projection")
     if skipped_consultant_without_slug:
         print(f"WARNING: {len(skipped_consultant_without_slug)} consultant record(s) missing consultant_slug")
     return 0
