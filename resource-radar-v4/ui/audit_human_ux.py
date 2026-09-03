@@ -3,7 +3,8 @@
 
 This does not pretend to replace visual review. It protects basic usability and
 publication invariants between screenshot reviews: navigability, human help,
-construction-slop absence and Free/Expert data boundaries in the demo fixture.
+construction-slop absence, renderer/markup contracts and Free/Expert data
+boundaries in the demo dataset.
 """
 
 from __future__ import annotations
@@ -125,24 +126,44 @@ def audit_pages() -> list[str]:
             if not local_target_exists(page, href):
                 errors.append(f"{page.name}: broken local href {href!r}")
 
-    # Critical human-orientation surfaces must be mutually discoverable.
     start = (ROOT / "start.html").read_text(encoding="utf-8")
     guide = (ROOT / "guide.html").read_text(encoding="utf-8")
     glossary = (ROOT / "lexique.html").read_text(encoding="utf-8")
     resource = (ROOT / "resource.html").read_text(encoding="utf-8")
+    resource_js = (ROOT / "resource.js").read_text(encoding="utf-8")
     app = (ROOT / "app.js").read_text(encoding="utf-8")
 
     expectations = {
         "start.html": (start, ["guide.html", "lexique.html", "#free-expert"]),
         "guide.html": (guide, ["start.html", "lexique.html", "resource-detail-v2.html"]),
         "lexique.html": (glossary, ["start.html", "guide.html", "resource-detail-v2.html"]),
-        "resource.html": (resource, ["guide.html", "lexique.html", "#expert"]),
-        "app.js": (app, ["start.html", "guide.html", "lexique.html", "resource.html"]),
+        "resource.html": (resource, ["guide.html", "lexique.html", "#expert", 'id="resource-explanation"', 'href="#resource-explanation"']),
+        "resource.js": (resource_js, ["getElementById('resource-explanation')", "public_explanation", "renderPublicExplanation"]),
+        "app.js": (app, ["start.html", "guide.html", "lexique.html", "resource.html", "humanizeStaticShell"]),
     }
     for name, (content, markers) in expectations.items():
         for marker in markers:
             if marker not in content:
-                errors.append(f"{name}: missing human-navigation marker {marker!r}")
+                errors.append(f"{name}: missing human-navigation/rendering marker {marker!r}")
+
+    # Renderer contract: ids referenced by JS must exist on the dynamic resource page.
+    resource_ids = set(re.findall(r'id="([A-Za-z0-9_-]+)"', resource))
+    required_resource_ids = {
+        "resource-content",
+        "resource-title",
+        "resource-summary",
+        "resource-primary-role",
+        "resource-explanation",
+        "resource-proof",
+        "resource-gaps",
+        "resource-relations",
+        "resource-provenance",
+        "resource-trend",
+        "resource-fit-public",
+    }
+    missing_ids = required_resource_ids - resource_ids
+    if missing_ids:
+        errors.append(f"resource.html: missing ids required by renderer: {sorted(missing_ids)}")
 
     return errors
 
@@ -194,6 +215,7 @@ def main() -> int:
     print("Human UX audit OK")
     print(f"- critical pages: {', '.join(CRITICAL_PAGES)}")
     print("- local navigation: resolved")
+    print("- dynamic resource renderer contract: aligned")
     print("- construction slop: none detected")
     print("- public fixture: no protected Expert top-level fields")
     print("- structured Free explainability: exercised")
