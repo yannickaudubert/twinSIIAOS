@@ -92,9 +92,9 @@ def consultant_item(record: dict[str, Any], radar_base_url: str, fit_context: st
 def radar_item(record: dict[str, Any]) -> dict[str, Any] | None:
     """Build the truly public/free Radar projection.
 
-    Never expose contextual fit scores, competitive ranking, detailed benchmark
-    conclusions, client-specific architecture or other values that are meant to
-    require an authenticated Expert session.
+    Public explainability is intentionally included. Contextual fit scores,
+    competitive ranking, detailed benchmark conclusions and client-specific
+    architecture remain protected Expert data.
     """
     publication = record.get("publication") or {}
     if not publication.get("radar_public"):
@@ -105,6 +105,7 @@ def radar_item(record: dict[str, Any]) -> dict[str, Any] | None:
         "kind",
         "title",
         "summary",
+        "public_explanation",
         "source_url",
         "repo_url",
         "capabilities",
@@ -193,6 +194,7 @@ def main() -> int:
                 "benchmark_summary",
                 "blast_radius",
             ],
+            "public_projection_includes_explainability": True,
             "consultant_derived_fields_require_allowlist": True,
         },
     )
