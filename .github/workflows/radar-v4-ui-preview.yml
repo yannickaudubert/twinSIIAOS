@@ -1,0 +1,101 @@
+name: Radar V4 UI Preview
+
+on:
+  pull_request:
+    paths:
+      - "resource-radar-v4/ui/**"
+      - "resource-radar-v4/projections/radar-public.json"
+      - ".github/workflows/radar-v4-ui-preview.yml"
+  push:
+    branches:
+      - radar-v4-convergence
+    paths:
+      - "resource-radar-v4/ui/**"
+      - "resource-radar-v4/projections/radar-public.json"
+      - ".github/workflows/radar-v4-ui-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate preview assets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('resource-radar-v4')
+          required = [
+              root / 'ui' / 'index.html',
+              root / 'ui' / 'styles.css',
+              root / 'ui' / 'app.js',
+              root / 'ui' / 'fixtures' / 'radar-public.demo.json',
+              root / 'projections' / 'radar-public.json',
+          ]
+          for path in required:
+              assert path.exists(), f'missing {path}'
+
+          fixture = json.loads((root / 'ui' / 'fixtures' / 'radar-public.demo.json').read_text(encoding='utf-8'))
+          projection = json.loads((root / 'projections' / 'radar-public.json').read_text(encoding='utf-8'))
+          assert fixture.get('schema') == 'siiaos.radar-public.v1'
+          assert fixture.get('fixture') is True
+          assert projection.get('schema') == 'siiaos.radar-public.v1'
+          assert isinstance(fixture.get('items'), list)
+          assert isinstance(projection.get('items'), list)
+
+          html = (root / 'ui' / 'index.html').read_text(encoding='utf-8')
+          for marker in ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir']:
+              assert marker in html, f'missing UI marker: {marker}'
+          print('Radar V4 UI assets OK')
+          PY
+
+      - name: Start static preview server
+        run: |
+          python -m http.server 4173 --directory resource-radar-v4 > /tmp/radar-v4-http.log 2>&1 &
+          echo $! > /tmp/radar-v4-http.pid
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/ui/ > /dev/null; then
+              exit 0
+            fi
+            sleep 0.5
+          done
+          cat /tmp/radar-v4-http.log
+          exit 1
+
+      - name: Install Chromium for visual review
+        run: npx --yes playwright@1.55.0 install --with-deps chromium
+
+      - name: Capture desktop and mobile views
+        run: |
+          mkdir -p artifacts/radar-v4-ui
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=1000 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/01-radar-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#landscapes" artifacts/radar-v4-ui/02-landscapes-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,900" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#expert-fit" artifacts/radar-v4-ui/03-expert-fit-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/04-radar-mobile.png
+
+      - name: Copy reviewable static preview
+        run: |
+          mkdir -p artifacts/radar-v4-ui/site
+          cp -R resource-radar-v4/ui/. artifacts/radar-v4-ui/site/
+          mkdir -p artifacts/radar-v4-ui/projections
+          cp resource-radar-v4/projections/radar-public.json artifacts/radar-v4-ui/projections/radar-public.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: radar-v4-ui-preview-${{ github.sha }}
+          path: artifacts/radar-v4-ui
+          retention-days: 14
