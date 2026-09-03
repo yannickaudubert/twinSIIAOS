@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/resource-record.schema.json",
+  "title": "SIIAOS Resource Record",
+  "type": "object",
+  "required": ["id", "kind", "title", "capabilities", "state", "publication"],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "kind": {
+      "type": "string",
+      "enum": ["system", "model", "approach", "agent", "runtime", "source", "dataset", "service", "tool"]
+    },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "repo_url": { "type": "string", "format": "uri" },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "approaches": { "type": "array", "items": { "type": "string" } },
+    "state": {
+      "type": "string",
+      "enum": ["observed", "installed", "tested", "qualified", "target", "candidate", "deprecated"]
+    },
+    "competitive_position": {
+      "type": "string",
+      "enum": ["champion", "challenger", "candidate", "experimental", "retired", "unknown"]
+    },
+    "maturity": { "type": "string" },
+    "license": { "type": "string" },
+    "last_activity": { "type": "string" },
+    "trend": {
+      "type": "object",
+      "properties": {
+        "stars": { "type": "number" },
+        "delta_7d": { "type": "number" },
+        "delta_30d": { "type": "number" },
+        "delta_90d": { "type": "number" },
+        "contributors_delta_30d": { "type": "number" },
+        "release_velocity": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "fit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["context", "score"],
+        "properties": {
+          "context": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "constraints": { "type": "array", "items": { "type": "string" } },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } },
+          "assessed_at": { "type": "string" }
+        }
+      }
+    },
+    "known_gaps": { "type": "array", "items": { "type": "string" } },
+    "replaces": { "type": "array", "items": { "type": "string" } },
+    "competes_with": { "type": "array", "items": { "type": "string" } },
+    "depends_on": { "type": "array", "items": { "type": "string" } },
+    "enables": { "type": "array", "items": { "type": "string" } },
+    "blast_radius": {
+      "type": "object",
+      "properties": {
+        "components_affected": { "type": "array", "items": { "type": "string" } },
+        "workflows_simplified": { "type": "array", "items": { "type": "string" } },
+        "dependencies_removable": { "type": "array", "items": { "type": "string" } },
+        "new_capabilities": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "benchmark_ids": { "type": "array", "items": { "type": "string" } },
+    "evidence_ids": { "type": "array", "items": { "type": "string" } },
+    "signal_ids": { "type": "array", "items": { "type": "string" } },
+    "publication": {
+      "type": "object",
+      "required": ["local", "radar_public", "consultant_site"],
+      "properties": {
+        "local": { "type": "boolean" },
+        "radar_public": { "type": "boolean" },
+        "consultant_site": { "type": "boolean" },
+        "visibility": {
+          "type": "string",
+          "enum": ["local_private", "local_shared", "public_technical", "public_editorial", "client_specific", "never_publish"]
+        }
+      }
+    },
+    "updated_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}
