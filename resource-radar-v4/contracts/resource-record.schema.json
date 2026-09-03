@@ -18,24 +18,8 @@
     "kind": {
       "type": "string",
       "enum": [
-        "system",
-        "model",
-        "approach",
-        "agent",
-        "runtime",
-        "source",
-        "dataset",
-        "service",
-        "tool",
-        "application",
-        "platform",
-        "framework",
-        "library",
-        "database",
-        "protocol",
-        "connector",
-        "hub",
-        "reference"
+        "system", "model", "approach", "agent", "runtime", "source", "dataset", "service", "tool",
+        "application", "platform", "framework", "library", "database", "protocol", "connector", "hub", "reference"
       ]
     },
     "title": { "type": "string" },
@@ -44,6 +28,25 @@
     "repo_url": { "type": "string", "format": "uri" },
     "capabilities": { "type": "array", "items": { "type": "string" } },
     "approaches": { "type": "array", "items": { "type": "string" } },
+    "public_explanation": {
+      "type": "object",
+      "description": "Human-readable explanatory content explicitly safe for the free public Radar. It explains the object without leaking client-specific or protected Expert conclusions.",
+      "properties": {
+        "plain_language": { "type": "string" },
+        "primary_role": { "type": "string" },
+        "solves": { "type": "array", "items": { "type": "string" } },
+        "does_not_replace": { "type": "array", "items": { "type": "string" } },
+        "use_when": { "type": "array", "items": { "type": "string" } },
+        "avoid_when": { "type": "array", "items": { "type": "string" } },
+        "tradeoffs": { "type": "array", "items": { "type": "string" } },
+        "questions_to_ask": { "type": "array", "items": { "type": "string" } },
+        "deployment_modes": { "type": "array", "items": { "type": "string" } },
+        "prerequisites": { "type": "array", "items": { "type": "string" } },
+        "operations_notes": { "type": "array", "items": { "type": "string" } },
+        "license_notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
     "state": {
       "type": "string",
       "enum": ["observed", "installed", "tested", "qualified", "target", "candidate", "deprecated"]
@@ -77,7 +80,7 @@
         "properties": {
           "context": { "type": "string" },
           "score": { "type": "number", "minimum": 0, "maximum": 100 },
-          "confidence": { "type": ["string", "number" ] },
+          "confidence": { "type": ["string", "number"] },
           "constraints": { "type": "array", "items": { "type": "string" } },
           "evidence_ids": { "type": "array", "items": { "type": "string" } },
           "assessed_at": { "type": "string", "format": "date-time" }
@@ -118,14 +121,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": [
-              "competitive_position",
-              "fit_summary",
-              "benchmark_summary",
-              "known_gaps",
-              "trend_30d",
-              "evidence_count"
-            ]
+            "enum": ["competitive_position", "fit_summary", "benchmark_summary", "known_gaps", "trend_30d", "evidence_count"]
           },
           "description": "Explicit allowlist for derived fields that may be emitted into the public consultant-site projection. Absence means safe minimal metadata only."
         }
