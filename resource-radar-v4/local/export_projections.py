@@ -5,7 +5,7 @@ Stdlib only. No network access. No command execution.
 
 Important boundary:
 - radar-public.json is genuinely public and must not contain data hidden only by UI;
-- consultant-site.json is an explicitly publishable editorial projection;
+- consultant-site.json is also public and therefore uses an explicit per-field allowlist;
 - contextual Expert data remains local/protected and is not written as a public static file here.
 """
 
@@ -41,11 +41,11 @@ def choose_fit(record: dict[str, Any], context: str) -> dict[str, Any] | None:
 
 
 def consultant_item(record: dict[str, Any], radar_base_url: str, fit_context: str) -> tuple[str, dict[str, Any]] | None:
-    """Build the explicitly publishable consultant-site projection.
+    """Build a safe public editorial projection.
 
-    This remains separate from radar-public. A record is exported only when the
-    canonical publication gate explicitly enables consultant_site and supplies
-    a stable consultant_slug.
+    `consultant_site: true` authorizes existence of the item on the public site,
+    not publication of every derived qualification field. Derived fields require
+    `publication.consultant_public_fields` explicit allowlisting.
     """
     publication = record.get("publication") or {}
     if not publication.get("consultant_site"):
@@ -55,30 +55,37 @@ def consultant_item(record: dict[str, Any], radar_base_url: str, fit_context: st
     if not slug:
         return None
 
-    fit = choose_fit(record, fit_context)
-    trend = record.get("trend") or {}
-    evidence_ids = record.get("evidence_ids") or []
+    allowed = set(publication.get("consultant_public_fields") or [])
     radar_slug = projection_keys.get("radar_slug") or record.get("id")
     item: dict[str, Any] = {
         "canonical_id": record["id"],
-        "competitive_position": record.get("competitive_position", "unknown"),
         "source_state": record.get("state"),
         "last_verified_at": record.get("last_verified_at"),
         "verified_on": record.get("verified_on") or [],
-        "benchmark_summary": record.get("benchmark_summary"),
-        "known_gaps": record.get("known_gaps") or [],
         "radar_url": f"{radar_base_url.rstrip('/')}/#resource/{radar_slug}",
-        "evidence_count": len(evidence_ids),
-        "trend_30d": trend.get("delta_30d"),
     }
-    if fit:
-        item.update(
-            {
-                "fit_score": fit.get("score"),
-                "fit_confidence": fit.get("confidence"),
-                "fit_context": fit.get("context"),
-            }
-        )
+
+    if "competitive_position" in allowed:
+        item["competitive_position"] = record.get("competitive_position", "unknown")
+    if "benchmark_summary" in allowed:
+        item["benchmark_summary"] = record.get("benchmark_summary")
+    if "known_gaps" in allowed:
+        item["known_gaps"] = record.get("known_gaps") or []
+    if "evidence_count" in allowed:
+        item["evidence_count"] = len(record.get("evidence_ids") or [])
+    if "trend_30d" in allowed:
+        item["trend_30d"] = (record.get("trend") or {}).get("delta_30d")
+    if "fit_summary" in allowed:
+        fit = choose_fit(record, fit_context)
+        if fit:
+            item.update(
+                {
+                    "fit_score": fit.get("score"),
+                    "fit_confidence": fit.get("confidence"),
+                    "fit_context": fit.get("context"),
+                }
+            )
+
     return slug, {key: value for key, value in item.items() if value is not None}
 
 
@@ -186,6 +193,7 @@ def main() -> int:
                 "benchmark_summary",
                 "blast_radius",
             ],
+            "consultant_derived_fields_require_allowlist": True,
         },
     )
     print(f"SIIAOS projections: {len(consultant)} consultant, {len(radar)} radar public")
