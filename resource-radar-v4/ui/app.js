@@ -15,9 +15,9 @@
     watch: 'Hyperveille',
     acquire: 'Acquérir',
     method: 'Méthode',
-    'expert-fit': 'Expert / Fit',
+    'expert-fit': 'Expert / Adéquation',
     'expert-compare': 'Expert / Comparateur',
-    'expert-evidence': 'Expert / Evidence',
+    'expert-evidence': 'Expert / Preuves',
     'expert-architecture': 'Expert / Architecture',
     'expert-decisions': 'Expert / Décisions',
   };
@@ -64,6 +64,17 @@
       ],
     },
   ];
+
+  const stateExplanations = {
+    observed: 'Faits publics vérifiés. Cela ne signifie pas que la ressource a été testée localement.',
+    candidate: 'Option jugée assez pertinente pour mériter une qualification ou une comparaison.',
+    installed: 'La ressource a été installée dans un environnement identifié, sans préjuger de sa performance.',
+    tested: 'Un protocole ou cas d’usage a produit des résultats vérifiables dans un environnement déclaré.',
+    qualified: 'Les preuves disponibles soutiennent une conclusion dans un contexte explicitement décrit.',
+    target: 'Ressource ou état retenu comme cible d’architecture, sous réserve des décisions et preuves associées.',
+    deprecated: 'Ressource ou usage déprécié ; conservé pour l’historique, la migration ou la compréhension de l’existant.',
+    retired: 'Ressource retirée des choix courants, mais potentiellement conservée pour l’historique.',
+  };
 
   function escapeHtml(value) {
     return String(value ?? '')
@@ -141,6 +152,50 @@
     return Array.isArray(item.known_gaps) ? item.known_gaps.length : 0;
   }
 
+  function resourceDestination(item) {
+    const query = new URLSearchParams();
+    query.set('id', String(item.id || ''));
+    if (app.fixtureMode) query.set('fixture', '1');
+    return `./resource.html?${query.toString()}`;
+  }
+
+  function ensureHumanUx() {
+    if (!document.querySelector('link[href="./human.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = './human.css';
+      document.head.append(link);
+    }
+
+    const actions = document.querySelector('.topbar-actions');
+    if (actions && !actions.querySelector('.human-help-links')) {
+      const help = document.createElement('div');
+      help.className = 'human-help-links';
+      help.setAttribute('aria-label', 'Aide');
+      help.innerHTML = '<a href="./start.html">Commencer</a><a href="./guide.html">Mode d’emploi</a><a href="./lexique.html">Lexique</a>';
+      actions.prepend(help);
+    }
+
+    const radar = document.querySelector('[data-view-panel="radar"]');
+    const heading = radar?.querySelector('.page-heading');
+    if (radar && heading && !radar.querySelector('.human-orientation-strip')) {
+      const strip = document.createElement('nav');
+      strip.className = 'human-orientation-strip';
+      strip.setAttribute('aria-label', 'Choisir un point de départ');
+      strip.innerHTML = '<strong>Je pars de :</strong><a href="#radar">une solution connue</a><a href="#capabilities">un besoin</a><a href="#landscapes">une comparaison</a><a href="#expert-evidence">une décision à justifier</a><a href="./lexique.html">un terme à comprendre</a>';
+      heading.before(strip);
+    }
+
+    const tableWrap = document.querySelector('.resource-table-wrap');
+    if (tableWrap && !document.getElementById('resource-mobile-list')) {
+      const mobile = document.createElement('div');
+      mobile.id = 'resource-mobile-list';
+      mobile.className = 'resource-mobile-list';
+      mobile.setAttribute('aria-label', 'Ressources, vue mobile');
+      tableWrap.after(mobile);
+    }
+  }
+
   async function loadProjection() {
     const source = app.fixtureMode ? './fixtures/radar-public.demo.json' : '../projections/radar-public.json';
     try {
@@ -203,6 +258,7 @@
     const tbody = document.getElementById('resource-table-body');
     const empty = document.getElementById('resource-empty');
     const count = document.getElementById('result-count');
+    const mobile = document.getElementById('resource-mobile-list');
     if (!tbody || !empty || !count) return;
 
     count.textContent = `${items.length} ressource${items.length > 1 ? 's' : ''}`;
@@ -210,14 +266,29 @@
       const state = normalizeState(item.state);
       const capabilities = Array.isArray(item.capabilities) ? item.capabilities : [];
       const role = capabilities[0] || kindLabel(item.kind);
-      return `<tr data-resource-id="${escapeHtml(item.id)}" tabindex="0">
+      return `<tr data-resource-id="${escapeHtml(item.id)}" tabindex="0" aria-label="Ouvrir la fiche ${escapeHtml(item.title || item.id)}">
         <td><div class="resource-name"><strong>${escapeHtml(item.title || item.id)}</strong><small>${escapeHtml(item.summary || item.source_url || '')}</small></div></td>
         <td>${escapeHtml(role)}</td>
-        <td><span class="pill ${escapeHtml(state)}">${escapeHtml(stateLabel(state))}</span></td>
+        <td><span class="pill ${escapeHtml(state)} state-help" title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span></td>
         <td>${trendMarkup(item)}</td>
         <td>${escapeHtml(formatDate(item.last_verified_at || item.updated_at || item.last_activity))}</td>
       </tr>`;
     }).join('');
+
+    if (mobile) {
+      mobile.innerHTML = items.map((item) => {
+        const state = normalizeState(item.state);
+        const capabilities = Array.isArray(item.capabilities) ? item.capabilities : [];
+        const role = capabilities[0] || kindLabel(item.kind);
+        return `<article class="resource-mobile-card">
+          <div class="resource-mobile-card-head"><h3>${escapeHtml(item.title || item.id)}</h3><span class="pill ${escapeHtml(state)}" title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span></div>
+          <p>${escapeHtml(item.summary || 'Aucun résumé public disponible.')}</p>
+          <div class="resource-mobile-meta"><span>${escapeHtml(kindLabel(item.kind))}</span><span>${escapeHtml(role)}</span><span>vérifié ${escapeHtml(formatDate(item.last_verified_at || item.updated_at || item.last_activity))}</span></div>
+          <div class="resource-mobile-actions"><a href="${escapeHtml(resourceDestination(item))}">Comprendre la fiche →</a><span>${trendMarkup(item)}</span></div>
+        </article>`;
+      }).join('');
+    }
+
     empty.hidden = items.length > 0;
   }
 
@@ -243,7 +314,7 @@
       <div class="eyebrow">Capacité</div>
       <h2>${escapeHtml(name)}</h2>
       <p>${meta.count} ressource${meta.count > 1 ? 's' : ''} actuellement reliée${meta.count > 1 ? 's' : ''} à cette capacité dans la projection.</p>
-      <footer><span>${escapeHtml([...meta.kinds].slice(0, 3).join(' · '))}</span><span>états : ${escapeHtml([...meta.states].join(', '))}</span></footer>
+      <footer><span>${escapeHtml([...meta.kinds].slice(0, 3).join(' · '))}</span><span>états : ${escapeHtml([...meta.states].map(stateLabel).join(', '))}</span></footer>
     </article>`).join('');
   }
 
@@ -274,7 +345,7 @@
       const state = normalizeState(item.state);
       const position = item.competitive_position && item.competitive_position !== 'unknown' ? item.competitive_position : 'non classé';
       return `<article class="timeline-item">
-        <div class="timeline-meta"><span>${escapeHtml(formatDate(item.updated_at || item.last_verified_at || item.last_activity))}</span><span>${escapeHtml(kindLabel(item.kind))}</span><span>${escapeHtml(stateLabel(state))}</span><span>${escapeHtml(position)}</span></div>
+        <div class="timeline-meta"><span>${escapeHtml(formatDate(item.updated_at || item.last_verified_at || item.last_activity))}</span><span>${escapeHtml(kindLabel(item.kind))}</span><span title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span><span>${escapeHtml(position)}</span></div>
         <h2>${escapeHtml(item.title || item.id)}</h2>
         <p>${escapeHtml(item.summary || 'Observation publiée sans commentaire éditorial supplémentaire.')}</p>
       </article>`;
@@ -322,6 +393,14 @@
     return labels[raw] ? raw : 'radar';
   }
 
+  function openResourceFromRow(row) {
+    const id = row?.dataset?.resourceId;
+    if (!id) return;
+    const item = app.projection.items.find((entry) => String(entry.id) === String(id));
+    if (!item) return;
+    window.location.href = resourceDestination(item);
+  }
+
   function bindEvents() {
     window.addEventListener('hashchange', () => activateView(viewFromHash()));
     document.getElementById('mobile-menu')?.addEventListener('click', () => document.body.classList.toggle('nav-open'));
@@ -330,6 +409,17 @@
       const element = document.getElementById(id);
       if (!element) return;
       element.addEventListener(element.tagName === 'INPUT' ? 'input' : 'change', renderTable);
+    });
+    document.getElementById('resource-table-body')?.addEventListener('click', (event) => {
+      const row = event.target.closest('tr[data-resource-id]');
+      if (row) openResourceFromRow(row);
+    });
+    document.getElementById('resource-table-body')?.addEventListener('keydown', (event) => {
+      if (!['Enter', ' '].includes(event.key)) return;
+      const row = event.target.closest('tr[data-resource-id]');
+      if (!row) return;
+      event.preventDefault();
+      openResourceFromRow(row);
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') document.body.classList.remove('nav-open');
@@ -341,6 +431,7 @@
     });
   }
 
+  ensureHumanUx();
   bindEvents();
   activateView(viewFromHash());
   loadProjection();
