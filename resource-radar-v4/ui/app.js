@@ -112,13 +112,18 @@
       agent: 'Agent',
       runtime: 'Runtime',
       source: 'Source',
-      dataset: 'Dataset',
+      dataset: 'Jeu de données',
       service: 'Service',
       tool: 'Outil',
       database: 'Base de données',
       framework: 'Framework',
       platform: 'Plateforme',
       application: 'Application',
+      library: 'Bibliothèque',
+      protocol: 'Protocole',
+      connector: 'Connecteur',
+      hub: 'Hub / registre',
+      reference: 'Ressource de référence',
     };
     return map[value] || value || 'Ressource';
   }
@@ -144,8 +149,10 @@
   }
 
   function evidenceCount(item) {
-    const ids = Array.isArray(item.evidence_ids) ? item.evidence_ids.length : 0;
-    return ids + (item.benchmark_summary ? 1 : 0);
+    const expert = item?.expert_available || {};
+    const declared = Number(expert.evidence_count || 0);
+    const benchmark = expert.benchmark === true ? 1 : 0;
+    return declared + benchmark;
   }
 
   function gapCount(item) {
@@ -159,6 +166,51 @@
     return `./resource.html?${query.toString()}`;
   }
 
+  function replaceOwnText(element, text) {
+    if (!element) return;
+    const textNode = [...element.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+    if (textNode) textNode.textContent = ` ${text} `;
+  }
+
+  function humanizeStaticShell() {
+    replaceOwnText(document.querySelector('[data-view="expert-fit"]'), 'Adéquation');
+    replaceOwnText(document.querySelector('[data-view="expert-evidence"]'), 'Preuves');
+
+    const sidebarSmall = document.querySelector('.sidebar-small');
+    if (sidebarSmall) sidebarSmall.textContent = 'Sources vérifiées · preuves datées · publication maîtrisée.';
+
+    const topbarKicker = document.querySelector('.topbar-kicker');
+    if (topbarKicker) topbarKicker.textContent = 'Intelligence technologique';
+
+    const demoBanner = document.getElementById('demo-banner');
+    if (demoBanner) {
+      demoBanner.innerHTML = '<strong>Données de démonstration.</strong> Cet aperçu sert uniquement à vérifier l’interface. Il ne constitue ni une qualification publiée ni une recommandation.';
+    }
+
+    const candidateCard = document.getElementById('metric-candidates')?.closest('.metric-card');
+    if (candidateCard) {
+      const note = candidateCard.querySelector('.metric-note');
+      if (note) note.textContent = 'observé ou candidat, à tester ou qualifier';
+    }
+
+    const evidenceCard = document.getElementById('metric-evidence')?.closest('.metric-card');
+    if (evidenceCard) {
+      const label = evidenceCard.querySelector('.metric-label');
+      const note = evidenceCard.querySelector('.metric-note');
+      if (label) label.textContent = 'Preuves signalées';
+      if (note) note.textContent = 'preuves ou benchmarks existants, détails selon publication';
+    }
+
+    const empty = document.getElementById('resource-empty');
+    if (empty) {
+      const note = empty.querySelector('span');
+      if (note) note.textContent = 'Aucune donnée publique n’est publiée pour cette vue. Le Radar reste vide plutôt que d’inventer du contenu.';
+    }
+
+    const expertCallout = document.querySelector('.expert-callout p');
+    if (expertCallout) expertCallout.textContent = 'Le Pass Conseil ouvre l’adéquation au contexte, les preuves détaillées, les architectures et les arbitrages de mission — pas davantage de liens publics.';
+  }
+
   function ensureHumanUx() {
     if (!document.querySelector('link[href="./human.css"]')) {
       const link = document.createElement('link');
@@ -166,6 +218,8 @@
       link.href = './human.css';
       document.head.append(link);
     }
+
+    humanizeStaticShell();
 
     const actions = document.querySelector('.topbar-actions');
     if (actions && !actions.querySelector('.human-help-links')) {
@@ -203,14 +257,14 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       if (!data || data.schema !== 'siiaos.radar-public.v1' || !Array.isArray(data.items)) {
-        throw new Error('Projection incompatible');
+        throw new Error('Données publiques incompatibles');
       }
       app.projection = data;
       document.getElementById('projection-dot')?.classList.add('ok');
-      document.getElementById('projection-status').textContent = app.fixtureMode ? 'Fixture de revue chargée' : 'Projection publique chargée';
+      document.getElementById('projection-status').textContent = app.fixtureMode ? 'Données de démonstration chargées' : 'Données publiques chargées';
     } catch (error) {
-      console.warn('Radar projection unavailable:', error);
-      document.getElementById('projection-status').textContent = 'Projection vide';
+      console.warn('Radar public data unavailable:', error);
+      document.getElementById('projection-status').textContent = 'Aucune donnée publique chargée';
     }
 
     const demoBanner = document.getElementById('demo-banner');
@@ -233,10 +287,14 @@
     const state = document.getElementById('state-filter')?.value || '';
     const kind = document.getElementById('kind-filter')?.value || '';
     return app.projection.items.filter((item) => {
+      const explanation = item.public_explanation || {};
       const haystack = [
         item.title,
         item.summary,
         item.kind,
+        explanation.plain_language,
+        explanation.primary_role,
+        ...(Array.isArray(explanation.solves) ? explanation.solves : []),
         ...(Array.isArray(item.capabilities) ? item.capabilities : []),
         ...(Array.isArray(item.approaches) ? item.approaches : []),
       ].filter(Boolean).join(' ').toLowerCase();
@@ -265,9 +323,9 @@
     tbody.innerHTML = items.map((item) => {
       const state = normalizeState(item.state);
       const capabilities = Array.isArray(item.capabilities) ? item.capabilities : [];
-      const role = capabilities[0] || kindLabel(item.kind);
+      const role = item.public_explanation?.primary_role || capabilities[0] || kindLabel(item.kind);
       return `<tr data-resource-id="${escapeHtml(item.id)}" tabindex="0" aria-label="Ouvrir la fiche ${escapeHtml(item.title || item.id)}">
-        <td><div class="resource-name"><strong>${escapeHtml(item.title || item.id)}</strong><small>${escapeHtml(item.summary || item.source_url || '')}</small></div></td>
+        <td><div class="resource-name"><strong>${escapeHtml(item.title || item.id)}</strong><small>${escapeHtml(item.public_explanation?.plain_language || item.summary || item.source_url || '')}</small></div></td>
         <td>${escapeHtml(role)}</td>
         <td><span class="pill ${escapeHtml(state)} state-help" title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span></td>
         <td>${trendMarkup(item)}</td>
@@ -279,10 +337,10 @@
       mobile.innerHTML = items.map((item) => {
         const state = normalizeState(item.state);
         const capabilities = Array.isArray(item.capabilities) ? item.capabilities : [];
-        const role = capabilities[0] || kindLabel(item.kind);
+        const role = item.public_explanation?.primary_role || capabilities[0] || kindLabel(item.kind);
         return `<article class="resource-mobile-card">
           <div class="resource-mobile-card-head"><h3>${escapeHtml(item.title || item.id)}</h3><span class="pill ${escapeHtml(state)}" title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span></div>
-          <p>${escapeHtml(item.summary || 'Aucun résumé public disponible.')}</p>
+          <p>${escapeHtml(item.public_explanation?.plain_language || item.summary || 'Aucun résumé public disponible.')}</p>
           <div class="resource-mobile-meta"><span>${escapeHtml(kindLabel(item.kind))}</span><span>${escapeHtml(role)}</span><span>vérifié ${escapeHtml(formatDate(item.last_verified_at || item.updated_at || item.last_activity))}</span></div>
           <div class="resource-mobile-actions"><a href="${escapeHtml(resourceDestination(item))}">Comprendre la fiche →</a><span>${trendMarkup(item)}</span></div>
         </article>`;
@@ -307,13 +365,13 @@
     });
     const entries = [...counter.entries()].sort((a, b) => b[1].count - a[1].count);
     if (!entries.length) {
-      board.innerHTML = '<div class="empty-state"><strong>Aucune capacité publiée.</strong><span>La vue se remplira à partir de la projection publique versionnée.</span></div>';
+      board.innerHTML = '<div class="empty-state"><strong>Aucune capacité publiée.</strong><span>Cette vue se remplira lorsque des ressources publiques seront disponibles.</span></div>';
       return;
     }
     board.innerHTML = entries.map(([name, meta]) => `<article class="capability-card">
       <div class="eyebrow">Capacité</div>
       <h2>${escapeHtml(name)}</h2>
-      <p>${meta.count} ressource${meta.count > 1 ? 's' : ''} actuellement reliée${meta.count > 1 ? 's' : ''} à cette capacité dans la projection.</p>
+      <p>${meta.count} ressource${meta.count > 1 ? 's' : ''} actuellement reliée${meta.count > 1 ? 's' : ''} à cette capacité.</p>
       <footer><span>${escapeHtml([...meta.kinds].slice(0, 3).join(' · '))}</span><span>états : ${escapeHtml([...meta.states].map(stateLabel).join(', '))}</span></footer>
     </article>`).join('');
   }
@@ -338,16 +396,19 @@
     if (!target) return;
     const sorted = [...items].sort((a, b) => String(b.updated_at || b.last_verified_at || b.last_activity || '').localeCompare(String(a.updated_at || a.last_verified_at || a.last_activity || ''))).slice(0, 12);
     if (!sorted.length) {
-      target.innerHTML = '<div class="empty-state"><strong>Aucun signal public.</strong><span>L’Hyperveille reste vide tant qu’aucune observation versionnée n’est projetée.</span></div>';
+      target.innerHTML = '<div class="empty-state"><strong>Aucun signal public.</strong><span>L’Hyperveille reste vide tant qu’aucune observation publiable n’est disponible.</span></div>';
       return;
     }
     target.innerHTML = sorted.map((item) => {
       const state = normalizeState(item.state);
-      const position = item.competitive_position && item.competitive_position !== 'unknown' ? item.competitive_position : 'non classé';
+      const expert = item.expert_available || {};
+      const decisionSignal = expert.fit || expert.contextual_position || expert.benchmark || Number(expert.evidence_count || 0) > 0
+        ? 'analyse approfondie disponible'
+        : 'observation publique';
       return `<article class="timeline-item">
-        <div class="timeline-meta"><span>${escapeHtml(formatDate(item.updated_at || item.last_verified_at || item.last_activity))}</span><span>${escapeHtml(kindLabel(item.kind))}</span><span title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span><span>${escapeHtml(position)}</span></div>
+        <div class="timeline-meta"><span>${escapeHtml(formatDate(item.updated_at || item.last_verified_at || item.last_activity))}</span><span>${escapeHtml(kindLabel(item.kind))}</span><span title="${escapeHtml(stateExplanations[state] || '')}">${escapeHtml(stateLabel(state))}</span><span>${escapeHtml(decisionSignal)}</span></div>
         <h2>${escapeHtml(item.title || item.id)}</h2>
-        <p>${escapeHtml(item.summary || 'Observation publiée sans commentaire éditorial supplémentaire.')}</p>
+        <p>${escapeHtml(item.public_explanation?.plain_language || item.summary || 'Observation publiée sans commentaire supplémentaire.')}</p>
       </article>`;
     }).join('');
   }
@@ -356,10 +417,10 @@
     const target = document.getElementById('freshness-label');
     if (!target) return;
     if (!app.projection.generatedAt) {
-      target.textContent = app.fixtureMode ? 'Fixture de démonstration' : 'Projection vide';
+      target.textContent = app.fixtureMode ? 'Données de démonstration' : 'Aucune donnée publique';
       return;
     }
-    target.textContent = `${app.fixtureMode ? 'Fixture' : 'Projection'} · ${formatDate(app.projection.generatedAt)}`;
+    target.textContent = `${app.fixtureMode ? 'Démonstration' : 'Données publiques'} · ${formatDate(app.projection.generatedAt)}`;
   }
 
   function renderAll() {
