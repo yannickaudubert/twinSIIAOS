@@ -37,7 +37,7 @@ jobs:
               json.loads(path.read_text(encoding='utf-8'))
               print('OK', path)
           PY
-      - name: Smoke-test exporter
+      - name: Smoke-test exporter and Free/Expert boundary
         run: |
           mkdir -p /tmp/siiaos-registry/resources /tmp/siiaos-projections
           cat > /tmp/siiaos-registry/resources/example.json <<'JSON'
@@ -46,8 +46,16 @@ jobs:
             "projection_keys": {"consultant_slug": "example", "radar_slug": "example"},
             "kind": "system",
             "title": "Example",
+            "summary": "Example resource",
             "capabilities": ["test"],
-            "state": "observed",
+            "approaches": ["example approach"],
+            "state": "tested",
+            "competitive_position": "champion",
+            "benchmark_summary": "Detailed benchmark conclusion that must not leak in radar-public",
+            "evidence_ids": ["ev:1", "ev:2"],
+            "fit": [{"context": "sandy", "score": 91, "confidence": 0.8}],
+            "blast_radius": "contextual architecture impact",
+            "known_gaps": ["public gap"],
             "publication": {"local": true, "radar_public": true, "consultant_site": true}
           }
           JSON
@@ -55,9 +63,26 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+
           c = json.loads(Path('/tmp/siiaos-projections/consultant-site.json').read_text())
           r = json.loads(Path('/tmp/siiaos-projections/radar-public.json').read_text())
+          report = json.loads(Path('/tmp/siiaos-projections/export-report.json').read_text())
+
           assert 'example' in c['items']
-          assert r['items'][0]['id'] == 'system:example'
-          print('projection smoke test OK')
+          assert c['items']['example']['competitive_position'] == 'champion'
+          assert c['items']['example']['fit_score'] == 91
+
+          public = r['items'][0]
+          assert public['id'] == 'system:example'
+          assert public['known_gaps'] == ['public gap']
+          assert public['expert_available']['evidence_count'] == 2
+          assert public['expert_available']['benchmark'] is True
+          assert public['expert_available']['fit'] is True
+          assert public['expert_available']['contextual_position'] is True
+
+          forbidden = {'fit', 'competitive_position', 'benchmark_summary', 'blast_radius'}
+          leaked = forbidden.intersection(public)
+          assert not leaked, f'Expert fields leaked into public projection: {sorted(leaked)}'
+          assert report['expert_static_projection_written'] is False
+          print('projection smoke test and Free/Expert boundary OK')
           PY
