@@ -41,6 +41,7 @@ jobs:
           root = Path('resource-radar-v4')
           required = [
               root / 'ui' / 'index.html',
+              root / 'ui' / 'resource-detail.html',
               root / 'ui' / 'styles.css',
               root / 'ui' / 'app.js',
               root / 'ui' / 'fixtures' / 'radar-public.demo.json',
@@ -60,6 +61,9 @@ jobs:
           html = (root / 'ui' / 'index.html').read_text(encoding='utf-8')
           for marker in ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir']:
               assert marker in html, f'missing UI marker: {marker}'
+          detail = (root / 'ui' / 'resource-detail.html').read_text(encoding='utf-8')
+          for marker in ['État de preuve', 'Retenir, écarter, comparer', 'Evidence', 'Provenance']:
+              assert marker in detail, f'missing detail marker: {marker}'
           print('Radar V4 UI assets OK')
           PY
 
@@ -86,6 +90,8 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#landscapes" artifacts/radar-v4-ui/02-landscapes-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,900" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#expert-fit" artifacts/radar-v4-ui/03-expert-fit-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/04-radar-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/05-resource-detail-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/06-resource-detail-mobile.png
 
       - name: Copy reviewable static preview
         run: |
