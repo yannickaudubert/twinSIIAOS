@@ -78,7 +78,6 @@
 .quick-links a { text-decoration:none; border:1px solid #dce5e8; background:#fff; border-radius:999px; padding:6px 9px; color:var(--navy); font-size:10px; font-weight:750; }
 .quick-links a:hover { border-color:#9eb9b8; }
 
-/* Main Radar progressive disclosure */
 .human-orientation-strip { margin: 0 0 16px; padding: 11px 13px; border:1px solid #d9e5e7; border-radius:12px; background:#f9fbfb; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .human-orientation-strip > strong { color:var(--navy); font-size:11px; }
 .human-orientation-strip a { text-decoration:none; border:1px solid #dce5e8; background:#fff; border-radius:999px; padding:5px 8px; color:#395565; font-size:9px; font-weight:750; }
@@ -117,4 +116,9 @@
   .human-orientation-strip { align-items:flex-start; }
   .resource-table-wrap { display:none; }
   .resource-mobile-list { display:grid; }
+}
+@media (max-width: 560px) {
+  /* `styles.css` hides generic topbar buttons on narrow screens. Resource pages must always keep a way back. */
+  .topbar-actions #back-radar { display:inline-flex; min-height:32px; padding:6px 9px; font-size:10px; }
+  .human-page h1 { font-size:32px; }
 }
