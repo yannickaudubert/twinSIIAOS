@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="Mode d'emploi du SIIAOS Resource Radar : rechercher, comparer, vérifier les preuves, acquérir une ressource et préparer une décision." />
+  <title>Mode d'emploi — SIIAOS Resource Radar</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./human.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-context"><span class="topbar-kicker">SIIAOS Resource Radar</span><span class="topbar-separator">/</span><span>Mode d'emploi</span></div>
+    <div class="topbar-actions"><a class="button button-secondary" href="./start.html">Commencer</a><a class="button button-secondary" href="./lexique.html">Lexique</a><a class="button button-primary" href="./index.html?fixture=1#radar">Ouvrir le Radar</a></div>
+  </header>
+
+  <main class="human-page">
+    <div class="eyebrow">Guide d'utilisation</div>
+    <h1>Utiliser le Radar sans devenir archiviste de technologies.</h1>
+    <p class="human-intro">Le but n'est pas d'accumuler des favoris. Utilisez le Radar pour réduire progressivement un espace de possibles : besoin → approche → options comparables → preuves → décision.</p>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Le parcours court</div><h2>Si vous n'avez que cinq minutes.</h2></div></div>
+      <div class="flow">
+        <div class="flow-step"><b>01</b><strong>Décrivez le besoin</strong><small>Une capacité attendue, pas un nom d'outil.</small></div>
+        <div class="flow-step"><b>02</b><strong>Choisissez l'approche</strong><small>Comprendre les familles de solutions possibles.</small></div>
+        <div class="flow-step"><b>03</b><strong>Ouvrez un paysage</strong><small>Comparer uniquement des responsabilités similaires.</small></div>
+        <div class="flow-step"><b>04</b><strong>Ouvrez une fiche</strong><small>Rôle, limites, licence, preuves, provenance.</small></div>
+        <div class="flow-step"><b>05</b><strong>Décidez du prochain geste</strong><small>Ignorer, surveiller, tester, comparer ou contextualiser.</small></div>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Cas 1</div><h2>« Je connais déjà le nom d'une solution. »</h2><p>Exemple : Qdrant, LangGraph, vLLM, Docling.</p></div><a class="button button-secondary" href="./index.html?fixture=1#radar">Recherche directe</a></div>
+      <div class="why-grid">
+        <article class="why-card"><h3>Ce qu'il faut lire</h3><p>Nature réelle, rôle architectural, licence, état de preuve, dernière vérification, alternatives comparables et point d'attention principal.</p></article>
+        <article class="why-card"><h3>Ce qu'il ne faut pas conclure</h3><p>Stars, activité GitHub ou présence dans le Radar ne signifient pas « recommandé ». Cherchez le niveau de preuve et le contexte.</p></article>
+      </div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Cas 2</div><h2>« J'ai un problème mais je ne connais pas la solution. »</h2><p>Commencez par la capacité, puis regardez les approches. Exemple : « comprendre des PDF complexes » peut conduire à OCR, parsing structuré, document VLM ou combinaison hybride.</p></div><a class="button button-secondary" href="./index.html?fixture=1#capabilities">Capacités</a></div>
+      <div class="reading-grid">
+        <article class="reading-card"><span class="reading-time">Capacité</span><h3>Ce qu'il faut pouvoir faire</h3><ul><li>décrit le résultat attendu ;</li><li>reste indépendant d'un fournisseur ;</li><li>peut être couvert par plusieurs approches.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Approche</span><h3>La manière de résoudre</h3><ul><li>peut évoluer très vite ;</li><li>change parfois toute l'architecture ;</li><li>doit être comparée avant les produits.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Ressource</span><h3>L'implémentation concrète</h3><ul><li>logiciel, framework, modèle ou service ;</li><li>porte une licence et des contraintes ;</li><li>peut être testée, intégrée ou rejetée.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Cas 3</div><h2>« J'hésite entre plusieurs options. »</h2><p>Avant de comparer des noms, vérifiez qu'ils remplissent réellement le même rôle. Un moteur de workflow durable n'est pas l'équivalent d'un builder low-code ; une base vectorielle n'est pas un framework RAG.</p></div><a class="button button-secondary" href="./index.html?fixture=1#landscapes">Paysages</a></div>
+      <div class="decision-boundary"><strong>Règle simple :</strong><p>si deux solutions ne peuvent pas remplacer la même responsabilité dans votre architecture, elles ne doivent probablement pas être classées dans la même colonne de comparaison.</p></div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Cas 4</div><h2>« Je dois vérifier si une conclusion est solide. »</h2><p>Lisez l'état de preuve avant le classement ou la tendance.</p></div><a class="button button-secondary" href="./lexique.html#preuve">Comprendre les preuves</a></div>
+      <div class="proof-ladder">
+        <div class="proof-row"><span class="pill observed">Observé</span><p>Faits publics vérifiés : dépôt, licence, documentation, release, activité, source officielle.</p><b>Ne vaut pas test</b></div>
+        <div class="proof-row"><span class="pill">Installé</span><p>La ressource a été effectivement installée dans un environnement déclaré.</p><b>Ne vaut pas qualification</b></div>
+        <div class="proof-row"><span class="pill tested">Testé</span><p>Un protocole ou cas d'usage a produit des résultats vérifiables.</p><b>Preuve contextualisée</b></div>
+        <div class="proof-row"><span class="pill qualified">Qualifié</span><p>Les résultats sont suffisamment étayés pour soutenir une recommandation dans un contexte explicite.</p><b>Conclusion datée</b></div>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Cas 5</div><h2>« Je veux tester ou récupérer la ressource. »</h2><p>La vue Acquérir conserve la logique opérationnelle de la V3 : source officielle, résolution d'artefact, téléchargement, miroir, hash, manifeste et bridge local lorsque disponible.</p></div><a class="button button-secondary" href="./index.html?fixture=1#acquire">Acquérir</a></div>
+      <div class="why-grid"><article class="why-card"><h3>Avant le téléchargement</h3><p>Vérifiez licence, version, source, format et compatibilité. Le Radar doit conserver la provenance avec l'artefact.</p></article><article class="why-card"><h3>Après le téléchargement</h3><p>Hash, manifeste, environnement et résultat de test doivent rester rattachés à la ressource pour éviter une qualification sans traçabilité.</p></article></div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Cas 6</div><h2>« Je dois prendre ou défendre une décision professionnelle. »</h2><p>C'est ici que la valeur Expert commence : votre matériel, votre SI, vos compétences, vos contraintes de sécurité, vos coûts et votre trajectoire peuvent inverser le classement général.</p></div><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Voir le Pass Conseil 8 h</a></div>
+      <div class="value-split">
+        <article class="value-card"><span class="value-label">Avant Expert</span><h3 style="margin-top:10px">Vous pouvez déjà établir</h3><ul><li>la nature et le rôle des options ;</li><li>les sources et licences ;</li><li>les différences d'approche ;</li><li>les preuves publiables ;</li><li>les alternatives et limites générales.</li></ul></article>
+        <article class="value-card expert"><span class="value-label">Avec Expert</span><h3 style="margin-top:10px">Le contexte devient un calcul de décision</h3><ul><li>critères pondérés ;</li><li>risques d'intégration et d'exploitation ;</li><li>fit matériel / organisation / gouvernance ;</li><li>architecture et migration ;</li><li>recommandation argumentée et restitution.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Bonnes pratiques</div><h2>Quatre réflexes qui évitent les mauvaises lectures.</h2></div></div>
+      <div class="intent-grid">
+        <article class="intent-card"><span class="intent-index">01</span><h3>Regardez la date</h3><p>Une conclusion technique vieillit. Vérifiez toujours quand elle a été observée ou testée.</p><strong>Fraîcheur avant certitude</strong></article>
+        <article class="intent-card"><span class="intent-index">02</span><h3>Lisez le niveau de preuve</h3><p>« Observé » ne signifie pas « testé ». « Testé » ne signifie pas « adapté à votre contexte ».</p><strong>Preuve avant classement</strong></article>
+        <article class="intent-card"><span class="intent-index">03</span><h3>Comparez les mêmes rôles</h3><p>Les catégories marketing mélangent souvent des responsabilités différentes.</p><strong>Architecture avant logo</strong></article>
+        <article class="intent-card"><span class="intent-index">04</span><h3>Gardez la provenance</h3><p>Source, licence, version, test et décision doivent rester reliés.</p><strong>Traçabilité avant mémoire</strong></article>
+      </div>
+    </section>
+
+    <div class="human-actions"><a class="button button-primary" href="./index.html?fixture=1#radar">Ouvrir le Radar</a><a class="button button-secondary" href="./lexique.html">Consulter le lexique</a><a class="button button-secondary" href="./resource-detail-v2.html">Voir une fiche expliquée</a></div>
+  </main>
+</body>
+</html>
