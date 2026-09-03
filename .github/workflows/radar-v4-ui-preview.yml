@@ -42,7 +42,12 @@ jobs:
           required = [
               root / 'ui' / 'index.html',
               root / 'ui' / 'resource-detail.html',
+              root / 'ui' / 'resource-detail-v2.html',
+              root / 'ui' / 'start.html',
+              root / 'ui' / 'guide.html',
+              root / 'ui' / 'lexique.html',
               root / 'ui' / 'styles.css',
+              root / 'ui' / 'human.css',
               root / 'ui' / 'app.js',
               root / 'ui' / 'fixtures' / 'radar-public.demo.json',
               root / 'projections' / 'radar-public.json',
@@ -58,13 +63,20 @@ jobs:
           assert isinstance(fixture.get('items'), list)
           assert isinstance(projection.get('items'), list)
 
-          html = (root / 'ui' / 'index.html').read_text(encoding='utf-8')
-          for marker in ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir']:
-              assert marker in html, f'missing UI marker: {marker}'
-          detail = (root / 'ui' / 'resource-detail.html').read_text(encoding='utf-8')
-          for marker in ['État de preuve', 'Retenir, écarter, comparer', 'Evidence', 'Provenance']:
-              assert marker in detail, f'missing detail marker: {marker}'
-          print('Radar V4 UI assets OK')
+          checks = {
+              root / 'ui' / 'index.html': ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir'],
+              root / 'ui' / 'resource-detail.html': ['État de preuve', 'Retenir, écarter, comparer', 'Evidence', 'Provenance'],
+              root / 'ui' / 'start.html': ['Point d\'entrée humain', 'Le gratuit explique', 'Du besoin à la décision'],
+              root / 'ui' / 'guide.html': ['Mode d\'emploi', 'Je connais déjà le nom', 'Je dois prendre ou défendre une décision'],
+              root / 'ui' / 'lexique.html': ['Capacité', 'Approche', 'Adéquation / fit', 'Source available', 'Projection publique'],
+              root / 'ui' / 'resource-detail-v2.html': ['En 30 secondes', 'Ce que c\'est / ce que ce n\'est pas', 'Preuves', 'Frontière Expert'],
+          }
+          for path, markers in checks.items():
+              html = path.read_text(encoding='utf-8')
+              for marker in markers:
+                  assert marker in html, f'missing marker {marker!r} in {path}'
+
+          print('Radar V4 human UX assets OK')
           PY
 
       - name: Start static preview server
@@ -92,6 +104,12 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/04-radar-mobile.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/05-resource-detail-desktop.png
           npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/06-resource-detail-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/07-start-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/08-start-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/09-guide-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/10-lexique-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/11-resource-explained-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/12-resource-explained-mobile.png
 
       - name: Copy reviewable static preview
         run: |
