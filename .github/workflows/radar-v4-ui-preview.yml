@@ -68,7 +68,7 @@ jobs:
 
           checks = {
               root / 'ui' / 'index.html': ['Resource Radar', 'Capacités', 'Hyperveille', 'Comparateur', 'Acquérir'],
-              root / 'ui' / 'resource.html': ['En 30 secondes', 'Explicabilité Free', 'Ce qui est vérifié', 'Relations publiées', 'Frontière Expert'],
+              root / 'ui' / 'resource.html': ['En 30 secondes', 'Explication publique', 'Ce qui est vérifié', 'Relations publiées', 'Espace Expert'],
               root / 'ui' / 'resource.js': ['public_explanation', 'expert_available', 'known_gaps', 'competes_with', 'Aucun élément Expert'],
               root / 'ui' / 'start.html': ['Point d\'entrée humain', 'Le gratuit explique', 'Du besoin à la décision'],
               root / 'ui' / 'guide.html': ['Mode d\'emploi', 'Je connais déjà le nom', 'Je dois prendre ou défendre une décision'],
