@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/observation.schema.json",
+  "title": "SIIAOS Observation",
+  "type": "object",
+  "required": ["id", "subject_id", "kind", "observed_at", "source", "visibility"],
+  "properties": {
+    "id": {"type": "string", "minLength": 3},
+    "subject_id": {"type": "string", "minLength": 3},
+    "kind": {
+      "type": "string",
+      "enum": [
+        "metadata", "lineage", "license", "security", "benchmark", "runtime", "hardware",
+        "dataset", "scientific", "trend", "availability", "compatibility", "manual_review"
+      ]
+    },
+    "observed_at": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "required": ["name", "method"],
+      "properties": {
+        "name": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "method": {
+          "type": "string",
+          "enum": ["api", "feed", "crawl", "import", "scan", "execution", "benchmark", "manual"]
+        },
+        "adapter": {"type": "string"},
+        "adapter_version": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "claim": {"type": "string"},
+    "value": {},
+    "confidence": {
+      "oneOf": [
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"type": "string", "enum": ["low", "medium", "high", "verified"]}
+      ]
+    },
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "raw_ref": {"type": "string"},
+    "visibility": {
+      "type": "string",
+      "enum": ["local_private", "local_shared", "public_technical", "public_editorial", "client_specific", "never_publish"]
+    },
+    "expires_at": {"type": "string", "format": "date-time"},
+    "supersedes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
