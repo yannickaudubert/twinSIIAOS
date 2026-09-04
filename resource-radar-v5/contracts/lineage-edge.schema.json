@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/lineage-edge.schema.json",
+  "title": "SIIAOS Lineage Edge",
+  "type": "object",
+  "required": ["id", "from", "to", "relation", "provenance", "visibility"],
+  "properties": {
+    "id": {"type": "string", "minLength": 3},
+    "from": {"type": "string", "minLength": 3},
+    "to": {"type": "string", "minLength": 3},
+    "relation": {
+      "type": "string",
+      "enum": [
+        "derived_from", "finetuned_from", "adapter_of", "merged_from", "distilled_from",
+        "quantized_from", "converted_from", "trained_on", "evaluated_on", "implemented_by",
+        "depends_on", "contains", "produces", "consumes", "cites", "archived_as",
+        "signed_by", "attested_by", "observed_running_on", "replaces", "competes_with",
+        "enables", "related_to"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source", "observed_at", "method", "confidence"],
+      "properties": {
+        "source": {"type": "string"},
+        "source_url": {"type": "string", "format": "uri"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "method": {
+          "type": "string",
+          "enum": ["declared", "imported", "inferred", "scanned", "executed", "benchmarked", "manually_verified"]
+        },
+        "confidence": {
+          "oneOf": [
+            {"type": "number", "minimum": 0, "maximum": 1},
+            {"type": "string", "enum": ["low", "medium", "high", "verified"]}
+          ]
+        },
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "raw_ref": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["local_private", "local_shared", "public_technical", "public_editorial", "client_specific", "never_publish"]
+    },
+    "properties": {"type": "object", "additionalProperties": true},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}
