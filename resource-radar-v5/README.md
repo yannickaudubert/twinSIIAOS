@@ -1,141 +1,216 @@
-# SIIAOS Resource Radar V4 — convergence
+# SIIAOS Resource Radar V5 — graph, lineage et supply-chain
 
-Cette branche prépare la convergence entre :
+V5 part de la V4 de convergence et conserve ses principes : **SandY / SIIAOS local reste la source de verite**, les surfaces publiques ne publient que des projections explicitement autorisees.
 
-- **SandY / SIIAOS local** : source de vérité riche, qualification, benchmark, preuves, exécution et historique ;
-- **SIIAOS Resource Radar public** : surface technique vivante, hyperveille, recherche multi-sources, challengers et ressources exploitables ;
-- **site consultant Yannick Audubert** : projection décisionnelle et éditoriale pour dirigeants, DSI et consultants.
+V5 ajoute une couche manquante : le Radar ne traite plus les ressources comme une liste d'objets independants. Il les represente comme un **graphe vivant de provenance, filiation, dependances, preuves, execution et usages**.
 
-## Principe directeur
+## Branche de travail et regle de publication
 
-Les deux sites publics ne maintiennent pas leur propre vérité. Ils consomment des **projections** d'un référentiel canonique SIIAOS.
+Branche de chantier :
+
+`radar-v5-graph-convergence`
+
+Regle :
 
 ```text
-Sources externes
-    ↓
-Hyperveille
-    ↓
-Signals / observations
-    ↓
-SIIAOS Radar Core sur SandY
-    ├─ registry
-    ├─ knowledge graph
-    ├─ capability graph
-    ├─ gaps
-    ├─ fit assessments
-    ├─ benchmarks
-    ├─ evidence
-    └─ decisions
-    ↓
+V4 convergence figee
+        |
+        v
+V5 travail Git uniquement
+        |
+        +--> contrats / schemas
+        +--> adapters / ingestion
+        +--> tests / audits
+        +--> UI / captures GitHub Actions
+        |
+        v
+candidate V5 complete
+        |
+        v
+UN SEUL preview Vercel de recette
+        |
+        +--> validation
+        |
+        v
+convergence site consultant + site SIIAOS
+```
+
+Aucun commit de chantier V5 ne doit etre pousse vers le site consultant ni servir de publication publique. Vercel reste un **gate de recette**, pas l'environnement de developpement.
+
+## Principe directeur V5
+
+Chaque fait du Radar doit pouvoir repondre a cinq questions :
+
+1. **Quoi ?** — quelle ressource, version ou capacite ?
+2. **D'ou ?** — quelle source et quelle genealogie ?
+3. **Pourquoi le croire ?** — quelle preuve, observation ou methode ?
+4. **Dans quel contexte ?** — quel runtime, materiel, workload, client ou contrainte ?
+5. **Peut-on le publier ?** — quelle visibilite et quelle projection ?
+
+Une relation n'est jamais une verite nue. Elle porte au minimum :
+
+- `source` ;
+- `observed_at` ;
+- `confidence` ;
+- `method` ;
+- `evidence_ids` ;
+- `visibility`.
+
+Cela permet de distinguer une relation declaree par un auteur, inferee automatiquement, importee d'un standard, observee en execution ou verifiee localement sur SandY.
+
+## Graphe canonique
+
+```text
+External sources
+   |
+   +-- Hugging Face / Genmod
+   +-- GitHub / ecosyste.ms / deps.dev
+   +-- SPDX / CycloneDX
+   +-- Croissant
+   +-- OpenLineage
+   +-- OpenAlex / Software Heritage
+   +-- OSV / OpenSSF
+   +-- Sigstore / provenance
+   |
+   v
+Observations + Evidence
+   |
+   v
+SIIAOS Canonical Graph
+   |
+   +-- Resource nodes
+   +-- Lineage edges
+   +-- Dependency edges
+   +-- Dataset / training edges
+   +-- Scientific links
+   +-- Security / license signals
+   +-- Runtime observations
+   +-- Benchmarks / fit / decisions
+   |
+   v
 Publication Gate
-    ├─ projection radar-public
-    └─ projection consultant-site
+   +-- radar-public
+   +-- consultant-site
+   +-- local-only
 ```
 
-## Shell V4 maintenant versionné
+## Model Lineage Passport
 
-Le premier rendu professionnel est dans `resource-radar-v4/ui/`.
+Pour les modeles IA, V5 construit un passeport compose au minimum de :
 
-Il ne remplace pas encore la V3 déployée. Il sert à faire évoluer l'interface sous Git sans consommer un déploiement Vercel à chaque commit.
+- identite, revision, hash, auteur et organisation ;
+- famille et modele racine ;
+- relations `finetune`, `adapter`, `merge`, `distillation`, `quantization`, `conversion` ;
+- datasets declares ou detectes ;
+- licences modele / donnees / code ;
+- formats et runtimes ;
+- exigences RAM / VRAM / CPU / GPU / NPU lorsqu'elles sont prouvees ;
+- benchmarks publics et benchmarks SandY clairement separes ;
+- signaux de securite et de supply-chain ;
+- niveau d'ouverture : open source, open weights, source available, autre ;
+- preuves et niveau de confiance de chaque relation ;
+- fit par contexte SIIAOS.
 
-Vues déjà présentes :
+## Standards et sources a federer
 
-- Radar ;
-- Capacités ;
-- Approches ;
-- Paysages ;
-- Hyperveille ;
-- Acquérir ;
-- Méthode ;
-- teasers Expert : Fit, Comparateur, Evidence, Architecture, Décisions.
+V5 prevoit des adapters, sans rendre le coeur dependant d'un fournisseur :
 
-La direction visuelle est volontairement sobre : fond clair, navigation produit B2B, tables, états de preuve, timelines et cartes décisionnelles. La V4 ne reprend pas la DA cyberpunk/néon de la V3.
+- CNIL Genmod : genealogie modeles / datasets ;
+- Hugging Face metadata et model cards ;
+- SPDX 3.x AI/Dataset profiles ;
+- CycloneDX AI/ML-BOM ;
+- Croissant pour la provenance des datasets ;
+- OpenLineage pour les executions et transformations reelles ;
+- MLflow pour nos runs, benchmarks et versions locales ;
+- ecosyste.ms et deps.dev pour le graphe OSS ;
+- OSV et OpenSSF Scorecard pour securite / hygiene projet ;
+- Software Heritage pour les identifiants sources persistants ;
+- OpenAlex pour la filiation scientifique ;
+- Sigstore / attestations pour la provenance verifiable.
 
-### Projection réelle et fixture de revue
+Les adapters sont **remplacables**. Le schema canonique SIIAOS est la frontiere stable.
 
-L'interface lit par défaut :
+## Contrats V5
 
-`projections/radar-public.json`
+V5 conserve les contrats V4 et introduit :
 
-Ce fichier est initialement vide. L'absence de données reste une absence de données : le shell n'invente pas de qualification.
+- `contracts/lineage-edge.schema.json` — relation graphe avec provenance et preuve ;
+- `contracts/observation.schema.json` — observation horodatee issue d'une source ou d'un test ;
+- `ARCHITECTURE-DECISION-002-lineage-supply-chain-graph.md` — architecture et regles de federation.
 
-Pour les seules captures de revue, `?fixture=1` charge :
+Le schema `resource-record.schema.json` reste le contrat du noeud. Les relations complexes sortent du noeud et deviennent des objets de premier rang afin d'eviter un JSON monolithique impossible a auditer.
 
-`ui/fixtures/radar-public.demo.json`
+## Vues produit V5
 
-La fixture porte explicitement `fixture: true` et une notice de non-publication. Elle sert à vérifier densité, états, responsive et navigation ; elle ne vaut ni benchmark ni qualification SandY.
+V5 conserve les vues V4 et ajoute progressivement :
 
-## Aperçu visuel sans Vercel
+- **Genealogie** : parents, descendants et transformations ;
+- **Supply-chain** : code, packages, modeles, datasets, artefacts et attestations ;
+- **Evidence graph** : pourquoi une affirmation est affichee ;
+- **Openness** : niveau d'ouverture et contraintes de licence ;
+- **Security posture** : vulnerabilites, hygiene, provenance et alertes ;
+- **Scientific lineage** : papiers, auteurs, citations et implementations ;
+- **Runtime reality** : ce qui a reellement ete installe, execute et mesure localement ;
+- **Impact / remplacement** : dependances et composants qu'une nouvelle ressource peut remplacer ou simplifier.
 
-Le workflow `.github/workflows/radar-v4-ui-preview.yml` construit un aperçu **uniquement dans GitHub Actions** :
+## Phases de chantier
 
-1. valide les fichiers UI et les deux projections JSON ;
-2. lance un serveur HTTP temporaire dans le runner ;
-3. installe Chromium via Playwright ;
-4. capture Radar desktop, Paysages, Expert Fit et mobile ;
-5. publie les PNG et le site statique comme artifact GitHub pendant 14 jours.
+### V5.0 — baseline
 
-Cela devient le cycle normal de chantier :
+- copie immuable de la V4 dans `resource-radar-v5/` ;
+- branche dediee ;
+- aucune publication Vercel.
 
-```text
-commit Git
-   ↓
-Radar V4 CI + UI Preview
-   ↓
-artifacts / captures GitHub
-   ↓
-revue
-   ↓
-plusieurs itérations Git
-   ↓
-checkpoint montrable
-   ↓
-preview Vercel ponctuel seulement
-```
+### V5.1 — contrats graphe
 
-Vercel reste donc une recette/publication, pas un compilateur déclenché à chaque modification.
+- edge + observation ;
+- identifiants canoniques ;
+- provenance, preuve, confiance et visibilite ;
+- compatibilite ascendante avec les projections V4.
 
-## Ce que V4 ajoute à la V3
+### V5.2 — ingestion
 
-La V3 sait déjà rechercher des sources live, résoudre des artefacts, constituer une file de mirroring et envoyer des téléchargements vers un bridge local sécurisé.
+- adapters externes ;
+- normalisation ;
+- deduplication ;
+- conservation de la source brute et de la date d'observation.
 
-V4 garde ces fonctions et ajoute la **qualification architecturale** :
+### V5.3 — materialisation locale
 
-- Capability / Approach / System / Model / Agent / Runtime / Source / Signal / Gap / Benchmark / Evidence / Decision / Workload ;
-- états `observed`, `installed`, `tested`, `qualified`, `target`, `candidate`, `deprecated` ;
-- positions `champion`, `challenger`, `candidate`, `experimental`, `retired` ;
-- fit SIIAOS et fit par contexte ;
-- gaps connus et contournements ;
-- liens de preuve ;
-- blast radius architectural ;
-- trajectoire et dynamique d'un projet, pas seulement sa popularité absolue ;
-- publication différenciée entre local, Radar public et site consultant.
+- graphe local interrogeable ;
+- stockage des preuves ;
+- raccordement aux benchmarks et runs SandY ;
+- aucune dependance obligatoire au cloud.
 
-## Contrats
+### V5.4 — experience Radar
 
-Le contrat canonique minimal est décrit dans :
+- vues genealogie / supply-chain / preuves ;
+- parcours humain simple avant profondeur experte ;
+- export de passeports et BOM.
 
-- `contracts/resource-record.schema.json`
-- `contracts/publication-projection.md`
-- `local/SANDY-WORKPLAN.md`
+### V5.5 — qualification et recette
 
-Le read model du shell est :
+- tests de schemas ;
+- audits humains / UX ;
+- tests des projections ;
+- verification qu'aucune donnee locale protegee ne fuit dans les projections publiques.
 
-- `projections/radar-public.json` — `siiaos.radar-public.v1`.
+### V5.6 — release candidate
 
-## Règle de souveraineté
+Une fois seulement la V5 complete et verte :
 
-Le local reste maître. Vercel est une surface de publication, jamais la base de connaissance interne. Une indisponibilité du Radar public ou du site consultant ne doit pas interrompre Hyperveille, la qualification ou l'exécution locale.
+1. gel du commit candidat ;
+2. generation des artefacts GitHub ;
+3. preview Vercel ponctuel ;
+4. recette fonctionnelle et visuelle ;
+5. convergence avec `yannickaudubert/site` et la future surface SIIAOS ;
+6. promotion uniquement apres validation.
 
-## Réutilisation
+## Invariants
 
-Ne pas réécrire la V3. Les fonctions actuelles doivent être reprises comme modules :
-
-1. recherche live multi-sources ;
-2. résolution d'artefacts ;
-3. file miroir ;
-4. génération multi-OS ;
-5. bridge local ;
-6. hash et manifeste.
-
-V4 enrichit ces fonctions avec le référentiel, les évaluations et les projections.
+- **local-first** : SandY continue de fonctionner sans Vercel ;
+- **evidence-first** : une inference reste une inference ;
+- **no fake data** : les fixtures ne deviennent jamais des preuves ;
+- **projection-first** : les sites publics ne lisent pas la base locale brute ;
+- **standards-aware, vendor-neutral** : on ingere les standards sans leur abandonner notre modele ;
+- **version before deploy** : Git est la memoire du chantier, Vercel uniquement la recette finale.
