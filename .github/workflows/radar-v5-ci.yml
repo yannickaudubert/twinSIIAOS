@@ -1,0 +1,101 @@
+name: Radar V5 CI
+
+on:
+  pull_request:
+    paths:
+      - "resource-radar-v5/**"
+      - ".github/workflows/radar-v5-ci.yml"
+  push:
+    branches:
+      - radar-v5-graph-convergence
+      - radar-v5-saas-augmentation
+    paths:
+      - "resource-radar-v5/**"
+      - ".github/workflows/radar-v5-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Python
+        run: python -m compileall -q resource-radar-v5/local
+      - name: Run V5 unit tests
+        run: |
+          python -m unittest discover -s resource-radar-v5/local/userscripts -p "test_*.py" -v
+          python -m unittest discover -s resource-radar-v5/local/saas -p "test_*.py" -v
+      - name: Parse JSON contracts and policies
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = list(Path('resource-radar-v5/contracts').glob('*.json')) + list(Path('resource-radar-v5/local').glob('*.json')) + list(Path('resource-radar-v5/projections').glob('*.json'))
+          for path in paths:
+              json.loads(path.read_text(encoding='utf-8'))
+              print('OK', path)
+          PY
+      - name: Verify augmentation graph vocabulary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          schema=json.loads(Path('resource-radar-v5/contracts/lineage-edge.schema.json').read_text())
+          relations=set(schema['properties']['relation']['enum'])
+          expected={'augments','interfaces_with','mirrors','backs_up','exports_to','migrates_to'}
+          missing=expected-relations
+          assert not missing, f'missing augmentation relations: {sorted(missing)}'
+          print('augmentation graph relations OK')
+          PY
+      - name: Smoke-test userscript gate and publication boundary
+        run: |
+          cat > /tmp/safe.user.js <<'JS'
+          // ==UserScript==
+          // @name Safe helper
+          // @namespace ci
+          // @version 1
+          // @match https://chatgpt.com/*
+          // @grant none
+          // ==/UserScript==
+          console.log('safe');
+          JS
+          python resource-radar-v5/local/userscripts/normalize_userscript.py /tmp/safe.user.js --target-resource platform:saas:chatgpt --source-catalog ci --out /tmp/normalized.json
+          python - <<'PY'
+          import json
+          d=json.load(open('/tmp/normalized.json'))
+          assert d['resource']['augmentation']['risk_level']=='low'
+          assert d['edge']['relation']=='augments'
+          assert d['observation']['kind']=='security'
+          assert d['resource']['publication']['radar_public'] is False
+          assert d['resource']['publication']['consultant_site'] is False
+          print('userscript security and publication boundary OK')
+          PY
+      - name: Smoke-test Free Expert projection boundary
+        run: |
+          mkdir -p /tmp/siiaos-registry/resources /tmp/siiaos-projections
+          cat > /tmp/siiaos-registry/resources/example.json <<'JSON'
+          {
+            "id":"platform:saas:example",
+            "projection_keys":{"radar_slug":"example"},
+            "kind":"platform",
+            "title":"Example",
+            "capabilities":["test"],
+            "state":"observed",
+            "control_profile":{"ownership_model":"proprietary_saas","strategies":["augment"],"scores":{"augmentability":90,"reversibility":40,"governance":80,"siiaos_control":66,"lock_in":60}},
+            "publication":{"local":true,"radar_public":true,"consultant_site":false}
+          }
+          JSON
+          python resource-radar-v5/local/export_projections.py --registry /tmp/siiaos-registry --out /tmp/siiaos-projections
+          python - <<'PY'
+          import json
+          r=json.load(open('/tmp/siiaos-projections/radar-public.json'))
+          assert len(r['items'])==1
+          assert 'control_profile' not in r['items'][0], 'local control profile leaked into public projection'
+          assert 'augmentation' not in r['items'][0], 'augmentation metadata leaked into public projection'
+          print('Free/Expert and local control boundary OK')
+          PY
