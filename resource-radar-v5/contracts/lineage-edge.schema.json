@@ -15,7 +15,8 @@
         "quantized_from", "converted_from", "trained_on", "evaluated_on", "implemented_by",
         "depends_on", "contains", "produces", "consumes", "cites", "archived_as",
         "signed_by", "attested_by", "observed_running_on", "replaces", "competes_with",
-        "enables", "related_to"
+        "enables", "augments", "interfaces_with", "mirrors", "backs_up", "exports_to",
+        "migrates_to", "related_to"
       ]
     },
     "provenance": {
