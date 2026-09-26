@@ -13,7 +13,11 @@ Surface de convergence et d'expérimentation autour du SIIAOS.
 5. [Runbook de finalisation locale SandY](docs/LOCAL_FINALIZATION_RUNBOOK.md)
 6. [Matrice d'acceptation locale](docs/LOCAL_ACCEPTANCE_MATRIX.md)
 7. [Index de capitalisation des sources](docs/SOURCE_CAPITALIZATION_INDEX.md)
-8. [Contrat documentaire d'intégration](docs/BRICK_INTEGRATION_CONTRACT.md)
+8. [Standard de reprise humaine](docs/HUMAN_TAKEOVER_STANDARD.md)
+9. [Guide par langage et type de fichier](docs/LANGUAGE_AND_FILE_DOCUMENTATION_GUIDE.md)
+10. [Politique IA de documentation du code](docs/AI_CODE_DOCUMENTATION_POLICY.md)
+11. [Modèle FILE_INDEX](docs/FILE_INDEX_TEMPLATE.md)
+12. [Contrat documentaire d'intégration](docs/BRICK_INTEGRATION_CONTRACT.md)
 
 ## Règle de reprise
 
