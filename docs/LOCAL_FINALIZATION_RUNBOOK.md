@@ -41,7 +41,8 @@ Capturer :
 - bases ;
 - endpoints locaux ;
 - interfaces accessibles ;
-- tâches/services de démarrage.
+- tâches/services de démarrage ;
+- junctions, symlinks et reparse points dans les racines inventoriées, sans les suivre hors périmètre.
 
 Artefacts attendus :
 
@@ -284,6 +285,8 @@ Tester réellement :
 - lecture toujours disponible si policy le permet ;
 - réarmement humain ;
 - motif de réarmement ;
+- aucun export, publication ou action externe pendant STOP ;
+- aucun harness/provider ne contourne STOP ;
 - trace Evidence.
 
 ## 11. Phase J — Golden Mission
@@ -315,6 +318,8 @@ Critère : aucun passage ne dépend d'une donnée cachée uniquement dans la con
 Le test doit vérifier au minimum :
 
 - provider sélectionné ;
+- classe de données d'entrée et classe effective ;
+- preuve d'absence de downgrade silencieux ;
 - endpoint ;
 - DNS ;
 - connexions sortantes du runtime ;
