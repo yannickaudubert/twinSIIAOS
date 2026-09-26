@@ -36,6 +36,16 @@ Les documents historiques sont des sources de capitalisation. Ils ne prennent pa
 
 Les anciennes topologies où ARAGORN est présenté comme hub principal ou où Forgejo est la forge active doivent être considérées comme historiques jusqu'à preuve contraire.
 
+## 2.1. Registre de supersession topologique
+
+Des décisions contradictoires ont existé dans les échanges de septembre. Elles doivent être conservées comme historique, pas comme vérités concurrentes.
+
+- 22 septembre : plusieurs échanges avaient repositionné ARAGORN comme canon/hub et SandY comme compute distant.
+- 23 septembre : la topologie a été reconsolidée avec SandY comme nœud principal local et ARAGORN comme second nœud.
+- 25 septembre : cette topologie a été confirmée comme canon courant : **SandY principal ; ARAGORN secondaire/recovery/canary/rollback**.
+
+La règle active est donc la topologie du 25 septembre. Toute instruction antérieure qui inverse ces rôles est `SUPERSEDED`.
+
 ## 3. Vérité d'implémentation
 
 Toujours distinguer deux axes.
@@ -116,6 +126,20 @@ Ce document est une preuve documentaire d'un câblage antérieur ; l'état actue
 
 Hermes est traité comme un opérateur / fournisseur de capacité agentique remplaçable. Les profils, skills, MCP, sous-agents, budgets, STOP et preuves ont déjà été largement décrits. La version réellement installée, les capacités réellement actives et les bindings actuels restent à inventorier avant promotion.
 
+## 5.1. Non-objectifs de la reprise locale
+
+La phase de finalisation ne doit pas introduire par défaut :
+
+- un nouvel orchestrateur ;
+- Kubernetes ;
+- un dixième Atlas ;
+- un nouveau canon ;
+- un nouveau dépôt d'autorité ;
+- une nouvelle mémoire globale ;
+- une nouvelle couche logicielle portant le nom d'une machine.
+
+Toute nouvelle brique reste `DISCOVERY/LAB` tant qu'elle ne résout pas un besoin non couvert et ne passe pas la chaîne d'admission.
+
 ## 6. Ce qui ne doit plus être redéfini
 
 Les cadres suivants sont suffisamment stabilisés pour guider la conception locale :
@@ -155,7 +179,11 @@ Les sujets suivants ne demandent pas une nouvelle architecture générale ; ils 
 11. contrat générique MCP / browser / computer-use et sandbox ;
 12. gate licence/SBOM/redistribution ;
 13. paramètres runtime exacts de SandY et modèles effectivement disponibles ;
-14. tests Golden Journey réellement exécutables.
+14. tests Golden Journey réellement exécutables ;
+15. refus de tout downgrade silencieux de classification (par exemple `CONFIDENTIAL -> INTERNAL`) ;
+16. preuve qu'un STOP bloque également les exports/actions externes ;
+17. protection des collecteurs/preflights contre l'évasion via symlink/junction/reparse point ;
+18. Cognitive ABI / ResultEnvelope commun lorsque plusieurs engines cognitifs deviennent mobilisables.
 
 ## 8. Principe de reprise
 
