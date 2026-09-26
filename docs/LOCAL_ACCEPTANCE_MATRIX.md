@@ -27,6 +27,8 @@ Aucun critère n'est `PASS` sans Evidence datée.
 | F1-06 | Inventaire MCP | noms/transports/cibles expurgées | MCPRegistry |
 | F1-07 | Secrets | présence/ref uniquement | SecretReference report |
 | F1-08 | Aucune mutation | préflight read-only | audit du script |
+| F1-09 | Reparse/junction/symlink escape | aucun parcours hors racines autorisées | rapport preflight |
+| F1-10 | Truth freshness | toute observation porte date/TTL | EvidenceIndex |
 
 ## F1B — Briques admissibles
 
@@ -54,6 +56,8 @@ Aucun critère n'est `PASS` sans Evidence datée.
 | F2-07 | Local indisponible | aucun fallback cloud silencieux |
 | F2-08 | Non-egress | aucune connexion interdite pendant run sensible |
 | F2-09 | Provider/model | enregistrés dans OperationRecord/Evidence |
+| F2-10 | Classification downgrade | aucun `CONFIDENTIAL -> INTERNAL` silencieux |
+| F2-11 | Policy decision log | chaque autorisation/refus est relié à une décision |
 
 ## F2A — Autorité et permissions
 
@@ -92,6 +96,8 @@ Aucun critère n'est `PASS` sans Evidence datée.
 | F3A-06 | STOP reboot | persiste |
 | F3A-07 | Rearm | validation humaine + motif |
 | F3A-08 | OperationRecord | créé pour chaque action structurante |
+| F3A-09 | STOP export | aucun export/action externe après STOP |
+| F3A-10 | STOP bypass | aucun provider/harness ne contourne STOP |
 
 ## F3B — MCP / Tools
 
@@ -150,6 +156,8 @@ Aucun critère n'est `PASS` sans Evidence datée.
 | F6-06 | Errors/retries | observables |
 | F6-07 | Redaction | données sensibles non exposées |
 | F6-08 | Evidence != telemetry | distinction maintenue |
+| F6-09 | Authority trace | principal/tenant/mandate/toolgrant/policy corrélables |
+| F6-10 | Classification trace | classe d'entrée et classe effective identiques sauf décision explicite |
 
 ## F7 — ARAGORN canary
 
