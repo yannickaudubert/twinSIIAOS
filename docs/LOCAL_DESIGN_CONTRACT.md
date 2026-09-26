@@ -202,6 +202,29 @@ Règle fail-closed :
 
 Le modèle actif est découvert au runtime. Aucun nom historique de modèle ne doit devenir une constante canonique.
 
+## 7.1 Cognitive ABI
+
+Lorsque plusieurs modèles, runtimes ou engines cognitifs deviennent mobilisables, ils doivent rester séparés conceptuellement :
+
+`MODEL != RUNTIME != ENGINE != PRIMITIVE != AGENT != TOOL != CAPABILITY`
+
+Le contrat commun doit transporter au minimum :
+
+- identity/version du provider ;
+- capability invoquée ;
+- input refs ;
+- output refs ;
+- incertitude/calibration si disponible ;
+- abstention ;
+- OOD ou limitations observées ;
+- déterminisme/reproductibilité ;
+- ordre/sensibilité si pertinent ;
+- Evidence refs ;
+- coût/ressource ;
+- policy decision.
+
+Une confidence élevée ne crée jamais une autorisation.
+
 ## 8. Mémoire et contexte
 
 ### 8.1 Séparation obligatoire
@@ -522,6 +545,21 @@ Trois profondeurs :
 - Inspection.
 
 Une interface qui affiche une capacité non prouvée doit afficher son truth status au lieu de simuler une opérationnalité.
+
+## 22.1 Non-empilement
+
+La finalisation locale part de l'existant.
+
+Par défaut, ne pas ajouter :
+
+- Kubernetes ;
+- un nouvel orchestrateur ;
+- un nouveau bus ;
+- une nouvelle base globale ;
+- un nouvel Atlas ;
+- une nouvelle interface autoritaire.
+
+Une brique supplémentaire n'est admissible que si un besoin non couvert, une expérience bornée et une preuve justifient son coût de dépendance.
 
 ## 23. Définition de conception suffisamment fermée
 
