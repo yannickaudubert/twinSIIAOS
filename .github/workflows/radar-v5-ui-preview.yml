@@ -90,7 +90,7 @@ jobs:
               for marker in markers:
                   assert marker in text, f'missing marker {marker!r} in {path}'
 
-          print('Radar V4 human UX assets OK')
+          print('Radar V5 human UX assets OK')
           PY
 
       - name: Audit human usability and public boundary
@@ -98,49 +98,56 @@ jobs:
 
       - name: Start static preview server
         run: |
-          python -m http.server 4173 --directory resource-radar-v5 > /tmp/radar-v4-http.log 2>&1 &
-          echo $! > /tmp/radar-v4-http.pid
+          python -m http.server 4173 --directory resource-radar-v5 > /tmp/radar-v5-http.log 2>&1 &
+          echo $! > /tmp/radar-v5-http.pid
           for i in $(seq 1 20); do
             if curl -fsS http://127.0.0.1:4173/ui/ > /dev/null; then
               exit 0
             fi
             sleep 0.5
           done
-          cat /tmp/radar-v4-http.log
+          cat /tmp/radar-v5-http.log
           exit 1
 
       - name: Install Chromium for visual review
         run: npx --yes playwright@1.55.0 install --with-deps chromium
 
+      - name: Run simulated user journeys
+        env:
+          RADAR_BASE_URL: http://127.0.0.1:4173/ui/
+        run: npx --yes @playwright/test@1.55.0 test resource-radar-v5/ui/tests/user-journeys.spec.js --workers=1 --reporter=line
+
       - name: Capture desktop and mobile views
         run: |
-          mkdir -p artifacts/radar-v4-ui
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=1000 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/01-radar-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#landscapes" artifacts/radar-v4-ui/02-landscapes-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,900" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#expert-fit" artifacts/radar-v4-ui/03-expert-fit-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v4-ui/04-radar-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/05-resource-detail-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v4-ui/06-resource-detail-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/07-start-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v4-ui/08-start-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/09-guide-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/10-lexique-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/11-resource-explained-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v4-ui/12-resource-explained-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1400" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/13-resource-live-desktop.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v4-ui/14-resource-live-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v4-ui/15-guide-mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v4-ui/16-lexique-mobile.png
+          mkdir -p artifacts/radar-v5-ui
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=1000 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v5-ui/01-radar-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#execution" artifacts/radar-v5-ui/01b-execution-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#execution" artifacts/radar-v5-ui/01c-execution-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#landscapes" artifacts/radar-v5-ui/02-landscapes-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,900" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#expert-fit" artifacts/radar-v5-ui/03-expert-fit-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/?fixture=1#radar" artifacts/radar-v5-ui/04-radar-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v5-ui/05-resource-detail-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=700 "http://127.0.0.1:4173/ui/resource-detail.html" artifacts/radar-v5-ui/06-resource-detail-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v5-ui/07-start-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/start.html" artifacts/radar-v5-ui/08-start-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v5-ui/09-guide-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1100" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v5-ui/10-lexique-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1200" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v5-ui/11-resource-explained-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/resource-detail-v2.html" artifacts/radar-v5-ui/12-resource-explained-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="1440,1400" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v5-ui/13-resource-live-desktop.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=900 "http://127.0.0.1:4173/ui/resource.html?fixture=1&id=db-qdrant" artifacts/radar-v5-ui/14-resource-live-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/guide.html" artifacts/radar-v5-ui/15-guide-mobile.png
+          npx --yes playwright@1.55.0 screenshot --browser=chromium --viewport-size="390,844" --full-page --wait-for-timeout=500 "http://127.0.0.1:4173/ui/lexique.html" artifacts/radar-v5-ui/16-lexique-mobile.png
 
       - name: Copy reviewable static preview
         run: |
-          mkdir -p artifacts/radar-v4-ui/site
-          cp -R resource-radar-v5/ui/. artifacts/radar-v4-ui/site/
-          mkdir -p artifacts/radar-v4-ui/projections
-          cp resource-radar-v5/projections/radar-public.json artifacts/radar-v4-ui/projections/radar-public.json
+          mkdir -p artifacts/radar-v5-ui/site
+          cp -R resource-radar-v5/ui/. artifacts/radar-v5-ui/site/
+          mkdir -p artifacts/radar-v5-ui/projections
+          cp resource-radar-v5/projections/radar-public.json artifacts/radar-v5-ui/projections/radar-public.json
 
       - uses: actions/upload-artifact@v4
         with:
-          name: radar-v4-ui-preview-${{ github.sha }}
-          path: artifacts/radar-v4-ui
+          name: radar-v5-ui-preview-${{ github.sha }}
+          path: artifacts/radar-v5-ui
           retention-days: 14
