@@ -40,6 +40,36 @@ jobs:
               json.loads(path.read_text(encoding='utf-8'))
               print('OK', path)
           PY
+      - name: Verify V5 execution decision contracts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('resource-radar-v5/contracts')
+          required = {
+              'execution-estate.schema.json',
+              'execution-profile.schema.json',
+              'workload.schema.json',
+              'execution-plan.schema.json',
+          }
+          present = {p.name for p in root.glob('*.json')}
+          missing = required - present
+          assert not missing, f'missing execution contracts: {sorted(missing)}'
+
+          estate = json.loads((root / 'execution-estate.schema.json').read_text())
+          assert {'incremental_budget_eur','local_first','external_provider_dependency_allowed'} <= set(estate['properties']['policy']['properties'])
+
+          workload = json.loads((root / 'workload.schema.json').read_text())
+          assert 'required_capabilities' in workload['properties']
+          assert 'incremental_budget_eur' in workload['properties']['constraints']['properties']
+
+          plan = json.loads((root / 'execution-plan.schema.json').read_text())
+          modes = set(plan['properties']['steps']['items']['properties']['execution_mode']['enum'])
+          assert {'deterministic','local_model','local_service','local_agent','external_optional','external_required'} <= modes
+          assert 'gap_analysis' in plan['properties']
+          print('execution decision contracts OK')
+          PY
       - name: Verify augmentation graph vocabulary
         run: |
           python - <<'PY'
@@ -97,5 +127,8 @@ jobs:
           assert len(r['items'])==1
           assert 'control_profile' not in r['items'][0], 'local control profile leaked into public projection'
           assert 'augmentation' not in r['items'][0], 'augmentation metadata leaked into public projection'
-          print('Free/Expert and local control boundary OK')
+          forbidden = {'execution_estate','execution_profile','workload','execution_plan','estate_id','workload_id'}
+          leaked = forbidden.intersection(r['items'][0])
+          assert not leaked, f'private execution context leaked into public projection: {sorted(leaked)}'
+          print('Free/Expert, local control and execution-context boundary OK')
           PY
