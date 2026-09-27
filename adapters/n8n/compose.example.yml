@@ -1,0 +1,36 @@
+services:
+  capability-core:
+    build:
+      context: ../..
+      dockerfile: capability-core/Dockerfile
+    restart: unless-stopped
+    environment:
+      SIIAOS_CORE_BIND: "0.0.0.0"
+      SIIAOS_CORE_PORT: "8765"
+      SIIAOS_CORE_TOKEN: "${SIIAOS_CORE_TOKEN:?set SIIAOS_CORE_TOKEN}"
+    expose:
+      - "8765"
+    networks:
+      - siiaos-internal
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  # Existing/local n8n service can join the same internal network.
+  # This block is intentionally illustrative: do not replace an existing n8n
+  # deployment with it without reconciling volumes, credentials and database.
+  n8n-adapter-note:
+    image: busybox:1.36
+    command: ["sh", "-c", "echo 'Join your existing n8n service to siiaos-internal and call http://capability-core:8765/v0.1/execute'; sleep 3600"]
+    networks:
+      - siiaos-internal
+    profiles:
+      - documentation
+
+networks:
+  siiaos-internal:
+    internal: true
