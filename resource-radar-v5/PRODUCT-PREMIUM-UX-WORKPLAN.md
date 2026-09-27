@@ -1,7 +1,18 @@
-# Resource Radar V4 — chantier produit Free → Expert
+# Resource Radar V5 — baseline produit héritée V4 / Free → Expert
 
 Date : 2026-09-03  
 Statut : architecture cible / chantier lancé
+
+> **Statut V5** — Ce document conserve les lots produit hérités de la V4 pour préserver l'historique et les exigences de migration. Il ne constitue plus la Definition of Done canonique de la V5.
+>
+> Les références canoniques V5 sont désormais :
+> - `README.md` pour l'architecture et les invariants ;
+> - `ARCHITECTURE-DECISION-004-execution-estate-workload-fit.md` pour la logique configuration-first ;
+> - `RELEASE-CANDIDATE-CHECKLIST.md` pour les gates de release ;
+> - `tests/USAGE-SIMULATION-PROTOCOL.md` pour les simulations d'usage ;
+> - les contrats `ExecutionEstate / Workload / ExecutionPlan / OrganisationContext / AdmissionProfile`.
+>
+> Les lots R4-* ci-dessous restent des **prérequis de compatibilité** et ne doivent pas être interprétés comme l'intégralité de la V5.
 
 ## 1. Rôle du Radar dans l'offre
 
