@@ -36,7 +36,8 @@ The default interoperability boundary is **JSON in / JSON out**. This keeps the 
 Protocol version `0.1` supports:
 
 - `assess`: evaluate one candidate against an organisation/profile context;
-- `route`: evaluate and order several candidates.
+- `route`: evaluate and order several candidates;
+- `transition`: validate an evidence-gated lifecycle transition without performing external mutation.
 
 Example:
 
@@ -78,7 +79,10 @@ The reference engine currently implements:
 3. risk/HumanGate policy;
 4. admitted-capability overlap detection;
 5. local-first/offline/external-API/cost preferences;
-6. deterministic routing score.
+6. deterministic routing score;
+7. evidence-gated lifecycle transitions;
+8. immutable pinning requirements;
+9. runtime-evidence requirements before OBSERVED.
 
 No engine may infer missing proof. Unknown data remains unknown.
 
