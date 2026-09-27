@@ -203,6 +203,33 @@
         }
       },
       "additionalProperties": true
+    },
+    "quality_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability",
+          "level",
+          "evidence_ids"
+        ],
+        "properties": {
+          "capability": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "description": "Contextual quality claims used only when a workload declares a matching quality_floor."
     }
   },
   "additionalProperties": false
