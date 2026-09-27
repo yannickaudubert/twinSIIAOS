@@ -11,9 +11,10 @@ Ce protocole teste la valeur du Radar comme systeme d'aide a la decision. Un tes
 3. **Context fidelity** — la configuration, le workload, la confidentialite et le budget modifient reellement le resultat.
 4. **Decision traceability** — une conclusion peut remonter aux profils, observations et preuves.
 5. **Avoided waste** — le moteur reutilise l'existant et n'ajoute ni achat ni dependance sans necessite.
-6. **Uncertainty honesty** — une inconnue reste une inconnue et n'est pas transformee en compatibilite ou incompatibilite.
-7. **Progressive disclosure** — le public comprend l'objet ; les conclusions contextualisees restent protegees.
-8. **Mobile viability** — les chemins essentiels restent accessibles sur petit ecran.
+6. **TAT perceptif** — comprehension, utilite, confiance, ouverture, autonomie, humanite, risque percu et intention d'usage restent des dimensions independantes.
+7. **Uncertainty honesty** — une inconnue reste une inconnue et n'est pas transformee en compatibilite ou incompatibilite.
+8. **Progressive disclosure** — le public comprend l'objet ; les conclusions contextualisees restent protegees.
+9. **Mobile viability** — les chemins essentiels restent accessibles sur petit ecran.
 
 ## Personas initiaux
 
@@ -58,11 +59,13 @@ Playwright verifie :
 
 ## Etat courant de la campagne
 
-La premiere campagne versionnee couvre maintenant 40 assertions/scenarios repartis entre :
+La premiere campagne versionnee couvre maintenant 59 assertions/scenarios repartis entre :
 - decisions Estate x Workload x Execution Profile ;
 - cas adversariaux de politique, cout, inconnues et stockage ;
 - composition multi-capacites ;
 - integrite des signaux publics ;
+- admission organisationnelle, maturite et HumanGate ;
+- regressions de contexte/ontologie recuperees depuis les travaux anterieurs ;
 - parcours navigateur Playwright.
 
 ## Campagne suivante
