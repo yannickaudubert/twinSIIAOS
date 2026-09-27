@@ -88,6 +88,25 @@ class ExecutionPlannerTests(unittest.TestCase):
         self.assertEqual(plan["feasibility"]["status"], "unknown")
         self.assertTrue(any("qualite non prouvee" in item for item in plan["gap_analysis"]["rejected_options"]))
 
+    def test_quality_floor_on_other_profile_capability_does_not_poison_current_capability(self):
+        workload = dict(self.workload)
+        workload["required_capabilities"] = [
+            {"capability": "classification", "priority": "required"},
+            {"capability": "summarization", "priority": "preferred", "quality_floor": "high"}
+        ]
+        profiles = [{
+            "id": "profile:multi",
+            "resource_id": "tool:multi",
+            "mode": {"name": "local"},
+            "requirements": {"min_ram_mb": 1024},
+            "capabilities": ["classification", "summarization"],
+            "quality_claims": [{"capability": "classification", "level": "basic", "evidence_ids": ["evidence:basic"]}],
+            "cost": {"incremental_eur": 0},
+            "provenance": {"method": "declared", "observed_at": "2026-09-27T00:00:00Z"},
+        }]
+        plan = compose_plan(self.estate, workload, profiles)
+        self.assertTrue(any(step["capability"] == "classification" for step in plan["steps"]))
+
     def test_insufficient_vram_creates_gap_without_cloud_fallback(self):
         profiles = [{
             "id": "profile:too-large",
