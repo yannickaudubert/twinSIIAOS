@@ -57,8 +57,11 @@ def execution_mode(profile: dict) -> str:
     return profile.get("mode", {}).get("execution_mode", "local_service")
 
 
-def incremental_cost(profile: dict) -> float:
-    return float(profile.get("cost", {}).get("incremental_eur", 0) or 0)
+def incremental_cost(profile: dict) -> float | None:
+    cost = profile.get("cost", {})
+    if "incremental_eur" not in cost or cost.get("incremental_eur") is None:
+        return None
+    return float(cost["incremental_eur"])
 
 
 def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[str, list[str]]:
@@ -132,8 +135,22 @@ def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[s
     workload_budget = float(constraints.get("incremental_budget_eur", 0) or 0)
     budget = min(estate_budget, workload_budget)
     cost = incremental_cost(profile)
-    if cost > budget:
+    if cost is None:
+        unknown.append("cout incremental non observe")
+    elif cost > budget:
         reasons.append(f"cout incremental hors budget: {cost:g} > {budget:g} EUR")
+
+    quality_floor = None
+    for cap in workload.get("required_capabilities", []):
+        if cap.get("capability") in profile.get("capabilities", []) and cap.get("quality_floor"):
+            quality_floor = cap.get("quality_floor")
+            capability = cap.get("capability")
+            claims = [
+                claim for claim in profile.get("quality_claims", [])
+                if claim.get("capability") == capability and claim.get("level") == quality_floor
+            ]
+            if not claims:
+                unknown.append(f"qualite non prouvee pour {capability}: {quality_floor}")
 
     if reasons:
         return "unavailable", reasons
@@ -145,7 +162,7 @@ def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[s
 def candidate_sort_key(profile: dict) -> tuple[int, float, str]:
     return (
         MODE_ORDER.get(execution_mode(profile), 99),
-        incremental_cost(profile),
+        incremental_cost(profile) if incremental_cost(profile) is not None else float("inf"),
         profile.get("id", ""),
     )
 
@@ -219,7 +236,10 @@ def compose_plan(estate: dict, workload: dict, profiles: list[dict]) -> dict:
         evidence_ids.update(provenance.get("evidence_ids", []))
         resource_id = accepted.get("resource_id")
         mode = execution_mode(accepted)
-        total_cost += incremental_cost(accepted)
+        accepted_cost = incremental_cost(accepted)
+        if accepted_cost is None:
+            raise AssertionError("accepted profile must have an observed incremental cost")
+        total_cost += accepted_cost
         dep = accepted.get("cost", {}).get("external_dependency")
         if dep:
             external_dependencies.append(dep)
