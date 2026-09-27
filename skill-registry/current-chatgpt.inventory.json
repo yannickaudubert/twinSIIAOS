@@ -1,0 +1,111 @@
+{
+  "observed_at": "2026-09-27",
+  "observed_environment": "current ChatGPT skill catalog",
+  "warning": "Presence here does not prove installation or availability on SandY, ARAGORN, Hermes, n8n, or any other local component.",
+  "items": [
+    {
+      "uri": "skills://reprendre-un-chantier",
+      "family": "context-governance"
+    },
+    {
+      "uri": "skills://faire-converger-les-travaux",
+      "family": "context-governance"
+    },
+    {
+      "uri": "skills://capitaliser-les-savoirs-projet",
+      "family": "research-knowledge"
+    },
+    {
+      "uri": "skills://siiaos-hermes-pack-manager",
+      "family": "project-specific"
+    },
+    {
+      "uri": "skills://codex-page-seo",
+      "family": "web-seo-publishing"
+    },
+    {
+      "uri": "skills://skill-creator",
+      "family": "context-governance"
+    },
+    {
+      "uri": "skills://docx",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://pdfs",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://spreadsheets",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://slides",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://plugins/google-drive/google-drive",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://plugins/google-drive/google-docs",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://plugins/google-drive/google-sheets",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://plugins/google-drive/google-slides",
+      "family": "artifacts-documents"
+    },
+    {
+      "uri": "skills://plugins/hugging-face/hf-cli",
+      "family": "local-ai-models"
+    },
+    {
+      "uri": "skills://plugins/hugging-face/huggingface-community-evals",
+      "family": "local-ai-models"
+    },
+    {
+      "uri": "skills://plugins/hugging-face/huggingface-datasets",
+      "family": "research-knowledge"
+    },
+    {
+      "uri": "skills://plugins/hugging-face/huggingface-papers",
+      "family": "research-knowledge"
+    },
+    {
+      "uri": "skills://plugins/vercel/nextjs",
+      "family": "web-seo-publishing"
+    },
+    {
+      "uri": "skills://plugins/vercel/deployments-cicd",
+      "family": "git-code"
+    },
+    {
+      "uri": "skills://plugins/vercel/agent-browser-verify",
+      "family": "web-seo-publishing"
+    },
+    {
+      "uri": "skills://plugins/vercel/investigation-mode",
+      "family": "git-code"
+    },
+    {
+      "uri": "skills://plugins/vercel/observability",
+      "family": "observability-operations"
+    },
+    {
+      "uri": "skills://plugins/vercel/ai-sdk",
+      "family": "agents-mcp"
+    },
+    {
+      "uri": "skills://plugins/vercel/vercel-sandbox",
+      "family": "security-supply-chain"
+    },
+    {
+      "uri": "skills://plugins/vercel/workflow",
+      "family": "automation-n8n"
+    }
+  ]
+}
