@@ -5,7 +5,7 @@ from copy import deepcopy
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-EXECUTION = HERE.parents[1] / "local" / "execution"
+EXECUTION = HERE.parent / "local" / "execution"
 sys.path.insert(0, str(EXECUTION))
 
 from plan_execution import compose_plan  # noqa: E402
