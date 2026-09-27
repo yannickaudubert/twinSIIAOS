@@ -93,7 +93,15 @@ class AdmissionDecisionTests(unittest.TestCase):
         result = assess_admission(profile, BASE_CONTEXT)
         self.assertEqual(result["verdict"], "blocked")
 
-    def test_50_evidence_references_survive_assessment(self):
+    def test_50_organisation_can_require_human_gate_from_r2(self):
+        context = deepcopy(BASE_CONTEXT)
+        context["risk_policy"]["human_gate_from"] = "R2"
+        profile = deepcopy(BASE_PROFILE)
+        profile["risk_class"] = "R2"
+        result = assess_admission(profile, context)
+        self.assertEqual(result["verdict"], "human_gate")
+
+    def test_51_evidence_references_survive_assessment(self):
         result = assess_admission(BASE_PROFILE, BASE_CONTEXT)
         self.assertEqual(result["evidence_ids"], ["evidence:test"])
 
