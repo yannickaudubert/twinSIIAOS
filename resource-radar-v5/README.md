@@ -145,6 +145,10 @@ V5 conserve les contrats V4 et introduit :
 - `contracts/experiment-contract.schema.json` — hypothese, baseline, limites, rollback et preuves d'une experimentation ;
 - `contracts/usage-evaluation.schema.json` — TAT perceptif et resultats d'usage sans score global canonique ;
 - `contracts/digital-metabolism.schema.json` — capacite possedee, flux, stock, inertie, reutilisation et valeur prouvee ;
+- `contracts/radar-response.schema.json` — reponse complexe, faits, inconnues, analyse et support de decision ;
+- `contracts/mobilization-route.schema.json` — orientation gouvernee vers SIIAOS local, consultant, cabinet ou AgorIA ;
+- `contracts/context-pack.schema.json` — contexte minimal partageable, filtre et traçable ;
+- `contracts/mission-brief.schema.json` — mission proposee avec scope, livrables, HumanGate et etat ;
 - `ARCHITECTURE-DECISION-002-lineage-supply-chain-graph.md` — architecture et regles de federation ;
 - `ARCHITECTURE-DECISION-004-execution-estate-workload-fit.md` — configuration-first et planification d'execution.
 
@@ -167,7 +171,8 @@ V5 conserve les vues V4 et ajoute progressivement :
 - **Execution plan** : chaine d'execution composee, cout incremental et dependances externes eventuelles ;
 - **Admission / maturite** : faisabilite technique separee de l'admissibilite organisationnelle, avec HumanGate ;
 - **Perception / TAT** : comprehension, utilite, confiance, autonomie, risque percu et intention d'usage mesures separement ;
-- **Metabolisme numerique** : ressources actives/dormantes, flux, production, stock, inertie et valeur prouvee.
+- **Metabolisme numerique** : ressources actives/dormantes, flux, production, stock, inertie et valeur prouvee ;
+- **Routage de mobilisation** : self-service SIIAOS local, expertise Yannick, mission cabinet augmente, collectif AgorIA ou non-activation si le contexte est insuffisant.
 
 ## Phases de chantier
 
