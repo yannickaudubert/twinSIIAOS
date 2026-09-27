@@ -56,6 +56,15 @@ Playwright verifie :
 - projection publique vide -> aucune recommandation inventee ;
 - power user -> raccourci "/" -> recherche.
 
+## Etat courant de la campagne
+
+La premiere campagne versionnee couvre maintenant 40 assertions/scenarios repartis entre :
+- decisions Estate x Workload x Execution Profile ;
+- cas adversariaux de politique, cout, inconnues et stockage ;
+- composition multi-capacites ;
+- integrite des signaux publics ;
+- parcours navigateur Playwright.
+
 ## Campagne suivante
 
 La base doit etre etendue progressivement vers 50 a 100 scenarios, sans gonfler artificiellement le nombre. Les prochaines familles prioritaires sont :
