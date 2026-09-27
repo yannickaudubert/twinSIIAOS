@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/capability-record.schema.json",
+  "title": "SIIAOS Capability Record",
+  "type": "object",
+  "required": [
+    "record_id",
+    "object_type",
+    "name",
+    "capabilities",
+    "admission_state",
+    "risk_class",
+    "maturity_min",
+    "provenance"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "object_type": {
+      "type": "string",
+      "enum": ["source","project","model","dataset","skill","mcp","workflow","runtime","service","method"]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": ["string","null"]
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["capability_id","relation"],
+        "properties": {
+          "capability_id": {"type":"string","minLength":2},
+          "relation": {
+            "type":"string",
+            "enum":["NEW","REPLACE","AUGMENT","DUPLICATE","EXPERIMENT"]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "admission_state": {
+      "type": "string",
+      "enum": [
+        "DISCOVERED",
+        "CANDIDATE",
+        "SCANNED",
+        "REVIEWED",
+        "EXPERIMENT",
+        "ADMITTED",
+        "PINNED",
+        "OBSERVED",
+        "BLOCKED",
+        "HOLD",
+        "REJECTED",
+        "RETIRED",
+        "UNKNOWN"
+      ]
+    },
+    "risk_class": {
+      "type": "string",
+      "enum": ["R0","R1","R2","R3","R4"]
+    },
+    "maturity_min": {
+      "type": "object",
+      "required": [
+        "governance",
+        "delivery",
+        "operations",
+        "observability",
+        "security",
+        "data",
+        "ai_usage",
+        "automation",
+        "open_source",
+        "human_control"
+      ],
+      "properties": {
+        "governance": {"$ref":"#/$defs/maturity"},
+        "delivery": {"$ref":"#/$defs/maturity"},
+        "operations": {"$ref":"#/$defs/maturity"},
+        "observability": {"$ref":"#/$defs/maturity"},
+        "security": {"$ref":"#/$defs/maturity"},
+        "data": {"$ref":"#/$defs/maturity"},
+        "ai_usage": {"$ref":"#/$defs/maturity"},
+        "automation": {"$ref":"#/$defs/maturity"},
+        "open_source": {"$ref":"#/$defs/maturity"},
+        "human_control": {"$ref":"#/$defs/maturity"}
+      },
+      "additionalProperties": false
+    },
+    "upstream_maturity": {
+      "type": "object",
+      "properties": {
+        "stage": {
+          "type": "string",
+          "enum":["experimental","sandbox","incubating","stable","graduated","archived","unknown"]
+        },
+        "stage_source": {"type":["string","null"]},
+        "last_release_at": {"type":["string","null"],"format":"date-time"},
+        "last_commit_at": {"type":["string","null"],"format":"date-time"},
+        "maintainer_diversity": {"type":["integer","null"],"minimum":0},
+        "adoption_signal": {"type":["string","null"]},
+        "security_policy_present": {"type":["boolean","null"]},
+        "responsible_disclosure_present": {"type":["boolean","null"]}
+      },
+      "additionalProperties": true
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "filesystem_scopes": {
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "process_execution": {"type":["boolean","null"]},
+        "shell_access": {"type":["boolean","null"]},
+        "gpu_access": {"type":["boolean","null"]},
+        "privilege_level": {
+          "type":["string","null"],
+          "enum":["none","user","elevated","system",null]
+        }
+      },
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "outbound_required": {"type":["boolean","null"]},
+        "allowed_destinations": {
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "inbound_listeners": {
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "localhost_only": {"type":["boolean","null"]}
+      },
+      "additionalProperties": true
+    },
+    "data_scope": {
+      "type": "object",
+      "properties": {
+        "personal_data": {"type":["boolean","null"]},
+        "confidential_data": {"type":["boolean","null"]},
+        "customer_data": {"type":["boolean","null"]},
+        "secrets_credentials": {"type":["boolean","null"]},
+        "persistence_location": {"type":["string","null"]},
+        "retention": {"type":["string","null"]}
+      },
+      "additionalProperties": true
+    },
+    "local_feasibility": {
+      "type": "object",
+      "properties": {
+        "cpu": {"type":["string","null"]},
+        "ram": {"type":["string","null"]},
+        "gpu": {"type":["string","null"]},
+        "vram": {"type":["string","null"]},
+        "disk": {"type":["string","null"]},
+        "persistent_service": {"type":["boolean","null"]},
+        "external_api_dependency": {"type":["boolean","null"]},
+        "subscription_cost": {"type":["number","null"],"minimum":0},
+        "offline_capable": {"type":["boolean","null"]},
+        "degraded_mode": {"type":["string","null"]}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": {"type":"string","minLength":1},
+        "source_repo": {"type":["string","null"]},
+        "source_commit": {"type":["string","null"]},
+        "version": {"type":["string","null"]},
+        "artifact_hash": {"type":["string","null"]},
+        "license": {"type":["string","null"]},
+        "verified_at": {"type":["string","null"],"format":"date-time"}
+      },
+      "additionalProperties": true
+    },
+    "experiment": {
+      "type":["object","null"],
+      "properties": {
+        "hypothesis":{"type":["string","null"]},
+        "baseline":{"type":["string","null"]},
+        "success_metrics":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "failure_conditions":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "resource_budget":{"type":["string","null"]},
+        "rollback":{"type":["string","null"]},
+        "review_required":{"type":["boolean","null"]}
+      },
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["evidence_id","kind","timestamp","claim","status"],
+        "properties": {
+          "evidence_id":{"type":"string"},
+          "kind":{"type":"string"},
+          "source":{"type":["string","null"]},
+          "timestamp":{"type":"string","format":"date-time"},
+          "subject":{"type":["string","null"]},
+          "claim":{"type":"string"},
+          "status":{
+            "type":"string",
+            "enum":["observed","realised","verified","blocked","unknown"]
+          },
+          "artifact_hash":{"type":["string","null"]},
+          "environment":{"type":["string","null"]},
+          "notes":{"type":["string","null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "skill": {
+      "type":["object","null"],
+      "properties": {
+        "skill_name":{"type":["string","null"]},
+        "trigger_description":{"type":["string","null"]},
+        "source_type":{
+          "type":["string","null"],
+          "enum":["local","upstream","adapted",null]
+        },
+        "connectors":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "tools":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "scripts":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "conflicts_with":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "depends_on":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "tests":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "trigger_tests":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "non_regression_tests":{
+          "type":"array",
+          "items":{"type":"string"}
+        },
+        "last_verified_at":{"type":["string","null"],"format":"date-time"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "maturity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "risk_class": {
+            "enum":["R3","R4"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "experiment": {
+            "type":"object",
+            "required":["review_required"],
+            "properties": {
+              "review_required":{"const":true}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}
