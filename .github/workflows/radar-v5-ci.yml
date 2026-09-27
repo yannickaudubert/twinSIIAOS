@@ -31,6 +31,7 @@ jobs:
           python -m unittest discover -s resource-radar-v5/local/userscripts -p "test_*.py" -v
           python -m unittest discover -s resource-radar-v5/local/saas -p "test_*.py" -v
           PYTHONPATH=resource-radar-v5/local/execution python -m unittest discover -s resource-radar-v5/local/execution -p "test_*.py" -v
+          PYTHONPATH=resource-radar-v5/local/admission python -m unittest discover -s resource-radar-v5/local/admission -p "test_*.py" -v
           PYTHONPATH=resource-radar-v5/local/execution python -m unittest discover -s resource-radar-v5/tests -p "test_*.py" -v
       - name: Parse JSON contracts and policies
         run: |
