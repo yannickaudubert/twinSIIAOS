@@ -10,6 +10,7 @@
   const labels = {
     radar: 'Radar',
     capabilities: 'Capacités',
+    execution: 'Configuration & exécution',
     approaches: 'Approches',
     landscapes: 'Paysages',
     watch: 'Hyperveille',
@@ -236,7 +237,7 @@
       const strip = document.createElement('nav');
       strip.className = 'human-orientation-strip';
       strip.setAttribute('aria-label', 'Choisir un point de départ');
-      strip.innerHTML = '<strong>Je pars de :</strong><a href="#radar">une solution connue</a><a href="#capabilities">un besoin</a><a href="#landscapes">une comparaison</a><a href="#expert-evidence">une décision à justifier</a><a href="./lexique.html">un terme à comprendre</a>';
+      strip.innerHTML = '<strong>Je pars de :</strong><a href="#radar">une solution connue</a><a href="#capabilities">un besoin</a><a href="#execution">ma configuration</a><a href="#landscapes">une comparaison</a><a href="#expert-evidence">une décision à justifier</a><a href="./lexique.html">un terme à comprendre</a>';
       heading.before(strip);
     }
 
