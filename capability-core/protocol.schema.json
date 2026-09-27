@@ -3,31 +3,101 @@
   "$id": "https://siiaos.local/schemas/capability-core-protocol.schema.json",
   "title": "SIIAOS Capability Core Protocol 0.1",
   "type": "object",
-  "required": ["protocol_version", "operation"],
+  "required": [
+    "protocol_version",
+    "operation"
+  ],
   "properties": {
-    "protocol_version": {"const": "0.1"},
-    "operation": {"enum": ["assess", "route"]},
-    "record": {"type": "object"},
-    "records": {"type": "array", "items": {"type": "object"}},
+    "protocol_version": {
+      "const": "0.1"
+    },
+    "operation": {
+      "enum": [
+        "assess",
+        "route",
+        "transition"
+      ]
+    },
+    "record": {
+      "type": "object"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
     "context": {
       "type": "object",
       "properties": {
-        "profile": {"type": "object"},
-        "policy": {"type": "object"},
-        "preferences": {"type": "object"},
-        "admittedRecords": {"type": "array", "items": {"type": "object"}}
+        "profile": {
+          "type": "object"
+        },
+        "policy": {
+          "type": "object"
+        },
+        "preferences": {
+          "type": "object"
+        },
+        "admittedRecords": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
       },
       "additionalProperties": true
+    },
+    "target_state": {
+      "type": "string"
+    },
+    "transition": {
+      "type": "object"
     }
   },
   "allOf": [
     {
-      "if": {"properties": {"operation": {"const": "assess"}}},
-      "then": {"required": ["record"]}
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "assess"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "record"
+        ]
+      }
     },
     {
-      "if": {"properties": {"operation": {"const": "route"}}},
-      "then": {"required": ["records"]}
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "route"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "records"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "transition"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "record",
+          "target_state"
+        ]
+      }
     }
   ],
   "additionalProperties": true
