@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/execution-estate.schema.json",
+  "title": "SIIAOS Execution Estate",
+  "type": "object",
+  "required": [
+    "id",
+    "scope",
+    "snapshot_at",
+    "hardware",
+    "software",
+    "policy",
+    "verification",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "type",
+        "label"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "user",
+            "organization",
+            "client",
+            "workstation",
+            "node",
+            "cluster",
+            "mission"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "tenant_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "snapshot_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "hardware": {
+      "type": "object",
+      "required": [
+        "cpu",
+        "memory"
+      ],
+      "properties": {
+        "cpu": {
+          "type": "object",
+          "required": [
+            "architecture"
+          ],
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "architecture": {
+              "type": "string"
+            },
+            "physical_cores": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "logical_cores": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "memory": {
+          "type": "object",
+          "required": [
+            "ram_mb"
+          ],
+          "properties": {
+            "ram_mb": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "available_mb": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "accelerators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "model"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "gpu",
+                  "npu",
+                  "igpu",
+                  "tpu",
+                  "other"
+                ]
+              },
+              "model": {
+                "type": "string"
+              },
+              "vram_mb": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "driver": {
+                "type": "string"
+              },
+              "compute_capability": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "storage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "nvme",
+                  "ssd",
+                  "hdd",
+                  "nas",
+                  "object",
+                  "other"
+                ]
+              },
+              "total_gb": {
+                "type": "number",
+                "minimum": 0
+              },
+              "free_gb": {
+                "type": "number",
+                "minimum": 0
+              },
+              "mount": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "software": {
+      "type": "object",
+      "properties": {
+        "os": {
+          "type": "string"
+        },
+        "container_runtimes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "language_runtimes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "model_servers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "model_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tool_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "knowledge": {
+      "type": "object",
+      "properties": {
+        "corpus_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "index_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "graph_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "automation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "offline_capable": {
+          "type": "boolean"
+        },
+        "node_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_egress": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "incremental_budget_eur",
+        "local_first",
+        "external_provider_dependency_allowed"
+      ],
+      "properties": {
+        "incremental_budget_eur": {
+          "type": "number",
+          "minimum": 0
+        },
+        "local_first": {
+          "type": "boolean"
+        },
+        "external_provider_dependency_allowed": {
+          "type": "boolean"
+        },
+        "data_classes_local_only": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_gate_required_for": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "declared",
+            "observed",
+            "tested",
+            "proven",
+            "unknown"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observed_by": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "never_publish"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
