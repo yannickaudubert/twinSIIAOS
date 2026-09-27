@@ -59,13 +59,15 @@ Playwright verifie :
 
 ## Etat courant de la campagne
 
-La premiere campagne versionnee couvre maintenant 60 assertions/scenarios repartis entre :
+La premiere campagne versionnee couvre maintenant 82 assertions/scenarios repartis entre :
 - decisions Estate x Workload x Execution Profile ;
 - cas adversariaux de politique, cout, inconnues et stockage ;
 - composition multi-capacites ;
 - integrite des signaux publics ;
 - admission organisationnelle, maturite et HumanGate ;
 - regressions de contexte/ontologie recuperees depuis les travaux anterieurs ;
+- routage de mobilisation SIIAOS / consultant / cabinet / AgorIA ;
+- ContextPack, MissionBrief, mandat et HumanGate ;
 - parcours navigateur Playwright.
 
 ## Campagne suivante
