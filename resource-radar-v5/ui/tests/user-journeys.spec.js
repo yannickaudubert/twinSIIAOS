@@ -65,3 +65,15 @@ test('keyboard shortcut sends a power user back to search', async ({ page }) => 
   await expect(page.locator('[data-view-panel="radar"]')).toBeVisible();
   await expect(page.locator('#radar-search')).toBeFocused();
 });
+
+
+test('mobilization choices are visible but not presented as automatic activation', async ({ page }) => {
+  await page.goto(BASE + '?fixture=1#execution');
+  const execution = page.locator('[data-view-panel="execution"]');
+  await expect(execution).toContainText('SIIAOS local');
+  await expect(execution).toContainText('Yannick consultant');
+  await expect(execution).toContainText('Cabinet augmenté');
+  await expect(execution).toContainText('AgorIA');
+  await expect(execution).toContainText('jamais activé automatiquement');
+  await expect(execution).toContainText('ne pas activer');
+});
