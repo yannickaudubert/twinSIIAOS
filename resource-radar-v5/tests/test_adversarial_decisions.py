@@ -81,13 +81,28 @@ class AdversarialDecisionTests(unittest.TestCase):
         workload["constraints"]["local_only"] = False
         workload["constraints"]["privacy_class"] = "public"
         workload["constraints"]["incremental_budget_eur"] = 50
+        workload["constraints"]["allowed_external_providers"] = ["external-api"]
         external = [p for p in self.profiles if p["resource_id"] == "service:external-api"]
         plan = compose_plan(estate, workload, external)
         self.assertEqual(plan["feasibility"]["status"], "feasible")
         self.assertTrue(plan["cost"]["external_dependencies_required"])
         self.assertEqual(plan["cost"]["incremental_eur"], 20)
 
-    def test_19_unknown_storage_remains_unknown_not_insufficient(self):
+    def test_19_external_provider_requires_explicit_workload_allowlist(self):
+        estate = deepcopy(self.sandy)
+        estate["policy"]["external_provider_dependency_allowed"] = True
+        estate["policy"]["incremental_budget_eur"] = 50
+        workload = deepcopy(self.summarize)
+        workload["constraints"]["local_only"] = False
+        workload["constraints"]["privacy_class"] = "public"
+        workload["constraints"]["incremental_budget_eur"] = 50
+        workload["constraints"]["allowed_external_providers"] = []
+        external = [p for p in self.profiles if p["resource_id"] == "service:external-api"]
+        plan = compose_plan(estate, workload, external)
+        self.assertEqual(plan["feasibility"]["status"], "not_feasible")
+        self.assertTrue(any("aucun provider externe explicitement autorise" in item for item in plan["gap_analysis"]["rejected_options"]))
+
+    def test_20_unknown_storage_remains_unknown_not_insufficient(self):
         estate = deepcopy(self.sandy)
         estate["hardware"].pop("storage", None)
         local = [p for p in self.profiles if p["resource_id"] == "model:small-local"]
@@ -97,7 +112,7 @@ class AdversarialDecisionTests(unittest.TestCase):
         self.assertIn("stockage libre non observe", joined)
         self.assertNotIn("stockage libre insuffisant", joined)
 
-    def test_20_zero_budget_rejects_paid_local_tool_too(self):
+    def test_21_zero_budget_rejects_paid_local_tool_too(self):
         paid_local = {
             "id":"profile:paid-local",
             "resource_id":"tool:paid-local",
@@ -112,7 +127,7 @@ class AdversarialDecisionTests(unittest.TestCase):
         self.assertEqual(plan["feasibility"]["status"], "not_feasible")
         self.assertTrue(any("cout incremental hors budget" in item for item in plan["gap_analysis"]["rejected_options"]))
 
-    def test_21_missing_required_service_is_explicit(self):
+    def test_22_missing_required_service_is_explicit(self):
         profile = {
             "id":"profile:needs-index",
             "resource_id":"tool:indexed",
@@ -127,7 +142,7 @@ class AdversarialDecisionTests(unittest.TestCase):
         self.assertEqual(plan["feasibility"]["status"], "not_feasible")
         self.assertTrue(any("services absents: missing-index" in item for item in plan["gap_analysis"]["rejected_options"]))
 
-    def test_22_no_profile_for_required_capability_is_real_gap(self):
+    def test_23_no_profile_for_required_capability_is_real_gap(self):
         workload = deepcopy(self.classify)
         workload["required_capabilities"] = [{"capability":"quantum-telepathy","priority":"required"}]
         plan = compose_plan(self.sandy, workload, self.profiles)
