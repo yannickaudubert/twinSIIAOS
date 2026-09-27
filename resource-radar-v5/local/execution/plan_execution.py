@@ -118,8 +118,15 @@ def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[s
         or (privacy_class in local_only_classes if privacy_class else False)
         or not bool(estate_policy.get("external_provider_dependency_allowed", False))
     )
-    if mode == "external_required" and external_forbidden:
-        reasons.append("provider externe interdit par la politique")
+    if mode in {"external_optional", "external_required"}:
+        dependency = profile.get("cost", {}).get("external_dependency")
+        allowed = set(constraints.get("allowed_external_providers", []))
+        if external_forbidden:
+            reasons.append("provider externe interdit par la politique")
+        elif dependency and allowed and dependency not in allowed:
+            reasons.append(f"provider externe non autorise pour ce workload: {dependency}")
+        elif dependency and not allowed:
+            reasons.append(f"aucun provider externe explicitement autorise pour ce workload: {dependency}")
 
     estate_budget = float(estate_policy.get("incremental_budget_eur", 0) or 0)
     workload_budget = float(constraints.get("incremental_budget_eur", 0) or 0)
