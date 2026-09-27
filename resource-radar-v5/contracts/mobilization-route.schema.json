@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/mobilization-route.schema.json",
+  "title": "SIIAOS Mobilization Route",
+  "type": "object",
+  "required": [
+    "id",
+    "route",
+    "state",
+    "reasons",
+    "required_capabilities",
+    "mandate",
+    "context_boundary",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "route": {
+      "type": "string",
+      "enum": [
+        "siiaos_local",
+        "yannick_consultant",
+        "cabinet_augmente",
+        "agoria_collective",
+        "no_activation"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "accepted",
+        "rejected",
+        "active",
+        "completed",
+        "blocked"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_service_gap": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "team_shape": {
+      "type": "string",
+      "enum": [
+        "none",
+        "single_specialist",
+        "multi_domain",
+        "agentic_delivery",
+        "hybrid"
+      ]
+    },
+    "mandate": {
+      "type": "object",
+      "required": [
+        "required",
+        "human_gate"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "human_gate": {
+          "type": "boolean"
+        },
+        "authority_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "client_or_user_acceptance_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "context_boundary": {
+      "type": "object",
+      "required": [
+        "shareable_fields",
+        "local_only_fields"
+      ],
+      "properties": {
+        "shareable_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "local_only_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "context_pack_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "public_technical",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
