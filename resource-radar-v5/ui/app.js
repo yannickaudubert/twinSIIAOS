@@ -75,6 +75,10 @@
     target: 'Ressource ou état retenu comme cible d’architecture, sous réserve des décisions et preuves associées.',
     deprecated: 'Ressource ou usage déprécié ; conservé pour l’historique, la migration ou la compréhension de l’existant.',
     retired: 'Ressource retirée des choix courants, mais potentiellement conservée pour l’historique.',
+    proven: 'Une preuve suffisante et contextualisée soutient explicitement le statut affiché.',
+    rejected: 'Option explicitement écartée dans un contexte documenté ; la raison doit rester visible.',
+    watch: 'Ressource conservée sous surveillance sans promotion ni rejet définitif.',
+    unknown: 'Information insuffisante : le Radar ne doit ni conclure ni extrapoler.',
   };
 
   function escapeHtml(value) {
@@ -87,7 +91,7 @@
   }
 
   function normalizeState(value) {
-    const known = ['observed', 'candidate', 'installed', 'tested', 'qualified', 'target', 'deprecated', 'retired'];
+    const known = ['observed', 'candidate', 'installed', 'tested', 'qualified', 'target', 'deprecated', 'retired', 'proven', 'rejected', 'watch', 'unknown'];
     return known.includes(value) ? value : 'observed';
   }
 
@@ -101,6 +105,10 @@
       target: 'Cible',
       deprecated: 'Déprécié',
       retired: 'Retiré',
+      proven: 'Prouvé',
+      rejected: 'Rejeté',
+      watch: 'À surveiller',
+      unknown: 'Inconnu',
     };
     return map[value] || 'Observé';
   }
@@ -125,6 +133,13 @@
       connector: 'Connecteur',
       hub: 'Hub / registre',
       reference: 'Ressource de référence',
+      repository: 'Dépôt',
+      deployment: 'Déploiement',
+      data_store: 'Stockage de données',
+      authority: 'Autorité',
+      registry: 'Registre',
+      projection: 'Projection',
+      peer: 'Pair fédéré',
     };
     return map[value] || value || 'Ressource';
   }
