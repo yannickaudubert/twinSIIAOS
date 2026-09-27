@@ -44,6 +44,14 @@ jobs:
       - name: HTTP sidecar tests
         run: python -m unittest capability-core/tests/test_sidecar.py
 
+      - name: Validate MCP v2 adapter
+        run: |
+          python -m pip install "mcp>=2,<3"
+          python -c "import runpy; runpy.run_path('adapters/mcp/server.py', run_name='siiaos_mcp_check')"
+
+      - name: Build capability core container
+        run: docker build -f capability-core/Dockerfile -t siiaos-capability-core:test .
+
       - name: Cross-runtime conformance
         run: python capability-core/conformance/run_conformance.py
 
