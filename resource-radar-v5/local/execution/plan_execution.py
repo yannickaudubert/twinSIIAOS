@@ -64,7 +64,7 @@ def incremental_cost(profile: dict) -> float | None:
     return float(cost["incremental_eur"])
 
 
-def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[str, list[str]]:
+def profile_availability(profile: dict, estate: dict, workload: dict, capability: str) -> tuple[str, list[str]]:
     """Return available, unavailable, or unknown with explicit reasons."""
     req = profile.get("requirements", {})
     reasons: list[str] = []
@@ -140,17 +140,21 @@ def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[s
     elif cost > budget:
         reasons.append(f"cout incremental hors budget: {cost:g} > {budget:g} EUR")
 
-    quality_floor = None
-    for cap in workload.get("required_capabilities", []):
-        if cap.get("capability") in profile.get("capabilities", []) and cap.get("quality_floor"):
-            quality_floor = cap.get("quality_floor")
-            capability = cap.get("capability")
-            claims = [
-                claim for claim in profile.get("quality_claims", [])
-                if claim.get("capability") == capability and claim.get("level") == quality_floor
-            ]
-            if not claims:
-                unknown.append(f"qualite non prouvee pour {capability}: {quality_floor}")
+    quality_floor = next(
+        (
+            cap.get("quality_floor")
+            for cap in workload.get("required_capabilities", [])
+            if cap.get("capability") == capability and cap.get("quality_floor")
+        ),
+        None,
+    )
+    if quality_floor:
+        claims = [
+            claim for claim in profile.get("quality_claims", [])
+            if claim.get("capability") == capability and claim.get("level") == quality_floor
+        ]
+        if not claims:
+            unknown.append(f"qualite non prouvee pour {capability}: {quality_floor}")
 
     if reasons:
         return "unavailable", reasons
@@ -208,7 +212,7 @@ def compose_plan(estate: dict, workload: dict, profiles: list[dict]) -> dict:
 
         for profile in candidates:
             considered.append(profile.get("id", "profile"))
-            availability, reasons = profile_availability(profile, estate, workload)
+            availability, reasons = profile_availability(profile, estate, workload, capability)
             if availability == "available":
                 accepted = profile
                 break
