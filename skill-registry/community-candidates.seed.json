@@ -1,0 +1,76 @@
+{
+  "status": "DISCOVERY_ONLY",
+  "note": "These are upstream capability sources to evaluate. No item is admitted, installed locally, or trusted by this file.",
+  "items": [
+    {
+      "id": "superpowers.verification-before-completion",
+      "source_repo": "https://github.com/obra/superpowers",
+      "family": "context-governance",
+      "capability": "verification-before-completion",
+      "relation": "AUGMENT"
+    },
+    {
+      "id": "superpowers.systematic-debugging",
+      "source_repo": "https://github.com/obra/superpowers",
+      "family": "git-code",
+      "capability": "systematic-debugging",
+      "relation": "AUGMENT"
+    },
+    {
+      "id": "superpowers.test-driven-development",
+      "source_repo": "https://github.com/obra/superpowers",
+      "family": "git-code",
+      "capability": "tdd",
+      "relation": "AUGMENT"
+    },
+    {
+      "id": "superpowers.executing-plans",
+      "source_repo": "https://github.com/obra/superpowers",
+      "family": "git-code",
+      "capability": "implementation-planning",
+      "relation": "AUGMENT"
+    },
+    {
+      "id": "trailofbits.audit-context-building",
+      "source_repo": "https://github.com/trailofbits/skills",
+      "family": "security-supply-chain",
+      "capability": "audit-context-building",
+      "relation": "NEW"
+    },
+    {
+      "id": "trailofbits.differential-review",
+      "source_repo": "https://github.com/trailofbits/skills",
+      "family": "git-code",
+      "capability": "differential-review",
+      "relation": "NEW"
+    },
+    {
+      "id": "trailofbits.agentic-actions-auditor",
+      "source_repo": "https://github.com/trailofbits/skills",
+      "family": "security-supply-chain",
+      "capability": "agentic-ci-audit",
+      "relation": "NEW"
+    },
+    {
+      "id": "n8n.official-skills",
+      "source_repo": "https://github.com/n8n-io/skills",
+      "family": "automation-n8n",
+      "capability": "n8n-workflow-lifecycle",
+      "relation": "AUGMENT"
+    },
+    {
+      "id": "mattpocock.to-spec",
+      "source_repo": "https://github.com/mattpocock/skills",
+      "family": "context-governance",
+      "capability": "conversation-to-spec",
+      "relation": "NEW"
+    },
+    {
+      "id": "mattpocock.to-tickets",
+      "source_repo": "https://github.com/mattpocock/skills",
+      "family": "git-code",
+      "capability": "spec-to-dependent-work",
+      "relation": "NEW"
+    }
+  ]
+}
