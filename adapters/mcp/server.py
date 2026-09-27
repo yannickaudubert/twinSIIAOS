@@ -30,12 +30,20 @@ def route_capabilities(records: list[dict[str, Any]], context: dict[str, Any] | 
         "result": engine.route(records, context or {})
     }
 
+@mcp.tool()
+def transition_capability(record: dict[str, Any], target_state: str, transition_request: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Validate and propose one lifecycle transition without performing external mutation."""
+    return {
+        "protocol_version": "0.1",
+        "result": engine.transition(record, target_state, transition_request or {})
+    }
+
 @mcp.resource("siiaos://capability-core/protocol")
 def protocol() -> dict[str, Any]:
     """Describe the stable SIIAOS capability-core contract."""
     return {
         "protocol_version": "0.1",
-        "operations": ["assess", "route"],
+        "operations": ["assess", "route", "transition"],
         "status_discipline": {
             "model_output": "proposed",
             "runtime_observation": "observed",
