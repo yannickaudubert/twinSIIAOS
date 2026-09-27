@@ -110,8 +110,13 @@ def profile_availability(profile: dict, estate: dict, workload: dict) -> tuple[s
     mode = execution_mode(profile)
     estate_policy = estate.get("policy", {})
     constraints = workload.get("constraints", {})
-    external_forbidden = bool(constraints.get("local_only", False)) or not bool(
-        estate_policy.get("external_provider_dependency_allowed", False)
+    privacy_class = constraints.get("privacy_class")
+    local_only_classes = set(estate_policy.get("data_classes_local_only", []))
+    external_forbidden = (
+        bool(constraints.get("local_only", False))
+        or bool(constraints.get("offline_required", False))
+        or (privacy_class in local_only_classes if privacy_class else False)
+        or not bool(estate_policy.get("external_provider_dependency_allowed", False))
     )
     if mode == "external_required" and external_forbidden:
         reasons.append("provider externe interdit par la politique")
@@ -239,7 +244,15 @@ def compose_plan(estate: dict, workload: dict, profiles: list[dict]) -> dict:
         f"budget incremental autorise: {budget:g} EUR",
         "configuration inconnue conservee comme inconnue" if unknown_caps else "configuration suffisante pour les profils retenus",
         "provider externe interdit"
-        if (constraints.get("local_only", False) or not estate_policy.get("external_provider_dependency_allowed", False))
+        if (
+            constraints.get("local_only", False)
+            or constraints.get("offline_required", False)
+            or (
+                constraints.get("privacy_class") in set(estate_policy.get("data_classes_local_only", []))
+                if constraints.get("privacy_class") else False
+            )
+            or not estate_policy.get("external_provider_dependency_allowed", False)
+        )
         else "provider externe autorise mais non privilegie",
     ]
 
