@@ -17,6 +17,9 @@ Regle : aucun cut-over Vercel tant que les gates P0 ne sont pas tous prouves. Le
 - [x] `execution-plan.schema.json` ;
 - [x] `organization-context.schema.json` + `admission-profile.schema.json` + HumanGate deterministe ;
 - [x] contrats TAT perceptif et metabolisme numerique ;
+- [x] ADR-005 réponse complexe et routage de mobilisation ;
+- [x] MobilizationRoute / ContextPack / MissionBrief ;
+- [x] routeur SIIAOS / consultant / cabinet / AgorIA + validation de handoff ;
 - [x] etats de verite PROUVE / REJETE / WATCH / INCONNU restaures ;
 - [x] distinction repository / deployment / runtime / data_store / authority restauree ;
 - [x] CI : presence et invariants des contrats d'execution ;
@@ -39,7 +42,7 @@ Regle : aucun cut-over Vercel tant que les gates P0 ne sont pas tous prouves. Le
 - [x] workflow GitHub UI V5 dedie ;
 - [x] protocole de simulation d'usages versionne ;
 - [x] premiers personas synthetiques Estate/Workload ;
-- [x] 60 assertions/scenarios automatises (decision, adversarial, composition, admission, signal public, anti-regression de contexte) ;
+- [x] 82 assertions/scenarios automatises (decision, adversarial, composition, admission, signal public, anti-regression de contexte) ;
 - [x] 8 parcours navigateur Playwright, verifies apres correction du runner ;
 - [ ] adapter `audit_human_ux.py` aux vues V5 et a la terminologie V5 ;
 - [x] ajouter captures desktop/mobile de la vue Execution ;
