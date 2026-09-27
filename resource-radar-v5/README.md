@@ -2,13 +2,13 @@
 
 V5 part de la V4 de convergence et conserve ses principes : **SandY / SIIAOS local reste la source de verite**, les surfaces publiques ne publient que des projections explicitement autorisees.
 
-V5 ajoute une couche manquante : le Radar ne traite plus les ressources comme une liste d'objets independants. Il les represente comme un **graphe vivant de provenance, filiation, dependances, preuves, execution et usages**.
+V5 ajoute deux couches manquantes : le Radar ne traite plus les ressources comme une liste d'objets independants, mais comme un **graphe vivant de provenance, filiation, dependances, preuves, execution et usages**. Il part aussi de la **configuration réellement disponible chez l'utilisateur** pour calculer la faisabilite d'une charge, composer les ressources deja presentes et mesurer le gap reel avant toute dependance externe ou achat.
 
 ## Branche de travail et regle de publication
 
 Branche de chantier :
 
-`radar-v5-graph-convergence`
+`radar-v5-saas-augmentation`
 
 Regle :
 
@@ -136,7 +136,12 @@ V5 conserve les contrats V4 et introduit :
 
 - `contracts/lineage-edge.schema.json` — relation graphe avec provenance et preuve ;
 - `contracts/observation.schema.json` — observation horodatee issue d'une source ou d'un test ;
-- `ARCHITECTURE-DECISION-002-lineage-supply-chain-graph.md` — architecture et regles de federation.
+- `contracts/execution-estate.schema.json` — photographie prouvee des ressources mobilisables ;
+- `contracts/execution-profile.schema.json` — exigences d'une ressource pour un mode d'execution donne ;
+- `contracts/workload.schema.json` — charge, capacites requises, contraintes et budget incremental ;
+- `contracts/execution-plan.schema.json` — composition concrete Estate x Workload avec gaps et preuves ;
+- `ARCHITECTURE-DECISION-002-lineage-supply-chain-graph.md` — architecture et regles de federation ;
+- `ARCHITECTURE-DECISION-004-execution-estate-workload-fit.md` — configuration-first et planification d'execution.
 
 Le schema `resource-record.schema.json` reste le contrat du noeud. Les relations complexes sortent du noeud et deviennent des objets de premier rang afin d'eviter un JSON monolithique impossible a auditer.
 
@@ -151,7 +156,10 @@ V5 conserve les vues V4 et ajoute progressivement :
 - **Security posture** : vulnerabilites, hygiene, provenance et alertes ;
 - **Scientific lineage** : papiers, auteurs, citations et implementations ;
 - **Runtime reality** : ce qui a reellement ete installe, execute et mesure localement ;
-- **Impact / remplacement** : dependances et composants qu'une nouvelle ressource peut remplacer ou simplifier.
+- **Impact / remplacement** : dependances et composants qu'une nouvelle ressource peut remplacer ou simplifier ;
+- **Configuration disponible** : ressources materielles, runtimes, modeles, services, donnees et politiques deja mobilisables ;
+- **Workload / Execution fit** : faisabilite d'une charge sur une configuration reelle, avec substitutions et gaps ;
+- **Execution plan** : chaine d'execution composee, cout incremental et dependances externes eventuelles.
 
 ## Phases de chantier
 
