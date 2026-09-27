@@ -3,6 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "radar-v4-convergence": false,
+      "radar-v5-graph-convergence": false,
+      "radar-v5-saas-augmentation": false,
       "work-*": false,
       "lab-*": false,
       "radar-work-*": false
