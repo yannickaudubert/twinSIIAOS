@@ -33,8 +33,12 @@ Regle : aucun cut-over Vercel tant que les gates P0 ne sont pas tous prouves. Le
 ## P1 — qualite et produit
 
 - [x] workflow GitHub UI V5 dedie ;
+- [x] protocole de simulation d'usages versionne ;
+- [x] premiers personas synthetiques Estate/Workload ;
+- [x] 12 simulations decisionnelles automatisees ;
+- [x] 8 parcours navigateur Playwright ;
 - [ ] adapter `audit_human_ux.py` aux vues V5 et a la terminologie V5 ;
-- [ ] ajouter captures desktop/mobile de la vue Execution ;
+- [x] ajouter captures desktop/mobile de la vue Execution ;
 - [ ] ajouter vues Genealogie / Supply-chain / Evidence graph ;
 - [ ] rendre Hyperveille evenementielle : release, archive, licence, permissions, faille, rupture d'approche ;
 - [ ] materialiser les relations et observations dans un stockage local interrogable ;
