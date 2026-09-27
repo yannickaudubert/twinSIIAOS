@@ -140,6 +140,11 @@ V5 conserve les contrats V4 et introduit :
 - `contracts/execution-profile.schema.json` — exigences d'une ressource pour un mode d'execution donne ;
 - `contracts/workload.schema.json` — charge, capacites requises, contraintes et budget incremental ;
 - `contracts/execution-plan.schema.json` — composition concrete Estate x Workload avec gaps et preuves ;
+- `contracts/organization-context.schema.json` — maturite multidimensionnelle et politique de risque de l'organisation ;
+- `contracts/admission-profile.schema.json` — admission, risque R0-R4, permissions et reversibilite ;
+- `contracts/experiment-contract.schema.json` — hypothese, baseline, limites, rollback et preuves d'une experimentation ;
+- `contracts/usage-evaluation.schema.json` — TAT perceptif et resultats d'usage sans score global canonique ;
+- `contracts/digital-metabolism.schema.json` — capacite possedee, flux, stock, inertie, reutilisation et valeur prouvee ;
 - `ARCHITECTURE-DECISION-002-lineage-supply-chain-graph.md` — architecture et regles de federation ;
 - `ARCHITECTURE-DECISION-004-execution-estate-workload-fit.md` — configuration-first et planification d'execution.
 
@@ -159,7 +164,10 @@ V5 conserve les vues V4 et ajoute progressivement :
 - **Impact / remplacement** : dependances et composants qu'une nouvelle ressource peut remplacer ou simplifier ;
 - **Configuration disponible** : ressources materielles, runtimes, modeles, services, donnees et politiques deja mobilisables ;
 - **Workload / Execution fit** : faisabilite d'une charge sur une configuration reelle, avec substitutions et gaps ;
-- **Execution plan** : chaine d'execution composee, cout incremental et dependances externes eventuelles.
+- **Execution plan** : chaine d'execution composee, cout incremental et dependances externes eventuelles ;
+- **Admission / maturite** : faisabilite technique separee de l'admissibilite organisationnelle, avec HumanGate ;
+- **Perception / TAT** : comprehension, utilite, confiance, autonomie, risque percu et intention d'usage mesures separement ;
+- **Metabolisme numerique** : ressources actives/dormantes, flux, production, stock, inertie et valeur prouvee.
 
 ## Phases de chantier
 
