@@ -69,5 +69,6 @@ jobs:
         run: |
           python -m json.tool capability-core/protocol.schema.json > /dev/null
           python -m json.tool capability-core/conformance/cases.json > /dev/null
+          python -m json.tool capability-core/conformance/lifecycle-cases.json > /dev/null
           python -m json.tool resource-radar-v3/capability-record.schema.json > /dev/null
           python -m json.tool resource-radar-v3/registry.bootstrap.json > /dev/null
