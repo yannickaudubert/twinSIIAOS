@@ -1,0 +1,62 @@
+name: Capability Core Conformance
+
+on:
+  push:
+    branches:
+      - main
+      - 'work/**'
+    paths:
+      - 'capability-core/**'
+      - 'resource-radar-v3/**'
+      - 'public-resource-hub/**'
+      - '.github/workflows/capability-core-conformance.yml'
+  pull_request:
+    paths:
+      - 'capability-core/**'
+      - 'resource-radar-v3/**'
+      - 'public-resource-hub/**'
+      - '.github/workflows/capability-core-conformance.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Python unit tests
+        run: python -m unittest capability-core/tests/test_engine.py
+
+      - name: JavaScript unit tests
+        run: node capability-core/tests/test_engine.js
+
+      - name: Cross-runtime conformance
+        run: python capability-core/conformance/run_conformance.py
+
+      - name: Prevent web projection drift
+        run: python capability-core/conformance/check_projection_drift.py
+
+      - name: Syntax-check browser JavaScript
+        run: |
+          node --check capability-core/engine.js
+          node --check public-resource-hub/vendor/capability-core.js
+          node --check public-resource-hub/registry-adapter.js
+          node --check public-resource-hub/app.js
+
+      - name: Validate JSON syntax
+        run: |
+          python -m json.tool capability-core/protocol.schema.json > /dev/null
+          python -m json.tool capability-core/conformance/cases.json > /dev/null
+          python -m json.tool resource-radar-v3/capability-record.schema.json > /dev/null
+          python -m json.tool resource-radar-v3/registry.bootstrap.json > /dev/null
