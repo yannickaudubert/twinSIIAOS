@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
   <meta name="description" content="SIIAOS Resource Radar — veille, qualification et aide à la décision sur les technologies open source, IA et SI." />
-  <title>SIIAOS Resource Radar V4</title>
+  <title>SIIAOS Resource Radar V5</title>
   <link rel="stylesheet" href="./styles.css" />
   <script src="./app.js" defer></script>
 </head>
@@ -17,7 +17,7 @@
         <div>
           <div class="eyebrow">SIIAOS</div>
           <div class="brand-name">Resource Radar</div>
-          <div class="brand-version">V4 · intelligence technologique</div>
+          <div class="brand-version">V5 · intelligence de ressources et d’exécution</div>
         </div>
       </div>
 
@@ -25,18 +25,19 @@
         <div class="nav-group-label">Explorer</div>
         <a class="nav-item is-active" href="#radar" data-view="radar"><span>01</span> Radar</a>
         <a class="nav-item" href="#capabilities" data-view="capabilities"><span>02</span> Capacités</a>
-        <a class="nav-item" href="#approaches" data-view="approaches"><span>03</span> Approches</a>
-        <a class="nav-item" href="#landscapes" data-view="landscapes"><span>04</span> Paysages</a>
-        <a class="nav-item" href="#watch" data-view="watch"><span>05</span> Hyperveille</a>
-        <a class="nav-item" href="#acquire" data-view="acquire"><span>06</span> Acquérir</a>
-        <a class="nav-item" href="#method" data-view="method"><span>07</span> Méthode</a>
+        <a class="nav-item" href="#execution" data-view="execution"><span>03</span> Configuration & exécution</a>
+        <a class="nav-item" href="#approaches" data-view="approaches"><span>04</span> Approches</a>
+        <a class="nav-item" href="#landscapes" data-view="landscapes"><span>05</span> Paysages</a>
+        <a class="nav-item" href="#watch" data-view="watch"><span>06</span> Hyperveille</a>
+        <a class="nav-item" href="#acquire" data-view="acquire"><span>07</span> Acquérir</a>
+        <a class="nav-item" href="#method" data-view="method"><span>08</span> Méthode</a>
 
         <div class="nav-group-label nav-group-expert">Expert</div>
-        <a class="nav-item nav-item-locked" href="#expert-fit" data-view="expert-fit"><span>08</span> Fit <b>EXPERT</b></a>
-        <a class="nav-item nav-item-locked" href="#expert-compare" data-view="expert-compare"><span>09</span> Comparateur <b>EXPERT</b></a>
-        <a class="nav-item nav-item-locked" href="#expert-evidence" data-view="expert-evidence"><span>10</span> Evidence <b>EXPERT</b></a>
-        <a class="nav-item nav-item-locked" href="#expert-architecture" data-view="expert-architecture"><span>11</span> Architecture <b>EXPERT</b></a>
-        <a class="nav-item nav-item-locked" href="#expert-decisions" data-view="expert-decisions"><span>12</span> Décisions <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-fit" data-view="expert-fit"><span>09</span> Adéquation <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-compare" data-view="expert-compare"><span>10</span> Comparateur <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-evidence" data-view="expert-evidence"><span>11</span> Preuves <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-architecture" data-view="expert-architecture"><span>12</span> Architecture <b>EXPERT</b></a>
+        <a class="nav-item nav-item-locked" href="#expert-decisions" data-view="expert-decisions"><span>13</span> Décisions <b>EXPERT</b></a>
       </nav>
 
       <div class="sidebar-footer">
@@ -225,6 +226,55 @@
         <div class="capability-board" id="capability-board"></div>
       </section>
 
+      <section class="view" data-view-panel="execution">
+        <div class="page-heading compact-heading">
+          <div>
+            <div class="eyebrow">Configuration réelle</div>
+            <h1>Partir de ce qui est déjà disponible avant de recommander.</h1>
+            <p>La V5 confronte la charge à l’environnement réellement mobilisable : matériel, runtimes, modèles, services, données, automatisations, politiques et budget incrémental.</p>
+          </div>
+        </div>
+        <div class="method-flow">
+          <div><strong>Observer</strong><span>Execution Estate</span></div><i>→</i>
+          <div><strong>Décrire</strong><span>Workload</span></div><i>→</i>
+          <div><strong>Composer</strong><span>Execution Plan</span></div><i>→</i>
+          <div><strong>Tester</strong><span>benchmarks et preuves</span></div><i>→</i>
+          <div><strong>Décider</strong><span>gap réel</span></div>
+        </div>
+        <div class="method-notes">
+          <article class="panel">
+            <div class="eyebrow">Execution Estate</div>
+            <h2>Ce que l’utilisateur possède déjà.</h2>
+            <p>CPU, GPU/NPU, RAM/VRAM, stockage, OS, runtimes, modèles, services, corpus, graphes, automatisations et contraintes de gouvernance.</p>
+          </article>
+          <article class="panel">
+            <div class="eyebrow">Workload</div>
+            <h2>Ce qu’il faut réellement accomplir.</h2>
+            <p>Volume, confidentialité, latence, capacités requises, durée acceptable, mode local/offline et budget incrémental font partie du problème.</p>
+          </article>
+          <article class="panel">
+            <div class="eyebrow">Execution Plan</div>
+            <h2>Composer avant d’acheter.</h2>
+            <p>Outils déterministes, petits modèles, RAG, quantification, séquencement, offload et services existants sont testés avant de déclarer un manque.</p>
+          </article>
+        </div>
+        <section class="panel landscape-panel">
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow">Principe V5</div>
+              <h2>Compatibilité matérielle ≠ faisabilité de la capacité.</h2>
+            </div>
+          </div>
+          <p>Une exigence publiée par un fournisseur n’est qu’une observation pour un mode d’exécution donné. Le Radar conserve les exigences dans des profils d’exécution sourcés, puis mesure la faisabilité sur l’environnement réel et garde les substitutions considérées.</p>
+          <div class="landscape-grid">
+            <article class="landscape-card"><div class="landscape-index">E01</div><h3>Déterministe d’abord</h3><p>Python, SQL, recherche, règles et graphes remplacent un LLM lorsqu’ils suffisent.</p></article>
+            <article class="landscape-card"><div class="landscape-index">E02</div><h3>Local par défaut</h3><p>Le provider externe reste optionnel lorsque la politique impose autonomie et réversibilité.</p></article>
+            <article class="landscape-card"><div class="landscape-index">E03</div><h3>Preuve avant conclusion</h3><p>VRAM, RAM, débit et qualité sont liés au backend, à la quantification et au workload observés.</p></article>
+            <article class="landscape-card"><div class="landscape-index">E04</div><h3>Gap résiduel</h3><p>Le manque n’est déclaré qu’après examen des substitutions et compositions raisonnables.</p></article>
+          </div>
+        </section>
+      </section>
+
       <section class="view" data-view-panel="approaches">
         <div class="page-heading compact-heading">
           <div><div class="eyebrow">Approches</div><h1>Comparer les manières de résoudre le problème.</h1><p>Une rupture d’approche peut rendre obsolète une comparaison entre logiciels. Cette vue doit rendre ces changements visibles.</p></div>
@@ -253,7 +303,7 @@
 
       <section class="view" data-view-panel="acquire">
         <div class="page-heading compact-heading">
-          <div><div class="eyebrow">Acquérir</div><h1>Passer d’une source repérée à un artefact vérifiable.</h1><p>La V4 conserve resolve, mirroring, commandes multi-OS, manifeste, SHA-256 et bridge local de la V3.</p></div>
+          <div><div class="eyebrow">Acquérir</div><h1>Passer d’une source repérée à un artefact vérifiable.</h1><p>La V5 doit conserver resolve, mirroring, commandes multi-OS, manifeste, SHA-256 et bridge local de la V3 avant tout cut-over.</p></div>
         </div>
         <div class="acquire-layout">
           <section class="panel">
