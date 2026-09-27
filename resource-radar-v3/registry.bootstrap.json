@@ -1,0 +1,3208 @@
+{
+  "schema": "./capability-record.schema.json",
+  "generated_from": {
+    "path": "public-resource-hub/sources.js",
+    "sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1"
+  },
+  "record_count": 41,
+  "records": [
+    {
+      "record_id": "source.hf",
+      "object_type": "source",
+      "name": "Hugging Face",
+      "description": "Modèles, datasets, Spaces, documentation et découverte",
+      "legacy": {
+        "source_id": "hf",
+        "kind": "Hub généraliste",
+        "domain": "Généraliste",
+        "authority": "S",
+        "volume": 5,
+        "owner": "Hugging Face, Inc.",
+        "depends": "Cloud + communauté + éditeurs de modèles",
+        "local": "Miroir/ingestion possible",
+        "risk_text": "Concentration forte"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.generaliste",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://huggingface.co/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.modelscope",
+      "object_type": "source",
+      "name": "ModelScope",
+      "description": "Modèles, datasets, notebooks et entraînement",
+      "legacy": {
+        "source_id": "modelscope",
+        "kind": "Hub généraliste",
+        "domain": "Généraliste",
+        "authority": "S/A",
+        "volume": 5,
+        "owner": "Alibaba ecosystem",
+        "depends": "Alibaba Cloud + communauté",
+        "local": "Téléchargement local",
+        "risk_text": "Dépendance plateforme asiatique"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.generaliste",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://modelscope.cn/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.kaggle",
+      "object_type": "source",
+      "name": "Kaggle Models",
+      "description": "Modèles, datasets, notebooks, benchmarks",
+      "legacy": {
+        "source_id": "kaggle",
+        "kind": "Hub généraliste",
+        "domain": "Data science",
+        "authority": "S",
+        "volume": 5,
+        "owner": "Google / Kaggle",
+        "depends": "Google Cloud + communauté Kaggle",
+        "local": "Export et téléchargement",
+        "risk_text": "Écosystème Google"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.data.science",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://www.kaggle.com/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.github",
+      "object_type": "source",
+      "name": "GitHub",
+      "description": "Code source, releases, poids, workflows, issues",
+      "legacy": {
+        "source_id": "github",
+        "kind": "Dépôt source",
+        "domain": "Code & recherche",
+        "authority": "S",
+        "volume": 5,
+        "owner": "Microsoft / GitHub",
+        "depends": "Git + communautés projets",
+        "local": "Clone/mirror natif",
+        "risk_text": "Centralisation du code"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.code.recherche",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.ghmodels",
+      "object_type": "source",
+      "name": "GitHub Models",
+      "description": "Découverte et usage de modèles pour développeurs",
+      "legacy": {
+        "source_id": "ghmodels",
+        "kind": "Catalogue modèles",
+        "domain": "LLM & dev",
+        "authority": "S",
+        "volume": 3,
+        "owner": "Microsoft / GitHub",
+        "depends": "Fournisseurs de modèles",
+        "local": "Référencement surtout",
+        "risk_text": "Dépendance fournisseurs"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.dev",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/marketplace/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.ngc",
+      "object_type": "source",
+      "name": "NVIDIA NGC",
+      "description": "Modèles, containers, SDK, Helm charts",
+      "legacy": {
+        "source_id": "ngc",
+        "kind": "Hub technique",
+        "domain": "GPU / HPC",
+        "authority": "S",
+        "volume": 4,
+        "owner": "NVIDIA",
+        "depends": "CUDA + écosystème NVIDIA",
+        "local": "Containers et artefacts téléchargeables",
+        "risk_text": "Lock-in GPU potentiel"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.gpu.hpc",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://catalog.ngc.nvidia.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.opencsg",
+      "object_type": "source",
+      "name": "OpenCSG",
+      "description": "Models, datasets, code, MCP, skills, spaces",
+      "legacy": {
+        "source_id": "opencsg",
+        "kind": "Hub généraliste",
+        "domain": "Généraliste",
+        "authority": "A",
+        "volume": 4,
+        "owner": "OpenCSG",
+        "depends": "Communauté + compute",
+        "local": "Téléchargement et API",
+        "risk_text": "Maturité plus récente"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.generaliste",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://opencsg.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.openxlab",
+      "object_type": "source",
+      "name": "OpenXLab",
+      "description": "Algorithmes, checkpoints, benchmarks, plateformes spécialisées",
+      "legacy": {
+        "source_id": "openxlab",
+        "kind": "Plateforme scientifique",
+        "domain": "Vision & recherche",
+        "authority": "S/A",
+        "volume": 4,
+        "owner": "Open ecosystem",
+        "depends": "OpenMMLab / labs partenaires",
+        "local": "Téléchargement selon projet",
+        "risk_text": "Documentation parfois fragmentée"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.vision.recherche",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://openxlab.org.cn/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.opendatalab",
+      "object_type": "source",
+      "name": "OpenDataLab",
+      "description": "Données d’entraînement et benchmarks multimodaux",
+      "legacy": {
+        "source_id": "opendatalab",
+        "kind": "Hub datasets",
+        "domain": "Datasets",
+        "authority": "S/A",
+        "volume": 4,
+        "owner": "OpenDataLab ecosystem",
+        "depends": "Institutions et fournisseurs de datasets",
+        "local": "Téléchargement datasets",
+        "risk_text": "Droits variables par dataset"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.datasets",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://opendatalab.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.zenodo",
+      "object_type": "source",
+      "name": "Zenodo",
+      "description": "Artefacts scientifiques, datasets, checkpoints, DOI",
+      "legacy": {
+        "source_id": "zenodo",
+        "kind": "Dépôt scientifique",
+        "domain": "Recherche",
+        "authority": "S",
+        "volume": 5,
+        "owner": "CERN / OpenAIRE",
+        "depends": "Institutions et chercheurs",
+        "local": "Téléchargement direct",
+        "risk_text": "Qualité hétérogène"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.recherche",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://zenodo.org/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.osf",
+      "object_type": "source",
+      "name": "OSF",
+      "description": "Projets, données, artefacts reproductibles",
+      "legacy": {
+        "source_id": "osf",
+        "kind": "Dépôt scientifique",
+        "domain": "Recherche",
+        "authority": "S",
+        "volume": 4,
+        "owner": "Center for Open Science",
+        "depends": "Chercheurs et institutions",
+        "local": "Téléchargement direct",
+        "risk_text": "Métadonnées variables"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.recherche",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://osf.io/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.figshare",
+      "object_type": "source",
+      "name": "Figshare",
+      "description": "Données et artefacts de publication",
+      "legacy": {
+        "source_id": "figshare",
+        "kind": "Dépôt scientifique",
+        "domain": "Recherche",
+        "authority": "S",
+        "volume": 4,
+        "owner": "Digital Science",
+        "depends": "Institutions et chercheurs",
+        "local": "Téléchargement direct",
+        "risk_text": "Licences à vérifier"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.recherche",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://figshare.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.civitai",
+      "object_type": "source",
+      "name": "Civitai",
+      "description": "Checkpoints, LoRA, VAE, workflows, ressources créatives",
+      "legacy": {
+        "source_id": "civitai",
+        "kind": "Marketplace spécialisée",
+        "domain": "Image & vidéo",
+        "authority": "A/B",
+        "volume": 5,
+        "owner": "Civitai",
+        "depends": "Créateurs + modèles de base",
+        "local": "Téléchargement direct",
+        "risk_text": "Qualité/licence/contenu à qualifier"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.image.video",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://civitai.com/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.tensorart",
+      "object_type": "source",
+      "name": "Tensor.Art",
+      "description": "Modèles, LoRA, workflows et outils créatifs",
+      "legacy": {
+        "source_id": "tensorart",
+        "kind": "Marketplace spécialisée",
+        "domain": "Image & design",
+        "authority": "A/B",
+        "volume": 5,
+        "owner": "Tensor.Art",
+        "depends": "Créateurs + modèles de base",
+        "local": "Téléchargement variable",
+        "risk_text": "Qualité/licence à qualifier"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.image.design",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://tensor.art/models/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.openmodeldb",
+      "object_type": "source",
+      "name": "OpenModelDB",
+      "description": "Upscale, denoise, restoration, ESRGAN",
+      "legacy": {
+        "source_id": "openmodeldb",
+        "kind": "Hub spécialisé",
+        "domain": "Upscale & restauration",
+        "authority": "A",
+        "volume": 2,
+        "owner": "Communauté",
+        "depends": "Chercheurs et créateurs",
+        "local": "Téléchargement direct",
+        "risk_text": "Niche mais utile"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.upscale.restauration",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://openmodeldb.info/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.openmmlab",
+      "object_type": "source",
+      "name": "OpenMMLab",
+      "description": "Détection, segmentation, pose, vidéo, 3D",
+      "legacy": {
+        "source_id": "openmmlab",
+        "kind": "Model zoo",
+        "domain": "Computer vision",
+        "authority": "S/A",
+        "volume": 4,
+        "owner": "OpenMMLab community",
+        "depends": "Frameworks PyTorch + laboratoires",
+        "local": "Poids et code",
+        "risk_text": "Dépendances techniques nombreuses"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.computer.vision",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://openmmlab.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.pytorchhub",
+      "object_type": "source",
+      "name": "PyTorch Hub",
+      "description": "Modèles pré-entraînés reproductibles",
+      "legacy": {
+        "source_id": "pytorchhub",
+        "kind": "Model hub",
+        "domain": "Machine learning",
+        "authority": "S",
+        "volume": 3,
+        "owner": "PyTorch Foundation",
+        "depends": "PyTorch + dépôts auteurs",
+        "local": "Chargement local",
+        "risk_text": "Catalogue moins large"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.machine.learning",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://pytorch.org/hub/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.monai",
+      "object_type": "source",
+      "name": "MONAI Model Zoo",
+      "description": "Imagerie médicale, segmentation, bundles reproductibles",
+      "legacy": {
+        "source_id": "monai",
+        "kind": "Model zoo",
+        "domain": "Médical",
+        "authority": "S",
+        "volume": 2,
+        "owner": "MONAI consortium",
+        "depends": "PyTorch + NVIDIA + communauté médicale",
+        "local": "Bundles téléchargeables",
+        "risk_text": "Usage médical à gouverner"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.medical",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://project-monai.github.io/model-zoo.html",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.torchgeo",
+      "object_type": "source",
+      "name": "TorchGeo",
+      "description": "Satellite, Sentinel, Landsat, géospatial",
+      "legacy": {
+        "source_id": "torchgeo",
+        "kind": "Model/data ecosystem",
+        "domain": "Géospatial",
+        "authority": "S/A",
+        "volume": 2,
+        "owner": "Open source community",
+        "depends": "PyTorch + sources satellite",
+        "local": "Poids/datasets selon source",
+        "risk_text": "Données lourdes"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.geospatial",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://torchgeo.org/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.espnet",
+      "object_type": "source",
+      "name": "ESPnet Model Zoo",
+      "description": "ASR, TTS, speech translation",
+      "legacy": {
+        "source_id": "espnet",
+        "kind": "Model zoo",
+        "domain": "Audio & speech",
+        "authority": "S/A",
+        "volume": 3,
+        "owner": "ESPnet community",
+        "depends": "GitHub + Zenodo + frameworks audio",
+        "local": "Téléchargement direct",
+        "risk_text": "Setup technique"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.audio.speech",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/espnet/espnet_model_zoo",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.open3d",
+      "object_type": "source",
+      "name": "Open3D-ML",
+      "description": "Point clouds, LiDAR, segmentation 3D",
+      "legacy": {
+        "source_id": "open3d",
+        "kind": "Model zoo",
+        "domain": "3D & LiDAR",
+        "authority": "S/A",
+        "volume": 2,
+        "owner": "Open3D community",
+        "depends": "Open3D + datasets 3D",
+        "local": "Poids et code",
+        "risk_text": "GPU/datasets lourds"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.3d.lidar",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/isl-org/Open3D-ML",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.mmdet3d",
+      "object_type": "source",
+      "name": "MMDetection3D",
+      "description": "Perception 3D, LiDAR, autonomous driving",
+      "legacy": {
+        "source_id": "mmdet3d",
+        "kind": "Model zoo",
+        "domain": "3D & conduite autonome",
+        "authority": "S/A",
+        "volume": 3,
+        "owner": "OpenMMLab",
+        "depends": "MMEngine + PyTorch",
+        "local": "Poids et code",
+        "risk_text": "Stack complexe"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.3d.conduite.autonome",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/open-mmlab/mmdetection3d",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.pinokio",
+      "object_type": "source",
+      "name": "Pinokio",
+      "description": "Découverte et installation one-click d’apps IA locales",
+      "legacy": {
+        "source_id": "pinokio",
+        "kind": "Launcher / App Store",
+        "domain": "Applications IA",
+        "authority": "A",
+        "volume": 5,
+        "owner": "Pinokio ecosystem",
+        "depends": "GitHub, hubs modèles, scripts auteurs",
+        "local": "Très fort",
+        "risk_text": "Scripts tiers à auditer"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.applications.ia",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://pinokio.co/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.stabilitymatrix",
+      "object_type": "source",
+      "name": "Stability Matrix",
+      "description": "Gestion d’installations et modèles image",
+      "legacy": {
+        "source_id": "stabilitymatrix",
+        "kind": "Launcher / manager",
+        "domain": "Image locale",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Lykos AI",
+        "depends": "ComfyUI, Forge, A1111, hubs modèles",
+        "local": "Très fort",
+        "risk_text": "Dépendances multiples"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.image.locale",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://lykos.ai/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.comfyregistry",
+      "object_type": "source",
+      "name": "Comfy Registry",
+      "description": "Nodes et extensions ComfyUI",
+      "legacy": {
+        "source_id": "comfyregistry",
+        "kind": "Registry extensions",
+        "domain": "ComfyUI",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Comfy ecosystem",
+        "depends": "ComfyUI + auteurs de nodes",
+        "local": "Très fort",
+        "risk_text": "Supply-chain plugins"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.comfyui",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://registry.comfy.org/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.comfymgr",
+      "object_type": "source",
+      "name": "ComfyUI Manager",
+      "description": "Installation et gestion de nodes/modèles",
+      "legacy": {
+        "source_id": "comfymgr",
+        "kind": "Manager extensions",
+        "domain": "ComfyUI",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Comfy ecosystem",
+        "depends": "GitHub + Comfy Registry",
+        "local": "Très fort",
+        "risk_text": "Supply-chain plugins"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.comfyui",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/Comfy-Org/ComfyUI-Manager",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.ollama",
+      "object_type": "source",
+      "name": "Ollama",
+      "description": "Télécharger, lancer et servir des modèles localement",
+      "legacy": {
+        "source_id": "ollama",
+        "kind": "Runtime + catalogue",
+        "domain": "LLM local",
+        "authority": "A/S",
+        "volume": 4,
+        "owner": "Ollama Inc.",
+        "depends": "llama.cpp + modèles open-weight",
+        "local": "Natif",
+        "risk_text": "Format/catalogue spécifique"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.local",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://ollama.com/library",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.lmstudio",
+      "object_type": "source",
+      "name": "LM Studio",
+      "description": "Desktop local, découverte, serveur API",
+      "legacy": {
+        "source_id": "lmstudio",
+        "kind": "Runtime + catalogue",
+        "domain": "LLM local",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Element Labs, Inc.",
+        "depends": "GGUF/MLX + hubs modèles",
+        "local": "Natif",
+        "risk_text": "Application propriétaire"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.local",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://lmstudio.ai/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.localai",
+      "object_type": "source",
+      "name": "LocalAI",
+      "description": "API compatible OpenAI et modèles locaux",
+      "legacy": {
+        "source_id": "localai",
+        "kind": "Runtime + galerie",
+        "domain": "LLM & multimodal local",
+        "authority": "A",
+        "volume": 3,
+        "owner": "Open source community",
+        "depends": "llama.cpp et backends multiples",
+        "local": "Natif",
+        "risk_text": "Configuration avancée"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.multimodal.local",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://localai.io/docs/gallery.html",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.jan",
+      "object_type": "source",
+      "name": "Jan",
+      "description": "Chat, modèles, agents et API locale",
+      "legacy": {
+        "source_id": "jan",
+        "kind": "Runtime + agents",
+        "domain": "Assistant local",
+        "authority": "A",
+        "volume": 3,
+        "owner": "Jan community/company",
+        "depends": "llama.cpp, MLX, MCP, fournisseurs optionnels",
+        "local": "Natif",
+        "risk_text": "Écosystème en évolution"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.assistant.local",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://www.jan.ai/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.gpt4all",
+      "object_type": "source",
+      "name": "GPT4All",
+      "description": "Chat et inférence locale",
+      "legacy": {
+        "source_id": "gpt4all",
+        "kind": "Runtime local",
+        "domain": "LLM local",
+        "authority": "A",
+        "volume": 2,
+        "owner": "Nomic AI",
+        "depends": "Modèles quantifiés + runtime local",
+        "local": "Natif",
+        "risk_text": "Catalogue plus limité"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.local",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://www.nomic.ai/gpt4all",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.openwebui",
+      "object_type": "source",
+      "name": "Open WebUI",
+      "description": "Portail unifié pour modèles, outils et utilisateurs",
+      "legacy": {
+        "source_id": "openwebui",
+        "kind": "Interface self-hosted",
+        "domain": "Orchestration",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Open WebUI community",
+        "depends": "Ollama, APIs compatibles, tools",
+        "local": "Natif",
+        "risk_text": "Surface d’intégration large"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.orchestration",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://www.openwebui.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.comfyui",
+      "object_type": "source",
+      "name": "ComfyUI",
+      "description": "Graphe de génération et workflows visuels",
+      "legacy": {
+        "source_id": "comfyui",
+        "kind": "Workflow engine",
+        "domain": "Image & multimodal",
+        "authority": "A/S",
+        "volume": 5,
+        "owner": "Comfy ecosystem",
+        "depends": "PyTorch + modèles/nodes externes",
+        "local": "Natif",
+        "risk_text": "Complexité et supply-chain nodes"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.image.multimodal",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/comfyanonymous/ComfyUI",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.swarmui",
+      "object_type": "source",
+      "name": "SwarmUI",
+      "description": "Interface multi-backends orientée génération locale",
+      "legacy": {
+        "source_id": "swarmui",
+        "kind": "Interface / orchestration",
+        "domain": "Image locale",
+        "authority": "A",
+        "volume": 3,
+        "owner": "Open source community",
+        "depends": "ComfyUI + backends image",
+        "local": "Natif",
+        "risk_text": "Dépend des backends"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.image.locale",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/mcmonkeyprojects/SwarmUI",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.mcp",
+      "object_type": "source",
+      "name": "Model Context Protocol",
+      "description": "Interopérabilité entre agents, données et outils",
+      "legacy": {
+        "source_id": "mcp",
+        "kind": "Protocole",
+        "domain": "Agents & outils",
+        "authority": "S/A",
+        "volume": 4,
+        "owner": "Open ecosystem",
+        "depends": "Clients/serveurs MCP",
+        "local": "Très fort",
+        "risk_text": "Permissions à gouverner"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.agents.outils",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://modelcontextprotocol.io/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.replicate",
+      "object_type": "source",
+      "name": "Replicate Explore",
+      "description": "Découverte et exécution de modèles via API",
+      "legacy": {
+        "source_id": "replicate",
+        "kind": "Catalogue + inference",
+        "domain": "Modèles hébergés",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Replicate",
+        "depends": "Cloud + auteurs modèles",
+        "local": "Faible",
+        "risk_text": "Dépendance cloud"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.modeles.heberges",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://replicate.com/explore",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.openrouter",
+      "object_type": "source",
+      "name": "OpenRouter",
+      "description": "Comparaison et routage multi-fournisseurs",
+      "legacy": {
+        "source_id": "openrouter",
+        "kind": "Catalogue + routing",
+        "domain": "LLM cloud",
+        "authority": "A",
+        "volume": 4,
+        "owner": "OpenRouter",
+        "depends": "Fournisseurs de modèles",
+        "local": "Référencement",
+        "risk_text": "Cloud et dépendance API"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.llm.cloud",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://openrouter.ai/models",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.paperswithcode",
+      "object_type": "source",
+      "name": "Papers with Code",
+      "description": "Relier publications, code, datasets et benchmarks",
+      "legacy": {
+        "source_id": "paperswithcode",
+        "kind": "Index recherche",
+        "domain": "Papers & benchmarks",
+        "authority": "S/A",
+        "volume": 5,
+        "owner": "Community / Meta lineage",
+        "depends": "Papers + GitHub + datasets",
+        "local": "Indexation",
+        "risk_text": "Liens externes mouvants"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.papers.benchmarks",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://paperswithcode.com/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.huggingpapers",
+      "object_type": "source",
+      "name": "Hugging Face Daily Papers",
+      "description": "Découverte quotidienne de travaux IA",
+      "legacy": {
+        "source_id": "huggingpapers",
+        "kind": "Veille recherche",
+        "domain": "Papers",
+        "authority": "A",
+        "volume": 4,
+        "owner": "Hugging Face",
+        "depends": "arXiv + communauté",
+        "local": "RSS/veille",
+        "risk_text": "Dépendance HF"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.papers",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://huggingface.co/papers",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.arxiv",
+      "object_type": "source",
+      "name": "arXiv",
+      "description": "Prépublications scientifiques",
+      "legacy": {
+        "source_id": "arxiv",
+        "kind": "Dépôt scientifique",
+        "domain": "Papers",
+        "authority": "S",
+        "volume": 5,
+        "owner": "Cornell / community",
+        "depends": "Chercheurs et institutions",
+        "local": "Feeds et téléchargements PDF",
+        "risk_text": "Non peer-reviewed par défaut"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.papers",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://arxiv.org/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    },
+    {
+      "record_id": "source.papers",
+      "object_type": "source",
+      "name": "Semantic Scholar",
+      "description": "Recherche, citations et découverte scientifique",
+      "legacy": {
+        "source_id": "papers",
+        "kind": "Moteur scientifique",
+        "domain": "Papers & citations",
+        "authority": "S/A",
+        "volume": 5,
+        "owner": "Allen Institute for AI",
+        "depends": "Corpus académique",
+        "local": "API/indexation",
+        "risk_text": "Couverture selon corpus"
+      },
+      "capabilities": [
+        {
+          "capability_id": "discovery.papers.citations",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R0",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": null,
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "permissions": {},
+      "network": {},
+      "data_scope": {},
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://www.semanticscholar.org/",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "migration": {
+        "source_file": "public-resource-hub/sources.js",
+        "source_file_sha": "dd9681c28f88f2dfbafabf5bdef9d1f40c29dec1",
+        "mapping_status": "BOOTSTRAPPED_UNQUALIFIED",
+        "note": "Migrated from curated demo data. Missing qualification fields intentionally remain unknown/null."
+      }
+    }
+  ]
+}
