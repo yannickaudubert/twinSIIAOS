@@ -46,6 +46,7 @@ class ExecutionPlannerTests(unittest.TestCase):
                 "runtime_ids": ["lm-studio"],
             },
             "capabilities": ["classification"],
+            "cost": {"incremental_eur": 0},
             "provenance": {
                 "method": "benchmarked",
                 "observed_at": "2026-09-27T00:00:00Z",
@@ -58,6 +59,35 @@ class ExecutionPlannerTests(unittest.TestCase):
         self.assertFalse(plan["cost"]["external_dependencies_required"])
         self.assertEqual(plan["steps"][0]["resource_ids"], ["model:local"])
 
+    def test_unknown_cost_is_not_treated_as_free(self):
+        profiles = [{
+            "id": "profile:unknown-cost",
+            "resource_id": "model:unknown-cost",
+            "mode": {"name": "local"},
+            "requirements": {"min_ram_mb": 1024},
+            "capabilities": ["classification"],
+            "provenance": {"method": "declared", "observed_at": "2026-09-27T00:00:00Z"},
+        }]
+        plan = compose_plan(self.estate, self.workload, profiles)
+        self.assertEqual(plan["feasibility"]["status"], "unknown")
+        self.assertTrue(any("cout incremental non observe" in item for item in plan["gap_analysis"]["rejected_options"]))
+
+    def test_quality_floor_without_quality_evidence_is_unknown(self):
+        workload = dict(self.workload)
+        workload["required_capabilities"] = [{"capability": "classification", "priority": "required", "quality_floor": "high"}]
+        profiles = [{
+            "id": "profile:no-quality-proof",
+            "resource_id": "model:no-quality-proof",
+            "mode": {"name": "local"},
+            "requirements": {"min_ram_mb": 1024},
+            "capabilities": ["classification"],
+            "cost": {"incremental_eur": 0},
+            "provenance": {"method": "declared", "observed_at": "2026-09-27T00:00:00Z"},
+        }]
+        plan = compose_plan(self.estate, workload, profiles)
+        self.assertEqual(plan["feasibility"]["status"], "unknown")
+        self.assertTrue(any("qualite non prouvee" in item for item in plan["gap_analysis"]["rejected_options"]))
+
     def test_insufficient_vram_creates_gap_without_cloud_fallback(self):
         profiles = [{
             "id": "profile:too-large",
@@ -65,6 +95,7 @@ class ExecutionPlannerTests(unittest.TestCase):
             "mode": {"name": "native"},
             "requirements": {"min_vram_mb": 24000},
             "capabilities": ["classification"],
+            "cost": {"incremental_eur": 0},
             "provenance": {"method": "declared", "observed_at": "2026-09-27T00:00:00Z"},
         }]
         plan = compose_plan(self.estate, self.workload, profiles)
