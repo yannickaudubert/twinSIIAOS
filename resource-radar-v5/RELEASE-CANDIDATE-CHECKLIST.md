@@ -39,7 +39,7 @@ Regle : aucun cut-over Vercel tant que les gates P0 ne sont pas tous prouves. Le
 - [x] workflow GitHub UI V5 dedie ;
 - [x] protocole de simulation d'usages versionne ;
 - [x] premiers personas synthetiques Estate/Workload ;
-- [x] 59 assertions/scenarios automatises (decision, adversarial, composition, admission, signal public, anti-regression de contexte) ;
+- [x] 60 assertions/scenarios automatises (decision, adversarial, composition, admission, signal public, anti-regression de contexte) ;
 - [x] 8 parcours navigateur Playwright, verifies apres correction du runner ;
 - [ ] adapter `audit_human_ux.py` aux vues V5 et a la terminologie V5 ;
 - [x] ajouter captures desktop/mobile de la vue Execution ;
