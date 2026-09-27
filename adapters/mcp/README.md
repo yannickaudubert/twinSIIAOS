@@ -28,6 +28,7 @@ uv run --with "mcp[cli]>=2,<3" mcp run adapters/mcp/server.py --transport stream
 
 - `assess_capability(record, context)`
 - `route_capabilities(records, context)`
+- `transition_capability(record, target_state, transition_request)`
 
 Resource:
 
