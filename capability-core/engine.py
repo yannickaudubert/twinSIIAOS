@@ -108,12 +108,136 @@ def route(records, ctx=None):
     out.sort(key=lambda x:(-x["score"], str(x["record"].get("name",""))))
     return out
 
+
+ALLOWED_TRANSITIONS = {
+    "DISCOVERED": {"CANDIDATE", "REJECTED"},
+    "CANDIDATE": {"SCANNED", "BLOCKED", "REJECTED"},
+    "SCANNED": {"REVIEWED", "BLOCKED", "REJECTED"},
+    "REVIEWED": {"EXPERIMENT", "BLOCKED", "REJECTED"},
+    "EXPERIMENT": {"ADMITTED", "BLOCKED", "REJECTED"},
+    "ADMITTED": {"PINNED", "HOLD", "RETIRED"},
+    "PINNED": {"OBSERVED", "HOLD", "RETIRED"},
+    "OBSERVED": {"HOLD", "RETIRED"},
+    "HOLD": {"EXPERIMENT", "RETIRED"},
+    "UNKNOWN": {"CANDIDATE", "REJECTED"},
+}
+
+def _evidence_kinds(evidence):
+    return {str(e.get("kind","")).lower() for e in evidence or []}
+
+def _verified_evidence(evidence, kinds=None):
+    for item in evidence or []:
+        if item.get("status") != "verified":
+            continue
+        if kinds is None or str(item.get("kind","")).lower() in kinds:
+            return True
+    return False
+
+def transition(rec, target_state, request=None):
+    request = request or {}
+    current = rec.get("admission_state", "UNKNOWN")
+    target = str(target_state or "").upper()
+    allowed = ALLOWED_TRANSITIONS.get(current, set())
+    reasons = []
+
+    if target not in allowed:
+        reasons.append("TRANSITION_NOT_ALLOWED")
+
+    supplied_evidence = request.get("evidence") or []
+    combined_evidence = list(rec.get("evidence") or []) + list(supplied_evidence)
+    kinds = _evidence_kinds(combined_evidence)
+    risk = RISK.get(rec.get("risk_class"), 4)
+
+    if target == "SCANNED":
+        for required in ("provenance", "license", "security"):
+            if required not in kinds:
+                reasons.append("MISSING_" + required.upper() + "_EVIDENCE")
+
+    if target == "EXPERIMENT":
+        experiment = request.get("experiment") or rec.get("experiment") or {}
+        if not experiment.get("hypothesis"):
+            reasons.append("MISSING_EXPERIMENT_HYPOTHESIS")
+        if not experiment.get("success_metrics"):
+            reasons.append("MISSING_EXPERIMENT_SUCCESS_METRICS")
+        if not experiment.get("rollback"):
+            reasons.append("MISSING_EXPERIMENT_ROLLBACK")
+        if risk >= RISK["R3"] and request.get("human_approved") is not True:
+            reasons.append("HUMAN_APPROVAL_REQUIRED")
+
+    if target == "ADMITTED":
+        accepted = _verified_evidence(combined_evidence, {"experiment_result", "admission_exception"})
+        if not accepted:
+            reasons.append("VERIFIED_EXPERIMENT_OR_EXCEPTION_REQUIRED")
+        if risk >= RISK["R3"] and request.get("human_approved") is not True:
+            reasons.append("HUMAN_APPROVAL_REQUIRED")
+
+    if target == "PINNED":
+        provenance = dict(rec.get("provenance") or {})
+        provenance.update(request.get("provenance") or {})
+        if not provenance.get("artifact_hash"):
+            reasons.append("ARTIFACT_HASH_REQUIRED")
+        if not (provenance.get("source_commit") or provenance.get("version")):
+            reasons.append("IMMUTABLE_VERSION_REQUIRED")
+
+    if target == "OBSERVED":
+        observed = any(
+            e.get("status") in {"observed", "verified"} and e.get("environment")
+            for e in combined_evidence
+        )
+        if not observed:
+            reasons.append("RUNTIME_EVIDENCE_REQUIRED")
+
+    if target in {"HOLD", "RETIRED", "REJECTED", "BLOCKED"} and not request.get("reason"):
+        reasons.append("REASON_REQUIRED")
+
+    if reasons:
+        return {
+            "ok": False,
+            "from_state": current,
+            "target_state": target,
+            "reasons": reasons,
+            "record": rec,
+        }
+
+    updated = dict(rec)
+    updated["admission_state"] = target
+    updated["evidence"] = combined_evidence
+
+    if request.get("experiment") is not None:
+        updated["experiment"] = request.get("experiment")
+
+    if request.get("provenance") is not None:
+        provenance = dict(updated.get("provenance") or {})
+        provenance.update(request.get("provenance") or {})
+        updated["provenance"] = provenance
+
+    history = list(updated.get("lifecycle_history") or [])
+    history.append({
+        "from": current,
+        "to": target,
+        "timestamp": request.get("timestamp"),
+        "reason": request.get("reason"),
+        "human_approved": request.get("human_approved") is True,
+        "evidence_ids": [e.get("evidence_id") for e in supplied_evidence if e.get("evidence_id")],
+    })
+    updated["lifecycle_history"] = history
+
+    return {
+        "ok": True,
+        "from_state": current,
+        "target_state": target,
+        "reasons": [],
+        "record": updated,
+    }
+
 def execute(env):
     op = env.get("operation")
     if op == "assess":
         return {"protocol_version":"0.1","result":assess(env["record"],env.get("context"))}
     if op == "route":
         return {"protocol_version":"0.1","result":route(env.get("records",[]),env.get("context"))}
+    if op == "transition":
+        return {"protocol_version":"0.1","result":transition(env["record"], env["target_state"], env.get("transition"))}
     raise ValueError("Unsupported operation")
 
 def main():
