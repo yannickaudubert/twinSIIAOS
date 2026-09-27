@@ -37,10 +37,14 @@ def assess_admission(profile: dict, context: dict) -> dict:
         reasons.append("maturite organisationnelle insuffisante")
 
     risk = profile.get("risk_class")
+    configured_gate = context.get("risk_policy", {}).get("human_gate_from", "R3")
+    gate_threshold = min(RISK_ORDER.get(configured_gate, RISK_ORDER["R3"]), RISK_ORDER["R3"])
     if risk not in RISK_ORDER:
         unknowns.append("classe de risque inconnue")
-    elif risk in {"R3", "R4"}:
-        human_gate_reasons.append(f"{risk} impose un HumanGate explicite")
+    elif RISK_ORDER[risk] >= gate_threshold:
+        human_gate_reasons.append(
+            f"{risk} impose un HumanGate explicite (seuil organisation: {configured_gate}, plafond SIIAOS sans gate: R2)"
+        )
 
     permissions = profile.get("permissions", {})
     network = profile.get("network", {})
