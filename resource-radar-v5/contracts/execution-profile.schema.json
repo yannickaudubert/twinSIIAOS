@@ -45,6 +45,18 @@
         "concurrency": {
           "type": "integer",
           "minimum": 1
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": [
+            "deterministic",
+            "local_model",
+            "local_service",
+            "local_agent",
+            "human",
+            "external_optional",
+            "external_required"
+          ]
         }
       },
       "additionalProperties": true
@@ -175,6 +187,22 @@
         "client_specific",
         "never_publish"
       ]
+    },
+    "cost": {
+      "type": "object",
+      "properties": {
+        "incremental_eur": {
+          "type": "number",
+          "minimum": 0
+        },
+        "external_dependency": {
+          "type": "string"
+        },
+        "external_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": false
