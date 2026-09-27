@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SIIAOS Local Skill Inventory",
+  "type": "object",
+  "required": [
+    "inventory_version",
+    "environment",
+    "roots",
+    "rule"
+  ],
+  "properties": {
+    "inventory_version": {
+      "const": "0.1"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "root",
+          "exists",
+          "skill_count",
+          "skills"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "exists": {
+            "type": "boolean"
+          },
+          "skill_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "entrypoint",
+                "skill_dir",
+                "entrypoint_sha256",
+                "file_count",
+                "files"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rule": {
+      "type": "string"
+    }
+  }
+}
