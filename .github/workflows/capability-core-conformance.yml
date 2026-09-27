@@ -44,6 +44,9 @@ jobs:
       - name: HTTP sidecar tests
         run: python -m unittest capability-core/tests/test_sidecar.py
 
+      - name: Skill inventory collector tests
+        run: python -m unittest skill-registry/tests/test_collect_local_skills.py
+
       - name: Validate MCP v2 adapter
         run: |
           python -m pip install "mcp>=2,<3"
@@ -72,3 +75,7 @@ jobs:
           python -m json.tool capability-core/conformance/lifecycle-cases.json > /dev/null
           python -m json.tool resource-radar-v3/capability-record.schema.json > /dev/null
           python -m json.tool resource-radar-v3/registry.bootstrap.json > /dev/null
+          python -m json.tool skill-registry/families.json > /dev/null
+          python -m json.tool skill-registry/current-chatgpt.inventory.json > /dev/null
+          python -m json.tool skill-registry/community-candidates.seed.json > /dev/null
+          python -m json.tool skill-registry/inventory.schema.json > /dev/null
