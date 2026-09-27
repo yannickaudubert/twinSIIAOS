@@ -1,0 +1,174 @@
+{
+  "target_total": 96,
+  "principle": "Target coverage, not mandatory installation count. Skills are admitted only through the capability lifecycle.",
+  "families": [
+    {
+      "id": "context-governance",
+      "target": 8,
+      "examples": [
+        "chantier-recovery",
+        "cross-work-convergence",
+        "correction-authority",
+        "truth-state",
+        "verification-before-completion",
+        "decision-ledger",
+        "evidence-gate",
+        "structural-preservation"
+      ]
+    },
+    {
+      "id": "research-knowledge",
+      "target": 8,
+      "examples": [
+        "primary-source-research",
+        "deep-web-research",
+        "scientific-research",
+        "multilingual-research",
+        "corpus-extraction",
+        "knowledge-admission",
+        "historical-archaeology",
+        "technology-radar"
+      ]
+    },
+    {
+      "id": "git-code",
+      "target": 10,
+      "examples": [
+        "repo-archaeology",
+        "git-worktrees",
+        "implementation-planning",
+        "systematic-debugging",
+        "tdd",
+        "differential-review",
+        "code-review",
+        "dependency-analysis",
+        "ci-cd",
+        "release-rollback"
+      ]
+    },
+    {
+      "id": "security-supply-chain",
+      "target": 8,
+      "examples": [
+        "skill-admission-security",
+        "mcp-security",
+        "agentic-ci-audit",
+        "sbom-provenance",
+        "secret-hygiene",
+        "dependency-risk",
+        "sandboxing",
+        "post-patch-validation"
+      ]
+    },
+    {
+      "id": "local-ai-models",
+      "target": 8,
+      "examples": [
+        "local-model-inventory",
+        "model-routing",
+        "model-benchmarking",
+        "gguf-runtime",
+        "embedding-selection",
+        "vision-models",
+        "speech-models",
+        "resource-budgeting"
+      ]
+    },
+    {
+      "id": "agents-mcp",
+      "target": 8,
+      "examples": [
+        "mcp-admission",
+        "tool-permissioning",
+        "agent-contracts",
+        "agent-evaluation",
+        "agent-memory",
+        "agent-routing",
+        "human-gates",
+        "agent-observability"
+      ]
+    },
+    {
+      "id": "automation-n8n",
+      "target": 8,
+      "examples": [
+        "n8n-lifecycle",
+        "subworkflow-design",
+        "expressions",
+        "loops-pagination",
+        "error-handling",
+        "credentials",
+        "agent-workflows",
+        "workflow-debugging"
+      ]
+    },
+    {
+      "id": "observability-operations",
+      "target": 8,
+      "examples": [
+        "opentelemetry",
+        "runtime-health",
+        "incident-investigation",
+        "capacity-monitoring",
+        "backup-restore",
+        "reconciliation",
+        "change-evidence",
+        "retex"
+      ]
+    },
+    {
+      "id": "web-seo-publishing",
+      "target": 8,
+      "examples": [
+        "nextjs",
+        "frontend-verification",
+        "accessibility",
+        "technical-seo",
+        "content-seo",
+        "structured-data",
+        "editorial-publishing",
+        "social-derivation"
+      ]
+    },
+    {
+      "id": "artifacts-documents",
+      "target": 8,
+      "examples": [
+        "docx",
+        "pdf",
+        "spreadsheets",
+        "slides",
+        "google-docs",
+        "google-sheets",
+        "google-slides",
+        "visual-assets"
+      ]
+    },
+    {
+      "id": "organisation-transformation",
+      "target": 8,
+      "examples": [
+        "maturity-vector",
+        "capability-gap",
+        "transformation-roadmap",
+        "open-source-maturity",
+        "ai-governance",
+        "data-governance",
+        "platform-maturity",
+        "value-measurement"
+      ]
+    },
+    {
+      "id": "project-specific",
+      "target": 6,
+      "examples": [
+        "hermes-pack",
+        "siiaos-local",
+        "agoria",
+        "consultant-site",
+        "cabinet-augmente",
+        "client-pack"
+      ]
+    }
+  ]
+}
