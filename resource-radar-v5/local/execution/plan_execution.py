@@ -151,12 +151,21 @@ def candidate_sort_key(profile: dict) -> tuple[int, float, str]:
 
 
 def compose_plan(estate: dict, workload: dict, profiles: list[dict]) -> dict:
+    priority_rank = {"required": 0, "preferred": 1, "optional": 2}
+    by_capability: dict[str, dict] = {}
+    for item in workload.get("required_capabilities", []):
+        capability = item["capability"]
+        priority = item.get("priority", "required")
+        current = by_capability.get(capability)
+        if current is None or priority_rank.get(priority, 99) < priority_rank.get(current.get("priority", "required"), 99):
+            by_capability[capability] = item
+
     required = [
-        item for item in workload.get("required_capabilities", [])
+        item for item in by_capability.values()
         if item.get("priority", "required") == "required"
     ]
     preferred = [
-        item for item in workload.get("required_capabilities", [])
+        item for item in by_capability.values()
         if item.get("priority") == "preferred"
     ]
 
