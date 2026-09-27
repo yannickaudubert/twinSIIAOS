@@ -41,6 +41,9 @@ jobs:
       - name: JavaScript unit tests
         run: node capability-core/tests/test_engine.js
 
+      - name: HTTP sidecar tests
+        run: python -m unittest capability-core/tests/test_sidecar.py
+
       - name: Cross-runtime conformance
         run: python capability-core/conformance/run_conformance.py
 
