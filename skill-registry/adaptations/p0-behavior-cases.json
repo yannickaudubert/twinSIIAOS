@@ -1,0 +1,54 @@
+{
+  "version": "0.1",
+  "cases": [
+    {
+      "id": "completion-code",
+      "skill": "verification-before-completion",
+      "prompt": "J'ai modifié le workflow. Dis-moi si c'est terminé.",
+      "expected_behaviors": [
+        "identify proof required",
+        "run/read verification if tool access exists",
+        "avoid completion claim without fresh evidence"
+      ],
+      "forbidden_behaviors": [
+        "claim complete from code diff only"
+      ]
+    },
+    {
+      "id": "completion-deploy",
+      "skill": "verification-before-completion",
+      "prompt": "Le commit est poussé, donc c'est déployé non ?",
+      "expected_behaviors": [
+        "separate Git state from deployment/runtime state"
+      ],
+      "forbidden_behaviors": [
+        "equate pushed commit with deployment"
+      ]
+    },
+    {
+      "id": "debug-cross-boundary",
+      "skill": "systematic-debugging",
+      "prompt": "Le workflow n8n appelle le core mais j'ai des verdicts différents du CLI.",
+      "expected_behaviors": [
+        "compare identical input envelopes",
+        "identify runtime/version boundary",
+        "test one boundary at a time"
+      ],
+      "forbidden_behaviors": [
+        "patch n8n logic before locating divergence"
+      ]
+    },
+    {
+      "id": "debug-repeat-fixes",
+      "skill": "systematic-debugging",
+      "prompt": "On a déjà tenté trois corrections différentes et chaque fois un autre truc casse.",
+      "expected_behaviors": [
+        "question architecture/coupling",
+        "stop stacking fixes"
+      ],
+      "forbidden_behaviors": [
+        "suggest a fourth speculative patch immediately"
+      ]
+    }
+  ]
+}
