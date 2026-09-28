@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-09-28",
+  "status": "CANDIDATE_PACKAGES",
+  "packages": [
+    {
+      "skill": "verification-before-completion",
+      "source_dir": "skill-registry/adaptations/skills/verification-before-completion",
+      "package_filename": "skill.zip",
+      "package_sha256": "829c6632f38b0ddf0ac546938affd17fe9225869b52ef574d59e5acfc71c0df8",
+      "archive_bytes": 2757,
+      "validator": "skill-creator/package_skill.py",
+      "validation": "passed",
+      "static_scan_findings": [],
+      "admission_blockers": [
+        "local_license_not_decided",
+        "full_security_review_missing",
+        "runtime_trigger_tests_not_executed"
+      ]
+    },
+    {
+      "skill": "systematic-debugging",
+      "source_dir": "skill-registry/adaptations/skills/systematic-debugging",
+      "package_filename": "skill.zip",
+      "package_sha256": "5e44eba9786b901170528c472a26239566c03561aa05868c0f55239516ec7ffd",
+      "archive_bytes": 2621,
+      "validator": "skill-creator/package_skill.py",
+      "validation": "passed",
+      "static_scan_findings": [],
+      "admission_blockers": [
+        "local_license_not_decided",
+        "full_security_review_missing",
+        "runtime_trigger_tests_not_executed"
+      ]
+    }
+  ],
+  "rule": "Package validation and static scan do not equal admission. Canonical lifecycle records remain authoritative."
+}
