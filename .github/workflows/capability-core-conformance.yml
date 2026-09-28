@@ -52,6 +52,9 @@ jobs:
       - name: Building projection tests
         run: python -m unittest building-projection/tests/test_catalog.py
 
+      - name: Building heritage tests
+        run: python -m unittest building-projection/tests/test_heritage.py
+
       - name: Validate MCP v2 adapter
         run: |
           python -m pip install "mcp>=2,<3"
@@ -87,4 +90,7 @@ jobs:
           python -m json.tool building-projection/building.schema.json > /dev/null
           python -m json.tool building-projection/event.schema.json > /dev/null
           python -m json.tool building-projection/catalog.json > /dev/null
+          python -m json.tool building-projection/heritage-map.json > /dev/null
+          python -m json.tool building-projection/views.json > /dev/null
+          python -m json.tool building-projection/city-fabric-baseline.json > /dev/null
           for f in building-projection/buildings/*.json; do python -m json.tool "$f" > /dev/null; done
