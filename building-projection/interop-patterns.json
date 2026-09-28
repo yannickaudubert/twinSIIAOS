@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-28",
+  "purpose": "Pin high-leverage upstream deltas from the current cross-analysis without turning any upstream project into SIIAOS authority.",
+  "invariants": [
+    "An observed upstream release is evidence about the upstream project only.",
+    "No upstream feature implies local installation, deployment, activation or health.",
+    "Provider-specific concepts are adapted behind SIIAOS contracts; they do not redefine Mission, Capability, Evidence or HumanGate.",
+    "Every local adoption remains reversible and must pass Capability Core admission before mutation."
+  ],
+  "patterns": [
+    {
+      "id": "UP-STARNET-0.12.5",
+      "repo": "androoAGI/starnet",
+      "observed_ref": "v0.12.5",
+      "observed_at": "2026-09-28",
+      "license": "MIT",
+      "delta": [
+        "step-testable workflow lines with pause, continue, edit hand-off, rerun and rewind",
+        "watched-folder and webhook run triggers",
+        "visible run activity and project crew coordination",
+        "budget stop/resume control and renewed approval/pairing boundaries",
+        "Google Workspace connector early access"
+      ],
+      "siiaos_targets": ["VIEW-MISSIONS", "VIEW-AGENTS", "VIEW-EVIDENCE", "MISSION-FACTORY"],
+      "disposition": "ADAPT_PATTERN",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-AGUI-1.0",
+      "repo": "ag-ui-protocol/ag-ui",
+      "observed_ref": "release/2026-09-17",
+      "observed_at": "2026-09-28",
+      "license": "MIT",
+      "delta": [
+        "frozen 1.0 wire/schema contract",
+        "post-middleware strip-and-validate enforcement pipeline",
+        "generated models across runtimes",
+        "protobuf wire support",
+        "snapshot and frontend tool-result reconciliation"
+      ],
+      "siiaos_targets": ["BUILDING-EVENTS", "VIEW-MISSIONS", "VIEW-AGENTS"],
+      "disposition": "EXPERIMENT_ADAPTER",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-A2A-1.0.1",
+      "repo": "a2aproject/A2A",
+      "observed_ref": "v1.0.1",
+      "observed_at": "2026-09-28",
+      "license": "Apache-2.0",
+      "delta": [
+        "stable 1.x agent-to-agent task protocol baseline",
+        "explicit task status semantics",
+        "security-capable Agent Cards and protocol bindings",
+        "HTTP media type and transcoding fixes in 1.0.1"
+      ],
+      "siiaos_targets": ["AGENT-ADAPTERS", "MISSION-FACTORY"],
+      "disposition": "WATCH_AND_CONFORMANCE_TEST",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-DEERFLOW-2.1.0",
+      "repo": "bytedance/deer-flow",
+      "observed_ref": "v2.1.0",
+      "observed_at": "2026-09-28",
+      "license": "MIT",
+      "delta": [
+        "unconditional trace IDs joining HTTP, logs and persisted runs",
+        "durable batch delegation and richer project workspace",
+        "pluggable memory backends",
+        "managed skill package boundary",
+        "sandbox replica capacity limits",
+        "extension system plus stronger authentication and authorization"
+      ],
+      "siiaos_targets": ["EVIDENCE", "MISSION-FACTORY", "SKILL-REGISTRY", "RUNTIME-ADAPTERS"],
+      "disposition": "SALVAGE_OPERABILITY_PATTERNS",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-HERMES-0.21.5",
+      "repo": "NousResearch/hermes-agent",
+      "observed_ref": "v2026.9.24",
+      "observed_at": "2026-09-28",
+      "license": "MIT",
+      "delta": [
+        "Desktop plugin SDK expansion and public backend event bridge",
+        "Connectors surface with installed tools and skills live in open chats",
+        "per-profile stop/start/restart under the host multiplexer",
+        "Simple/Advanced interface modes",
+        "structured JSONL CLI output and journal-mode improvements from the preceding release window"
+      ],
+      "siiaos_targets": ["VIEW-AGENTS", "RUNTIME-ADAPTERS", "SKILL-REGISTRY", "EVIDENCE"],
+      "disposition": "KEEP_PROVIDER_REPLACEABLE",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-GRAPHITI-0.30.2-MCP2",
+      "repo": "getzep/graphiti",
+      "observed_ref": "v0.30.2 + main@ba4a9cb32",
+      "observed_at": "2026-09-28",
+      "license": "Apache-2.0",
+      "delta": [
+        "Neo4j database routing fixes",
+        "request-scoped driver isolation for concurrent group IDs",
+        "MCP server upgraded to SDK 2.x",
+        "MCP tools routed to the graph selected by requested group_id"
+      ],
+      "siiaos_targets": ["BLD-KNOW", "CLIENT-ROOM", "KNOWLEDGE-PROJECTION"],
+      "disposition": "EXPERIMENT_TENANT_ISOLATION",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-OPENPROJECT-17.8",
+      "repo": "opf/openproject",
+      "observed_ref": "v17.8.0",
+      "observed_at": "2026-09-28",
+      "license": "GPL-3.0",
+      "delta": [
+        "MCP tools can create and update work packages",
+        "MCP mutations follow normal permissions and business rules",
+        "optimistic concurrency through lock_version on updates",
+        "comments and work-package relations exposed to MCP",
+        "multiple target versions and richer timeline projection"
+      ],
+      "siiaos_targets": ["PM-PROJECTION", "VIEW-MISSIONS"],
+      "disposition": "BENCHMARK_BOUNDED_PM_ADAPTER",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-LEANTIME-3.10",
+      "repo": "Leantime/leantime",
+      "observed_ref": "v3.10.0",
+      "observed_at": "2026-09-28",
+      "license": "AGPL-3.0",
+      "delta": [
+        "goals linked to multiple milestones with rollup progress",
+        "period-based status reports",
+        "weekly user capacity and employment-type fields",
+        "new Resources contract/gateway surface",
+        "CanvasItemUpdated event foundation"
+      ],
+      "siiaos_targets": ["PM-PROJECTION", "VIEW-MISSIONS", "VIEW-AGENTS"],
+      "disposition": "SALVAGE_UX_AND_RESOURCE_PROJECTION",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-N8N-2.40.7",
+      "repo": "n8n-io/n8n",
+      "observed_ref": "n8n@2.40.7",
+      "observed_at": "2026-09-28",
+      "license": "NOASSERTION",
+      "delta": [
+        "project span attributes propagated to node spans",
+        "current main further tightens credential-sensitive execution-data visibility"
+      ],
+      "siiaos_targets": ["EVIDENCE", "TRACE", "N8N-ADAPTER"],
+      "disposition": "KEEP_ORCHESTRATOR_ADAPTER",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-WINDMILL-1.818",
+      "repo": "windmill-labs/windmill",
+      "observed_ref": "v1.818.0",
+      "observed_at": "2026-09-28",
+      "license": "NOASSERTION",
+      "delta": [
+        "native script edit diffs in AI chat",
+        "alerts and optional cancellation for jobs stuck on unserved tags",
+        "saved-agent chat from the agent editor",
+        "recent fixes scope flow restart and lineage to the owning workspace/path/token"
+      ],
+      "siiaos_targets": ["MISSION-FACTORY", "EVIDENCE", "RUNTIME-ADAPTERS"],
+      "disposition": "LAB_ONLY_UNTIL_DISTINCT_GAP",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-TOLARIA-2026.9.25.6",
+      "repo": "refactoringhq/tolaria",
+      "observed_ref": "alpha-v2026.9.25-alpha.0006",
+      "observed_at": "2026-09-28",
+      "license": "AGPL-3.0",
+      "delta": [
+        "PDF.js preview path",
+        "saved-view filter hardening",
+        "custom-tag indexing",
+        "frontmatter title handling",
+        "editor recovery and performance hardening"
+      ],
+      "siiaos_targets": ["BLD-KNOW", "HUMAN-KNOWLEDGE-SURFACE"],
+      "disposition": "UX_REFERENCE_NOT_CANONICAL_STORE",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-IMG2THREEJS-2.0",
+      "repo": "img2threejs/img2threejs",
+      "observed_ref": "v2.0.0",
+      "observed_at": "2026-09-28",
+      "license": "Apache-2.0",
+      "delta": [
+        "plugin/domain registry",
+        "host harness with install/list/doctor/sync/capabilities",
+        "drift detection across agent hosts",
+        "provenance-aware emission targets",
+        "per-plugin blocking quality gates"
+      ],
+      "siiaos_targets": ["VIEW-SPATIAL", "GODOT-OPTIONAL-CLIENT", "ASSET-PIPELINE"],
+      "disposition": "EXPERIMENT_ASSET_PROVIDER",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-DOCMOST-0.96",
+      "repo": "docmost/docmost",
+      "observed_ref": "v0.96.0",
+      "observed_at": "2026-09-28",
+      "license": "AGPL-3.0",
+      "delta": [
+        "MCP OAuth",
+        "page version comparison",
+        "richer search filters",
+        "attachment gallery and media preview",
+        "security fixes"
+      ],
+      "siiaos_targets": ["BLD-KNOW", "HUMAN-KNOWLEDGE-SURFACE"],
+      "disposition": "WATCH_COLLABORATIVE_PROJECTION",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    },
+    {
+      "id": "UP-MEMOS-0.31",
+      "repo": "usememos/memos",
+      "observed_ref": "v0.31.0",
+      "observed_at": "2026-09-28",
+      "license": "MIT",
+      "delta": [
+        "shared Spaces while preserving memo ownership",
+        "saved Views and richer search",
+        "instance-to-instance export/import",
+        "Calendar and Map projections"
+      ],
+      "siiaos_targets": ["INBOX", "BLD-KNOW", "CAPTURE-SURFACE"],
+      "disposition": "SALVAGE_CAPTURE_AND_VIEW_PATTERNS",
+      "authority": "NONE",
+      "local_runtime_state": "UNKNOWN"
+    }
+  ]
+}
