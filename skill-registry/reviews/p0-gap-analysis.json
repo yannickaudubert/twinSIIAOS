@@ -1,0 +1,108 @@
+{
+  "version": "0.1",
+  "status": "PROPOSED_REVIEW",
+  "generated_at": "2026-09-28",
+  "rule": "This file is an architectural gap assessment, not an admission decision. Lifecycle state remains authoritative in canonical records.",
+  "decisions": [
+    {
+      "candidate_id": "superpowers.verification-before-completion",
+      "disposition": "ADAPT_LOCAL_HIGH_PRIORITY",
+      "overlap": [
+        "reprendre-un-chantier contains task-level verification but not a universal pre-completion gate"
+      ],
+      "gap": "No standalone transversal skill currently forces fresh evidence before every completion/success claim.",
+      "intended_capability": "verification-before-completion",
+      "notes": "Preserve our richer truth states and evidence vocabulary; do not copy rhetoric or source text verbatim."
+    },
+    {
+      "candidate_id": "superpowers.systematic-debugging",
+      "disposition": "ADAPT_LOCAL_HIGH_PRIORITY",
+      "overlap": [
+        "reprendre-un-chantier checks real state but is not a debugging methodology"
+      ],
+      "gap": "No dedicated root-cause-first debugging skill in the observed local custom set.",
+      "intended_capability": "systematic-debugging",
+      "notes": "Integrate machine/environment boundary tracing and our OBSERVED/REALIZED/VERIFIED distinctions."
+    },
+    {
+      "candidate_id": "superpowers.test-driven-development",
+      "disposition": "KEEP_CANDIDATE",
+      "overlap": [],
+      "gap": "No dedicated TDD skill in the observed custom set.",
+      "intended_capability": "tdd",
+      "notes": "Useful for code-producing agents; admission should include trigger tests to avoid forcing TDD onto non-code/config-only tasks."
+    },
+    {
+      "candidate_id": "superpowers.executing-plans",
+      "disposition": "ADAPT_NOT_COPY",
+      "overlap": [
+        "reprendre-un-chantier",
+        "faire-converger-les-travaux"
+      ],
+      "gap": "Execution discipline and task-state tooling can strengthen existing recovery/convergence workflows.",
+      "intended_capability": "implementation-planning",
+      "notes": "Avoid duplicate control planes and preserve our no-repeat-question / authority rules."
+    },
+    {
+      "candidate_id": "trailofbits.audit-context-building",
+      "disposition": "KEEP_CANDIDATE_HIGH_PRIORITY",
+      "overlap": [
+        "reprendre-un-chantier provides broad archaeology"
+      ],
+      "gap": "Specialized code/security audit context-building is not covered at this depth.",
+      "intended_capability": "audit-context-building",
+      "notes": "Treat as specialist child capability, not replacement for general project archaeology."
+    },
+    {
+      "candidate_id": "trailofbits.differential-review",
+      "disposition": "KEEP_CANDIDATE_HIGH_PRIORITY",
+      "overlap": [],
+      "gap": "No dedicated differential security/code review skill in observed custom skills.",
+      "intended_capability": "differential-review",
+      "notes": "Strong fit for branch/repo changes and regression protection."
+    },
+    {
+      "candidate_id": "trailofbits.agentic-actions-auditor",
+      "disposition": "KEEP_CANDIDATE_HIGH_PRIORITY",
+      "overlap": [],
+      "gap": "No dedicated audit of agentic CI/action injection paths in observed custom skills.",
+      "intended_capability": "agentic-ci-audit",
+      "notes": "Relevant to future agent-driven GitHub automation."
+    },
+    {
+      "candidate_id": "mattpocock.to-spec",
+      "disposition": "ADAPT_NOT_COPY",
+      "overlap": [
+        "faire-converger-les-travaux",
+        "reprendre-un-chantier"
+      ],
+      "gap": "Conversation-to-implementation-spec with testing seams is useful, but direct issue-tracker publication assumptions do not match every SIIAOS environment.",
+      "intended_capability": "conversation-to-spec",
+      "notes": "Separate synthesis from publication; publication must remain an explicit adapter/action."
+    },
+    {
+      "candidate_id": "mattpocock.to-tickets",
+      "disposition": "ADAPT_NOT_COPY",
+      "overlap": [
+        "faire-converger-les-travaux"
+      ],
+      "gap": "Dependency-aware tracer-bullet ticket decomposition is useful.",
+      "intended_capability": "spec-to-dependent-work",
+      "notes": "Keep tracker-neutral core and adapter-specific publication."
+    },
+    {
+      "candidate_id": "n8n.*",
+      "disposition": "KEEP_CANDIDATE_FAMILY",
+      "overlap": [],
+      "gap": "No n8n-specific skill family is present in the observed custom SIIAOS set.",
+      "intended_capability": "automation-n8n",
+      "notes": "Evaluate the 14 official skills individually; do not collapse credentials/security, agents, workflow lifecycle, debugging and MCP into one skill."
+    }
+  ],
+  "local_skills_reviewed": [
+    "reprendre-un-chantier",
+    "faire-converger-les-travaux",
+    "capitaliser-les-savoirs-projet",
+    "siiaos-hermes-pack-manager"
+  ]
+}
