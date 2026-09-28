@@ -1,0 +1,49 @@
+{
+  "skill_name": "systematic-debugging",
+  "status": "DESIGN_READY_NOT_PACKAGED",
+  "source_inspiration": {
+    "repo": "https://github.com/obra/superpowers",
+    "path": "skills/systematic-debugging/SKILL.md",
+    "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+    "source_blob": "095d194ac041502905f15b01d22d294fb94db8b2",
+    "license": "MIT"
+  },
+  "purpose": "Force root-cause-first debugging across repo, runtime, machine, workflow and external-service boundaries.",
+  "siiaos_additions": [
+    "Start by naming the exact failing observation and environment.",
+    "Separate desired state, repository state, deployed state and runtime state.",
+    "For named machines/services, do not infer identity or role from stale context.",
+    "Trace component boundaries before proposing a fix.",
+    "Record each hypothesis and the evidence that falsifies or supports it.",
+    "After repeated failed fixes, reassess architecture instead of stacking patches.",
+    "Use verification-before-completion before declaring the incident resolved."
+  ],
+  "phases": [
+    "reproduce and capture evidence",
+    "map the failing boundary",
+    "compare working vs failing states",
+    "form one falsifiable hypothesis",
+    "run the smallest discriminating test",
+    "apply one root-cause fix",
+    "verify original symptom and regressions",
+    "document RETEX when operationally relevant"
+  ],
+  "positive_triggers": [
+    "bug, failing test, broken workflow, inconsistent runtime behavior",
+    "integration issue across GitHub/n8n/MCP/local runtime",
+    "repeated failed fix",
+    "environment-specific failure"
+  ],
+  "negative_triggers": [
+    "greenfield architecture with no observed failure",
+    "feature ideation",
+    "simple how-to question with no malfunction"
+  ],
+  "acceptance": [
+    "no fix proposed before at least one concrete observation is captured",
+    "hypothesis is explicit and testable",
+    "multi-component failures identify the boundary being tested",
+    "failed hypotheses are not silently rewritten as successes",
+    "resolution claim cites fresh verification evidence"
+  ]
+}
