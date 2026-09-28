@@ -57,6 +57,13 @@ jobs:
       - name: Skill static admission scanner tests
         run: python -m unittest skill-registry/tests/test_scan_skill_static.py
 
+      - name: Canonical skill record validator tests
+        run: python -m unittest skill-registry/tests/test_validate_records.py
+
+      - name: Validate canonical skill records
+        run: |
+          python skill-registry/validate_records.py             skill-registry/records.current-chatgpt.json             skill-registry/records.community-candidates.json
+
       - name: Validate trigger and non-regression contracts
         run: python skill-registry/validate_skill_tests.py
 
@@ -91,6 +98,8 @@ jobs:
           python -m json.tool skill-registry/families.json > /dev/null
           python -m json.tool skill-registry/current-chatgpt.inventory.json > /dev/null
           python -m json.tool skill-registry/community-candidates.seed.json > /dev/null
+          python -m json.tool skill-registry/records.current-chatgpt.json > /dev/null
+          python -m json.tool skill-registry/records.community-candidates.json > /dev/null
           python -m json.tool skill-registry/inventory.schema.json > /dev/null
           python -m json.tool skill-registry/tests/trigger-cases.json > /dev/null
           python -m json.tool skill-registry/tests/non-regression.json > /dev/null
