@@ -1,0 +1,42 @@
+{
+  "version": "0.1",
+  "invariants": [
+    {
+      "id": "proposal-not-realised",
+      "statement": "A proposal, plan, assistant claim, or generated file must not be labelled realised or verified without evidence.",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "environment-separation",
+      "statement": "Presence in ChatGPT does not prove presence on SandY, ARAGORN, Hermes, n8n, or another SI.",
+      "applies_to": [
+        "skill-registry",
+        "local-ai",
+        "project-specific"
+      ]
+    },
+    {
+      "id": "correction-authority",
+      "statement": "An explicit user correction supersedes the corrected prior state within its scope.",
+      "applies_to": [
+        "context-governance"
+      ]
+    },
+    {
+      "id": "no-new-component-before-gap",
+      "statement": "Search for an existing admitted capability before proposing a new component for the same need.",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "completion-needs-proof",
+      "statement": "Do not claim completion until the required artifact/function/test evidence exists.",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ]
+}
