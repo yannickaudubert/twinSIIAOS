@@ -1,6 +1,6 @@
 {
-  "record_count": 10,
-  "source": "community-candidates.seed.json",
+  "record_count": 23,
+  "source": "community-candidates.seed.json + verified n8n expansion",
   "records": [
     {
       "record_id": "skill.candidate.superpowers.verification.before.completion",
@@ -906,135 +906,6 @@
       }
     },
     {
-      "record_id": "skill.candidate.n8n.official.skills",
-      "object_type": "skill",
-      "name": "n8n.official-skills",
-      "description": null,
-      "capabilities": [
-        {
-          "capability_id": "skill.n8n.workflow.lifecycle",
-          "relation": "AUGMENT"
-        }
-      ],
-      "admission_state": "CANDIDATE",
-      "risk_class": "R2",
-      "maturity_min": {
-        "governance": 0,
-        "delivery": 0,
-        "operations": 0,
-        "observability": 0,
-        "security": 0,
-        "data": 0,
-        "ai_usage": 0,
-        "automation": 0,
-        "open_source": 0,
-        "human_control": 0
-      },
-      "permissions": {
-        "filesystem_scopes": [],
-        "process_execution": null,
-        "shell_access": null,
-        "gpu_access": null,
-        "privilege_level": null
-      },
-      "network": {
-        "outbound_required": null,
-        "allowed_destinations": [
-          "github.com"
-        ],
-        "inbound_listeners": [],
-        "localhost_only": null
-      },
-      "data_scope": {
-        "personal_data": null,
-        "confidential_data": null,
-        "customer_data": null,
-        "secrets_credentials": null,
-        "persistence_location": null,
-        "retention": null
-      },
-      "local_feasibility": {
-        "cpu": null,
-        "ram": null,
-        "gpu": null,
-        "vram": null,
-        "disk": null,
-        "persistent_service": null,
-        "external_api_dependency": null,
-        "subscription_cost": null,
-        "offline_capable": null,
-        "degraded_mode": null
-      },
-      "provenance": {
-        "source": "https://github.com/n8n-io/skills",
-        "source_repo": "https://github.com/n8n-io/skills",
-        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
-        "version": "180b8415e3b7",
-        "artifact_hash": null,
-        "license": "Apache-2.0",
-        "verified_at": "2026-09-28T00:00:00Z"
-      },
-      "evidence": [
-        {
-          "evidence_id": "prov.n8n.official-skills",
-          "kind": "provenance",
-          "source": "https://github.com/n8n-io/skills",
-          "timestamp": "2026-09-28T00:00:00Z",
-          "subject": "n8n.official-skills",
-          "claim": "Upstream repository, default branch head and candidate path were verified.",
-          "status": "verified",
-          "artifact_hash": null,
-          "environment": "GitHub public repository",
-          "notes": "This proves upstream existence/provenance only, not security or admission."
-        },
-        {
-          "evidence_id": "lic.n8n.official-skills",
-          "kind": "license",
-          "source": "https://github.com/n8n-io/skills",
-          "timestamp": "2026-09-28T00:00:00Z",
-          "subject": "n8n.official-skills",
-          "claim": "Repository-level license metadata was verified.",
-          "status": "verified",
-          "artifact_hash": null,
-          "environment": "GitHub public repository",
-          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
-        }
-      ],
-      "skill": {
-        "skill_name": "n8n.official-skills",
-        "trigger_description": null,
-        "source_type": "upstream",
-        "connectors": [],
-        "tools": [],
-        "scripts": [],
-        "conflicts_with": [],
-        "depends_on": [],
-        "tests": [
-          "skill-registry/tests/trigger-cases.json",
-          "skill-registry/tests/non-regression.json"
-        ],
-        "trigger_tests": [],
-        "non_regression_tests": [],
-        "last_verified_at": null
-      },
-      "registry_meta": {
-        "family": "automation-n8n",
-        "candidate_id": "n8n.official-skills",
-        "source_status": "DISCOVERY_ONLY",
-        "upstream_skill_path": "skills/"
-      },
-      "upstream_maturity": {
-        "stage": "unknown",
-        "stage_source": null,
-        "last_release_at": null,
-        "last_commit_at": "2026-09-23T04:04:46Z",
-        "maintainer_diversity": null,
-        "adoption_signal": null,
-        "security_policy_present": null,
-        "responsible_disclosure_present": null
-      }
-    },
-    {
       "record_id": "skill.candidate.mattpocock.to.spec",
       "object_type": "skill",
       "name": "mattpocock.to-spec",
@@ -1290,6 +1161,1812 @@
         "adoption_signal": null,
         "security_policy_present": null,
         "responsible_disclosure_present": null
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-agents-official",
+      "object_type": "skill",
+      "name": "n8n-agents-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.agents",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:e0e7dafcd71311df4dbbb70ef1107a168e651fd0",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-agents-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-agents-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:e0e7dafcd71311df4dbbb70ef1107a168e651fd0",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-agents-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-agents-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-agents-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:e0e7dafcd71311df4dbbb70ef1107a168e651fd0",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":1}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-agents-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-agents-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-agents-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-binary-and-data-official",
+      "object_type": "skill",
+      "name": "n8n-binary-and-data-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.binary.and.data",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:44452e39fb179aac07cd2bfa9c685ea263881fe0",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-binary-and-data-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-binary-and-data-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:44452e39fb179aac07cd2bfa9c685ea263881fe0",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-binary-and-data-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-binary-and-data-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-binary-and-data-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:44452e39fb179aac07cd2bfa9c685ea263881fe0",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-binary-and-data-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-binary-and-data-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-binary-and-data-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-code-nodes-official",
+      "object_type": "skill",
+      "name": "n8n-code-nodes-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.code.nodes",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:2a5b08a00b5f47a2e89d5876f5ddae74625e41d2",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-code-nodes-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-code-nodes-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:2a5b08a00b5f47a2e89d5876f5ddae74625e41d2",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-code-nodes-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-code-nodes-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-code-nodes-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:2a5b08a00b5f47a2e89d5876f5ddae74625e41d2",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-code-nodes-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-code-nodes-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-code-nodes-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-credentials-and-security-official",
+      "object_type": "skill",
+      "name": "n8n-credentials-and-security-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.credentials.and.security",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:ab550731df56ce82b94b493b1427ae8fed9d8e88",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-credentials-and-security-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-credentials-and-security-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:ab550731df56ce82b94b493b1427ae8fed9d8e88",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-credentials-and-security-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-credentials-and-security-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-credentials-and-security-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:ab550731df56ce82b94b493b1427ae8fed9d8e88",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":20}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-credentials-and-security-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-credentials-and-security-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-credentials-and-security-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-data-tables-official",
+      "object_type": "skill",
+      "name": "n8n-data-tables-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.data.tables",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:a60ec281b3949a7d3130d750a1d232c74a539623",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-data-tables-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-data-tables-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:a60ec281b3949a7d3130d750a1d232c74a539623",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-data-tables-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-data-tables-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-data-tables-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:a60ec281b3949a7d3130d750a1d232c74a539623",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-data-tables-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-data-tables-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-data-tables-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-debugging-official",
+      "object_type": "skill",
+      "name": "n8n-debugging-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.debugging",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:acc1575ccfc5a4cda3369aed78b8c4cea7022510",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-debugging-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-debugging-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:acc1575ccfc5a4cda3369aed78b8c4cea7022510",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-debugging-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-debugging-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-debugging-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:acc1575ccfc5a4cda3369aed78b8c4cea7022510",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-debugging-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-debugging-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-debugging-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-error-handling-official",
+      "object_type": "skill",
+      "name": "n8n-error-handling-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.error.handling",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:a8eaa5db28f4ccdfefffaf175a01916ffcccf761",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-error-handling-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-error-handling-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:a8eaa5db28f4ccdfefffaf175a01916ffcccf761",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-error-handling-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-error-handling-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-error-handling-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:a8eaa5db28f4ccdfefffaf175a01916ffcccf761",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-error-handling-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-error-handling-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-error-handling-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-expressions-official",
+      "object_type": "skill",
+      "name": "n8n-expressions-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.expressions",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:76de420cb9b0be4782869598d791b5c2523ef74b",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-expressions-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-expressions-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:76de420cb9b0be4782869598d791b5c2523ef74b",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-expressions-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-expressions-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-expressions-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:76de420cb9b0be4782869598d791b5c2523ef74b",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-expressions-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-expressions-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-expressions-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-extending-mcp-official",
+      "object_type": "skill",
+      "name": "n8n-extending-mcp-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.extending.mcp",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:39c60e9888f226c01e1008f20cd544b8b3886d3a",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-extending-mcp-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-extending-mcp-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:39c60e9888f226c01e1008f20cd544b8b3886d3a",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-extending-mcp-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-extending-mcp-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-extending-mcp-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:39c60e9888f226c01e1008f20cd544b8b3886d3a",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":4}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-extending-mcp-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-extending-mcp-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-extending-mcp-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-loops-official",
+      "object_type": "skill",
+      "name": "n8n-loops-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.loops",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:d740065da5f837dfdd816ff83539ff06ff20baab",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-loops-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-loops-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:d740065da5f837dfdd816ff83539ff06ff20baab",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-loops-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-loops-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-loops-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:d740065da5f837dfdd816ff83539ff06ff20baab",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-loops-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-loops-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-loops-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-node-configuration-official",
+      "object_type": "skill",
+      "name": "n8n-node-configuration-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.node.configuration",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:c1cec04b5233ddd6b63aacfeb118f2607f94d11a",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-node-configuration-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-node-configuration-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:c1cec04b5233ddd6b63aacfeb118f2607f94d11a",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-node-configuration-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-node-configuration-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-node-configuration-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:c1cec04b5233ddd6b63aacfeb118f2607f94d11a",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-node-configuration-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-node-configuration-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-node-configuration-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-subworkflows-official",
+      "object_type": "skill",
+      "name": "n8n-subworkflows-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.subworkflows",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:b40e11ff62537c1f3d8b15f2750f1069bff5cd8b",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-subworkflows-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-subworkflows-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:b40e11ff62537c1f3d8b15f2750f1069bff5cd8b",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-subworkflows-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-subworkflows-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-subworkflows-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:b40e11ff62537c1f3d8b15f2750f1069bff5cd8b",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":2}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-subworkflows-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-subworkflows-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-subworkflows-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.n8n-workflow-lifecycle-official",
+      "object_type": "skill",
+      "name": "n8n-workflow-lifecycle-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.workflow.lifecycle",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:5c7cbab458222d9ca7de28af7276ce480b6c3372",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.n8n-workflow-lifecycle-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-workflow-lifecycle-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:5c7cbab458222d9ca7de28af7276ce480b6c3372",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.n8n-workflow-lifecycle-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/n8n-workflow-lifecycle-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n-workflow-lifecycle-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:5c7cbab458222d9ca7de28af7276ce480b6c3372",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"network_download\":1,\"secret_terms\":3}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "n8n-workflow-lifecycle-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.n8n-workflow-lifecycle-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/n8n-workflow-lifecycle-official/SKILL.md"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.using-n8n-skills-official",
+      "object_type": "skill",
+      "name": "using-n8n-skills-official",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.using.n8n.skills",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": 0,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
+        "artifact_hash": "gitblob:d505acd66ab18bb338f7158acb7cea0e6e9dd456",
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.using-n8n-skills-official",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "using-n8n-skills-official",
+          "claim": "Official n8n skill path and repository head were verified.",
+          "status": "verified",
+          "artifact_hash": "gitblob:d505acd66ab18bb338f7158acb7cea0e6e9dd456",
+          "environment": "GitHub public repository",
+          "notes": "Candidate only; package-level security review is not complete."
+        },
+        {
+          "evidence_id": "entrypoint-scan.n8n.using-n8n-skills-official",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/using-n8n-skills-official/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "using-n8n-skills-official",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:d505acd66ab18bb338f7158acb7cea0e6e9dd456",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":2}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "using-n8n-skills-official",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.using-n8n-skills-official",
+        "source_status": "CANDIDATE",
+        "upstream_skill_path": "skills/using-n8n-skills-official/SKILL.md"
       }
     }
   ]
