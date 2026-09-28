@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "status": "RECONSTRUCTED_DESIGN_CONTRACT",
+  "views": [
+    {"id": "VIEW-SPATIAL", "name": "Immeuble", "purpose": "Navigate City/Building/Floor/ServiceCell and visible teams."},
+    {"id": "VIEW-SI", "name": "Carte SI", "purpose": "Show nodes, deployments, services, data, integrations and dependencies."},
+    {"id": "VIEW-MISSIONS", "name": "Missions", "purpose": "Show NeedSpec, plans, states, queues, gates, artifacts and completion."},
+    {"id": "VIEW-AGENTS", "name": "Agents", "purpose": "Show AgentRole/TeamDeck, permissions, context, budget, tools and current assignment."},
+    {"id": "VIEW-STACK", "name": "Stack", "purpose": "Show providers, models, tools, workflows, capabilities and substitution paths."},
+    {"id": "VIEW-EVIDENCE", "name": "Preuves", "purpose": "Show OperationRecord, evidence, tests, provenance, receipts, RETEX and rollback."}
+  ],
+  "rule": "All views project the same governed objects; no view owns canonical runtime truth."
+}

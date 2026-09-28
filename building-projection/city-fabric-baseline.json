@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "repo": "yannickaudubert/mon_vault",
+    "ref": "architecture/city-fabric-v1-20260916",
+    "commit": "755ea6d4af49de9f0bd8fabe957641eafde97365",
+    "file": "SIIAOS_CITY_FABRIC_V1/city-fabric.yaml",
+    "source_status": "proposal"
+  },
+  "buildings": {
+    "BLD-COM": ["Strategy and Brand", "Research and Editorial", "Creative Studio", "Audio and Video", "Web SEO and Distribution", "Social and Community", "Analytics and Learning"],
+    "BLD-DSI": ["Architecture and Urbanisation", "GitOps Dev and Delivery", "Infra DockerOps and Runtime", "Security IAM and Secrets", "Data Knowledge and Integration", "AI ModelOps and Evaluation", "Support Observability and FinOps"],
+    "BLD-RADAR": ["Sources", "Signal Qualification", "Technical and Scientific Research", "Legal and Regulatory Watch", "Experiment and Benchmark", "Admission and External Anchors", "Publications and Briefings"],
+    "BLD-CONSULT": ["Qualification and Discovery", "Audit and Diagnostic", "Architecture and Scenarios", "Prototype and Proof", "Transformation and Roadmap", "Delivery Change and Training", "Measurement RETEX and Recurrence"],
+    "BLD-KNOW": ["Ingestion and Provenance", "Knowledge Graph and Taxonomy", "Capitalisation and RETEX", "Curriculum and Pedagogy", "Pedagogical Studio", "Publication and Commons"],
+    "BLD-REVENUE": ["Market Intelligence", "Acquisition", "Qualification", "Proposal and Pricing Support", "Mission Handoff", "Client Room and Success", "Economics Reuse and Recurring Value"]
+  },
+  "note": "This is a checked-in heritage snapshot for non-regression. It is not a runtime authority and does not admit mon_vault as a live SandY source."
+}

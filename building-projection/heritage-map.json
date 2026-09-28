@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "generated_from": [
+    {
+      "kind": "github",
+      "repo": "yannickaudubert/mon_vault",
+      "ref": "architecture/city-fabric-v1-20260916",
+      "commit": "755ea6d4af49de9f0bd8fabe957641eafde97365",
+      "status": "PROPOSAL_CLEAN_BASELINE",
+      "authority_note": "Design heritage only. mon_vault is not admitted as live SandY authority."
+    },
+    {
+      "kind": "github",
+      "repo": "yannickaudubert/IrinA",
+      "ref": "docs/surface-map-20260923",
+      "commit": "af3d479555690c6945a7473255d7136c01bb082a",
+      "status": "VERIFIED_SURFACE_RUNTIME_BOUNDARY"
+    },
+    {
+      "kind": "library",
+      "name": "SIIAOS_Portefeuille_Operant_Memoire_Probatoire_2026-09-06_v0.5.xlsx",
+      "status": "HISTORICAL_BASELINE_NOT_RUNTIME_TRUTH"
+    },
+    {
+      "kind": "conversation_reconstruction",
+      "period": "2026-06-23/2026-07-09",
+      "status": "RECONSTRUCTED_UNTIL_PRIMARY_ARTIFACT_RECOVERED"
+    }
+  ],
+  "lineage": [
+    {
+      "id": "BUILD-V0",
+      "date": "2026-06-23",
+      "name": "Local Game discovery",
+      "shape": ["Go server", "read-only scans", "Git/Docker/Vault discovery", "SSE"],
+      "endpoint": "127.0.0.1:8787",
+      "evidence_state": "RECONSTRUCTED_FROM_CHAT"
+    },
+    {
+      "id": "BUILD-V1",
+      "date": "2026-06-23",
+      "name": "Command & Governance",
+      "shape": ["Go", "browser cockpit", "read-only discovery", "governance", "teams", "clients", "pipelines", "risks", "proofs"],
+      "endpoint": "127.0.0.1:8790",
+      "evidence_state": "TESTED_OUTSIDE_LOCAL_MACHINE",
+      "notes": "Conversation reports tests passed in the assistant execution environment; Windows scripts were not run on ARAGORN."
+    },
+    {
+      "id": "BUILD-V1.1",
+      "date": "2026-06-25",
+      "name": "Game Loop",
+      "shape": ["native Canvas 2D", "/game/", "generated halls/floors/rooms", "agent status", "movement", "inspection", "context panels"],
+      "evidence_state": "CODED_DEMO_RECONSTRUCTED",
+      "constraints": ["actions locked", "no real execution"]
+    },
+    {
+      "id": "BUILD-V1.2",
+      "date": "2026-06-25",
+      "name": "Codex / Obsidian audit mission",
+      "shape": ["read-only audit mission"],
+      "evidence_state": "CODED_DEMO_RECONSTRUCTED",
+      "constraints": ["no automatic execution"]
+    },
+    {
+      "id": "BUILD-V1.3",
+      "date": "2026-06-25",
+      "name": "Context Audit & Onboarding",
+      "shape": ["maturity", "teams", "stacks", "Kanban"],
+      "evidence_state": "RECONSTRUCTED_FROM_CHAT"
+    },
+    {
+      "id": "BUILD-V2",
+      "date": "2026-06-25",
+      "name": "Sovereign serious-game / digital twin",
+      "shape": ["mandates", "trajectories", "probabilities", "hybrid library", "shield/sword/encyclopedia metaphors"],
+      "evidence_state": "DESIGN_RECONSTRUCTED"
+    },
+    {
+      "id": "BUILD-V2.1",
+      "date": "2026-06-25",
+      "name": "Model contracts",
+      "shape": ["JSON schemas", "examples", "/api/v2/models", "/api/v2/schemas", "/api/v2/examples"],
+      "evidence_state": "CODED_RECONSTRUCTED"
+    },
+    {
+      "id": "BUILD-V2.2",
+      "date": "2026-06-25",
+      "name": "Stabilized Go demo",
+      "shape": ["/api/understanding-translator", "/api/v2", "/api/building", "/game/"],
+      "evidence_state": "TESTED_OUTSIDE_LOCAL_MACHINE",
+      "notes": "Conversation reports Go build/tests OK and HTTP 200 on the listed endpoints; no Vault mutation."
+    },
+    {
+      "id": "BUILD-V2.7",
+      "date": "2026-06-26",
+      "name": "Integrated Operational Demo pack",
+      "shape": ["Go backend", "SQLite", "API", "console", "tasks/events", "dry-run pipelines and agents", "service states", "n8n dry-run", "simulated compute", "decision workshops", "evidence"],
+      "evidence_state": "GENERATED_NOT_LOCAL_TESTED"
+    },
+    {
+      "id": "CONTROL-v0.4",
+      "date": "2026-07",
+      "name": "Control Plane with navigable building",
+      "shape": ["71 files", "navigable building", "agent harness", "workflow graph", "run ledger", "maturity model", "installation planner", "value ledger"],
+      "evidence_state": "HERITAGE_RECONSTRUCTED"
+    },
+    {
+      "id": "CONTROL-v0.6",
+      "date": "2026-07",
+      "name": "Office Factory",
+      "shape": ["PostgreSQL", "Grist", "NocoDB", "DOCX/ODT/PDF/XLSX/CSV/PPTX/HTML outputs"],
+      "evidence_state": "HERITAGE_RECONSTRUCTED",
+      "constraints": ["advanced converters reported as dry-run/placeholders"]
+    },
+    {
+      "id": "ACTIVITY-COCKPIT-V8",
+      "name": "Activity Cockpit V8",
+      "evidence_state": "TO_RECOVER_PRIMARY_ARTIFACT"
+    },
+    {
+      "id": "AGENTIC-COCKPIT",
+      "name": "Agentic Cockpit alpha/v2",
+      "evidence_state": "TO_RECOVER_PRIMARY_ARTIFACT"
+    },
+    {
+      "id": "ODYSSEUS",
+      "name": "Odysseus demos",
+      "evidence_state": "TO_RECOVER_PRIMARY_ARTIFACT"
+    },
+    {
+      "id": "CITY-FABRIC-V1",
+      "date": "2026-09-16",
+      "name": "SIIAOS City Fabric v1",
+      "source": "yannickaudubert/mon_vault@architecture/city-fabric-v1-20260916",
+      "evidence_state": "GITHUB_PROPOSAL_BASELINE",
+      "notes": "Defines City/District/BuildingDefinition/BuildingInstance/Hall/Floor/ServiceCell and the six building definitions used by this projection."
+    },
+    {
+      "id": "BUILDING-PROJECTION-V1",
+      "date": "2026-09-28",
+      "name": "Current twinSIIAOS spatial projection scaffold",
+      "source": "yannickaudubert/twinSIIAOS@work/building-projection-v1",
+      "evidence_state": "CODED_GIT",
+      "observed_runtime": "UNKNOWN"
+    }
+  ],
+  "unresolved": [
+    "Recover primary archives for Activity Cockpit V8, Agentic Cockpit alpha/v2 and Odysseus demos.",
+    "Recover and diff Building Local Game v0-v2.7 primary packs/manifests when available.",
+    "Do not infer SandY runtime state from any historical demo or Git branch."
+  ]
+}
