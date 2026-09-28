@@ -62,7 +62,7 @@ jobs:
 
       - name: Validate canonical skill records
         run: |
-          python skill-registry/validate_records.py             skill-registry/records.current-chatgpt.json             skill-registry/records.community-candidates.json
+          python skill-registry/validate_records.py             skill-registry/records.current-chatgpt.json             skill-registry/records.community-candidates.json             skill-registry/records.local-adaptations.json
 
       - name: Validate trigger and non-regression contracts
         run: python skill-registry/validate_skill_tests.py
@@ -100,6 +100,11 @@ jobs:
           python -m json.tool skill-registry/community-candidates.seed.json > /dev/null
           python -m json.tool skill-registry/records.current-chatgpt.json > /dev/null
           python -m json.tool skill-registry/records.community-candidates.json > /dev/null
+          python -m json.tool skill-registry/records.local-adaptations.json > /dev/null
+          python -m json.tool skill-registry/reviews/p0-gap-analysis.json > /dev/null
+          python -m json.tool skill-registry/adaptations/verification-before-completion.spec.json > /dev/null
+          python -m json.tool skill-registry/adaptations/systematic-debugging.spec.json > /dev/null
+          python -m json.tool skill-registry/adaptations/p0-behavior-cases.json > /dev/null
           python -m json.tool skill-registry/inventory.schema.json > /dev/null
           python -m json.tool skill-registry/tests/trigger-cases.json > /dev/null
           python -m json.tool skill-registry/tests/non-regression.json > /dev/null
