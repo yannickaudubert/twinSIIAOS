@@ -1,0 +1,260 @@
+{
+  "record_count": 2,
+  "source": "local P0 adaptations",
+  "records": [
+    {
+      "record_id": "skill.local.verification-before-completion",
+      "object_type": "skill",
+      "name": "verification-before-completion",
+      "description": "SIIAOS adaptation: fresh evidence before any completion/success claim.",
+      "capabilities": [
+        {
+          "capability_id": "skill.verification.before.completion",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": false,
+        "shell_access": false,
+        "gpu_access": false,
+        "privilege_level": "none"
+      },
+      "network": {
+        "outbound_required": false,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": true
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": false,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": "negligible",
+        "ram": "negligible",
+        "gpu": "none",
+        "vram": "none",
+        "disk": "<10 KB source; <3 KB zip",
+        "persistent_service": false,
+        "external_api_dependency": false,
+        "subscription_cost": 0,
+        "offline_capable": true,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skill-registry/adaptations/skills/verification-before-completion",
+        "source_repo": "https://github.com/yannickaudubert/twinSIIAOS",
+        "source_commit": null,
+        "version": "p0-candidate",
+        "artifact_hash": "sha256:829c6632f38b0ddf0ac546938affd17fe9225869b52ef574d59e5acfc71c0df8",
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "package.verification-before-completion",
+          "kind": "package_validation",
+          "source": "skill-creator/package_skill.py",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "verification-before-completion",
+          "claim": "Skill passed the official skill validator and was packaged successfully.",
+          "status": "verified",
+          "artifact_hash": "sha256:829c6632f38b0ddf0ac546938affd17fe9225869b52ef574d59e5acfc71c0df8",
+          "environment": "ChatGPT container",
+          "notes": "Package validation proves structure, not routing/admission."
+        },
+        {
+          "evidence_id": "static.verification-before-completion",
+          "kind": "security_static_scan",
+          "source": "local heuristic scanner",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "verification-before-completion",
+          "claim": "Static heuristic scan returned no monitored keyword findings.",
+          "status": "verified",
+          "artifact_hash": "sha256:829c6632f38b0ddf0ac546938affd17fe9225869b52ef574d59e5acfc71c0df8",
+          "environment": "ChatGPT container",
+          "notes": "Not a complete security verdict and intentionally does not satisfy the canonical security evidence gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "verification-before-completion",
+        "trigger_description": "Use before any claim that work is done, fixed, deployed, published, integrated or verified.",
+        "source_type": "adapted",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [
+          "skill-registry/adaptations/p0-behavior-cases.json"
+        ],
+        "trigger_tests": [
+          "completion-code",
+          "completion-deploy"
+        ],
+        "non_regression_tests": [
+          "proposal-not-realised",
+          "completion-needs-proof",
+          "environment-separation"
+        ],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "upstream_inspiration": "obra/superpowers:verification-before-completion",
+        "admission_blockers": [
+          "local_license_not_decided",
+          "full_security_review_missing",
+          "runtime_trigger_tests_not_executed"
+        ]
+      }
+    },
+    {
+      "record_id": "skill.local.systematic-debugging",
+      "object_type": "skill",
+      "name": "systematic-debugging",
+      "description": "SIIAOS adaptation: root-cause-first debugging across repository, runtime and environment boundaries.",
+      "capabilities": [
+        {
+          "capability_id": "skill.systematic.debugging",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "CANDIDATE",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": false,
+        "shell_access": false,
+        "gpu_access": false,
+        "privilege_level": "none"
+      },
+      "network": {
+        "outbound_required": false,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": true
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": false,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": "negligible",
+        "ram": "negligible",
+        "gpu": "none",
+        "vram": "none",
+        "disk": "<10 KB source; <3 KB zip",
+        "persistent_service": false,
+        "external_api_dependency": false,
+        "subscription_cost": 0,
+        "offline_capable": true,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skill-registry/adaptations/skills/systematic-debugging",
+        "source_repo": "https://github.com/yannickaudubert/twinSIIAOS",
+        "source_commit": null,
+        "version": "p0-candidate",
+        "artifact_hash": "sha256:5e44eba9786b901170528c472a26239566c03561aa05868c0f55239516ec7ffd",
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "package.systematic-debugging",
+          "kind": "package_validation",
+          "source": "skill-creator/package_skill.py",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "systematic-debugging",
+          "claim": "Skill passed the official skill validator and was packaged successfully.",
+          "status": "verified",
+          "artifact_hash": "sha256:5e44eba9786b901170528c472a26239566c03561aa05868c0f55239516ec7ffd",
+          "environment": "ChatGPT container",
+          "notes": "Package validation proves structure, not routing/admission."
+        },
+        {
+          "evidence_id": "static.systematic-debugging",
+          "kind": "security_static_scan",
+          "source": "local heuristic scanner",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "systematic-debugging",
+          "claim": "Static heuristic scan returned no monitored keyword findings.",
+          "status": "verified",
+          "artifact_hash": "sha256:5e44eba9786b901170528c472a26239566c03561aa05868c0f55239516ec7ffd",
+          "environment": "ChatGPT container",
+          "notes": "Not a complete security verdict and intentionally does not satisfy the canonical security evidence gate."
+        }
+      ],
+      "skill": {
+        "skill_name": "systematic-debugging",
+        "trigger_description": "Use on bugs, failing tests, broken workflows, divergent environments or repeated failed fixes before proposing another patch.",
+        "source_type": "adapted",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [
+          "verification-before-completion"
+        ],
+        "tests": [
+          "skill-registry/adaptations/p0-behavior-cases.json"
+        ],
+        "trigger_tests": [
+          "debug-cross-boundary",
+          "debug-repeat-fixes"
+        ],
+        "non_regression_tests": [
+          "proposal-not-realised",
+          "completion-needs-proof",
+          "environment-separation"
+        ],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "upstream_inspiration": "obra/superpowers:systematic-debugging",
+        "admission_blockers": [
+          "local_license_not_decided",
+          "full_security_review_missing",
+          "runtime_trigger_tests_not_executed"
+        ]
+      }
+    }
+  ]
+}
