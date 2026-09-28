@@ -1,0 +1,906 @@
+{
+  "record_count": 10,
+  "source": "community-candidates.seed.json",
+  "records": [
+    {
+      "record_id": "skill.candidate.superpowers.verification.before.completion",
+      "object_type": "skill",
+      "name": "superpowers.verification-before-completion",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.verification.before.completion",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/obra/superpowers",
+        "source_repo": "https://github.com/obra/superpowers",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "superpowers.verification-before-completion",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "candidate_id": "superpowers.verification-before-completion",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.superpowers.systematic.debugging",
+      "object_type": "skill",
+      "name": "superpowers.systematic-debugging",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.systematic.debugging",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/obra/superpowers",
+        "source_repo": "https://github.com/obra/superpowers",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "superpowers.systematic-debugging",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "candidate_id": "superpowers.systematic-debugging",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.superpowers.test.driven.development",
+      "object_type": "skill",
+      "name": "superpowers.test-driven-development",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.tdd",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/obra/superpowers",
+        "source_repo": "https://github.com/obra/superpowers",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "superpowers.test-driven-development",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "candidate_id": "superpowers.test-driven-development",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.superpowers.executing.plans",
+      "object_type": "skill",
+      "name": "superpowers.executing-plans",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.implementation.planning",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/obra/superpowers",
+        "source_repo": "https://github.com/obra/superpowers",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "superpowers.executing-plans",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "candidate_id": "superpowers.executing-plans",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.trailofbits.audit.context.building",
+      "object_type": "skill",
+      "name": "trailofbits.audit-context-building",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.audit.context.building",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/trailofbits/skills",
+        "source_repo": "https://github.com/trailofbits/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "trailofbits.audit-context-building",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "security-supply-chain",
+        "candidate_id": "trailofbits.audit-context-building",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.trailofbits.differential.review",
+      "object_type": "skill",
+      "name": "trailofbits.differential-review",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.differential.review",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/trailofbits/skills",
+        "source_repo": "https://github.com/trailofbits/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "trailofbits.differential-review",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "candidate_id": "trailofbits.differential-review",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.trailofbits.agentic.actions.auditor",
+      "object_type": "skill",
+      "name": "trailofbits.agentic-actions-auditor",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.agentic.ci.audit",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/trailofbits/skills",
+        "source_repo": "https://github.com/trailofbits/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "trailofbits.agentic-actions-auditor",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "security-supply-chain",
+        "candidate_id": "trailofbits.agentic-actions-auditor",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.n8n.official.skills",
+      "object_type": "skill",
+      "name": "n8n.official-skills",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.n8n.workflow.lifecycle",
+          "relation": "AUGMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/n8n-io/skills",
+        "source_repo": "https://github.com/n8n-io/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "n8n.official-skills",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "candidate_id": "n8n.official-skills",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.mattpocock.to.spec",
+      "object_type": "skill",
+      "name": "mattpocock.to-spec",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.conversation.to.spec",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/mattpocock/skills",
+        "source_repo": "https://github.com/mattpocock/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "mattpocock.to-spec",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "candidate_id": "mattpocock.to-spec",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    },
+    {
+      "record_id": "skill.candidate.mattpocock.to.tickets",
+      "object_type": "skill",
+      "name": "mattpocock.to-tickets",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.spec.to.dependent.work",
+          "relation": "NEW"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R2",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [
+          "github.com"
+        ],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "https://github.com/mattpocock/skills",
+        "source_repo": "https://github.com/mattpocock/skills",
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [],
+      "skill": {
+        "skill_name": "mattpocock.to-tickets",
+        "trigger_description": null,
+        "source_type": "upstream",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "candidate_id": "mattpocock.to-tickets",
+        "source_status": "DISCOVERY_ONLY"
+      }
+    }
+  ]
+}
