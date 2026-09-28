@@ -9,12 +9,14 @@ on:
       - 'capability-core/**'
       - 'resource-radar-v3/**'
       - 'public-resource-hub/**'
+      - 'building-projection/**'
       - '.github/workflows/capability-core-conformance.yml'
   pull_request:
     paths:
       - 'capability-core/**'
       - 'resource-radar-v3/**'
       - 'public-resource-hub/**'
+      - 'building-projection/**'
       - '.github/workflows/capability-core-conformance.yml'
 
 permissions:
@@ -46,6 +48,9 @@ jobs:
 
       - name: Skill inventory collector tests
         run: python -m unittest skill-registry/tests/test_collect_local_skills.py
+
+      - name: Building projection tests
+        run: python -m unittest building-projection/tests/test_catalog.py
 
       - name: Validate MCP v2 adapter
         run: |
@@ -79,3 +84,7 @@ jobs:
           python -m json.tool skill-registry/current-chatgpt.inventory.json > /dev/null
           python -m json.tool skill-registry/community-candidates.seed.json > /dev/null
           python -m json.tool skill-registry/inventory.schema.json > /dev/null
+          python -m json.tool building-projection/building.schema.json > /dev/null
+          python -m json.tool building-projection/event.schema.json > /dev/null
+          python -m json.tool building-projection/catalog.json > /dev/null
+          for f in building-projection/buildings/*.json; do python -m json.tool "$f" > /dev/null; done
