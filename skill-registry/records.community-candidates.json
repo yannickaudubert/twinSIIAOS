@@ -13,7 +13,7 @@
           "relation": "AUGMENT"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -65,13 +65,38 @@
       "provenance": {
         "source": "https://github.com/obra/superpowers",
         "source_repo": "https://github.com/obra/superpowers",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+        "version": "8ca22dba9a94",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.superpowers.verification-before-completion",
+          "kind": "provenance",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.verification-before-completion",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.superpowers.verification-before-completion",
+          "kind": "license",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.verification-before-completion",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "superpowers.verification-before-completion",
         "trigger_description": null,
@@ -81,7 +106,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -89,7 +117,18 @@
       "registry_meta": {
         "family": "context-governance",
         "candidate_id": "superpowers.verification-before-completion",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/verification-before-completion/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-27T02:37:47Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -103,7 +142,7 @@
           "relation": "AUGMENT"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -155,13 +194,38 @@
       "provenance": {
         "source": "https://github.com/obra/superpowers",
         "source_repo": "https://github.com/obra/superpowers",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+        "version": "8ca22dba9a94",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.superpowers.systematic-debugging",
+          "kind": "provenance",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.systematic-debugging",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.superpowers.systematic-debugging",
+          "kind": "license",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.systematic-debugging",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "superpowers.systematic-debugging",
         "trigger_description": null,
@@ -171,7 +235,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -179,7 +246,18 @@
       "registry_meta": {
         "family": "git-code",
         "candidate_id": "superpowers.systematic-debugging",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/systematic-debugging/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-27T02:37:47Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -193,7 +271,7 @@
           "relation": "AUGMENT"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -245,13 +323,38 @@
       "provenance": {
         "source": "https://github.com/obra/superpowers",
         "source_repo": "https://github.com/obra/superpowers",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+        "version": "8ca22dba9a94",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.superpowers.test-driven-development",
+          "kind": "provenance",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.test-driven-development",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.superpowers.test-driven-development",
+          "kind": "license",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.test-driven-development",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "superpowers.test-driven-development",
         "trigger_description": null,
@@ -261,7 +364,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -269,7 +375,18 @@
       "registry_meta": {
         "family": "git-code",
         "candidate_id": "superpowers.test-driven-development",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/test-driven-development/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-27T02:37:47Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -283,7 +400,7 @@
           "relation": "AUGMENT"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -335,13 +452,38 @@
       "provenance": {
         "source": "https://github.com/obra/superpowers",
         "source_repo": "https://github.com/obra/superpowers",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+        "version": "8ca22dba9a94",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.superpowers.executing-plans",
+          "kind": "provenance",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.executing-plans",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.superpowers.executing-plans",
+          "kind": "license",
+          "source": "https://github.com/obra/superpowers",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.executing-plans",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "superpowers.executing-plans",
         "trigger_description": null,
@@ -351,7 +493,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -359,7 +504,18 @@
       "registry_meta": {
         "family": "git-code",
         "candidate_id": "superpowers.executing-plans",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/executing-plans/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-27T02:37:47Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -373,7 +529,7 @@
           "relation": "NEW"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -425,13 +581,38 @@
       "provenance": {
         "source": "https://github.com/trailofbits/skills",
         "source_repo": "https://github.com/trailofbits/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
+        "version": "0cc1c73a5e96",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "CC-BY-SA-4.0",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.trailofbits.audit-context-building",
+          "kind": "provenance",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.audit-context-building",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.trailofbits.audit-context-building",
+          "kind": "license",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.audit-context-building",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "trailofbits.audit-context-building",
         "trigger_description": null,
@@ -441,7 +622,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -449,7 +633,18 @@
       "registry_meta": {
         "family": "security-supply-chain",
         "candidate_id": "trailofbits.audit-context-building",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "plugins/audit-context-building"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-25T09:10:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -463,7 +658,7 @@
           "relation": "NEW"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -515,13 +710,38 @@
       "provenance": {
         "source": "https://github.com/trailofbits/skills",
         "source_repo": "https://github.com/trailofbits/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
+        "version": "0cc1c73a5e96",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "CC-BY-SA-4.0",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.trailofbits.differential-review",
+          "kind": "provenance",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.differential-review",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.trailofbits.differential-review",
+          "kind": "license",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.differential-review",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "trailofbits.differential-review",
         "trigger_description": null,
@@ -531,7 +751,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -539,7 +762,18 @@
       "registry_meta": {
         "family": "git-code",
         "candidate_id": "trailofbits.differential-review",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "plugins/differential-review/skills/differential-review/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-25T09:10:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -553,7 +787,7 @@
           "relation": "NEW"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -605,13 +839,38 @@
       "provenance": {
         "source": "https://github.com/trailofbits/skills",
         "source_repo": "https://github.com/trailofbits/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
+        "version": "0cc1c73a5e96",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "CC-BY-SA-4.0",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.trailofbits.agentic-actions-auditor",
+          "kind": "provenance",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.agentic-actions-auditor",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.trailofbits.agentic-actions-auditor",
+          "kind": "license",
+          "source": "https://github.com/trailofbits/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.agentic-actions-auditor",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "trailofbits.agentic-actions-auditor",
         "trigger_description": null,
@@ -621,7 +880,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -629,7 +891,18 @@
       "registry_meta": {
         "family": "security-supply-chain",
         "candidate_id": "trailofbits.agentic-actions-auditor",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-25T09:10:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -643,7 +916,7 @@
           "relation": "AUGMENT"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -695,13 +968,38 @@
       "provenance": {
         "source": "https://github.com/n8n-io/skills",
         "source_repo": "https://github.com/n8n-io/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+        "version": "180b8415e3b7",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "Apache-2.0",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.n8n.official-skills",
+          "kind": "provenance",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n.official-skills",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.n8n.official-skills",
+          "kind": "license",
+          "source": "https://github.com/n8n-io/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "n8n.official-skills",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "n8n.official-skills",
         "trigger_description": null,
@@ -711,7 +1009,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -719,7 +1020,18 @@
       "registry_meta": {
         "family": "automation-n8n",
         "candidate_id": "n8n.official-skills",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-23T04:04:46Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -733,7 +1045,7 @@
           "relation": "NEW"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -785,13 +1097,38 @@
       "provenance": {
         "source": "https://github.com/mattpocock/skills",
         "source_repo": "https://github.com/mattpocock/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
+        "version": "c55ee46073ed",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.mattpocock.to-spec",
+          "kind": "provenance",
+          "source": "https://github.com/mattpocock/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-spec",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.mattpocock.to-spec",
+          "kind": "license",
+          "source": "https://github.com/mattpocock/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-spec",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "mattpocock.to-spec",
         "trigger_description": null,
@@ -801,7 +1138,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -809,7 +1149,18 @@
       "registry_meta": {
         "family": "context-governance",
         "candidate_id": "mattpocock.to-spec",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/engineering/to-spec/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-24T14:07:55Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     },
     {
@@ -823,7 +1174,7 @@
           "relation": "NEW"
         }
       ],
-      "admission_state": "DISCOVERED",
+      "admission_state": "CANDIDATE",
       "risk_class": "R2",
       "maturity_min": {
         "governance": 0,
@@ -875,13 +1226,38 @@
       "provenance": {
         "source": "https://github.com/mattpocock/skills",
         "source_repo": "https://github.com/mattpocock/skills",
-        "source_commit": null,
-        "version": null,
+        "source_commit": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
+        "version": "c55ee46073ed",
         "artifact_hash": null,
-        "license": null,
-        "verified_at": null
+        "license": "MIT",
+        "verified_at": "2026-09-28T00:00:00Z"
       },
-      "evidence": [],
+      "evidence": [
+        {
+          "evidence_id": "prov.mattpocock.to-tickets",
+          "kind": "provenance",
+          "source": "https://github.com/mattpocock/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-tickets",
+          "claim": "Upstream repository, default branch head and candidate path were verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "This proves upstream existence/provenance only, not security or admission."
+        },
+        {
+          "evidence_id": "lic.mattpocock.to-tickets",
+          "kind": "license",
+          "source": "https://github.com/mattpocock/skills",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-tickets",
+          "claim": "Repository-level license metadata was verified.",
+          "status": "verified",
+          "artifact_hash": null,
+          "environment": "GitHub public repository",
+          "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        }
+      ],
       "skill": {
         "skill_name": "mattpocock.to-tickets",
         "trigger_description": null,
@@ -891,7 +1267,10 @@
         "scripts": [],
         "conflicts_with": [],
         "depends_on": [],
-        "tests": [],
+        "tests": [
+          "skill-registry/tests/trigger-cases.json",
+          "skill-registry/tests/non-regression.json"
+        ],
         "trigger_tests": [],
         "non_regression_tests": [],
         "last_verified_at": null
@@ -899,7 +1278,18 @@
       "registry_meta": {
         "family": "git-code",
         "candidate_id": "mattpocock.to-tickets",
-        "source_status": "DISCOVERY_ONLY"
+        "source_status": "DISCOVERY_ONLY",
+        "upstream_skill_path": "skills/engineering/to-tickets/SKILL.md"
+      },
+      "upstream_maturity": {
+        "stage": "unknown",
+        "stage_source": null,
+        "last_release_at": null,
+        "last_commit_at": "2026-09-24T14:07:55Z",
+        "maintainer_diversity": null,
+        "adoption_signal": null,
+        "security_policy_present": null,
+        "responsible_disclosure_present": null
       }
     }
   ]
