@@ -1,0 +1,2632 @@
+{
+  "record_count": 26,
+  "source": "current-chatgpt.inventory.json",
+  "records": [
+    {
+      "record_id": "skill.reprendre.un.chantier",
+      "object_type": "skill",
+      "name": "reprendre-un-chantier",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.context.governance",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://reprendre-un-chantier",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.reprendre.un.chantier",
+          "kind": "environment_inventory",
+          "source": "skills://reprendre-un-chantier",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "reprendre-un-chantier",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "reprendre-un-chantier",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.faire.converger.les.travaux",
+      "object_type": "skill",
+      "name": "faire-converger-les-travaux",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.context.governance",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://faire-converger-les-travaux",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.faire.converger.les.travaux",
+          "kind": "environment_inventory",
+          "source": "skills://faire-converger-les-travaux",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "faire-converger-les-travaux",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "faire-converger-les-travaux",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.capitaliser.les.savoirs.projet",
+      "object_type": "skill",
+      "name": "capitaliser-les-savoirs-projet",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.research.knowledge",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://capitaliser-les-savoirs-projet",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.capitaliser.les.savoirs.projet",
+          "kind": "environment_inventory",
+          "source": "skills://capitaliser-les-savoirs-projet",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "capitaliser-les-savoirs-projet",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "capitaliser-les-savoirs-projet",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "research-knowledge",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.siiaos.hermes.pack.manager",
+      "object_type": "skill",
+      "name": "siiaos-hermes-pack-manager",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.project.specific",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://siiaos-hermes-pack-manager",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.siiaos.hermes.pack.manager",
+          "kind": "environment_inventory",
+          "source": "skills://siiaos-hermes-pack-manager",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "siiaos-hermes-pack-manager",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "siiaos-hermes-pack-manager",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "project-specific",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.codex.page.seo",
+      "object_type": "skill",
+      "name": "codex-page-seo",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.web.seo.publishing",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://codex-page-seo",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.codex.page.seo",
+          "kind": "environment_inventory",
+          "source": "skills://codex-page-seo",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "codex-page-seo",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "codex-page-seo",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "web-seo-publishing",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.skill.creator",
+      "object_type": "skill",
+      "name": "skill-creator",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.context.governance",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://skill-creator",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.skill.creator",
+          "kind": "environment_inventory",
+          "source": "skills://skill-creator",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "skill-creator",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "skill-creator",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "context-governance",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.docx",
+      "object_type": "skill",
+      "name": "docx",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://docx",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.docx",
+          "kind": "environment_inventory",
+          "source": "skills://docx",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "docx",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "docx",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.pdfs",
+      "object_type": "skill",
+      "name": "pdfs",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://pdfs",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.pdfs",
+          "kind": "environment_inventory",
+          "source": "skills://pdfs",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "pdfs",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "pdfs",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.spreadsheets",
+      "object_type": "skill",
+      "name": "spreadsheets",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://spreadsheets",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.spreadsheets",
+          "kind": "environment_inventory",
+          "source": "skills://spreadsheets",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "spreadsheets",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "spreadsheets",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.slides",
+      "object_type": "skill",
+      "name": "slides",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://slides",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.slides",
+          "kind": "environment_inventory",
+          "source": "skills://slides",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "slides",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "slides",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.google.drive.google.drive",
+      "object_type": "skill",
+      "name": "google-drive",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/google-drive/google-drive",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.google.drive",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/google-drive/google-drive",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "google-drive",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "google-drive",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.google.drive.google.docs",
+      "object_type": "skill",
+      "name": "google-docs",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/google-drive/google-docs",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.google.docs",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/google-drive/google-docs",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "google-docs",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "google-docs",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.google.drive.google.sheets",
+      "object_type": "skill",
+      "name": "google-sheets",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/google-drive/google-sheets",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.google.sheets",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/google-drive/google-sheets",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "google-sheets",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "google-sheets",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.google.drive.google.slides",
+      "object_type": "skill",
+      "name": "google-slides",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.artifacts.documents",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/google-drive/google-slides",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.google.slides",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/google-drive/google-slides",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "google-slides",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "google-slides",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "artifacts-documents",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.hugging.face.hf.cli",
+      "object_type": "skill",
+      "name": "hf-cli",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.local.ai.models",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/hugging-face/hf-cli",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.hf.cli",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/hugging-face/hf-cli",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "hf-cli",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "hf-cli",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "local-ai-models",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.hugging.face.huggingface.community.evals",
+      "object_type": "skill",
+      "name": "huggingface-community-evals",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.local.ai.models",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/hugging-face/huggingface-community-evals",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.huggingface.community.evals",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/hugging-face/huggingface-community-evals",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "huggingface-community-evals",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "huggingface-community-evals",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "local-ai-models",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.hugging.face.huggingface.datasets",
+      "object_type": "skill",
+      "name": "huggingface-datasets",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.research.knowledge",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/hugging-face/huggingface-datasets",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.huggingface.datasets",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/hugging-face/huggingface-datasets",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "huggingface-datasets",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "huggingface-datasets",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "research-knowledge",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.hugging.face.huggingface.papers",
+      "object_type": "skill",
+      "name": "huggingface-papers",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.research.knowledge",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/hugging-face/huggingface-papers",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.huggingface.papers",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/hugging-face/huggingface-papers",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "huggingface-papers",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "huggingface-papers",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "research-knowledge",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.nextjs",
+      "object_type": "skill",
+      "name": "nextjs",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.web.seo.publishing",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/nextjs",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.nextjs",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/nextjs",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "nextjs",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "nextjs",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "web-seo-publishing",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.deployments.cicd",
+      "object_type": "skill",
+      "name": "deployments-cicd",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.git.code",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/deployments-cicd",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.deployments.cicd",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/deployments-cicd",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "deployments-cicd",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "deployments-cicd",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.agent.browser.verify",
+      "object_type": "skill",
+      "name": "agent-browser-verify",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.web.seo.publishing",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/agent-browser-verify",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.agent.browser.verify",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/agent-browser-verify",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "agent-browser-verify",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "agent-browser-verify",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "web-seo-publishing",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.investigation.mode",
+      "object_type": "skill",
+      "name": "investigation-mode",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.git.code",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/investigation-mode",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.investigation.mode",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/investigation-mode",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "investigation-mode",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "investigation-mode",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "git-code",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.observability",
+      "object_type": "skill",
+      "name": "observability",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.observability.operations",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/observability",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.observability",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/observability",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "observability",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "observability",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "observability-operations",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.ai.sdk",
+      "object_type": "skill",
+      "name": "ai-sdk",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.agents.mcp",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/ai-sdk",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.ai.sdk",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/ai-sdk",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "ai-sdk",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "ai-sdk",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "agents-mcp",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.vercel.sandbox",
+      "object_type": "skill",
+      "name": "vercel-sandbox",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.security.supply.chain",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/vercel-sandbox",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.vercel.sandbox",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/vercel-sandbox",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "vercel-sandbox",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "vercel-sandbox",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "security-supply-chain",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    },
+    {
+      "record_id": "skill.plugins.vercel.workflow",
+      "object_type": "skill",
+      "name": "workflow",
+      "description": null,
+      "capabilities": [
+        {
+          "capability_id": "skill.automation.n8n",
+          "relation": "EXPERIMENT"
+        }
+      ],
+      "admission_state": "DISCOVERED",
+      "risk_class": "R1",
+      "maturity_min": {
+        "governance": 0,
+        "delivery": 0,
+        "operations": 0,
+        "observability": 0,
+        "security": 0,
+        "data": 0,
+        "ai_usage": 0,
+        "automation": 0,
+        "open_source": 0,
+        "human_control": 0
+      },
+      "permissions": {
+        "filesystem_scopes": [],
+        "process_execution": null,
+        "shell_access": null,
+        "gpu_access": null,
+        "privilege_level": null
+      },
+      "network": {
+        "outbound_required": null,
+        "allowed_destinations": [],
+        "inbound_listeners": [],
+        "localhost_only": null
+      },
+      "data_scope": {
+        "personal_data": null,
+        "confidential_data": null,
+        "customer_data": null,
+        "secrets_credentials": null,
+        "persistence_location": null,
+        "retention": null
+      },
+      "local_feasibility": {
+        "cpu": null,
+        "ram": null,
+        "gpu": null,
+        "vram": null,
+        "disk": null,
+        "persistent_service": null,
+        "external_api_dependency": null,
+        "subscription_cost": null,
+        "offline_capable": null,
+        "degraded_mode": null
+      },
+      "provenance": {
+        "source": "skills://plugins/vercel/workflow",
+        "source_repo": null,
+        "source_commit": null,
+        "version": null,
+        "artifact_hash": null,
+        "license": null,
+        "verified_at": null
+      },
+      "evidence": [
+        {
+          "evidence_id": "observed.current.chatgpt.skill.catalog.workflow",
+          "kind": "environment_inventory",
+          "source": "skills://plugins/vercel/workflow",
+          "timestamp": "2026-09-27T00:00:00Z",
+          "subject": "workflow",
+          "claim": "Skill is observable in this ChatGPT skill catalog only.",
+          "status": "observed",
+          "artifact_hash": null,
+          "environment": "current ChatGPT skill catalog",
+          "notes": "Does not prove availability on SandY, ARAGORN, Hermes, n8n, or another SI."
+        }
+      ],
+      "skill": {
+        "skill_name": "workflow",
+        "trigger_description": null,
+        "source_type": "local",
+        "connectors": [],
+        "tools": [],
+        "scripts": [],
+        "conflicts_with": [],
+        "depends_on": [],
+        "tests": [],
+        "trigger_tests": [],
+        "non_regression_tests": [],
+        "last_verified_at": null
+      },
+      "registry_meta": {
+        "family": "automation-n8n",
+        "inventory_observed_at": "2026-09-27",
+        "inventory_environment": "current ChatGPT skill catalog"
+      }
+    }
+  ]
+}
