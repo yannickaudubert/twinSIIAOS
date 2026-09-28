@@ -1,0 +1,45 @@
+{
+  "version": "0.1",
+  "rule": "Trigger tests validate routing intent only. They do not prove tool availability, execution success, or admission.",
+  "cases": [
+    {
+      "id": "resume-project",
+      "utterance": "Reprends le chantier du radar là où nous l'avons laissé et vérifie ce qui est réellement fait.",
+      "expected_primary": "reprendre-un-chantier",
+      "forbidden_primary": [
+        "skill-creator",
+        "codex-page-seo"
+      ]
+    },
+    {
+      "id": "cross-work-convergence",
+      "utterance": "Consolide nos travaux sur le radar, Hermes et le site en une vue commune sans perdre les corrections.",
+      "expected_primary": "faire-converger-les-travaux",
+      "forbidden_primary": [
+        "reprendre-un-chantier"
+      ]
+    },
+    {
+      "id": "knowledge-capitalisation",
+      "utterance": "Transforme ces décisions et preuves en base de savoir durable du projet.",
+      "expected_primary": "capitaliser-les-savoirs-projet",
+      "forbidden_primary": []
+    },
+    {
+      "id": "skill-creation",
+      "utterance": "Crée un skill réutilisable pour auditer les changements d'architecture.",
+      "expected_primary": "skill-creator",
+      "forbidden_primary": [
+        "reprendre-un-chantier"
+      ]
+    },
+    {
+      "id": "page-seo",
+      "utterance": "Audite cette page Next.js sous-indexée et corrige son SEO on-page.",
+      "expected_primary": "codex-page-seo",
+      "forbidden_primary": [
+        "faire-converger-les-travaux"
+      ]
+    }
+  ]
+}
