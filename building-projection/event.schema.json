@@ -3,21 +3,113 @@
   "$id": "https://siiaos.local/schemas/building-event-v1.schema.json",
   "title": "SIIAOS Building Live Event v1",
   "type": "object",
-  "required": ["schema_version", "event_id", "timestamp", "event_type", "source", "subject_ref"],
+  "required": [
+    "schema_version",
+    "event_id",
+    "timestamp",
+    "event_type",
+    "source",
+    "subject_ref"
+  ],
   "properties": {
-    "schema_version": {"const": "1.0"},
-    "event_id": {"type": "string"},
-    "timestamp": {"type": "string"},
-    "event_type": {"enum": ["assignment", "run_started", "run_progress", "artifact_created", "handoff_requested", "handoff_accepted", "human_gate_required", "run_blocked", "run_completed", "evidence_added", "state_changed", "alert"]},
-    "source": {"type": "string"},
-    "subject_ref": {"type": "string"},
-    "building_id": {"type": "string"},
-    "floor_id": {"type": "string"},
-    "cell_id": {"type": "string"},
-    "desired_state": {"type": "string"},
-    "observed_state": {"type": "string"},
-    "evidence_refs": {"type": "array", "items": {"type": "string"}},
-    "payload": {"type": "object"}
+    "schema_version": {
+      "const": "1.0"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "assignment",
+        "run_started",
+        "run_progress",
+        "run_paused",
+        "run_resumed",
+        "run_rewound",
+        "artifact_created",
+        "handoff_requested",
+        "handoff_accepted",
+        "approval_required",
+        "approval_granted",
+        "approval_denied",
+        "human_gate_required",
+        "budget_blocked",
+        "run_blocked",
+        "run_completed",
+        "evidence_added",
+        "state_changed",
+        "alert"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "subject_ref": {
+      "type": "string"
+    },
+    "building_id": {
+      "type": "string"
+    },
+    "floor_id": {
+      "type": "string"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "desired_state": {
+      "type": "string"
+    },
+    "observed_state": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "payload": {
+      "type": "object"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "run_ref": {
+      "type": "string"
+    },
+    "parent_run_ref": {
+      "type": "string"
+    },
+    "mission_ref": {
+      "type": "string"
+    },
+    "agent_ref": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "causation_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "approval_ref": {
+      "type": "string"
+    }
   },
   "additionalProperties": true
 }
