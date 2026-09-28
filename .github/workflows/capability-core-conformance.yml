@@ -9,12 +9,16 @@ on:
       - 'capability-core/**'
       - 'resource-radar-v3/**'
       - 'public-resource-hub/**'
+      - 'skill-registry/**'
+      - 'adapters/**'
       - '.github/workflows/capability-core-conformance.yml'
   pull_request:
     paths:
       - 'capability-core/**'
       - 'resource-radar-v3/**'
       - 'public-resource-hub/**'
+      - 'skill-registry/**'
+      - 'adapters/**'
       - '.github/workflows/capability-core-conformance.yml'
 
 permissions:
@@ -46,6 +50,15 @@ jobs:
 
       - name: Skill inventory collector tests
         run: python -m unittest skill-registry/tests/test_collect_local_skills.py
+
+      - name: Skill record conversion tests
+        run: python -m unittest skill-registry/tests/test_inventory_to_records.py
+
+      - name: Skill static admission scanner tests
+        run: python -m unittest skill-registry/tests/test_scan_skill_static.py
+
+      - name: Validate trigger and non-regression contracts
+        run: python skill-registry/validate_skill_tests.py
 
       - name: Validate MCP v2 adapter
         run: |
@@ -79,3 +92,5 @@ jobs:
           python -m json.tool skill-registry/current-chatgpt.inventory.json > /dev/null
           python -m json.tool skill-registry/community-candidates.seed.json > /dev/null
           python -m json.tool skill-registry/inventory.schema.json > /dev/null
+          python -m json.tool skill-registry/tests/trigger-cases.json > /dev/null
+          python -m json.tool skill-registry/tests/non-regression.json > /dev/null
