@@ -1,0 +1,45 @@
+{
+  "skill_name": "verification-before-completion",
+  "status": "DESIGN_READY_NOT_PACKAGED",
+  "source_inspiration": {
+    "repo": "https://github.com/obra/superpowers",
+    "path": "skills/verification-before-completion/SKILL.md",
+    "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+    "source_blob": "7d45333cc4a49c57a80df6c1fe2fa777a207afbc",
+    "license": "MIT"
+  },
+  "purpose": "Prevent success/completion claims unless fresh, task-appropriate evidence proves them.",
+  "siiaos_additions": [
+    "Use REQUESTED/PROPOSED/OBSERVED/REALIZED/VERIFIED/BLOCKED/UNKNOWN truth states.",
+    "A repository diff proves repository state only, not runtime/deployment state.",
+    "A generated artifact proves creation only after existence/content checks; usability requires appropriate verification.",
+    "Agent or subagent success reports are claims, not independent evidence.",
+    "A previous assistant statement is never independent proof.",
+    "Completion criteria must be derived from the user's requested result and preserved corrections."
+  ],
+  "positive_triggers": [
+    "about to say done, fixed, deployed, published, integrated, working, green, complete",
+    "about to close a task or move to the next phase",
+    "agent/subagent reports success",
+    "after modifying code, documents, deployment configuration or workflows"
+  ],
+  "negative_triggers": [
+    "brainstorming with no completion claim",
+    "pure factual answer with no work-status assertion",
+    "early planning before any implementation exists"
+  ],
+  "evidence_examples": {
+    "tests": "fresh command output + exit status + relevant failure count",
+    "web": "browser/runtime verification of requested behavior",
+    "artifact": "file exists + opens/parses + requested content/layout checks",
+    "deployment": "deployment/runtime observation, not Git state alone",
+    "external_action": "provider/system response identifying successful action"
+  },
+  "acceptance": [
+    "never promotes PROPOSED to REALIZED without mutation evidence",
+    "never promotes REALIZED to VERIFIED without an independent validation step",
+    "reports partial success as partial",
+    "names missing proof instead of guessing",
+    "does not rerun irrelevant tests merely to create evidence theater"
+  ]
+}
