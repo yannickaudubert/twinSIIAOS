@@ -67,7 +67,7 @@
         "source_repo": "https://github.com/obra/superpowers",
         "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
         "version": "8ca22dba9a94",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:7d45333cc4a49c57a80df6c1fe2fa777a207afbc",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -95,6 +95,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.superpowers.verification-before-completion",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/verification-before-completion/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.verification-before-completion",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:7d45333cc4a49c57a80df6c1fe2fa777a207afbc",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -196,7 +208,7 @@
         "source_repo": "https://github.com/obra/superpowers",
         "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
         "version": "8ca22dba9a94",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:095d194ac041502905f15b01d22d294fb94db8b2",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -224,6 +236,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.superpowers.systematic-debugging",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/systematic-debugging/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.systematic-debugging",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:095d194ac041502905f15b01d22d294fb94db8b2",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -325,7 +349,7 @@
         "source_repo": "https://github.com/obra/superpowers",
         "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
         "version": "8ca22dba9a94",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:46838cc9e893c06259e3bdad0fc2425b36242f15",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -353,6 +377,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.superpowers.test-driven-development",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/test-driven-development/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.test-driven-development",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:46838cc9e893c06259e3bdad0fc2425b36242f15",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"dynamic_eval\":1}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -454,7 +490,7 @@
         "source_repo": "https://github.com/obra/superpowers",
         "source_commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
         "version": "8ca22dba9a94",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:49077ad961268a840d7dcb5d8c5d06c46fc276ae",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -482,6 +518,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.superpowers.executing-plans",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/executing-plans/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "superpowers.executing-plans",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:49077ad961268a840d7dcb5d8c5d06c46fc276ae",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":2}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -583,7 +631,7 @@
         "source_repo": "https://github.com/trailofbits/skills",
         "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
         "version": "0cc1c73a5e96",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:5f25f70751c688685e22f40ddae125d9411d2b77",
         "license": "CC-BY-SA-4.0",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -611,6 +659,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.trailofbits.audit-context-building",
+          "kind": "security_entrypoint_scan",
+          "source": "plugins/audit-context-building/skills/audit-context-building/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.audit-context-building",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:5f25f70751c688685e22f40ddae125d9411d2b77",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -634,7 +694,7 @@
         "family": "security-supply-chain",
         "candidate_id": "trailofbits.audit-context-building",
         "source_status": "DISCOVERY_ONLY",
-        "upstream_skill_path": "plugins/audit-context-building"
+        "upstream_skill_path": "plugins/audit-context-building/skills/audit-context-building/SKILL.md"
       },
       "upstream_maturity": {
         "stage": "unknown",
@@ -712,7 +772,7 @@
         "source_repo": "https://github.com/trailofbits/skills",
         "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
         "version": "0cc1c73a5e96",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:536e9258092876017b098f1712a92e7d06bb1480",
         "license": "CC-BY-SA-4.0",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -740,6 +800,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.trailofbits.differential-review",
+          "kind": "security_entrypoint_scan",
+          "source": "plugins/differential-review/skills/differential-review/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.differential-review",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:536e9258092876017b098f1712a92e7d06bb1480",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -841,7 +913,7 @@
         "source_repo": "https://github.com/trailofbits/skills",
         "source_commit": "0cc1c73a5e96749ab32d7ea5e14892fafa6972ae",
         "version": "0cc1c73a5e96",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:efdeacdf470d5bd1d714ca231d6276f086214971",
         "license": "CC-BY-SA-4.0",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -869,6 +941,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.trailofbits.agentic-actions-auditor",
+          "kind": "security_entrypoint_scan",
+          "source": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "trailofbits.agentic-actions-auditor",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:efdeacdf470d5bd1d714ca231d6276f086214971",
+          "environment": "GitHub public repository",
+          "notes": "Signals={\"secret_terms\":4}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -970,7 +1054,7 @@
         "source_repo": "https://github.com/mattpocock/skills",
         "source_commit": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
         "version": "c55ee46073ed",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:3f52599ae2a4347aee5a07432c2707518e691a7f",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -998,6 +1082,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.mattpocock.to-spec",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/engineering/to-spec/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-spec",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:3f52599ae2a4347aee5a07432c2707518e691a7f",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
@@ -1099,7 +1195,7 @@
         "source_repo": "https://github.com/mattpocock/skills",
         "source_commit": "c55ee46073ed923f86ce59a5eb3b6d895095d1b7",
         "version": "c55ee46073ed",
-        "artifact_hash": null,
+        "artifact_hash": "gitblob:e868c831fcfb1e124e010bcdf84a429ec879160f",
         "license": "MIT",
         "verified_at": "2026-09-28T00:00:00Z"
       },
@@ -1127,6 +1223,18 @@
           "artifact_hash": null,
           "environment": "GitHub public repository",
           "notes": "Repository-level license does not automatically resolve third-party asset licensing."
+        },
+        {
+          "evidence_id": "entrypoint-scan.mattpocock.to-tickets",
+          "kind": "security_entrypoint_scan",
+          "source": "skills/engineering/to-tickets/SKILL.md",
+          "timestamp": "2026-09-28T00:00:00Z",
+          "subject": "mattpocock.to-tickets",
+          "claim": "Entrypoint was scanned with static keyword heuristics.",
+          "status": "observed",
+          "artifact_hash": "gitblob:e868c831fcfb1e124e010bcdf84a429ec879160f",
+          "environment": "GitHub public repository",
+          "notes": "Signals={}. Keyword hits are not vulnerabilities and do not satisfy the SCANNED gate."
         }
       ],
       "skill": {
