@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-COM",
+  "name": "Creative Studio",
+  "kind": "communications",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["EditorialBrief", "Artifact", "Publication", "Channel", "Evidence"],
+  "floors": [
+    {"floor_id": "COM-F0", "name": "Editorial Intake", "purpose": "Collect validated inputs and editorial intentions.", "service_cells": [
+      {"cell_id": "COM-INTAKE", "name": "Editorial Desk", "capability_refs": ["editorial.brief", "source.select"], "team_templates": ["document-team"], "human_gate": true}
+    ]},
+    {"floor_id": "COM-F1", "name": "Editorial Factory", "purpose": "Articles, notes, posts and long-form production.", "service_cells": [
+      {"cell_id": "COM-WRITE", "name": "Newsroom", "capability_refs": ["content.write", "content.review"], "team_templates": ["document-team"], "human_gate": true}
+    ]},
+    {"floor_id": "COM-F2", "name": "Visual & Media", "purpose": "Images, diagrams, slides, audio and video derivatives.", "service_cells": [
+      {"cell_id": "COM-MEDIA", "name": "Media Studio", "capability_refs": ["visual.produce", "media.derive"], "team_templates": ["document-team"], "human_gate": true}
+    ]},
+    {"floor_id": "COM-F3", "name": "Web & Blog", "purpose": "Site content, SEO, accessibility and publication preparation.", "service_cells": [
+      {"cell_id": "COM-WEB", "name": "Web Studio", "capability_refs": ["web.publish.prepare", "seo.audit", "accessibility.review"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]},
+    {"floor_id": "COM-F4", "name": "Distribution", "purpose": "Social, newsletter and channel-specific derivation.", "service_cells": [
+      {"cell_id": "COM-DIST", "name": "Distribution", "capability_refs": ["social.derive", "channel.publish"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]},
+    {"floor_id": "COM-F5", "name": "Analytics & Archive", "purpose": "Performance evidence, rights and reusable media assets.", "service_cells": [
+      {"cell_id": "COM-ANALYTICS", "name": "Analytics", "capability_refs": ["publication.observe", "content.retex"], "team_templates": ["research-team"], "human_gate": false},
+      {"cell_id": "COM-ARCHIVE", "name": "Media Archive", "capability_refs": ["asset.catalog", "rights.track"], "team_templates": ["document-team"], "human_gate": true}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "COM-INTAKE", "to": "COM-WRITE", "authorization": "brief-approved"},
+    {"from": "COM-WRITE", "to": "COM-WEB", "authorization": "content-reviewed"},
+    {"from": "COM-WEB", "to": "COM-DIST", "authorization": "publication-approved"},
+    {"from": "COM-DIST", "to": "COM-ANALYTICS", "authorization": "publication-observed"}
+  ]
+}

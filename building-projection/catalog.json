@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "city_id": "SIIAOS-YANNICK",
+  "name": "SIIAOS City",
+  "entry": "HALL",
+  "buildings": [
+    "buildings/hall.json",
+    "buildings/bld-consult.json",
+    "buildings/bld-dsi.json",
+    "buildings/bld-radar.json",
+    "buildings/bld-knowledge.json",
+    "buildings/bld-com.json",
+    "buildings/bld-revenue.json"
+  ],
+  "cross_cutting_surfaces": ["ADMIN-DELIVERY", "CAPABILITY-CORE", "MISSION-FACTORY", "EVIDENCE", "HUMAN-GATES"],
+  "projection_rule": "UI projects canonical state; layout mutation creates desired state only."
+}

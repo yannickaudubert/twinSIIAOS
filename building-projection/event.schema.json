@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/building-event-v1.schema.json",
+  "title": "SIIAOS Building Live Event v1",
+  "type": "object",
+  "required": ["schema_version", "event_id", "timestamp", "event_type", "source", "subject_ref"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "event_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "event_type": {"enum": ["assignment", "run_started", "run_progress", "artifact_created", "handoff_requested", "handoff_accepted", "human_gate_required", "run_blocked", "run_completed", "evidence_added", "state_changed", "alert"]},
+    "source": {"type": "string"},
+    "subject_ref": {"type": "string"},
+    "building_id": {"type": "string"},
+    "floor_id": {"type": "string"},
+    "cell_id": {"type": "string"},
+    "desired_state": {"type": "string"},
+    "observed_state": {"type": "string"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "payload": {"type": "object"}
+  },
+  "additionalProperties": true
+}

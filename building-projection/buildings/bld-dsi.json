@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-DSI",
+  "name": "DSI Tower",
+  "kind": "dsi",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["Node", "Deployment", "Service", "Capability", "Provider", "Policy", "Evidence"],
+  "floors": [
+    {"floor_id": "DSI-B1", "name": "Infrastructure & Nodes", "purpose": "Machines, containers, storage, network and runtime inventory.", "service_cells": [
+      {"cell_id": "DSI-INFRA", "name": "Infrastructure", "capability_refs": ["infra.inventory", "container.ops", "network.observe"], "team_templates": ["operations-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F0", "name": "Service Desk & ITSM", "purpose": "Incidents, requests, problems and service health.", "service_cells": [
+      {"cell_id": "DSI-ITSM", "name": "Service Desk", "capability_refs": ["itsm.request", "itsm.incident", "service.health"], "team_templates": ["operations-team"], "human_gate": false}
+    ]},
+    {"floor_id": "DSI-F1", "name": "Architecture SI & Capability Registry", "purpose": "Topology, capability map and admission.", "service_cells": [
+      {"cell_id": "DSI-ARCH", "name": "Architecture SI", "capability_refs": ["architecture.si", "capability.registry", "capability.admission"], "team_templates": ["architecture-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F2", "name": "Software Factory & GitOps", "purpose": "Repositories, CI, tests, releases and desired-state deployment.", "service_cells": [
+      {"cell_id": "DSI-GITOPS", "name": "GitOps", "capability_refs": ["git.ops", "ci.test", "release.gate"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F3", "name": "Data & Integration", "purpose": "Data flows, APIs, MCP and integration contracts.", "service_cells": [
+      {"cell_id": "DSI-DATA", "name": "DataOps", "capability_refs": ["data.ops", "api.integration", "mcp.adapter"], "team_templates": ["architecture-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F4", "name": "AI & Model Operations", "purpose": "Local models, agents, routing, evaluation and runtime providers.", "service_cells": [
+      {"cell_id": "DSI-AI", "name": "AI/MLOps", "capability_refs": ["model.serve", "model.route", "agent.runtime", "eval.run"], "tool_refs": ["LM-STUDIO", "LLAMA.CPP", "HERMES"], "team_templates": ["research-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F5", "name": "Security & Trust", "purpose": "Identity, secrets, supply chain, permissions and compliance.", "service_cells": [
+      {"cell_id": "DSI-SEC", "name": "DevSecOps", "capability_refs": ["security.scan", "identity.policy", "secret.guard", "supplychain.verify"], "team_templates": ["security-review-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F6", "name": "SRE & Observability", "purpose": "Events, traces, metrics, logs, evidence and rollback readiness.", "service_cells": [
+      {"cell_id": "DSI-SRE", "name": "Observability", "capability_refs": ["observability.collect", "evidence.runtime", "rollback.verify"], "team_templates": ["operations-team"], "human_gate": false}
+    ]},
+    {"floor_id": "DSI-F7", "name": "Resource Stewardship", "purpose": "Compute, energy, storage, cost and capacity envelopes.", "service_cells": [
+      {"cell_id": "DSI-RESOURCE", "name": "Resource Radar", "capability_refs": ["resource.observe", "finops.local", "capacity.plan"], "team_templates": ["council-team"], "human_gate": true}
+    ]},
+    {"floor_id": "DSI-F8", "name": "Innovation Lab", "purpose": "Bounded experiments for new runtimes, models and system components.", "service_cells": [
+      {"cell_id": "DSI-LAB", "name": "Architecture Lab", "capability_refs": ["experiment.design", "benchmark.run", "capability.admission"], "tool_refs": ["KTRANSFORMERS", "STRATA"], "team_templates": ["research-team"], "human_gate": true}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "DSI-ARCH", "to": "DSI-GITOPS", "authorization": "design-reviewed"},
+    {"from": "DSI-GITOPS", "to": "DSI-SRE", "authorization": "deployment-authorized"},
+    {"from": "DSI-LAB", "to": "DSI-ARCH", "authorization": "experiment-evidence"},
+    {"from": "DSI-SEC", "to": "DSI-GITOPS", "authorization": "security-gate"}
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-CONSULT",
+  "name": "Cabinet Tower",
+  "kind": "consulting",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["NeedSpec", "ContextPack", "Mission", "Team", "OperationRecord", "Evidence", "HumanGate"],
+  "floors": [
+    {"floor_id": "CONSULT-F0", "name": "Cabinet Control", "purpose": "Portfolio, priorities and client/territory orientation.", "service_cells": [
+      {"cell_id": "CONSULT-CONTROL", "name": "Cabinet Control", "capability_refs": ["portfolio.control", "mission.intake"], "team_templates": ["council-team"], "human_gate": true},
+      {"cell_id": "CONSULT-QUALITY", "name": "Quality Gate", "capability_refs": ["evidence.review", "deliverable.quality"], "team_templates": ["security-review-team", "document-team"], "human_gate": true}
+    ]},
+    {"floor_id": "CONSULT-F1", "name": "Client Rooms", "purpose": "Bounded client contexts and mission workspaces.", "service_cells": [
+      {"cell_id": "CONSULT-CLIENT", "name": "Client Room", "capability_refs": ["client.context", "context.pack"], "team_templates": ["audit-team"], "human_gate": true}
+    ]},
+    {"floor_id": "CONSULT-F2", "name": "Audit & Diagnostic", "purpose": "Organisation, SI, data, AI and maturity assessment.", "service_cells": [
+      {"cell_id": "CONSULT-AUDIT", "name": "Audit Cell", "capability_refs": ["audit.organisation", "audit.si", "maturity.assess"], "team_templates": ["audit-team"], "human_gate": false}
+    ]},
+    {"floor_id": "CONSULT-F3", "name": "Architecture & Transformation", "purpose": "Target architecture, scenarios, roadmaps and change.", "service_cells": [
+      {"cell_id": "CONSULT-ARCH", "name": "Architecture Studio", "capability_refs": ["architecture.enterprise", "transformation.roadmap"], "team_templates": ["architecture-team"], "human_gate": true}
+    ]},
+    {"floor_id": "CONSULT-F4", "name": "Mission Factory", "purpose": "Compile needs into missions, teams, workflows and stop conditions.", "service_cells": [
+      {"cell_id": "CONSULT-MISSION", "name": "Mission Factory", "capability_refs": ["mission.compile", "team.compile", "workflow.route"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]},
+    {"floor_id": "CONSULT-F5", "name": "Expertise Guilds", "purpose": "Specialist capability pools activated on demand.", "service_cells": [
+      {"cell_id": "CONSULT-GUILDS", "name": "Expert Guilds", "capability_refs": ["expert.resolve", "skill.route"], "team_templates": ["research-team", "architecture-team", "security-review-team"], "human_gate": false}
+    ]},
+    {"floor_id": "CONSULT-F6", "name": "Delivery & RETEX", "purpose": "Deliverables, evidence, transfer and learning loop.", "service_cells": [
+      {"cell_id": "CONSULT-DELIVERY", "name": "Delivery Factory", "capability_refs": ["artifact.produce", "client.transfer"], "team_templates": ["document-team", "delivery-team"], "human_gate": true},
+      {"cell_id": "CONSULT-RETEX", "name": "RETEX", "capability_refs": ["retex.capture", "evidence.promote"], "team_templates": ["review-team"], "human_gate": true}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "CONSULT-CONTROL", "to": "CONSULT-AUDIT", "authorization": "mission-approved"},
+    {"from": "CONSULT-AUDIT", "to": "CONSULT-ARCH", "authorization": "evidence-sufficient"},
+    {"from": "CONSULT-ARCH", "to": "CONSULT-MISSION", "authorization": "target-approved"},
+    {"from": "CONSULT-MISSION", "to": "CONSULT-DELIVERY", "authorization": "team-and-policy-ready"},
+    {"from": "CONSULT-DELIVERY", "to": "CONSULT-RETEX", "authorization": "deliverable-reviewed"}
+  ]
+}

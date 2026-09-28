@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-KNOW",
+  "name": "Knowledge Library",
+  "kind": "knowledge",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["Document", "Source", "KnowledgePack", "MemoryRecord", "Skill", "Method", "Evidence"],
+  "floors": [
+    {"floor_id": "KNOW-F0", "name": "Library & Catalog", "purpose": "Browse corpus, methods, assets and provenance.", "service_cells": [
+      {"cell_id": "KNOW-CATALOG", "name": "Catalog", "capability_refs": ["knowledge.catalog", "provenance.read"], "team_templates": ["document-team"], "human_gate": false}
+    ]},
+    {"floor_id": "KNOW-F1", "name": "Vault & GED", "purpose": "Canonical files, records, documents and controlled retention.", "service_cells": [
+      {"cell_id": "KNOW-VAULT", "name": "Vault", "capability_refs": ["vault.read", "ged.index", "document.version"], "team_templates": ["document-team"], "human_gate": true}
+    ]},
+    {"floor_id": "KNOW-F2", "name": "Temporal Knowledge Graph", "purpose": "Entities, relations, temporal facts and provenance projections.", "service_cells": [
+      {"cell_id": "KNOW-GRAPH", "name": "Graph Lab", "capability_refs": ["graph.temporal", "knowledge.retrieve"], "tool_refs": ["GRAPHITI"], "team_templates": ["research-team"], "human_gate": false}
+    ]},
+    {"floor_id": "KNOW-F3", "name": "Memory & RETEX", "purpose": "Operational lessons separated from canonical knowledge.", "service_cells": [
+      {"cell_id": "KNOW-MEMORY", "name": "Memory Ledger", "capability_refs": ["memory.capture", "retex.merge", "memory.deduplicate"], "team_templates": ["review-team"], "human_gate": true}
+    ]},
+    {"floor_id": "KNOW-F4", "name": "Methods & Skills", "purpose": "Governed skill lifecycle and reusable methods.", "service_cells": [
+      {"cell_id": "KNOW-SKILLS", "name": "Skill Registry", "capability_refs": ["skill.inventory", "skill.admission", "skill.route", "skill.evolve"], "tool_refs": ["SIIAOS-SKILL-REGISTRY", "ULTRON-PATTERNS"], "team_templates": ["review-team"], "human_gate": true}
+    ]},
+    {"floor_id": "KNOW-F5", "name": "Scientific Workbench", "purpose": "Hypotheses, protocols, experiments and evidence.", "service_cells": [
+      {"cell_id": "KNOW-SCIENCE", "name": "Scientific Workbench", "capability_refs": ["hypothesis.manage", "experiment.design", "evidence.review"], "team_templates": ["research-team"], "human_gate": true}
+    ]},
+    {"floor_id": "KNOW-F6", "name": "Universite Libre", "purpose": "Learning paths, training and capability transfer.", "service_cells": [
+      {"cell_id": "KNOW-LEARN", "name": "Learning", "capability_refs": ["learning.path", "training.produce", "knowledge.transfer"], "team_templates": ["document-team"], "human_gate": false}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "KNOW-VAULT", "to": "KNOW-GRAPH", "authorization": "indexed-with-provenance"},
+    {"from": "KNOW-MEMORY", "to": "KNOW-SKILLS", "authorization": "validated-retex"},
+    {"from": "KNOW-SCIENCE", "to": "KNOW-CATALOG", "authorization": "evidence-reviewed"}
+  ]
+}

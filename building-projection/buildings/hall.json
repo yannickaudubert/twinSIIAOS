@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "building_id": "HALL",
+  "name": "Hall central",
+  "kind": "hall",
+  "implementation_status": "CODED",
+  "desired_state": "AVAILABLE",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["profile", "mission", "capability", "evidence", "notification"],
+  "entrypoints": ["BLD-CONSULT", "BLD-DSI", "BLD-RADAR", "BLD-KNOW", "BLD-COM", "BLD-REVENUE"],
+  "floors": [
+    {
+      "floor_id": "HALL-F0",
+      "name": "Accueil et orientation",
+      "purpose": "Universal entry, search, identity, active missions and alerts.",
+      "service_cells": [
+        {"cell_id": "HALL-ORIENT", "name": "Orientation", "capability_refs": ["context.orientation", "capability.routing"], "team_templates": ["research-team"], "human_gate": false, "interaction": "Ask, search, inspect and route without mutating runtime."},
+        {"cell_id": "HALL-MISSIONS", "name": "Missions actives", "capability_refs": ["mission.read", "mission.resume"], "team_templates": ["delivery-team"], "human_gate": true, "interaction": "Inspect real missions; resume or redirect only through policy."},
+        {"cell_id": "HALL-ALERTS", "name": "Notifications et HumanGates", "capability_refs": ["evidence.read", "human-gate.review"], "team_templates": ["council-team"], "human_gate": true, "interaction": "Review blocked, risky or ambiguous transitions."}
+      ]
+    }
+  ],
+  "handoffs": [
+    {"from": "HALL-ORIENT", "to": "BLD-CONSULT", "authorization": "context-fit"},
+    {"from": "HALL-ORIENT", "to": "BLD-DSI", "authorization": "capability-fit"},
+    {"from": "HALL-ORIENT", "to": "BLD-RADAR", "authorization": "research-fit"},
+    {"from": "HALL-ORIENT", "to": "BLD-KNOW", "authorization": "knowledge-fit"},
+    {"from": "HALL-ORIENT", "to": "BLD-COM", "authorization": "publication-fit"},
+    {"from": "HALL-ORIENT", "to": "BLD-REVENUE", "authorization": "business-fit"}
+  ]
+}

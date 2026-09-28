@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-RADAR",
+  "name": "Radar Lab",
+  "kind": "radar",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["Source", "Signal", "Resource", "CapabilityRecord", "Experiment", "Evidence"],
+  "floors": [
+    {"floor_id": "RADAR-F0", "name": "Signal Intake", "purpose": "Capture feeds, repos, papers, regulations, weak signals and user questions.", "service_cells": [
+      {"cell_id": "RADAR-INTAKE", "name": "Signal Intake", "capability_refs": ["signal.collect", "source.register"], "team_templates": ["radar-team"], "human_gate": false}
+    ]},
+    {"floor_id": "RADAR-F1", "name": "Watch & Research", "purpose": "Continuous watch and deep research.", "service_cells": [
+      {"cell_id": "RADAR-WATCH", "name": "Hyperveille", "capability_refs": ["watch.run", "research.deep"], "team_templates": ["radar-team", "research-team"], "human_gate": false}
+    ]},
+    {"floor_id": "RADAR-F2", "name": "Source Qualification", "purpose": "Provenance, licence, freshness, security and contradiction checks.", "service_cells": [
+      {"cell_id": "RADAR-QUALIFY", "name": "Qualification", "capability_refs": ["source.qualify", "license.scan", "security.scan"], "team_templates": ["research-team", "security-review-team"], "human_gate": true}
+    ]},
+    {"floor_id": "RADAR-F3", "name": "Capability Admission", "purpose": "Map discoveries to capability gaps and maturity fit.", "service_cells": [
+      {"cell_id": "RADAR-ADMISSION", "name": "Resource Radar", "capability_refs": ["capability.map", "capability.assess", "capability.route"], "team_templates": ["architecture-team"], "human_gate": true}
+    ]},
+    {"floor_id": "RADAR-F4", "name": "Experiment Factory", "purpose": "Sandbox experiments, benchmarks and reversibility tests.", "service_cells": [
+      {"cell_id": "RADAR-EXPERIMENT", "name": "Experiment Lab", "capability_refs": ["experiment.contract", "benchmark.run", "rollback.test"], "team_templates": ["research-team"], "human_gate": true}
+    ]},
+    {"floor_id": "RADAR-F5", "name": "Synthesis & Decision", "purpose": "Evidence-backed briefs and decision options.", "service_cells": [
+      {"cell_id": "RADAR-SYNTHESIS", "name": "Decision Brief", "capability_refs": ["evidence.synthesise", "decision.prepare"], "team_templates": ["council-team"], "human_gate": true}
+    ]},
+    {"floor_id": "RADAR-F6", "name": "Commons & Upstream", "purpose": "Capitalise reusable findings and contribute back when appropriate.", "service_cells": [
+      {"cell_id": "RADAR-COMMONS", "name": "Commons", "capability_refs": ["retex.capture", "upstream.contribute"], "team_templates": ["document-team"], "human_gate": true}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "RADAR-INTAKE", "to": "RADAR-QUALIFY", "authorization": "signal-selected"},
+    {"from": "RADAR-QUALIFY", "to": "RADAR-ADMISSION", "authorization": "source-qualified"},
+    {"from": "RADAR-ADMISSION", "to": "RADAR-EXPERIMENT", "authorization": "experiment-approved"},
+    {"from": "RADAR-EXPERIMENT", "to": "RADAR-SYNTHESIS", "authorization": "evidence-produced"}
+  ]
+}

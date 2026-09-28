@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "building_id": "BLD-REVENUE",
+  "name": "Revenue House",
+  "kind": "revenue",
+  "implementation_status": "CODED",
+  "desired_state": "READY_ON_DEMAND",
+  "observed_state": "UNKNOWN",
+  "canonical_refs": ["Opportunity", "Organisation", "Offer", "Proposal", "Mission", "Evidence"],
+  "floors": [
+    {"floor_id": "REV-F0", "name": "Market & Opportunities", "purpose": "Detect and qualify demand, markets, territories and partnerships.", "service_cells": [
+      {"cell_id": "REV-MARKET", "name": "Opportunity Desk", "capability_refs": ["market.watch", "opportunity.detect", "partner.map"], "team_templates": ["radar-team"], "human_gate": false}
+    ]},
+    {"floor_id": "REV-F1", "name": "Qualification & CRM", "purpose": "Need, fit, maturity, relationship and next action.", "service_cells": [
+      {"cell_id": "REV-QUALIFY", "name": "Qualification", "capability_refs": ["opportunity.qualify", "client.context"], "team_templates": ["audit-team"], "human_gate": true}
+    ]},
+    {"floor_id": "REV-F2", "name": "Offers & Public Procurement", "purpose": "Offer composition, tenders and proposal production.", "service_cells": [
+      {"cell_id": "REV-OFFER", "name": "Offer Factory", "capability_refs": ["offer.compose", "proposal.write", "procurement.respond"], "team_templates": ["document-team", "architecture-team"], "human_gate": true}
+    ]},
+    {"floor_id": "REV-F3", "name": "Economics & Pricing", "purpose": "Effort, capacity, pricing, margin and resource envelope.", "service_cells": [
+      {"cell_id": "REV-ECON", "name": "Economics", "capability_refs": ["pricing.model", "capacity.cost", "margin.simulate"], "team_templates": ["council-team"], "human_gate": true}
+    ]},
+    {"floor_id": "REV-F4", "name": "Pipeline & Contracting", "purpose": "Pipeline state, decisions and transition to approved mission.", "service_cells": [
+      {"cell_id": "REV-PIPE", "name": "Pipeline", "capability_refs": ["pipeline.manage", "contract.prepare", "mission.handoff"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]},
+    {"floor_id": "REV-F5", "name": "Customer Success", "purpose": "Value tracking, satisfaction, follow-up and expansion evidence.", "service_cells": [
+      {"cell_id": "REV-CS", "name": "Customer Success", "capability_refs": ["value.observe", "client.followup", "success.retex"], "team_templates": ["delivery-team"], "human_gate": true}
+    ]}
+  ],
+  "handoffs": [
+    {"from": "REV-MARKET", "to": "REV-QUALIFY", "authorization": "opportunity-selected"},
+    {"from": "REV-QUALIFY", "to": "REV-OFFER", "authorization": "fit-confirmed"},
+    {"from": "REV-OFFER", "to": "REV-ECON", "authorization": "scope-defined"},
+    {"from": "REV-ECON", "to": "REV-PIPE", "authorization": "human-approved"},
+    {"from": "REV-PIPE", "to": "BLD-CONSULT", "authorization": "mission-authorized"}
+  ]
+}
