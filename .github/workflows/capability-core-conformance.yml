@@ -94,4 +94,7 @@ jobs:
           python -m json.tool building-projection/views.json > /dev/null
           python -m json.tool building-projection/city-fabric-baseline.json > /dev/null
           python -m json.tool building-projection/interop-patterns.json > /dev/null
+          python -m json.tool building-projection/cognitive-strategy.schema.json > /dev/null
+          python -m json.tool building-projection/cognitive-strategies.json > /dev/null
+          python -m json.tool building-projection/fixtures/sandy-declared-profile.json > /dev/null
           for f in building-projection/buildings/*.json; do python -m json.tool "$f" > /dev/null; done
