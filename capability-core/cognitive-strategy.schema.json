@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SIIAOS Cognitive Strategy",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "purpose",
+    "evidence_required",
+    "independent_verifier_required",
+    "stop_condition"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": [
+        "deterministic_solve",
+        "retrieve",
+        "observe",
+        "abduct",
+        "first_principles",
+        "constraint_deconstruction",
+        "adversarial_verify",
+        "systemic_impact",
+        "precaution",
+        "causal_reason",
+        "simulate",
+        "prototype"
+      ]
+    },
+    "version": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "evidence_required": {"type": "boolean"},
+    "independent_verifier_required": {"type": "boolean"},
+    "stop_condition": {"type": "string", "minLength": 1},
+    "aliases": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}
