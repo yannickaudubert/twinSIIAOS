@@ -1,0 +1,72 @@
+{
+  "version": "0.1.0",
+  "status": "pre-machine",
+  "gates": [
+    {
+      "id": "G0",
+      "name": "machine_truth",
+      "requires_runtime": true,
+      "pass_condition": "fresh ObservedState exists and is explicitly distinct from declared/historical host data"
+    },
+    {
+      "id": "G1",
+      "name": "local_only",
+      "requires_runtime": true,
+      "pass_condition": "confidential/restricted mission completes with evidence of zero remote provider use"
+    },
+    {
+      "id": "G2",
+      "name": "durable_human_gate",
+      "requires_runtime": false,
+      "pass_condition": "mission state survives process restart while waiting for approval"
+    },
+    {
+      "id": "G3",
+      "name": "side_effects",
+      "requires_runtime": false,
+      "pass_condition": "irreversible effects require HumanGate and compensable effects require idempotency plus compensation"
+    },
+    {
+      "id": "G4",
+      "name": "memory_poisoning",
+      "requires_runtime": false,
+      "pass_condition": "unproven or contradictory knowledge is quarantined and cannot self-promote"
+    },
+    {
+      "id": "G5",
+      "name": "false_consensus",
+      "requires_runtime": false,
+      "pass_condition": "agreement without evidence is insufficient and disagreement is preserved"
+    },
+    {
+      "id": "G6",
+      "name": "simulator_fidelity",
+      "requires_runtime": false,
+      "pass_condition": "simulation cannot be routed without explicit fidelity evidence"
+    },
+    {
+      "id": "G7",
+      "name": "provider_swap",
+      "requires_runtime": false,
+      "pass_condition": "provider substitution leaves canonical contracts unchanged"
+    },
+    {
+      "id": "G8",
+      "name": "projection_failure",
+      "requires_runtime": false,
+      "pass_condition": "loss of Hall/UI projection does not delete canonical state"
+    },
+    {
+      "id": "G9",
+      "name": "outcome_eval",
+      "requires_runtime": false,
+      "pass_condition": "success is assessed from observed result and evidence rather than agent narration"
+    },
+    {
+      "id": "G10",
+      "name": "retex_immunity",
+      "requires_runtime": false,
+      "pass_condition": "a known failure can produce a test or guard that blocks recurrence"
+    }
+  ]
+}
