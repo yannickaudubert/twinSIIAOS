@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-10-01",
+  "status": "PRE_MACHINE_CONTRACT",
+  "invariants": [
+    "Cognitive strategies are contracts, not personalities.",
+    "Consensus is never sufficient evidence.",
+    "Simulation requires explicit simulator-fidelity evidence.",
+    "Unknown remains unknown until observed or otherwise evidenced.",
+    "Consequential actions remain governed by policy and HumanGate outside this registry."
+  ],
+  "strategies": [
+    {"id":"deterministic_solve","purpose":"Use exact or deterministic methods before probabilistic reasoning when applicable.","evidence_required":true,"independent_verifier_required":false,"default_stop_condition":"exact_result_obtained_or_not_applicable"},
+    {"id":"retrieve","purpose":"Retrieve scoped sources and preserve exact provenance.","evidence_required":true,"independent_verifier_required":false,"default_stop_condition":"relevant_sources_retrieved_or_exhausted"},
+    {"id":"observe","purpose":"Establish current state without converting unknowns into assumptions.","evidence_required":true,"independent_verifier_required":false,"default_stop_condition":"required_observations_collected_or_marked_unknown"},
+    {"id":"abduct","purpose":"Generate competing explanations from incomplete observations.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"discriminating_test_identified"},
+    {"id":"first_principles","purpose":"Rebuild the problem from fundamental constraints instead of inherited conventions.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"minimal_assumptions_reached"},
+    {"id":"constraint_deconstruction","purpose":"Trace a claimed limitation to its origin, assumptions, counterexamples and discriminating tests.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"constraint_validated_or_testable_alternative_found"},
+    {"id":"adversarial_verify","purpose":"Attempt to falsify a proposal with independent evidence and deterministic checks.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"claim_verified_disputed_or_insufficient"},
+    {"id":"systemic_impact","purpose":"Map dependencies, externalities and blast radius before action.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"material_dependencies_and_impacts_mapped"},
+    {"id":"precaution","purpose":"Enumerate unknowns, tail risks and conditions that must block execution.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"stop_conditions_and_unknowns_explicit"},
+    {"id":"causal_reason","purpose":"Distinguish correlation, mechanism and intervention hypotheses.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"causal_claims_bound_to_tests_or_limits"},
+    {"id":"simulate","purpose":"Run a model of possible outcomes only when simulator fidelity has evidence.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"rollouts_complete_with_fidelity_limits"},
+    {"id":"prototype","purpose":"Build the smallest reversible experiment that can discriminate between hypotheses.","evidence_required":true,"independent_verifier_required":true,"default_stop_condition":"experiment_result_observed_or_safety_stop"}
+  ]
+}
