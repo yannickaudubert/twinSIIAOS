@@ -1,0 +1,18 @@
+{
+  "id": "sandy",
+  "role": "primary",
+  "truth_status": "HISTORICAL_OR_DECLARED_ONLY",
+  "fresh_observed_state_available": false,
+  "planning_facts": {
+    "cpu_model": "Intel Core i7-14700KF",
+    "cpu_threads": 28,
+    "ram_gib": 32,
+    "gpu_model": "NVIDIA GeForce RTX 5080",
+    "gpu_vram_gib": 16,
+    "storage_class": "NVMe",
+    "storage_total_gib_approx": 2048
+  },
+  "runtime_state": "UNKNOWN",
+  "capability_inventory": "UNKNOWN",
+  "rule": "This fixture may support planning and CI scenarios only. It MUST NOT admit runtime capabilities."
+}
