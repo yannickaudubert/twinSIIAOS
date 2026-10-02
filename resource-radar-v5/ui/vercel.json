@@ -4,7 +4,7 @@
     "deploymentEnabled": {
       "radar-v4-convergence": false,
       "radar-v5-graph-convergence": false,
-      "radar-v5-saas-augmentation": false,
+      "radar-v5-saas-augmentation": true,
       "work-*": false,
       "lab-*": false,
       "radar-work-*": false
