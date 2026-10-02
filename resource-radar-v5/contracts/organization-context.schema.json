@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/organization-context.schema.json",
+  "title": "SIIAOS Organisation Context",
+  "type": "object",
+  "required": [
+    "id",
+    "maturity",
+    "risk_policy",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "maturity": {
+      "type": "object",
+      "required": [
+        "governance",
+        "delivery",
+        "operations",
+        "observability",
+        "security",
+        "data",
+        "ai_usage",
+        "automation",
+        "open_source",
+        "human_control"
+      ],
+      "properties": {
+        "governance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "delivery": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "operations": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "observability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "security": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "data": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "ai_usage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "automation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "open_source": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "human_control": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "risk_policy": {
+      "type": "object",
+      "required": [
+        "human_gate_from"
+      ],
+      "properties": {
+        "human_gate_from": {
+          "type": "string",
+          "enum": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4"
+          ]
+        },
+        "max_autonomous_risk": {
+          "type": "string",
+          "enum": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4"
+          ]
+        },
+        "allow_external_writes": {
+          "type": "boolean"
+        },
+        "allow_shell_access": {
+          "type": "boolean"
+        },
+        "allow_elevated_privileges": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "prefer_existing_capabilities": {
+          "type": "boolean"
+        },
+        "prefer_reversible": {
+          "type": "boolean"
+        },
+        "avoid_external_api": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

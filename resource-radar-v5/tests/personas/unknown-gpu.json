@@ -1,0 +1,63 @@
+{
+  "id": "estate:unknown-gpu",
+  "scope": {
+    "type": "workstation",
+    "label": "GPU unknown"
+  },
+  "snapshot_at": "2026-09-27T08:00:00Z",
+  "hardware": {
+    "cpu": {
+      "architecture": "x86_64"
+    },
+    "memory": {
+      "ram_mb": 32768
+    },
+    "storage": [
+      {
+        "id": "ssd",
+        "kind": "ssd",
+        "free_gb": 500
+      }
+    ]
+  },
+  "software": {
+    "os": "Linux",
+    "container_runtimes": [
+      "docker"
+    ],
+    "language_runtimes": [
+      "python"
+    ],
+    "model_servers": [
+      "lm-studio"
+    ],
+    "service_ids": [],
+    "tool_ids": [
+      "python"
+    ]
+  },
+  "knowledge": {
+    "corpus_ids": [],
+    "index_ids": [],
+    "graph_ids": [],
+    "automation_ids": []
+  },
+  "network": {
+    "offline_capable": true,
+    "node_ids": [],
+    "allowed_egress": []
+  },
+  "policy": {
+    "incremental_budget_eur": 0,
+    "local_first": true,
+    "external_provider_dependency_allowed": false,
+    "data_classes_local_only": [],
+    "human_gate_required_for": []
+  },
+  "verification": {
+    "state": "unknown",
+    "evidence_ids": [],
+    "observed_by": "scenario-fixture"
+  },
+  "visibility": "local_private"
+}

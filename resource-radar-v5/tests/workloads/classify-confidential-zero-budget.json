@@ -1,0 +1,26 @@
+{
+  "id": "workload:classify-confidential",
+  "title": "Classer un corpus confidentiel",
+  "intent": "Classer localement des documents confidentiels",
+  "input": {
+    "kind": "documents",
+    "volume": 15000,
+    "unit": "documents"
+  },
+  "required_capabilities": [
+    {
+      "capability": "classification",
+      "priority": "required"
+    }
+  ],
+  "constraints": {
+    "incremental_budget_eur": 0,
+    "privacy_class": "confidential",
+    "local_only": true,
+    "offline_required": false,
+    "human_gate": false,
+    "allowed_external_providers": []
+  },
+  "evidence_ids": [],
+  "visibility": "local_private"
+}

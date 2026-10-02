@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/context-pack.schema.json",
+  "title": "SIIAOS Mobilization Context Pack",
+  "type": "object",
+  "required": [
+    "id",
+    "need",
+    "facts",
+    "unknowns",
+    "constraints",
+    "decision_state",
+    "mobilization_route_id",
+    "share_policy",
+    "evidence_ids",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "need": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "evidence_ids"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_state": {
+      "type": "object",
+      "required": [
+        "execution",
+        "admission"
+      ],
+      "properties": {
+        "execution": {
+          "type": "string",
+          "enum": [
+            "feasible",
+            "conditional",
+            "not_feasible",
+            "unknown"
+          ]
+        },
+        "admission": {
+          "type": "string",
+          "enum": [
+            "eligible",
+            "human_gate",
+            "blocked",
+            "unknown"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "mobilization_route_id": {
+      "type": "string"
+    },
+    "requested_outcome": {
+      "type": "string"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "share_policy": {
+      "type": "object",
+      "required": [
+        "shareable_fields",
+        "excluded_fields",
+        "human_approval_required"
+      ],
+      "properties": {
+        "shareable_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_approval_required": {
+          "type": "boolean"
+        },
+        "recipient_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

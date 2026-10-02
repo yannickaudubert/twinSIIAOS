@@ -1,0 +1,26 @@
+{
+  "id": "workload:gpu-dependent",
+  "title": "Inference GPU",
+  "intent": "Executer une synthese locale necessitant un GPU",
+  "input": {
+    "kind": "documents",
+    "volume": 100,
+    "unit": "documents"
+  },
+  "required_capabilities": [
+    {
+      "capability": "summarization",
+      "priority": "required"
+    }
+  ],
+  "constraints": {
+    "incremental_budget_eur": 0,
+    "privacy_class": "internal",
+    "local_only": true,
+    "offline_required": false,
+    "human_gate": false,
+    "allowed_external_providers": []
+  },
+  "evidence_ids": [],
+  "visibility": "local_private"
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="Lexique du SIIAOS Resource Radar : capacité, approche, état de preuve, fit, benchmark, gap, open core, source available, impact architectural et autres termes expliqués simplement." />
+  <title>Lexique — SIIAOS Resource Radar</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./human.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-context"><span class="topbar-kicker">SIIAOS Resource Radar</span><span class="topbar-separator">/</span><span>Lexique</span></div>
+    <div class="topbar-actions"><a class="button button-secondary" href="./start.html">Commencer</a><a class="button button-secondary" href="./guide.html">Mode d'emploi</a><a class="button button-primary" href="./index.html?fixture=1#radar">Ouvrir le Radar</a></div>
+  </header>
+
+  <main class="human-page">
+    <div class="eyebrow">Lexique public</div>
+    <h1>Comprendre le Radar sans parler son jargon.</h1>
+    <p class="human-intro">Les termes ci-dessous ont une fonction précise dans le produit. Chaque définition explique ce que le mot signifie, pourquoi il compte et comment éviter une mauvaise interprétation.</p>
+    <div class="quick-links"><a href="#structure">Structure</a><a href="#preuve">Preuve</a><a href="#position">Position</a><a href="#fit">Adéquation</a><a href="#ouverture">Licences</a><a href="#impact">Architecture</a><a href="#publication">Publication</a></div>
+
+    <section class="human-section" id="structure">
+      <div class="section-head"><div><div class="eyebrow">Structure</div><h2>Du besoin à l'implémentation.</h2><p>Cette distinction évite de confondre « ce qu'on veut obtenir », « la manière de le faire » et « le logiciel choisi ».</p></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Capacité</summary><div class="glossary-body"><p><strong>Définition :</strong> ce qu'une organisation ou un système doit être capable de faire, indépendamment de l'outil choisi.</p><p><strong>Pourquoi c'est utile :</strong> partir d'une capacité évite de transformer trop tôt un besoin en achat de produit.</p><div class="glossary-example">Exemple : « extraire et structurer des informations dans des documents » est une capacité. OCR, document VLM ou parsing hybride sont des approches possibles.</div></div></details>
+        <details class="glossary-card"><summary>Approche</summary><div class="glossary-body"><p><strong>Définition :</strong> une manière technique ou méthodologique de résoudre un problème.</p><p><strong>Pourquoi c'est utile :</strong> une nouvelle approche peut rendre une ancienne comparaison de logiciels peu pertinente.</p><div class="glossary-example">Exemple : RAG classique, long context et document VLM sont des approches différentes pour travailler avec des corpus documentaires.</div></div></details>
+        <details class="glossary-card"><summary>Ressource / implémentation</summary><div class="glossary-body"><p><strong>Définition :</strong> l'objet concret que l'on peut consulter, tester, déployer ou intégrer : logiciel, framework, modèle, base de données, service, dataset, etc.</p><p><strong>Pourquoi c'est utile :</strong> deux ressources peuvent appartenir à la même capacité tout en ayant des rôles architecturaux très différents.</p></div></details>
+        <details class="glossary-card"><summary>Paysage décisionnel</summary><div class="glossary-body"><p><strong>Définition :</strong> un regroupement de ressources et d'approches qui répondent à une même décision d'architecture.</p><p><strong>Pourquoi c'est utile :</strong> il empêche de comparer des objets qui ne sont pas substituables.</p><div class="glossary-example">Une base vectorielle, un framework RAG et un agent documentaire peuvent collaborer ; ils ne sont pas forcément trois concurrents directs.</div></div></details>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft" id="preuve">
+      <div class="section-head"><div><div class="eyebrow">Preuve</div><h2>Ce que nous savons réellement.</h2><p>L'état de preuve décrit la profondeur de vérification, pas la qualité absolue du produit.</p></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Observé</summary><div class="glossary-body"><p><strong>Définition :</strong> des faits publics ont été vérifiés : dépôt, documentation, licence, activité, release ou source officielle.</p><p><strong>À ne pas comprendre :</strong> « recommandé » ou « testé localement ».</p></div></details>
+        <details class="glossary-card"><summary>Installé</summary><div class="glossary-body"><p><strong>Définition :</strong> la ressource a effectivement été installée dans un environnement identifié.</p><p><strong>À ne pas comprendre :</strong> l'installation réussie ne prouve ni performance ni adéquation métier.</p></div></details>
+        <details class="glossary-card"><summary>Testé</summary><div class="glossary-body"><p><strong>Définition :</strong> un protocole ou un cas d'usage a produit des résultats vérifiables.</p><p><strong>À regarder :</strong> matériel, version, données, métriques, date et limites du test.</p></div></details>
+        <details class="glossary-card"><summary>Qualifié</summary><div class="glossary-body"><p><strong>Définition :</strong> les preuves disponibles sont suffisantes pour soutenir une conclusion dans un contexte explicitement décrit.</p><p><strong>Important :</strong> une qualification reste datée et contextualisée. Elle peut être remise en concurrence.</p></div></details>
+        <details class="glossary-card"><summary>Evidence / preuve</summary><div class="glossary-body"><p><strong>Définition :</strong> un élément vérifiable qui soutient une affirmation : benchmark, log, capture, test, documentation officielle, mesure ou artefact.</p><p><strong>Pourquoi c'est utile :</strong> le Radar doit pouvoir remonter d'une conclusion jusqu'à ce qui la justifie.</p></div></details>
+        <details class="glossary-card"><summary>Benchmark</summary><div class="glossary-body"><p><strong>Définition :</strong> un protocole de comparaison avec conditions, métriques et résultats documentés.</p><p><strong>À ne pas confondre :</strong> un benchmark n'est pas une vérité universelle. Il vaut pour le scénario et l'environnement mesurés.</p></div></details>
+        <details class="glossary-card"><summary>Dernière vérification</summary><div class="glossary-body"><p><strong>Définition :</strong> date à laquelle les faits ou conclusions affichés ont été revus.</p><p><strong>Pourquoi c'est utile :</strong> licences, architectures, dépôts et performances peuvent évoluer rapidement.</p></div></details>
+        <details class="glossary-card"><summary>Tendance 30 jours</summary><div class="glossary-body"><p><strong>Définition :</strong> indicateur de dynamique récente calculé à partir de signaux observables.</p><p><strong>À ne pas comprendre :</strong> une tendance positive n'est jamais automatiquement un classement de qualité.</p></div></details>
+      </div>
+    </section>
+
+    <section class="human-section" id="position">
+      <div class="section-head"><div><div class="eyebrow">Position</div><h2>Comment une ressource se situe dans une comparaison.</h2><p>La position compétitive est séparée de l'état de preuve. Un projet peut être très prometteur mais encore peu testé.</p></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card"><summary>Champion</summary><div class="glossary-body"><p><strong>Définition :</strong> option actuellement retenue comme référence dans un contexte donné.</p><p><strong>Important :</strong> ce statut n'est jamais sacré ; il doit être challenger régulièrement.</p></div></details>
+        <details class="glossary-card"><summary>Challenger</summary><div class="glossary-body"><p><strong>Définition :</strong> alternative crédible susceptible de remplacer ou dépasser la référence sur certains critères.</p></div></details>
+        <details class="glossary-card"><summary>Candidat</summary><div class="glossary-body"><p><strong>Définition :</strong> option suffisamment pertinente pour mériter une qualification ou une comparaison.</p><p><strong>À ne pas comprendre :</strong> candidat n'est pas un mauvais classement ; c'est un objet encore à examiner.</p></div></details>
+        <details class="glossary-card"><summary>Expérimental / retiré</summary><div class="glossary-body"><p><strong>Expérimental :</strong> intéressant mais encore trop incertain pour un usage courant. <strong>Retiré :</strong> n'est plus retenu pour les scénarios actuels, mais peut rester documenté pour l'historique ou la migration.</p></div></details>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft" id="fit">
+      <div class="section-head"><div><div class="eyebrow">Contexte</div><h2>Adéquation (« fit ») et gaps.</h2><p>Une bonne technologie dans l'absolu peut être un mauvais choix pour un environnement précis.</p></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Adéquation / fit</summary><div class="glossary-body"><p><strong>Définition :</strong> mesure argumentée de la correspondance entre une ressource et un contexte donné : matériel, compétences, sécurité, gouvernance, déploiement, intégration, coûts et usages.</p><p><strong>Pourquoi c'est Expert :</strong> cette analyse nécessite le contexte réel du client et des critères pondérés.</p><div class="glossary-example">Une solution excellente sur Kubernetes peut avoir un fit médiocre pour une petite équipe Windows sans exploitation conteneurisée.</div></div></details>
+        <details class="glossary-card" id="gap"><summary>Gap / écart à couvrir</summary><div class="glossary-body"><p><strong>Définition :</strong> capacité absente, limite ou contrainte qui oblige à ajouter un composant, un contournement ou une évolution.</p><p><strong>Pourquoi c'est utile :</strong> les gaps expliquent souvent le coût réel d'une architecture.</p></div></details>
+      </div>
+    </section>
+
+    <section class="human-section" id="ouverture">
+      <div class="section-head"><div><div class="eyebrow">Licences et ouverture</div><h2>« Code visible » ne signifie pas toujours « open source ».</h2><p>Le Radar distingue les régimes d'ouverture parce qu'ils influencent intégration, redistribution, service managé, souveraineté et réversibilité.</p></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Open source</summary><div class="glossary-body"><p><strong>Définition :</strong> licence répondant aux principes de l'Open Source Initiative (OSI), avec droits d'utilisation, étude, modification et redistribution selon ses conditions.</p></div></details>
+        <details class="glossary-card"><summary>Open core</summary><div class="glossary-body"><p><strong>Définition :</strong> un cœur est open source, mais certaines fonctions, éditions ou composants sont sous une autre licence ou réservés à une offre commerciale.</p><p><strong>À regarder :</strong> la frontière exacte entre cœur libre et composants commerciaux.</p></div></details>
+        <details class="glossary-card"><summary>Source available</summary><div class="glossary-body"><p><strong>Définition :</strong> le code source est consultable ou modifiable, mais la licence impose des restrictions incompatibles avec une qualification open source OSI.</p><p><strong>À regarder :</strong> restrictions de revente, service managé, usage commercial, branding ou distribution.</p></div></details>
+        <details class="glossary-card"><summary>Self-hosted / local / cloud</summary><div class="glossary-body"><p><strong>Self-hosted :</strong> vous exploitez le service vous-même. <strong>Local :</strong> il s'exécute sur un poste ou une infrastructure sous votre contrôle direct. <strong>Cloud :</strong> il s'exécute sur une infrastructure distante, qui peut être votre cloud ou celui d'un fournisseur.</p><p><strong>Important :</strong> ces notions ne sont pas synonymes de souveraineté à elles seules.</p></div></details>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft" id="impact">
+      <div class="section-head"><div><div class="eyebrow">Architecture</div><h2>Impact architectural et relations.</h2></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Impact architectural</summary><div class="glossary-body"><p><strong>Définition :</strong> ce que l'introduction ou le retrait d'une ressource change autour d'elle : dépendances, données, interfaces, exploitation, sécurité, coûts et compétences.</p><p><strong>Ancien terme interne :</strong> « blast radius ». L'interface privilégie « impact architectural ».</p></div></details>
+        <details class="glossary-card"><summary>Dépend de / permet / remplace</summary><div class="glossary-body"><p><strong>Dépend de :</strong> élément nécessaire à son fonctionnement. <strong>Permet :</strong> capacité rendue possible ou simplifiée. <strong>Remplace :</strong> responsabilité ou composant que la ressource peut réellement substituer dans certaines conditions.</p></div></details>
+        <details class="glossary-card"><summary>Réversibilité</summary><div class="glossary-body"><p><strong>Définition :</strong> capacité à quitter une solution sans coût disproportionné ni perte majeure de données, de fonctionnalités ou de savoir-faire.</p></div></details>
+        <details class="glossary-card"><summary>Provenance</summary><div class="glossary-body"><p><strong>Définition :</strong> chaîne permettant de savoir d'où vient une information ou un artefact : source, version, date, hash, test et décision associée.</p><p><strong>Pourquoi c'est utile :</strong> sans provenance, une conclusion devient vite impossible à vérifier ou reproduire.</p></div></details>
+      </div>
+    </section>
+
+    <section class="human-section" id="publication">
+      <div class="section-head"><div><div class="eyebrow">Publication</div><h2>Ce que vous voyez n'est pas la base interne du SIIAOS.</h2></div></div>
+      <div class="glossary-grid">
+        <details class="glossary-card" open><summary>Projection publique</summary><div class="glossary-body"><p><strong>Définition :</strong> sous-ensemble explicite et versionné des données du Radar Core autorisées à être publiées.</p><p><strong>Pourquoi c'est utile :</strong> le site public reste une vue de lecture. Les données internes, benchmarks complets, secrets et informations client ne deviennent pas automatiquement publics.</p></div></details>
+        <details class="glossary-card"><summary>Signal</summary><div class="glossary-body"><p><strong>Définition :</strong> événement ou information qui mérite d'être regardé : release, changement de licence, archivage, nouveau protocole, accélération d'activité, nouveau modèle, etc.</p><p><strong>À ne pas comprendre :</strong> un signal est une invitation à qualifier, pas une recommandation.</p></div></details>
+        <details class="glossary-card"><summary>Hyperveille</summary><div class="glossary-body"><p><strong>Définition :</strong> couche de collecte et de détection continue des signaux susceptibles de changer une décision, un benchmark ou une architecture.</p></div></details>
+        <details class="glossary-card"><summary>Radar Core</summary><div class="glossary-body"><p><strong>Définition :</strong> référentiel local riche où sont conservés observations, états, relations, gaps, preuves et décisions avant publication.</p><p><strong>À retenir :</strong> le site public est une projection ; il n'est pas la source de vérité interne.</p></div></details>
+      </div>
+    </section>
+
+    <div class="decision-boundary"><strong>Une règle résume le lexique :</strong><p>le Radar sépare volontairement le fait public, le niveau de preuve, la position comparative et l'adéquation à un contexte. Mélanger ces quatre choses produit des classements séduisants mais peu fiables.</p></div>
+
+    <div class="human-actions"><a class="button button-primary" href="./index.html?fixture=1#radar">Ouvrir le Radar</a><a class="button button-secondary" href="./guide.html">Voir le mode d'emploi</a><a class="button button-secondary" href="./resource-detail-v2.html">Voir une fiche expliquée</a></div>
+  </main>
+</body>
+</html>

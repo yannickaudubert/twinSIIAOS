@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/resource-record.schema.json",
+  "title": "SIIAOS Resource Record",
+  "type": "object",
+  "required": ["id", "kind", "title", "capabilities", "state", "publication"],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "projection_keys": {
+      "type": "object",
+      "properties": {
+        "consultant_slug": { "type": "string" },
+        "radar_slug": { "type": "string" },
+        "github_full_name": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "system", "model", "approach", "agent", "runtime", "source", "dataset", "service", "tool",
+        "application", "platform", "framework", "library", "database", "protocol", "connector", "hub", "reference"
+      ]
+    },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "repo_url": { "type": "string", "format": "uri" },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "approaches": { "type": "array", "items": { "type": "string" } },
+    "public_explanation": {
+      "type": "object",
+      "description": "Human-readable explanatory content explicitly safe for the free public Radar. It explains the object without leaking client-specific or protected Expert conclusions.",
+      "properties": {
+        "plain_language": { "type": "string" },
+        "primary_role": { "type": "string" },
+        "solves": { "type": "array", "items": { "type": "string" } },
+        "does_not_replace": { "type": "array", "items": { "type": "string" } },
+        "use_when": { "type": "array", "items": { "type": "string" } },
+        "avoid_when": { "type": "array", "items": { "type": "string" } },
+        "tradeoffs": { "type": "array", "items": { "type": "string" } },
+        "questions_to_ask": { "type": "array", "items": { "type": "string" } },
+        "deployment_modes": { "type": "array", "items": { "type": "string" } },
+        "prerequisites": { "type": "array", "items": { "type": "string" } },
+        "operations_notes": { "type": "array", "items": { "type": "string" } },
+        "license_notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "string",
+      "enum": ["observed", "installed", "tested", "qualified", "target", "candidate", "deprecated"]
+    },
+    "competitive_position": {
+      "type": "string",
+      "enum": ["champion", "challenger", "candidate", "experimental", "retired", "unknown"]
+    },
+    "maturity": { "type": "string" },
+    "license": { "type": "string" },
+    "last_activity": { "type": "string" },
+    "last_verified_at": { "type": "string", "format": "date-time" },
+    "verified_on": { "type": "array", "items": { "type": "string" } },
+    "trend": {
+      "type": "object",
+      "properties": {
+        "stars": { "type": "number" },
+        "delta_7d": { "type": "number" },
+        "delta_30d": { "type": "number" },
+        "delta_90d": { "type": "number" },
+        "contributors_delta_30d": { "type": "number" },
+        "release_velocity": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "fit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["context", "score"],
+        "properties": {
+          "context": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "confidence": { "type": ["string", "number"] },
+          "constraints": { "type": "array", "items": { "type": "string" } },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } },
+          "assessed_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "benchmark_summary": { "type": "string" },
+    "known_gaps": { "type": "array", "items": { "type": "string" } },
+    "replaces": { "type": "array", "items": { "type": "string" } },
+    "competes_with": { "type": "array", "items": { "type": "string" } },
+    "depends_on": { "type": "array", "items": { "type": "string" } },
+    "enables": { "type": "array", "items": { "type": "string" } },
+    "blast_radius": {
+      "type": "object",
+      "properties": {
+        "components_affected": { "type": "array", "items": { "type": "string" } },
+        "workflows_simplified": { "type": "array", "items": { "type": "string" } },
+        "dependencies_removable": { "type": "array", "items": { "type": "string" } },
+        "new_capabilities": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "benchmark_ids": { "type": "array", "items": { "type": "string" } },
+    "evidence_ids": { "type": "array", "items": { "type": "string" } },
+    "signal_ids": { "type": "array", "items": { "type": "string" } },
+    "publication": {
+      "type": "object",
+      "required": ["local", "radar_public", "consultant_site"],
+      "properties": {
+        "local": { "type": "boolean" },
+        "radar_public": { "type": "boolean" },
+        "consultant_site": { "type": "boolean" },
+        "visibility": {
+          "type": "string",
+          "enum": ["local_private", "local_shared", "public_technical", "public_editorial", "client_specific", "never_publish"]
+        },
+        "consultant_public_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["competitive_position", "fit_summary", "benchmark_summary", "known_gaps", "trend_30d", "evidence_count"]
+          },
+          "description": "Explicit allowlist for derived fields that may be emitted into the public consultant-site projection. Absence means safe minimal metadata only."
+        }
+      },
+      "additionalProperties": true
+    },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

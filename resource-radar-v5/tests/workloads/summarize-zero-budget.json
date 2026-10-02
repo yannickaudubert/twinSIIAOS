@@ -1,0 +1,26 @@
+{
+  "id": "workload:summarize-zero-budget",
+  "title": "Resumer localement",
+  "intent": "Produire des syntheses longues sans achat",
+  "input": {
+    "kind": "documents",
+    "volume": 500,
+    "unit": "documents"
+  },
+  "required_capabilities": [
+    {
+      "capability": "summarization",
+      "priority": "required"
+    }
+  ],
+  "constraints": {
+    "incremental_budget_eur": 0,
+    "privacy_class": "internal",
+    "local_only": true,
+    "offline_required": false,
+    "human_gate": true,
+    "allowed_external_providers": []
+  },
+  "evidence_ids": [],
+  "visibility": "local_private"
+}

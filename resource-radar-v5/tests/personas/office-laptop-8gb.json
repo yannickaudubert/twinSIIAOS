@@ -1,0 +1,65 @@
+{
+  "id": "estate:office-laptop",
+  "scope": {
+    "type": "workstation",
+    "label": "Office laptop 8 GB"
+  },
+  "snapshot_at": "2026-09-27T08:00:00Z",
+  "hardware": {
+    "cpu": {
+      "architecture": "x86_64",
+      "physical_cores": 4,
+      "logical_cores": 8
+    },
+    "memory": {
+      "ram_mb": 8192
+    },
+    "accelerators": [],
+    "storage": [
+      {
+        "id": "ssd",
+        "kind": "ssd",
+        "total_gb": 256,
+        "free_gb": 60
+      }
+    ]
+  },
+  "software": {
+    "os": "Windows",
+    "container_runtimes": [],
+    "language_runtimes": [
+      "python"
+    ],
+    "model_servers": [],
+    "service_ids": [],
+    "tool_ids": [
+      "python"
+    ]
+  },
+  "knowledge": {
+    "corpus_ids": [],
+    "index_ids": [],
+    "graph_ids": [],
+    "automation_ids": []
+  },
+  "network": {
+    "offline_capable": false,
+    "node_ids": [],
+    "allowed_egress": [
+      "https"
+    ]
+  },
+  "policy": {
+    "incremental_budget_eur": 0,
+    "local_first": true,
+    "external_provider_dependency_allowed": false,
+    "data_classes_local_only": [],
+    "human_gate_required_for": []
+  },
+  "verification": {
+    "state": "declared",
+    "evidence_ids": [],
+    "observed_by": "scenario-fixture"
+  },
+  "visibility": "local_private"
+}

@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/digital-metabolism.schema.json",
+  "title": "SIIAOS Digital Metabolism Observation",
+  "type": "object",
+  "required": [
+    "id",
+    "estate_id",
+    "observed_at",
+    "capacity",
+    "flow",
+    "stock",
+    "inertia",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "estate_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capacity": {
+      "type": "object",
+      "properties": {
+        "owned_resource_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "active_resource_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dormant_resource_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "available_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dormant_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "capability_unlock_potential": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "flow": {
+      "type": "object",
+      "properties": {
+        "workloads_completed": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "operations_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "external_calls": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "human_gates": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "production": {
+      "type": "object",
+      "properties": {
+        "artifacts_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "decisions_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "evidence_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "knowledge_updates": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "stock": {
+      "type": "object",
+      "properties": {
+        "corpus_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "indexed_items": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "reusable_workflows": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "qualified_resources": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "inertia": {
+      "type": "object",
+      "properties": {
+        "duplicate_resources": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unused_services": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "stale_dependencies": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "manual_bottlenecks": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "value": {
+      "type": "object",
+      "description": "Only measured or evidence-backed value. Unknown values remain null.",
+      "properties": {
+        "resource_utilisation_gap": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "avoided_spend_eur": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "avoided_new_dependencies": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "reuse_ratio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "public_technical",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

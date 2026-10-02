@@ -1,0 +1,91 @@
+{
+  "id": "estate:sandy-simulated",
+  "scope": {
+    "type": "workstation",
+    "label": "SandY simulated"
+  },
+  "snapshot_at": "2026-09-27T08:00:00Z",
+  "hardware": {
+    "cpu": {
+      "model": "simulated-desktop-cpu",
+      "architecture": "x86_64",
+      "physical_cores": 20,
+      "logical_cores": 28
+    },
+    "memory": {
+      "ram_mb": 32768
+    },
+    "accelerators": [
+      {
+        "kind": "gpu",
+        "model": "simulated-gpu-16gb",
+        "vram_mb": 16384
+      }
+    ],
+    "storage": [
+      {
+        "id": "nvme",
+        "kind": "nvme",
+        "total_gb": 2000,
+        "free_gb": 900
+      }
+    ]
+  },
+  "software": {
+    "os": "Windows 11 + WSL2",
+    "container_runtimes": [
+      "docker"
+    ],
+    "language_runtimes": [
+      "python"
+    ],
+    "model_servers": [
+      "lm-studio"
+    ],
+    "service_ids": [
+      "local-search",
+      "graph-store",
+      "workflow-engine"
+    ],
+    "tool_ids": [
+      "python",
+      "git"
+    ]
+  },
+  "knowledge": {
+    "corpus_ids": [],
+    "index_ids": [],
+    "graph_ids": [
+      "siiaos-graph"
+    ],
+    "automation_ids": [
+      "content-radar"
+    ]
+  },
+  "network": {
+    "offline_capable": true,
+    "node_ids": [],
+    "allowed_egress": []
+  },
+  "policy": {
+    "incremental_budget_eur": 0,
+    "local_first": true,
+    "external_provider_dependency_allowed": false,
+    "data_classes_local_only": [
+      "confidential",
+      "restricted"
+    ],
+    "human_gate_required_for": [
+      "publish",
+      "external_action"
+    ]
+  },
+  "verification": {
+    "state": "observed",
+    "evidence_ids": [
+      "evidence:sandy-simulated"
+    ],
+    "observed_by": "scenario-fixture"
+  },
+  "visibility": "local_private"
+}

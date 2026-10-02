@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/consultant-qualification.schema.json",
+  "title": "SIIAOS Consultant Qualification Projection",
+  "type": "object",
+  "required": ["schema", "generatedAt", "items"],
+  "properties": {
+    "schema": { "const": "siiaos.consultant-qualification.v1" },
+    "generatedAt": { "type": "string" },
+    "items": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["canonical_id"],
+        "properties": {
+          "canonical_id": { "type": "string" },
+          "competitive_position": {
+            "type": "string",
+            "enum": ["champion", "challenger", "candidate", "experimental", "retired", "unknown"]
+          },
+          "source_state": {
+            "type": "string",
+            "enum": ["observed", "installed", "tested", "qualified", "target", "candidate", "deprecated"]
+          },
+          "fit_score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "fit_confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "fit_context": { "type": "string" },
+          "last_verified_at": { "type": "string" },
+          "verified_on": { "type": "array", "items": { "type": "string" } },
+          "benchmark_summary": { "type": "string" },
+          "known_gaps": { "type": "array", "items": { "type": "string" } },
+          "radar_url": { "type": "string", "format": "uri" },
+          "evidence_count": { "type": "integer", "minimum": 0 },
+          "trend_30d": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
