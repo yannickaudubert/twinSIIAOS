@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/truth.schema.json",
+  "title": "SIIAOS Truth Assertion",
+  "description": "Canonical truth assertion for Front A / A01. Truth status, derivation method, validation state and freshness are deliberately separate dimensions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "subject_ref",
+    "claim",
+    "truth_status",
+    "derivation",
+    "state_view",
+    "source_refs",
+    "evidence_refs",
+    "validation",
+    "recorded_at"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "subject_ref": {"type": "string", "minLength": 1},
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicate", "value"],
+      "properties": {
+        "predicate": {"type": "string", "minLength": 1},
+        "value": {}
+      }
+    },
+    "truth_status": {
+      "enum": ["PROVEN", "OBSERVED", "DECLARED", "PROPOSED", "FAILED", "UNKNOWN"]
+    },
+    "derivation": {
+      "enum": ["direct_observation", "declaration", "inference", "calculation", "proposal", "test_result", "unknown"]
+    },
+    "state_view": {
+      "enum": ["desired", "declared", "observed", "effective"]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["unreviewed", "checked", "validated", "rejected"]},
+        "validator_ref": {"type": ["string", "null"]},
+        "validated_at": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "observed_at": {"type": ["string", "null"], "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "ttl_seconds": {"type": ["integer", "null"], "minimum": 0},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "supersedes": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"truth_status": {"const": "UNKNOWN"}}, "required": ["truth_status"]},
+      "then": {},
+      "else": {"properties": {"source_refs": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"truth_status": {"const": "OBSERVED"}}, "required": ["truth_status"]},
+      "then": {
+        "required": ["observed_at", "ttl_seconds"],
+        "properties": {
+          "observed_at": {"type": "string", "format": "date-time"},
+          "ttl_seconds": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"truth_status": {"const": "PROVEN"}}, "required": ["truth_status"]},
+      "then": {
+        "properties": {
+          "evidence_refs": {"minItems": 1},
+          "validation": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {"status": {"const": "validated"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"truth_status": {"const": "DECLARED"}}, "required": ["truth_status"]},
+      "then": {"properties": {"derivation": {"const": "declaration"}}}
+    },
+    {
+      "if": {"properties": {"truth_status": {"const": "PROPOSED"}}, "required": ["truth_status"]},
+      "then": {"properties": {"derivation": {"const": "proposal"}}}
+    }
+  ]
+}
