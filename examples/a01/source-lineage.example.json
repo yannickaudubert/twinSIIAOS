@@ -1,0 +1,20 @@
+{
+  "id": "lineage:service:demo-001",
+  "subject_ref": "service:demo-local-api",
+  "source": {
+    "kind": "machine_observation",
+    "ref": "fixture://loopback/demo-local-api/health",
+    "version_ref": "fixture-v1",
+    "digest": {
+      "algorithm": "sha256",
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  "observed_at": "2026-10-04T06:44:58Z",
+  "recorded_at": "2026-10-04T06:45:00Z",
+  "ttl_seconds": 300,
+  "parent_lineage_refs": [],
+  "transformations": [],
+  "license_ref": null,
+  "notes": "Synthetic public fixture; no machine-specific path or secret."
+}
