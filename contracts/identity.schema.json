@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/sidentity.schema.json",
+  "title": "SIIAOS Subject Identity",
+  "description": "Front A / A03. Identity describes who or what a subject is. It does not itself grant authority, permissions or delegation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject_type", "status", "assurance", "claims", "authenticator_refs", "truth_refs", "lineage_refs", "created_at", "updated_at"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+    "subject_type": {"enum": ["human", "organization", "agent", "service", "workload", "device"]},
+    "status": {"enum": ["proposed", "active", "suspended", "revoked", "expired", "archived"]},
+    "assurance": {"enum": ["self_declared", "observed", "verified", "strong"]},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "value_ref", "classification", "truth_ref"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z1][a-z0-9._-]*$"},
+          "value_ref": {"type": "string", "minLength": 1},
+          "classification": {"enum": ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED"]},
+          "truth_ref": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "authenticator_refs": {
+      "type": "array",
+      "description": "References only. No password, token, private key or secret value is valid here.",
+      "items": {"type": "string", "pattern": "^(authenticator|credential-ref):[A-Za-z0-9._-]+$"},
+      "uniqueItems": true
+    },
+    "truth_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "lineage_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "notes": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"assurance": {"enum": ["verified", "strong"]}}, "required": ["assurance"]},
+      "then": {"properties": {"truth_refs": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "expired"}}, "required": ["status"]},
+      "then": {"required": ["expires_at"], "properties": {"expires_at": {"type": "string", "format": "date-time"}}}
+    }
+  ]
+}
