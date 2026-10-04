@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/authority.schema.json",
+  "title": "SIIAOS Authority / Mandate / Delegation",
+  "description": "Front A / A04. Authority is explicit, scoped, time-bounded and revocable. Identity alone never grants authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mandates", "delegations"],
+  "properties": {
+    "mandates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/mandate"}
+    },
+    "delegations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/delegation"}
+    }
+  },
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tenant_ref", "mission_refs", "resource_refs", "actions"],
+      "properties": {
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_refs": {"type": "array", "items": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"}, "uniqueItems": true},
+        "resource_refs": {"type": "array", "items": {"type": "string", "pattern": "^resource:[A-Za-z0-9._-]+$"}, "uniqueItems": true},
+        "actions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true}
+      }
+    },
+    "mandate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "principal_ref", "subject_identity_ref", "scope", "status", "issued_at", "truth_refs", "lineage_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^mandate:[A-Za-z0-9._-]+$"},
+        "principal_ref": {"type": "string", "pattern": "^principal:[A-Za-z0-9._-]+$"},
+        "subject_identity_ref": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "status": {"enum": ["proposed", "active", "suspended", "revoked", "expired", "closed"]},
+        "issued_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": ["string", "null"], "format": "date-time"},
+        "revoked_at": {"type": ["string", "null"], "format": "date-time"},
+        "truth_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "lineage_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "human_gate_ref": {"type": ["string", "null"]}
+      }
+    },
+    "delegation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "mandate_ref", "from_identity_ref", "to_identity_ref", "scope", "status", "issued_at", "non_delegable"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^delegation:[A-Za-z0-9._-]+$"},
+        "mandate_ref": {"type": "string", "pattern": "^mandate:[A-Za-z0-9._-]+$"},
+        "from_identity_ref": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+        "to_identity_ref": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "status": {"enum": ["proposed", "active", "suspended", "revoked", "expired", "closed"]},
+        "issued_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": ["string", "null"], "format": "date-time"},
+        "revoked_at": {"type": ["string", "null"], "format": "date-time"},
+        "non_delegable": {"type": "boolean", "const": true},
+        "human_gate_ref": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
