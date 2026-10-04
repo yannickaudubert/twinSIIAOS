@@ -1,0 +1,24 @@
+{
+  "id": "truth:service:demo-001",
+  "subject_ref": "service:demo-local-api",
+  "claim": {
+    "predicate": "health.status",
+    "value": "ready"
+  },
+  "truth_status": "OBSERVED",
+  "derivation": "direct_observation",
+  "state_view": "observed",
+  "source_refs": ["lineage:service:demo-001"],
+  "evidence_refs": ["evidence:healthcheck:demo-001"],
+  "validation": {
+    "status": "checked",
+    "validator_ref": "validator:deterministic-healthcheck",
+    "validated_at": "2026-10-04T06:45:00Z"
+  },
+  "observed_at": "2026-10-04T06:44:58Z",
+  "recorded_at": "2026-10-04T06:45:00Z",
+  "ttl_seconds": 300,
+  "expires_at": "2026-10-04T06:49:58Z",
+  "supersedes": [],
+  "notes": "Synthetic public fixture."
+}
