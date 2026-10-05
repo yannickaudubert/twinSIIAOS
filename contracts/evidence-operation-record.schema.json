@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/evidence-operation-record.schema.json",
+  "title": "SIIAOS Evidence / OperationRecord",
+  "description": "Front A / A08. Evidence is an immutable support object; OperationRecord captures an executed or failed operation with actor, authority, inputs, outputs and evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence", "operations"],
+  "properties": {
+    "evidence": {"type":"array","items":{"$ref":"#/$defs/evidence"}},
+    "operations": {"type":"array","items":{"$ref":"#/$defs/operation"}}
+  },
+  "$defs": {
+    "evidence": {
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","kind","claim_refs","source_refs","digest","captured_at","captured_by_identity_ref"],
+      "properties":{
+        "id":{"type":"string","pattern":"^evidence:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":["string","null"],"pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "kind":{"enum":["observation","test_result","document_capture","runtime_trace","human_attestation","external_source"]},
+        "claim_refs":{"type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},
+        "source_refs":{"type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},
+        "digest":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"},
+        "captured_at":{"type":"string","format":"date-time"},
+        "captured_by_identity_ref":{"type":"string","pattern":"^identity:[A-Za-z0-9._-]+$"},
+        "lineage_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"default":[]}
+      }
+    },
+    "operation": {
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","mission_ref","actor_identity_ref","mandate_ref","action","status","started_at","evidence_refs"],
+      "properties":{
+        "id":{"type":"string","pattern":"^operation:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":"string","pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "actor_identity_ref":{"type":"string","pattern":"^identity:[A-Za-z0-9._-]+$"},
+        "mandate_ref":{"type":"string","pattern":"^mandate:[A-Za-z0-9._-]+$"},
+        "toolgrant_ref":{"type":["string","null"],"pattern":"^toolgrant:[A-Za-z0-9._-]+$"},
+        "human_gate_ref":{"type":["string","null"],"pattern":"^humangate:[A-Za-z0-9._-]+$"},
+        "action":{"type":"string","minLength":1},
+        "status":{"enum":["started","succeeded","failed","cancelled","denied"]},
+        "started_at":{"type":"string","format":"date-time"},
+        "completed_at":{"type":["string","null"],"format":"date-time"},
+        "input_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"default":[]},
+        "output_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"default":[]},
+        "evidence_refs":{"type":"array","items":{"type":"string","pattern":"^evidence:[A-Za-z0-9._-]+$"},"uniqueItems":true},
+        "error_code":{"type":["string","null"]}
+      },
+      "allOf":[
+        {
+          "if":{"properties":{"status":{"enum":["succeeded","failed"]}},"required":["status"]},
+          "then":{"properties":{"evidence_refs":{"minItems":1}}}
+        }
+      ]
+    }
+  }
+}
