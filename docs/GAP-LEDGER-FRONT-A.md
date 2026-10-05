@@ -1,6 +1,6 @@
 # Front A Gap Ledger
 
-Updated: 2026-10-04
+Updated: 2026-10-05
 
 ## A01 — Truth / Lineage
 
@@ -96,13 +96,41 @@ Scope:
 - mutable Document vs immutable Record;
 - explicit capture, digest, evidence, lineage and supersession.
 
-## A08-A14
+## A08 — Evidence / OperationRecord
+
+Status: CODED / EXECUTION PROOF PENDING CI
+
+Contract:
+- `contracts/evidence-operation-record.schema.json`
+
+Scope:
+- immutable evidence objects tied to tenant/mission context;
+- explicit source and claim references plus digest;
+- OperationRecord binds actor identity, mandate, action, status, inputs/outputs and evidence;
+- succeeded/failed operations require evidence.
+
+## A09 — Decision / ADR / Case
+
+Status: CODED / EXECUTION PROOF PENDING CI
+
+Contract:
+- `contracts/decision-adr-case.schema.json`
+
+Scope:
+- governed Decision separated from proposal/recommendation;
+- approved/rejected decisions require explicit human gate, mandate and evidence;
+- ADR records architectural consequences without replacing the Decision;
+- Case groups evidence and decisions while preserving tenant/mission scope.
+
+Verification:
+- deterministic A08/A09 tests added in `tests/test_a08_a09_records.py`;
+- status remains not execution-proven until the branch CI is green.
+
+## A10-A14
 
 Status: PROPOSED / NOT YET CODED IN THIS BRANCH
 
 Planned sequence:
-- A08 Evidence / OperationRecord
-- A09 Decision / ADR / Case
 - A10 Capability / Provider contracts
 - A11 Security / Trust / Secrets
 - A12 Federation / Organization model
