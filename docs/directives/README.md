@@ -10,6 +10,7 @@ They do not replace detailed schemas, ADRs, runbooks or project plans. They exis
 2. [DIRECTIVE-0002 — Cabinet personae and interface contract](./DIRECTIVE-0002-CABINET-PERSONAE-INTERFACES.md)
 3. [DIRECTIVE-0003 — Tenant membranes and projections](./DIRECTIVE-0003-TENANT-MEMBRANES.md)
 4. [DIRECTIVE-0004 — Cross-front golden journey](./DIRECTIVE-0004-CROSS-FRONT-GOLDEN-JOURNEY.md)
+5. [DIRECTIVE-0005 — Spider workgraph and canvas projections](./DIRECTIVE-0005-SPIDER-CANVAS-WORKGRAPH.md)
 
 ## Precedence
 
