@@ -1,5 +1,5 @@
 {
-  "abi_version": "0.1.0-alpha.1",
+  "abi_version": "0.2.0-alpha.1",
   "authority": {
     "repository": "yannickaudubert/twinSIIAOS",
     "branch": "front-a/a01-truth-lineage-20261004",
@@ -11,15 +11,65 @@
     "policy": "Breaking changes require an ABI version change and an explicit consumer migration record."
   },
   "contracts": [
-    {"lot":"A01","path":"contracts/truth.schema.json","verification":"TESTED"},
-    {"lot":"A01","path":"contracts/source-lineage.schema.json","verification":"TESTED"},
-    {"lot":"A02","path":"contracts/core-ontology.schema.json","verification":"CODED"},
-    {"lot":"A03","path":"contracts/identity.schema.json","verification":"CODED"},
-    {"lot":"A04","path":"contracts/authority.schema.json","verification":"CODED"},
-    {"lot":"A05","path":"contracts/policy-toolgrant-humangate.schema.json","verification":"CODED"},
-    {"lot":"A06","path":"contracts/data-privacy-boundary.schema.json","verification":"CODED"},
-    {"lot":"A07","path":"contracts/document-record.schema.json","verification":"CODED"},
-    {"lot":"A08","path":"contracts/evidence-operation-record.schema.json","verification":"TESTED"},
-    {"lot":"A09","path":"contracts/decision-adr-case.schema.json","verification":"TESTED"}
+    {
+      "lot": "A01",
+      "path": "contracts/truth.schema.json",
+      "verification": "TESTED"
+    },
+    {
+      "lot": "A01",
+      "path": "contracts/source-lineage.schema.json",
+      "verification": "TESTED"
+    },
+    {
+      "lot": "A02",
+      "path": "contracts/core-ontology.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A03",
+      "path": "contracts/identity.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A04",
+      "path": "contracts/authority.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A05",
+      "path": "contracts/policy-toolgrant-humangate.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A06",
+      "path": "contracts/data-privacy-boundary.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A07",
+      "path": "contracts/document-record.schema.json",
+      "verification": "CODED"
+    },
+    {
+      "lot": "A08",
+      "path": "contracts/evidence-operation-record.schema.json",
+      "verification": "TESTED"
+    },
+    {
+      "lot": "A09",
+      "path": "contracts/decision-adr-case.schema.json",
+      "verification": "TESTED"
+    },
+    {
+      "lot": "A10",
+      "path": "contracts/capability-provider-execution.schema.json",
+      "verification": "TESTED"
+    },
+    {
+      "lot": "A11",
+      "path": "contracts/security-trust-effect.schema.json",
+      "verification": "TESTED"
+    }
   ]
 }
