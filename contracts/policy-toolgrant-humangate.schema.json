@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/policy-toolgrant-humangate.schema.json",
+  "title": "SIIAOS Policy / ToolGrant / HumanGate",
+  "description": "Front A / A05. Policy decisions constrain capability use; ToolGrant is explicit, least-privilege and mission-bound; HumanGate records non-delegable approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["policy_decisions", "tool_grants", "human_gates"],
+  "properties": {
+    "policy_decisions": {"type": "array", "items": {"$ref": "#/$defs/policyDecision"}},
+    "tool_grants": {"type": "array", "items": {"$ref": "#/$defs/toolGrant"}},
+    "human_gates": {"type": "array", "items": {"$ref": "#/$defs/humanGate"}}
+  },
+  "$defs": {
+    "policyDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "principal_ref", "tenant_ref", "mission_ref", "decision", "reason", "evaluated_at", "policy_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^policy-decision:[A-Za-z0-9._-]+$"},
+        "principal_ref": {"type": "string", "pattern": "^principal:[A-Za-z0-9._-]+$"},
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+        "decision": {"enum": ["allow", "deny", "require_human_gate"]},
+        "reason": {"type": "string", "minLength": 1},
+        "evaluated_at": {"type": "string", "format": "date-time"},
+        "policy_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "toolGrant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "identity_ref", "mandate_ref", "tenant_ref", "mission_ref", "tool_ref", "actions", "status", "issued_at", "policy_decision_ref"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^toolgrant:[A-Za-z0-9._-]+$"},
+        "identity_ref": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+        "mandate_ref": {"type": "string", "pattern": "^mandate:[A-Za-z0-9._-]+$"},
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+        "tool_ref": {"type": "string", "minLength": 1},
+        "actions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "resource_refs": {"type": "array", "items": {"type": "string", "pattern": "^resource:[A-Za-z0-9._-]+$"}, "uniqueItems": true},
+        "status": {"enum": ["proposed", "active", "suspended", "revoked", "expired", "closed"]},
+        "issued_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": ["string", "null"], "format": "date-time"},
+        "policy_decision_ref": {"type": "string", "pattern": "^policy-decision:[A-Za-z0-9._-]+$"},
+        "human_gate_ref": {"type": ["string", "null"]}
+      }
+    },
+    "humanGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "principal_ref", "tenant_ref", "mission_ref", "reason", "decision", "decided_at", "decision_digest"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^humangate:[A-Za-z0-9._-]+$"},
+        "principal_ref": {"type": "string", "pattern": "^principal:[A-Za-z0-9._-]+$"},
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+        "reason": {"type": "string", "minLength": 1},
+        "decision": {"enum": ["approve", "reject", "amend", "cancel"]},
+        "decided_at": {"type": "string", "format": "date-time"},
+        "decision_digest": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+        "conditions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    }
+  }
+}

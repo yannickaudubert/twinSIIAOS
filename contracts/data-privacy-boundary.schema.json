@@ -1,0 +1,45 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://twinsiiaos.example/schemas/data-privacy-boundary.schema.json",
+  "title":"SIIAOS Data / Privacy / Tenant Boundary",
+  "description":"Front A / A06. Classification, purpose, retention, export and tenant isolation are explicit properties of governed data references.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["data_refs"],
+  "properties":{
+    "data_refs":{"type":"array","items":{"$ref":"#/$defs/dataRef"}}
+  },
+  "$defs":{
+    "dataRef":{
+      "type":"object",
+      "additionalProperties":false,
+      "required":["id","tenant_ref","classification","purpose_refs","locator_ref","retention","remote_execution","export_policy","truth_refs","lineage_refs"],
+      "properties":{
+        "id":{"type":"string","pattern":"^dataref:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":["string","null"],"pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "classification":{"enum":["PUBLIC","INTERNAL","CONFIDENTIAL","RESTRICTED"]},
+        "purpose_refs":{"type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},
+        "locator_ref":{"type":"string","minLength":1},
+        "content_digest":{"type":["string","null"],"pattern":"^[a-fA-F0-9]{64}$"},
+        "retention":{
+          "type":"object","additionalProperties":false,
+          "required":["mode"],
+          "properties":{
+            "mode":{"enum":["mission","fixed","legal_hold","manual_review"]},
+            "expires_at":{"type":["string","null"],"format":"date-time"}
+          }
+        },
+        "remote_execution":{"enum":["allowed","admitted_provider_only","local_by_default","local_only"]},
+        "export_policy":{"enum":["allowed","controlled","human_gate","double_approval_or_forbidden"]},
+        "redaction_profile_ref":{"type":["string","null"]},
+        "truth_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+        "lineage_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true}
+      },
+      "allOf":[
+        {"if":{"properties":{"classification":{"const":"CONFIDENTIAL"}},"required":["classification"]},"then":{"properties":{"remote_execution":{"enum":["local_by_default","local_only"]},"export_policy":{"enum":["human_gate","double_approval_or_forbidden"]}}}},
+        {"if":{"properties":{"classification":{"const":"RESTRICTED"}},"required":["classification"]},"then":{"properties":{"remote_execution":{"const":"local_only"},"export_policy":{"const":"double_approval_or_forbidden"}}}}
+      ]
+    }
+  }
+}

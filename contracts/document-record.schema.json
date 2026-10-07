@@ -1,0 +1,52 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://twinsiiaos.example/schemas/document-record.schema.json",
+  "title":"SIIAOS Document / Record Lifecycle",
+  "description":"Front A / A07. Documents may evolve; records are immutable evidence-bearing captures. A document becomes a record only through an explicit capture event.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["documents","records"],
+  "properties":{
+    "documents":{"type":"array","items":{"$ref":"#/$defs/document"}},
+    "records":{"type":"array","items":{"$ref":"#/$defs/record"}}
+  },
+  "$defs":{
+    "document":{
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","title","state","current_version_ref","classification","created_at","updated_at","truth_refs","lineage_refs"],
+      "properties":{
+        "id":{"type":"string","pattern":"^document:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":["string","null"],"pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "title":{"type":"string","minLength":1},
+        "state":{"enum":["draft","review","approved","superseded","archived"]},
+        "current_version_ref":{"type":"string","minLength":1},
+        "classification":{"enum":["PUBLIC","INTERNAL","CONFIDENTIAL","RESTRICTED"]},
+        "created_at":{"type":"string","format":"date-time"},
+        "updated_at":{"type":"string","format":"date-time"},
+        "truth_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+        "lineage_refs":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true}
+      }
+    },
+    "record":{
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","source_document_ref","source_version_ref","captured_at","captured_by_identity_ref","digest","classification","retention_mode","evidence_refs","lineage_refs"],
+      "properties":{
+        "id":{"type":"string","pattern":"^record:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":["string","null"],"pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "source_document_ref":{"type":"string","pattern":"^document:[A-Za-z0-9._-]+$"},
+        "source_version_ref":{"type":"string","minLength":1},
+        "captured_at":{"type":"string","format":"date-time"},
+        "captured_by_identity_ref":{"type":"string","pattern":"^identity:[A-Za-z0-9._-]+$"},
+        "digest":{"type":"string","pattern":"^[a-fA-F0-9]{64}$"},
+        "classification":{"enum":["PUBLIC","INTERNAL","CONFIDENTIAL","RESTRICTED"]},
+        "retention_mode":{"enum":["mission","fixed","legal_hold","permanent","manual_review"]},
+        "retention_expires_at":{"type":["string","null"],"format":"date-time"},
+        "evidence_refs":{"type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},
+        "lineage_refs":{"type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},
+        "supersedes_record_ref":{"type":["string","null"],"pattern":"^record:[A-Za-z0-9._-]+$"}
+      }
+    }
+  }
+}

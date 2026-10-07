@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/core-ontology.schema.json",
+  "title": "SIIAOS Core Ontology Bundle",
+  "description": "Front A / A02. Minimal canonical scope chain Principal -> Tenant -> Mission -> Resource. Authority, identity, grants and policies are referenced but defined by later lots.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "objects"],
+  "properties": {
+    "version": {"const": "a02.1"},
+    "objects": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/coreObject"},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "truthRefs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "base": {
+      "type": "object",
+      "required": ["id", "kind", "lifecycle_state", "created_at", "updated_at", "truth_refs", "lineage_refs"],
+      "properties": {
+        "id": {"type": "string", "minLength": 3},
+        "kind": {"enum": ["principal", "tenant", "mission", "resource"]},
+        "lifecycle_state": {"enum": ["proposed", "active", "suspended", "closed", "revoked", "archived"]},
+        "created_at": {"type": "string", "format": "date-time"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "truth_refs": {"$ref": "#/$defs/truthRefs"},
+        "lineage_refs": {"$ref": "#/$defs/truthRefs"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true,
+          "default": []
+        }
+      }
+    },
+    "principal": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "lifecycle_state", "created_at", "updated_at", "truth_refs", "lineage_refs", "identity_ref", "authority_state"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^principal:[A-Za-z0-9._-]+$"},
+            "kind": {"const": "principal"},
+            "lifecycle_state": {"enum": ["proposed", "active", "suspended", "closed", "revoked", "archived"]},
+            "created_at": {"type": "string", "format": "date-time"},
+            "updated_at": {"type": "string", "format": "date-time"},
+            "truth_refs": {"$ref": "#/$defs/truthRefs"},
+            "lineage_refs": {"$ref": "#/$defs/truthRefs"},
+            "tags": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": []},
+            "identity_ref": {"type": "string", "pattern": "^identity:[A-Za-z0-9._-]+$"},
+            "authority_state": {"enum": ["active", "suspended", "revoked"]}
+          }
+        }
+      ]
+    },
+    "tenant": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "lifecycle_state", "created_at", "updated_at", "truth_refs", "lineage_refs", "principal_ref", "isolation_key", "classification_ceiling"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+            "kind": {"const": "tenant"},
+            "lifecycle_state": {"enum": ["proposed", "active", "suspended", "closed", "revoked", "archived"]},
+            "created_at": {"type": "string", "format": "date-time"},
+            "updated_at": {"type": "string", "format": "date-time"},
+            "truth_refs": {"$ref": "#/$defs/truthRefs"},
+            "lineage_refs": {"$ref": "#/$defs/truthRefs"},
+            "tags": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": []},
+            "principal_ref": {"type": "string", "pattern": "^principal:[A-Za-z0-9._-]+$"},
+            "isolation_key": {"type": "string", "minLength": 1},
+            "classification_ceiling": {"enum": ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED"]}
+          }
+        }
+      ]
+    },
+    "mission": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "lifecycle_state", "created_at", "updated_at", "truth_refs", "lineage_refs", "tenant_ref", "title", "mission_state", "purpose"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+            "kind": {"const": "mission"},
+            "lifecycle_state": {"enum": ["proposed", "active", "suspended", "closed", "revoked", "archived"]},
+            "created_at": {"type": "string", "format": "date-time"},
+            "updated_at": {"type": "string", "format": "date-time"},
+            "truth_refs": {"$ref": "#/$defs/truthRefs"},
+            "lineage_refs": {"$ref": "#/$defs/truthRefs"},
+            "tags": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": []},
+            "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+            "title": {"type": "string", "minLength": 1},
+            "mission_state": {"enum": ["draft", "active", "blocked", "completed", "cancelled", "archived"]},
+            "purpose": {"type": "string", "minLength": 1},
+            "started_at": {"type": ["string", "null"], "format": "date-time"},
+            "ended_at": {"type": ["string", "null"], "format": "date-time"}
+          }
+        }
+      ]
+    },
+    "resource": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "lifecycle_state", "created_at", "updated_at", "truth_refs", "lineage_refs", "tenant_ref", "resource_kind", "locator_ref", "classification"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^resource:[A-Za-z0-9._-]+$"},
+            "kind": {"const": "resource"},
+            "lifecycle_state": {"enum": ["proposed", "active", "suspended", "closed", "revoked", "archived"]},
+            "created_at": {"type": "string", "format": "date-time"},
+            "updated_at": {"type": "string", "format": "date-time"},
+            "truth_refs": {"$ref": "#/$defs/truthRefs"},
+            "lineage_refs": {"$ref": "#/$defs/truthRefs"},
+            "tags": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true, "default": []},
+            "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+            "mission_ref": {"type": ["string", "null"], "pattern": "^mission:[A-Za-z0-9._-]+$"},
+            "resource_kind": {"enum": ["data", "document", "record", "service", "tool", "secret_ref", "compute", "repository", "artifact", "capability", "endpoint", "other"]},
+            "locator_ref": {"type": "string", "minLength": 1},
+            "classification": {"enum": ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED"]}
+          }
+        }
+      ]
+    },
+    "coreObject": {
+      "oneOf": [
+        {"$ref": "#/$defs/principal"},
+        {"$ref": "#/$defs/tenant"},
+        {"$ref": "#/$defs/mission"},
+        {"$ref": "#/$defs/resource"}
+      ]
+    }
+  }
+}

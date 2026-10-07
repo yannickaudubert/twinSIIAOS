@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/decision-adr-case.schema.json",
+  "title": "SIIAOS Decision / ADR / Case",
+  "description": "Front A / A09. Separates governed decisions, architecture decision records and cases while preserving authority, evidence and explicit human gates.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["decisions","adrs","cases"],
+  "properties":{
+    "decisions":{"type":"array","items":{"$ref":"#/$defs/decision"}},
+    "adrs":{"type":"array","items":{"$ref":"#/$defs/adr"}},
+    "cases":{"type":"array","items":{"$ref":"#/$defs/case"}}
+  },
+  "$defs":{
+    "decision":{
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","mission_ref","title","status","decided_by_identity_ref","mandate_ref","human_gate_ref","evidence_refs","decided_at"],
+      "properties":{
+        "id":{"type":"string","pattern":"^decision:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":"string","pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "title":{"type":"string","minLength":1},
+        "status":{"enum":["proposed","approved","rejected","superseded","revoked"]},
+        "decided_by_identity_ref":{"type":"string","pattern":"^identity:[A-Za-z0-9._-]+$"},
+        "mandate_ref":{"type":"string","pattern":"^mandate:[A-Za-z0-9._-]+$"},
+        "human_gate_ref":{"type":"string","pattern":"^humangate:[A-Za-z0-9._-]+$"},
+        "evidence_refs":{"type":"array","items":{"type":"string","pattern":"^evidence:[A-Za-z0-9._-]+$"},"minItems":1,"uniqueItems":true},
+        "rationale":{"type":["string","null"]},
+        "decided_at":{"type":"string","format":"date-time"},
+        "supersedes_decision_ref":{"type":["string","null"],"pattern":"^decision:[A-Za-z0-9._-]+$"}
+      }
+    },
+    "adr":{
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","title","status","decision_ref","context","consequences","recorded_at"],
+      "properties":{
+        "id":{"type":"string","pattern":"^adr:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":["string","null"],"pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "title":{"type":"string","minLength":1},
+        "status":{"enum":["proposed","accepted","deprecated","superseded"]},
+        "decision_ref":{"type":"string","pattern":"^decision:[A-Za-z0-9._-]+$"},
+        "context":{"type":"string","minLength":1},
+        "consequences":{"type":"array","items":{"type":"string","minLength":1},"minItems":1},
+        "recorded_at":{"type":"string","format":"date-time"}
+      }
+    },
+    "case":{
+      "type":"object","additionalProperties":false,
+      "required":["id","tenant_ref","mission_ref","title","state","opened_at","evidence_refs","decision_refs"],
+      "properties":{
+        "id":{"type":"string","pattern":"^case:[A-Za-z0-9._-]+$"},
+        "tenant_ref":{"type":"string","pattern":"^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref":{"type":"string","pattern":"^mission:[A-Za-z0-9._-]+$"},
+        "title":{"type":"string","minLength":1},
+        "state":{"enum":["open","under_review","decided","closed","archived"]},
+        "opened_at":{"type":"string","format":"date-time"},
+        "closed_at":{"type":["string","null"],"format":"date-time"},
+        "evidence_refs":{"type":"array","items":{"type":"string","pattern":"^evidence:[A-Za-z0-9._-]+$"},"uniqueItems":true},
+        "decision_refs":{"type":"array","items":{"type":"string","pattern":"^decision:[A-Za-z0-9._-]+$"},"uniqueItems":true}
+      }
+    }
+  }
+}

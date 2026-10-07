@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/security-trust-effect.schema.json",
+  "title": "SIIAOS Security / Trust / Effect Policy",
+  "description": "Front A / A11. Governs network locality, credential references, sandbox requirements, effect verification, idempotency and compensation without storing secrets.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["trust_profiles", "effect_assessments"],
+  "properties": {
+    "trust_profiles": {"type": "array", "items": {"$ref": "#/$defs/trustProfile"}},
+    "effect_assessments": {"type": "array", "items": {"$ref": "#/$defs/effectAssessment"}}
+  },
+  "$defs": {
+    "trustProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tenant_ref", "mission_ref", "data_class", "network_mode", "sandbox_required", "credential_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^trust-profile:[A-Za-z0-9._-]+$"},
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+        "data_class": {"enum": ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED"]},
+        "network_mode": {"enum": ["deny_egress", "allowlisted", "remote_allowed"]},
+        "sandbox_required": {"type": "boolean"},
+        "credential_refs": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^credential-ref:[A-Za-z0-9._-]+$"},
+          "uniqueItems": true
+        },
+        "allowed_endpoint_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "policy_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"data_class": {"enum": ["CONFIDENTIAL", "RESTRICTED"]}}, "required": ["data_class"]},
+          "then": {"properties": {"network_mode": {"const": "deny_egress"}}}
+        }
+      ]
+    },
+    "effectAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "tenant_ref", "mission_ref", "effect_class", "channel",
+        "decision", "human_gate_required", "verification_method", "evaluated_at"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^effect-assessment:[A-Za-z0-9._-]+$"},
+        "tenant_ref": {"type": "string", "pattern": "^tenant:[A-Za-z0-9._-]+$"},
+        "mission_ref": {"type": "string", "pattern": "^mission:[A-Za-z0-9._-]+$"},
+        "effect_class": {"enum": ["read", "local_reversible", "external_compensable", "irreversible"]},
+        "channel": {"enum": ["local", "remote"]},
+        "decision": {"enum": ["allow", "deny", "require_human_gate"]},
+        "human_gate_required": {"type": "boolean"},
+        "verification_method": {"type": "string", "minLength": 1},
+        "idempotency_key": {"type": ["string", "null"]},
+        "compensation_ref": {"type": ["string", "null"]},
+        "human_gate_ref": {"type": ["string", "null"]},
+        "reason_codes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "pattern": "^evidence:[A-Za-z0-9._-]+$"}, "uniqueItems": true},
+        "evaluated_at": {"type": "string", "format": "date-time"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"effect_class": {"const": "external_compensable"}}, "required": ["effect_class"]},
+          "then": {
+            "properties": {
+              "idempotency_key": {"type": "string", "minLength": 1},
+              "compensation_ref": {"type": "string", "minLength": 1}
+            },
+            "required": ["idempotency_key", "compensation_ref"]
+          }
+        },
+        {
+          "if": {"properties": {"effect_class": {"const": "irreversible"}}, "required": ["effect_class"]},
+          "then": {
+            "properties": {
+              "decision": {"const": "require_human_gate"},
+              "human_gate_required": {"const": true},
+              "human_gate_ref": {"type": "string", "pattern": "^humangate:[A-Za-z0-9._-]+$"}
+            },
+            "required": ["human_gate_ref"]
+          }
+        }
+      ]
+    }
+  }
+}

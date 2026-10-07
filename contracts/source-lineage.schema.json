@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twinsiiaos.example/schemas/source-lineage.schema.json",
+  "title": "SIIAOS Source Lineage",
+  "description": "Append-only provenance envelope describing where a claim or artifact came from and how it was transformed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject_ref", "source", "recorded_at", "parent_lineage_refs", "transformations"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "subject_ref": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "ref"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "human_declaration",
+            "machine_observation",
+            "document",
+            "repository",
+            "service",
+            "model_output",
+            "derived_artifact",
+            "external_source"
+          ]
+        },
+        "ref": {"type": "string", "minLength": 1},
+        "version_ref": {"type": ["string", "null"]},
+        "digest": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": {"enum": ["sha256"]},
+            "value": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+          }
+        }
+      }
+    },
+    "observed_at": {"type": ["string", "null"], "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "ttl_seconds": {"type": ["integer", "null"], "minimum": 0},
+    "parent_lineage_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "transformations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "method", "actor_ref", "input_refs", "output_ref", "recorded_at"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "method": {"type": "string", "minLength": 1},
+          "actor_ref": {"type": "string", "minLength": 1},
+          "input_refs": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "output_ref": {"type": "string", "minLength": 1},
+          "recorded_at": {"type": "string", "format": "date-time"}
+        }
+      }
+    },
+    "license_ref": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"]}
+  }
+}
