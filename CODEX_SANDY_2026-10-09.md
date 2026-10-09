@@ -7,6 +7,9 @@
 
 > Ce fichier missionne Codex installé localement sur SandY. Sa présence sur GitHub ne lance pas Codex, ne prouve pas qu'un clone est présent et n'autorise aucune mutation sur SandY. Respecter d'abord les directives AGENTS.md du dépôt, les décisions humaines applicables et les permissions effectivement accordées.
 
+## 0 bis. Interoperabilite du relais (ajout 2026-10-09)
+Un protocole de relais local prive, de delegation de modeles et de gates DevSecOps est documente le 2026-10-09 dans IrinA (depot PRIVE). En conserver ici seulement les principes publics generiques : outputs LLM non fiables, preuves source-ref, permission explicite, resume/rollback, redaction et non-egress. Ne pas divulguer les details de la machine ou les chemins des depots prives. Chercher les contrats existants et eviter tout nouveau canon.
+
 ## 1. Rôle confirmé ou déclaré du dépôt
 Contrats publics, documentation de convergence, Radar/ressources ; ni machine, ni backend runtime, ni autorité opérationnelle.
 
