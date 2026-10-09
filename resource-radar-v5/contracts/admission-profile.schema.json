@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/admission-profile.schema.json",
+  "title": "SIIAOS Admission Profile",
+  "type": "object",
+  "required": [
+    "id",
+    "resource_id",
+    "admission_state",
+    "risk_class",
+    "maturity_min",
+    "reversibility",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "resource_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "admission_state": {
+      "type": "string",
+      "enum": [
+        "discovered",
+        "candidate",
+        "scanned",
+        "reviewed",
+        "experiment",
+        "admitted",
+        "pinned",
+        "observed",
+        "blocked",
+        "hold",
+        "rejected",
+        "retired",
+        "unknown"
+      ]
+    },
+    "risk_class": {
+      "type": "string",
+      "enum": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ]
+    },
+    "maturity_min": {
+      "type": "object",
+      "properties": {
+        "governance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "delivery": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "operations": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "observability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "security": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "data": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "ai_usage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "automation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "open_source": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "human_control": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "filesystem_scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "process_execution": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "shell_access": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "gpu_access": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "privilege_level": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "none",
+            "user",
+            "elevated",
+            "system",
+            null
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "outbound_required": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "external_writes": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "allowed_destinations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "localhost_only": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "data_scope": {
+      "type": "object",
+      "properties": {
+        "personal_data": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "confidential_data": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "customer_data": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "secrets_credentials": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "reversibility": {
+      "type": "object",
+      "required": [
+        "rollback_defined"
+      ],
+      "properties": {
+        "rollback_defined": {
+          "type": "boolean"
+        },
+        "replacement_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exit_procedure": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "public_technical",
+        "client_specific",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

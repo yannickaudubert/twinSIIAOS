@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/saas-control-profile.schema.json",
+  "title": "SIIAOS SaaS Control Profile",
+  "type": "object",
+  "required": ["ownership_model", "strategies", "scores"],
+  "properties": {
+    "ownership_model": {"type": "string", "enum": ["proprietary_saas", "open_core", "open_source", "self_hosted", "hybrid", "unknown"]},
+    "strategies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "enum": ["use", "augment", "interface", "mirror", "archive", "hybridize", "replace", "exit_ready"]}
+    },
+    "scores": {
+      "type": "object",
+      "properties": {
+        "augmentability": {"type": "number", "minimum": 0, "maximum": 100},
+        "reversibility": {"type": "number", "minimum": 0, "maximum": 100},
+        "governance": {"type": "number", "minimum": 0, "maximum": 100},
+        "siiaos_control": {"type": "number", "minimum": 0, "maximum": 100},
+        "lock_in": {"type": "number", "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "surfaces": {"type": "object", "additionalProperties": true},
+    "immediate_augmentation": {"type": ["string", "null"]},
+    "local_double_exit": {"type": ["string", "null"]},
+    "evidence_level": {"type": ["string", "null"]},
+    "community_notes": {"type": ["string", "null"]},
+    "official_sources": {"type": "array", "items": {"type": "string", "format": "uri"}},
+    "community_sources": {"type": "array", "items": {"type": "string", "format": "uri"}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "assessed_at": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "additionalProperties": true
+}

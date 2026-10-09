@@ -1,0 +1,15 @@
+{
+  "schema": "siiaos.augmentation-sources.v1",
+  "updated_at": "2026-09-06T16:20:00Z",
+  "sources": [
+    {"id":"userscript-zone","title":"Userscript.Zone","priority":"P0","role":"aggregator","acquisition":"search","canonical_code_source":false,"policy":"discover by URL/domain, then resolve to original host"},
+    {"id":"greasyfork","title":"Greasy Fork","priority":"P0","role":"catalog","acquisition":"json+html","canonical_code_source":true,"policy":"primary structured userscript adapter"},
+    {"id":"openuserjs","title":"OpenUserJS","priority":"P0","role":"catalog","acquisition":"meta-json+source","canonical_code_source":true,"policy":"cache and respect catalog rate limits"},
+    {"id":"github-gist","title":"GitHub / Gist","priority":"P0","role":"forge","acquisition":"api+raw","canonical_code_source":true,"policy":"provenance strong, script safety independent"},
+    {"id":"scriptcat","title":"ScriptCat","priority":"P0","role":"catalog-runtime","acquisition":"store","canonical_code_source":true,"policy":"separate portable Tampermonkey scripts from ScriptCat-only extensions"},
+    {"id":"gitlab","title":"GitLab","priority":"P1","role":"forge","acquisition":"api+raw","canonical_code_source":true,"policy":"lower trust until repository and script audit"},
+    {"id":"userstyles","title":"Userstyles.org","priority":"P1","role":"style-catalog","acquisition":"catalog","canonical_code_source":true,"policy":"classify as UI style, not JavaScript userscript"},
+    {"id":"userscripts-mirror","title":"Userscripts.org Mirror","priority":"ARCHIVE","role":"archive","acquisition":"static","canonical_code_source":false,"policy":"historical inspiration only, never direct install"},
+    {"id":"sleazyfork","title":"Sleazy Fork","priority":"QUARANTINE","role":"catalog","acquisition":"catalog","canonical_code_source":true,"policy":"excluded from enterprise default discovery"}
+  ]
+}

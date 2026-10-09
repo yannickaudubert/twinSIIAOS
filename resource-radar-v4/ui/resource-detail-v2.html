@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="Exemple de fiche ressource explicable du SIIAOS Resource Radar : rôle, limites, alternatives, preuves, architecture et frontière Expert." />
+  <title>Fiche expliquée — SIIAOS Resource Radar</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./human.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-context"><span class="topbar-kicker">SIIAOS Resource Radar</span><span class="topbar-separator">/</span><span>Fiche expliquée</span></div>
+    <div class="topbar-actions"><a class="button button-secondary" href="./guide.html">Mode d'emploi</a><a class="button button-secondary" href="./lexique.html">Lexique</a><a class="button button-primary" href="./index.html?fixture=1#radar">Retour au Radar</a></div>
+  </header>
+
+  <main class="human-page">
+    <div class="demo-banner" style="margin:-32px -30px 24px"><strong>Fixture de revue.</strong> Les valeurs de cette page servent à valider l'ergonomie et le niveau d'explication. Elles ne constituent pas une qualification SandY publiée.</div>
+
+    <div class="eyebrow">Base de données · recherche vectorielle</div>
+    <h1>Qdrant</h1>
+    <p class="human-intro">Base de données spécialisée pour stocker des vecteurs et retrouver des éléments proches sémantiquement, avec filtres structurés et recherche hybride. Elle peut constituer une brique de retrieval dans une architecture RAG ; elle n'est pas, à elle seule, un système RAG complet.</p>
+    <div class="human-actions"><a class="button button-secondary" href="https://github.com/qdrant/qdrant" target="_blank" rel="noreferrer">Source officielle</a><a class="button button-secondary" href="./index.html?fixture=1#landscapes">Paysage RAG / retrieval</a><a class="button button-primary" href="#expert">Comparer pour mon contexte</a></div>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">En 30 secondes</div><h2>Ce qu'il faut comprendre avant d'aller plus loin.</h2></div><a class="text-link" href="./lexique.html">Un terme vous échappe ? Lexique →</a></div>
+      <div class="explain-strip">
+        <div class="explain-cell"><span>Nature</span><strong>Base de données vectorielle</strong></div>
+        <div class="explain-cell"><span>Rôle</span><strong>Stockage + recherche sémantique</strong></div>
+        <div class="explain-cell"><span>État de preuve</span><strong>Observé · pas de test local publié</strong></div>
+        <div class="explain-cell"><span>Dernière vérification</span><strong>03 sept. 2026</strong></div>
+      </div>
+      <div class="resource-summary-grid" style="margin-top:12px">
+        <article class="summary-box"><h3>Pourquoi la regarder</h3><p>Lorsque vous avez besoin d'un service dédié de recherche vectorielle, de filtres structurés et d'une exploitation indépendante du reste de votre stack applicative.</p><ul><li>service spécialisé plutôt qu'un store embarqué ;</li><li>recherche vectorielle et filtrage ;</li><li>peut être utilisée par plusieurs applications ou pipelines.</li></ul></article>
+        <article class="summary-box"><h3>Point d'attention principal</h3><p>Ajouter une base dédiée augmente le nombre de composants à exploiter. Elle n'est pas nécessaire si votre besoin tient correctement dans une base existante avec extension vectorielle.</p></article>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Ce que c'est / ce que ce n'est pas</div><h2>Éviter la mauvaise catégorie avant la comparaison.</h2></div></div>
+      <div class="why-grid">
+        <article class="why-card"><h3>Qdrant est…</h3><p>une base de données spécialisée qui indexe et recherche des vecteurs, peut associer des métadonnées filtrables et participe à la couche retrieval d'une architecture IA.</p></article>
+        <article class="why-card"><h3>Qdrant n'est pas…</h3><p>un framework RAG complet, un moteur d'embeddings, un LLM, un agent documentaire ou une interface de chat. Ces responsabilités peuvent s'appuyer sur Qdrant mais restent distinctes.</p></article>
+      </div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Arbitrage public</div><h2>Quand la retenir, l'écarter ou la comparer.</h2><p>Ces critères restent généraux. Ils servent à savoir si la ressource mérite d'entrer dans votre shortlist, pas à remplacer une étude de contexte.</p></div></div>
+      <div class="reading-grid">
+        <article class="reading-card"><span class="reading-time">Retenir dans la shortlist</span><h3>Si…</h3><ul><li>vous voulez une base vectorielle dédiée ;</li><li>les filtres et la recherche hybride comptent ;</li><li>plusieurs services doivent interroger le même index ;</li><li>l'exploitation d'un composant séparé est acceptable.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Écarter tôt</span><h3>Si…</h3><ul><li>un store embarqué suffit ;</li><li>vous cherchez à réduire le nombre de services ;</li><li>le besoin principal est relationnel ou analytique ;</li><li>vous n'avez pas encore justifié le besoin d'une couche vectorielle.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Comparer réellement</span><h3>Avec…</h3><ul><li>Weaviate pour une approche plus plateforme ;</li><li>Chroma pour certains usages plus intégrés ;</li><li>PostgreSQL + pgvector si la consolidation des données prime ;</li><li>d'autres moteurs selon volume, filtre et exploitation.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Comparaison lisible</div><h2>Ne pas comparer seulement les logos.</h2><p>Une comparaison utile commence par les responsabilités et les compromis. Cette table est volontairement courte : les chiffres contextualisés appartiennent à la couche Expert lorsqu'ils dépendent d'un cas réel.</p></div></div>
+      <div style="overflow:auto">
+        <table class="compare-mini">
+          <thead><tr><th>Option</th><th>Rôle dominant</th><th>À privilégier quand</th><th>Compromis à examiner</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Qdrant</strong></td><td>Base vectorielle dédiée</td><td>service de recherche spécialisé, filtres, API dédiée</td><td>un service supplémentaire à exploiter</td></tr>
+            <tr><td><strong>Weaviate</strong></td><td>Base / plateforme vectorielle</td><td>on recherche davantage de fonctions intégrées autour du moteur</td><td>périmètre plus large et exploitation à examiner</td></tr>
+            <tr><td><strong>Chroma</strong></td><td>Infrastructure de recherche IA</td><td>intégration rapide dans certains workflows applicatifs</td><td>architecture et montée en charge selon usage</td></tr>
+            <tr><td><strong>PostgreSQL + pgvector</strong></td><td>Extension d'une base relationnelle</td><td>on veut consolider données relationnelles et vecteurs</td><td>spécialisation vectorielle et exploitation différente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Preuves</div><h2>Ce qui est vérifié, et ce qui ne l'est pas.</h2><p>Le Radar affiche l'absence de preuve au lieu de la masquer derrière un score.</p></div><a class="text-link" href="./lexique.html#preuve">Comprendre les niveaux de preuve →</a></div>
+      <div class="proof-ladder">
+        <div class="proof-row"><span class="pill observed">Observé</span><p>Dépôt canonique, documentation publique, licence et rôle général vérifiés.</p><b>Preuve publique</b></div>
+        <div class="proof-row"><span class="pill">Installé</span><p>Aucune installation SandY n'est déclarée dans cette fixture.</p><b>Non publié</b></div>
+        <div class="proof-row"><span class="pill tested">Testé</span><p>Aucun protocole de benchmark local n'est attaché à cette fixture.</p><b>Non publié</b></div>
+        <div class="proof-row"><span class="pill qualified">Qualifié</span><p>Aucune recommandation de contexte n'est publiée sans preuves et critères suffisants.</p><b>Non publié</b></div>
+      </div>
+      <p class="human-note">Stars, forks, fréquence de commits et buzz communautaire peuvent servir de signaux. Ils ne deviennent jamais automatiquement une preuve d'adéquation.</p>
+    </section>
+
+    <section class="human-section human-section-soft">
+      <div class="section-head"><div><div class="eyebrow">Architecture</div><h2>Comprendre où la brique se place.</h2></div></div>
+      <div class="resource-summary-grid">
+        <article class="summary-box"><h3>Chaîne typique</h3><p>Documents ou données → extraction / préparation → embeddings → <strong>Qdrant</strong> → retrieval → contexte → modèle / agent → application.</p><p>Qdrant couvre principalement la partie stockage et recherche. Il ne remplace pas automatiquement les autres étapes.</p></article>
+        <article class="summary-box"><h3>Impact architectural à examiner</h3><ul><li>service et données supplémentaires à sauvegarder ;</li><li>schéma de métadonnées et stratégie d'index ;</li><li>connexion aux pipelines d'ingestion ;</li><li>monitoring, sécurité et capacité ;</li><li>réversibilité vers un autre store.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="human-section">
+      <div class="section-head"><div><div class="eyebrow">Provenance et acquisition</div><h2>Pouvoir remonter de la fiche à la source.</h2></div></div>
+      <div class="reading-grid">
+        <article class="reading-card"><span class="reading-time">Source</span><h3>Dépôt officiel</h3><ul><li>URL canonique : github.com/qdrant/qdrant ;</li><li>licence affichée : Apache-2.0 ;</li><li>date de vérification conservée.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Acquisition</span><h3>Avant de tester</h3><ul><li>résoudre la version ;</li><li>conserver la source ;</li><li>générer hash / manifeste ;</li><li>lier l'artefact au futur test.</li></ul></article>
+        <article class="reading-card"><span class="reading-time">Réversibilité</span><h3>Avant de choisir</h3><ul><li>format d'export ;</li><li>couplage API ;</li><li>métadonnées ;</li><li>dépendances applicatives.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="human-section" id="expert">
+      <div class="section-head"><div><div class="eyebrow">Frontière Expert</div><h2>Ce que la fiche ne peut pas décider sans votre contexte.</h2><p>C'est ici que l'information publique cesse d'être suffisante. La meilleure option dépend du SI, de la volumétrie, des compétences, du budget, de la sécurité et de la trajectoire existante.</p></div></div>
+      <div class="expert-preview">
+        <span class="value-label">Pass Conseil 8 h · Expert</span>
+        <h3 style="margin-top:10px">L'analyse contextualisée transforme la shortlist en décision.</h3>
+        <p>Le Premium ne débloque pas des faits publics cachés. Il applique les preuves, benchmarks et critères SIIAOS à votre mission.</p>
+        <div class="expert-preview-grid">
+          <div class="expert-preview-item"><span>Adéquation</span><strong>Matériel, SI, équipe, sécurité, gouvernance</strong></div>
+          <div class="expert-preview-item"><span>Arbitrage</span><strong>Pourquoi Qdrant plutôt que pgvector, Weaviate ou autre</strong></div>
+          <div class="expert-preview-item"><span>Coût réel</span><strong>Infra, exploitation, compétences, migration</strong></div>
+          <div class="expert-preview-item"><span>Architecture</span><strong>Topologie cible, dépendances et interfaces</strong></div>
+          <div class="expert-preview-item"><span>Preuves</span><strong>Tests et benchmarks publiables adaptés au besoin</strong></div>
+          <div class="expert-preview-item"><span>Décision</span><strong>Option retenue, alternatives rejetées et justification</strong></div>
+        </div>
+        <div class="human-actions"><a class="button button-primary" href="https://yannick-audubert-consultant.vercel.app/premium" target="_blank" rel="noreferrer">Comparer pour mon contexte</a><a class="button button-secondary" href="./guide.html">Voir comment utiliser Expert</a></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

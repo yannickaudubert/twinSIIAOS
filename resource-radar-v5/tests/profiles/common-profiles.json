@@ -1,0 +1,126 @@
+[
+  {
+    "id": "profile:python-rules",
+    "resource_id": "tool:python",
+    "mode": {
+      "name": "python deterministic",
+      "execution_mode": "deterministic"
+    },
+    "requirements": {
+      "min_ram_mb": 1024,
+      "runtime_ids": [
+        "python"
+      ]
+    },
+    "capabilities": [
+      "classification",
+      "deduplication",
+      "rules"
+    ],
+    "cost": {
+      "incremental_eur": 0,
+      "external_required": false
+    },
+    "provenance": {
+      "method": "manually_verified",
+      "observed_at": "2026-09-27T08:00:00Z",
+      "evidence_ids": [
+        "evidence:python"
+      ]
+    },
+    "visibility": "local_private"
+  },
+  {
+    "id": "profile:small-local-model",
+    "resource_id": "model:small-local",
+    "mode": {
+      "name": "local-q4",
+      "execution_mode": "local_model",
+      "quantization": "Q4"
+    },
+    "requirements": {
+      "min_ram_mb": 8192,
+      "min_vram_mb": 6000,
+      "storage_gb": 8,
+      "runtime_ids": [
+        "lm-studio"
+      ]
+    },
+    "capabilities": [
+      "classification",
+      "summarization",
+      "drafting"
+    ],
+    "cost": {
+      "incremental_eur": 0,
+      "external_required": false
+    },
+    "provenance": {
+      "method": "benchmarked",
+      "observed_at": "2026-09-27T08:00:00Z",
+      "evidence_ids": [
+        "evidence:local-q4"
+      ]
+    },
+    "visibility": "local_private"
+  },
+  {
+    "id": "profile:large-local-model",
+    "resource_id": "model:large-local",
+    "mode": {
+      "name": "native-large",
+      "execution_mode": "local_model"
+    },
+    "requirements": {
+      "min_ram_mb": 32768,
+      "min_vram_mb": 24000,
+      "storage_gb": 40,
+      "runtime_ids": [
+        "lm-studio"
+      ]
+    },
+    "capabilities": [
+      "summarization",
+      "drafting"
+    ],
+    "cost": {
+      "incremental_eur": 0,
+      "external_required": false
+    },
+    "provenance": {
+      "method": "declared",
+      "observed_at": "2026-09-27T08:00:00Z",
+      "evidence_ids": [
+        "evidence:large"
+      ]
+    },
+    "visibility": "local_private"
+  },
+  {
+    "id": "profile:external-api",
+    "resource_id": "service:external-api",
+    "mode": {
+      "name": "external API",
+      "execution_mode": "external_required"
+    },
+    "requirements": {},
+    "capabilities": [
+      "summarization",
+      "drafting",
+      "classification"
+    ],
+    "cost": {
+      "incremental_eur": 20,
+      "external_dependency": "external-api",
+      "external_required": true
+    },
+    "provenance": {
+      "method": "declared",
+      "observed_at": "2026-09-27T08:00:00Z",
+      "evidence_ids": [
+        "evidence:external"
+      ]
+    },
+    "visibility": "local_private"
+  }
+]

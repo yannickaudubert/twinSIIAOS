@@ -1,0 +1,18 @@
+{
+  "schema": "siiaos.augmentation-policy.v1",
+  "updated_at": "2026-09-06T16:20:00Z",
+  "mechanism_preference": ["official_app","official_plugin","ui_extension","api","sdk","webhook","mcp","cli","export","backup","local_mirror","browser_extension","userscript","userstyle","dom_hook"],
+  "actions": ["install","test","rewrite","inspire","block","monitor"],
+  "userscript_gates": {
+    "block": ["credential_or_token_extraction","dynamic_eval_remote_code","unjustified_cookie_session_access"],
+    "high_review": ["unsafeWindow","wildcard_connect","whole_web_match","mutable_remote_require"],
+    "positive_signals": ["grant_none","narrow_match","no_external_connect","pinned_dependencies","active_maintainer","reproducible_hash"]
+  },
+  "runtime_rules": [
+    "Never install during discovery or normalization.",
+    "Test high-impact browser augmentations in an isolated profile.",
+    "Do not run two DOM virtualizers for the same application at the same time.",
+    "Keep source, metadata, hash, audit observation and decision traceable.",
+    "Prefer supported vendor extension surfaces before DOM interception."
+  ]
+}

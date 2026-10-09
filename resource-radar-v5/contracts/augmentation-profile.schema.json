@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/augmentation-profile.schema.json",
+  "title": "SIIAOS Augmentation Profile",
+  "type": "object",
+  "required": ["mechanism", "target_resource", "risk_level", "review_status", "recommended_action"],
+  "properties": {
+    "mechanism": {
+      "type": "string",
+      "enum": ["official_app", "official_plugin", "ui_extension", "api", "sdk", "webhook", "mcp", "cli", "export", "backup", "browser_extension", "userscript", "userstyle", "dom_hook", "sidecar", "local_mirror", "automation"]
+    },
+    "source_catalog": {"type": "string"},
+    "upstream_name": {"type": "string"},
+    "upstream_namespace": {"type": "string"},
+    "upstream_version": {"type": "string"},
+    "target_resource": {"type": "string", "minLength": 3},
+    "target_hosts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "metadata": {"type": "object", "additionalProperties": true},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "risk_level": {"type": "string", "enum": ["low", "medium", "high", "critical", "unknown"]},
+    "risk_reasons": {"type": "array", "items": {"type": "string"}},
+    "review_status": {"type": "string", "enum": ["discovered", "screened", "audited", "tested", "approved", "blocked", "superseded"]},
+    "recommended_action": {"type": "string", "enum": ["install", "test", "rewrite", "inspire", "block", "monitor"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/execution-profile.schema.json",
+  "title": "SIIAOS Resource Execution Profile",
+  "type": "object",
+  "required": [
+    "id",
+    "resource_id",
+    "mode",
+    "requirements",
+    "provenance",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "resource_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "version": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "quantization": {
+          "type": "string"
+        },
+        "backend": {
+          "type": "string"
+        },
+        "context_window": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "concurrency": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": [
+            "deterministic",
+            "local_model",
+            "local_service",
+            "local_agent",
+            "human",
+            "external_optional",
+            "external_required"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "cpu_architectures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "min_ram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recommended_ram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "min_vram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recommended_vram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storage_gb": {
+          "type": "number",
+          "minimum": 0
+        },
+        "accelerator_kinds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "runtime_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "measured": {
+      "type": "object",
+      "properties": {
+        "latency_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "throughput": {
+          "type": "number",
+          "minimum": 0
+        },
+        "peak_ram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "peak_vram_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "power_w": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "method",
+        "observed_at"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "declared",
+            "imported",
+            "observed",
+            "benchmarked",
+            "manually_verified"
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "public_technical",
+        "public_editorial",
+        "client_specific",
+        "never_publish"
+      ]
+    },
+    "cost": {
+      "type": "object",
+      "properties": {
+        "incremental_eur": {
+          "type": "number",
+          "minimum": 0
+        },
+        "external_dependency": {
+          "type": "string"
+        },
+        "external_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "quality_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability",
+          "level",
+          "evidence_ids"
+        ],
+        "properties": {
+          "capability": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "description": "Contextual quality claims used only when a workload declares a matching quality_floor."
+    }
+  },
+  "additionalProperties": false
+}

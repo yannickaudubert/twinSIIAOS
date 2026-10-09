@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/mission-brief.schema.json",
+  "title": "SIIAOS Mission Brief",
+  "type": "object",
+  "required": [
+    "id",
+    "context_pack_id",
+    "route",
+    "objective",
+    "scope",
+    "deliverables",
+    "human_gate",
+    "state",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "context_pack_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "route": {
+      "type": "string",
+      "enum": [
+        "yannick_consultant",
+        "cabinet_augmente",
+        "agoria_collective"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "in_scope",
+        "out_of_scope"
+      ],
+      "properties": {
+        "in_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "success_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback_or_exit": {
+      "type": "string"
+    },
+    "human_gate": {
+      "type": "boolean",
+      "const": true
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "active",
+        "completed",
+        "rejected",
+        "blocked"
+      ]
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

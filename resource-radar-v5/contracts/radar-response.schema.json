@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://siiaos.local/schemas/radar-response.schema.json",
+  "title": "SIIAOS Radar Response",
+  "type": "object",
+  "required": [
+    "id",
+    "question",
+    "facts",
+    "unknowns",
+    "analysis",
+    "decision_support",
+    "mobilization",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "evidence_ids"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "execution_plan_id": {
+          "type": "string"
+        },
+        "admission_assessment_id": {
+          "type": "string"
+        },
+        "complexity": {
+          "type": "object",
+          "description": "Multidimensional only; no aggregate score.",
+          "properties": {
+            "technical": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "organisational": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "financial": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "legal_regulatory": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "security": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "data": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "human_change": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "territorial_ecosystem": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "urgency": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "decision_support": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tradeoffs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommended_next_action": {
+          "type": "string"
+        },
+        "human_decision_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "mobilization": {
+      "type": "array",
+      "items": {
+        "$ref": "mobilization-route.schema.json"
+      }
+    },
+    "public_summary": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "local_private",
+        "local_shared",
+        "client_specific",
+        "public_technical",
+        "public_editorial",
+        "never_publish"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
