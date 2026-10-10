@@ -19,3 +19,9 @@ https://siiaos-resource-radar.vercel.app
 ## Securite / gouvernance
 
 Le bridge ne permet pas l'execution de commandes arbitraires. Il accepte uniquement des telechargements HTTP(S) vers un repertoire racine choisi au lancement. Le telechargement est distinct de l'installation/activation.
+
+## Relation au SIIAOS
+
+**Statut : ACTIF comme surface Radar, admission des ressources toujours gouvernée.** Découvrir, résoudre ou télécharger un artefact ne l'installe pas et ne lui accorde aucune autorité. Les sorties du Radar alimentent une boucle de qualification et d'expérimentation ; elles ne modifient pas directement le canon ou le runtime.
+
+Voir le [puzzle canonique SIIAOS](../docs/SIIAOS_PUZZLE.md).

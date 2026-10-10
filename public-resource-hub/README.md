@@ -30,3 +30,9 @@ Output directory: `.`.
 ## Demo boundary
 
 The current catalog is curated static demo data. Production ingestion should use source adapters, provenance, license/security checks, deduplication, benchmarking and a governed local registry before any resource is admitted into a user's SIIAOS.
+
+## Relation au SIIAOS
+
+**Statut : SURFACE / démonstrateur public.** Cette interface expose la logique Resource Radar mais n'est ni le canon, ni l'autorité, ni la preuve d'un runtime local. Toute ressource découverte reste soumise à qualification, expérimentation bornée, Evidence, revue et HumanGate avant admission.
+
+Voir le [puzzle canonique SIIAOS](../docs/SIIAOS_PUZZLE.md).
