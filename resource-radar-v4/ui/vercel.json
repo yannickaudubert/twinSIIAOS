@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "radar-v4-convergence": false,
+      "work-*": false,
+      "lab-*": false,
+      "radar-work-*": false
+    }
+  }
+}
